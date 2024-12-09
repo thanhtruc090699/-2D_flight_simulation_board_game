@@ -1,0 +1,10 @@
+apply plugin: 'java'
+
+dependencies {
+    implementation project(':core') // Link the core module
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.10.0' // JUnit 5 (or replace with your framework)
+}
+
+test {
+    useJUnitPlatform() // Enable JUnit 5 tests
+}

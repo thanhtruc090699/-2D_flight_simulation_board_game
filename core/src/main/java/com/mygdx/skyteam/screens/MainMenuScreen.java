@@ -1,4 +1,4 @@
-package com.mygdx.skyteam;
+package com.mygdx.skyteam.screens;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
@@ -68,7 +68,7 @@ public class MainMenuScreen implements Screen {
             @Override
             public void changed(ChangeEvent event, Actor actor) {
 
-                game.setScreen(new GameScreen(game));
+                game.setScreen(new GameplayScreen(game));
             }
         });
 

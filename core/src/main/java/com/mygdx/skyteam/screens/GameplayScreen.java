@@ -1,4 +1,4 @@
-package com.mygdx.skyteam;
+package com.mygdx.skyteam.screens;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
@@ -10,12 +10,12 @@ import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
 
-public class GameScreen implements Screen {
+public class GameplayScreen implements Screen {
 
     private Stage stage;
     private SkyTeamGame game;
 
-    public GameScreen(SkyTeamGame game){
+    public GameplayScreen(SkyTeamGame game){
         this.game = game;
     }
 

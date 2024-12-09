@@ -1,4 +1,4 @@
-package com.mygdx.skyteam;
+package com.mygdx.skyteam.screens;
 
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
