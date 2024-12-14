@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.mygdx.tests.FieldTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2024-12-14T13:53:40" hostname="DESKTOP-P99594G" time="0.001">
+  <properties/>
+  <testcase name="testResetFields()" classname="com.mygdx.tests.FieldTest" time="0.0"/>
+  <testcase name="testSetDiceValueValid()" classname="com.mygdx.tests.FieldTest" time="0.0"/>
+  <testcase name="testSetDiceValueInvalid()" classname="com.mygdx.tests.FieldTest" time="0.001"/>
+  <testcase name="testInitialState()" classname="com.mygdx.tests.FieldTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.mygdx.tests.EngineTest" tests="17" skipped="0" failures="0" errors="0" timestamp="2024-12-14T13:53:40" hostname="DESKTOP-P99594G" time="0.015">
+  <properties/>
+  <testcase name="testPlacePilotDice_InvalidValue()" classname="com.mygdx.tests.EngineTest" time="0.001"/>
+  <testcase name="testResetFields()" classname="com.mygdx.tests.EngineTest" time="0.0"/>
+  <testcase name="testUpdatePositionWithoutMovement()" classname="com.mygdx.tests.EngineTest" time="0.0"/>
+  <testcase name="testCheckWinConditionCrashOnTrack()" classname="com.mygdx.tests.EngineTest" time="0.001"/>
+  <testcase name="testAdjustSpeedAndUpdatePositionMoveOneStep()" classname="com.mygdx.tests.EngineTest" time="0.001"/>
+  <testcase name="testShiftBlueMarker()" classname="com.mygdx.tests.EngineTest" time="0.0"/>
+  <testcase name="testAdjustSpeedAndCrashDueToPlaneOnTrack()" classname="com.mygdx.tests.EngineTest" time="0.0"/>
+  <testcase name="testAllTracksBlocked()" classname="com.mygdx.tests.EngineTest" time="0.001"/>
+  <testcase name="testPlacePilotDice()" classname="com.mygdx.tests.EngineTest" time="0.0"/>
+  <testcase name="testCheckWinConditionOvershoot()" classname="com.mygdx.tests.EngineTest" time="0.001"/>
+  <testcase name="testPlaceCoPilotDice()" classname="com.mygdx.tests.EngineTest" time="0.0"/>
+  <testcase name="testInitialEngineState()" classname="com.mygdx.tests.EngineTest" time="0.0"/>
+  <testcase name="testAdjustSpeedAndMoveTwoSteps()" classname="com.mygdx.tests.EngineTest" time="0.001"/>
+  <testcase name="testPlaceCoPilotDice_InvalidValue()" classname="com.mygdx.tests.EngineTest" time="0.001"/>
+  <testcase name="testUpdatePositionMoveTwoSteps_Crash()" classname="com.mygdx.tests.EngineTest" time="0.001"/>
+  <testcase name="testCheckWinConditionSuccess()" classname="com.mygdx.tests.EngineTest" time="0.001"/>
+  <testcase name="testShiftOrangeMarker()" classname="com.mygdx.tests.EngineTest" time="0.0"/>
+  <system-out><![CDATA[Speed adjusted to: 3
+Plane does not move.
+Speed adjusted to: 6
+There were planes on your track. You crashed.
+There were planes on your track. You crashed.
+There were planes on your track. You crashed.
+There were planes on your track. You crashed.
+Speed adjusted to: 6
+Plane moves 1 step. Current position: 1
+Speed adjusted to: 6
+There were planes on your track. You crashed.
+There were planes on your track. You crashed.
+There were planes on your track. You crashed.
+There were planes on your track. You crashed.
+There were planes on your track. You crashed.
+Speed adjusted to: 5
+There were planes on your track. You crashed.
+There were planes on your track. You crashed.
+There were planes on your track. You crashed.
+There were planes on your track. You crashed.
+Speed adjusted to: 12
+Plane moves 2 steps. Current position: 2
+Speed adjusted to: 12
+Plane moves 2 steps. Current position: 4
+Speed adjusted to: 12
+Plane moves 2 steps. Current position: 6
+You lost! You overshoot the airport.
+Speed adjusted to: 10
+Plane moves 2 steps. Current position: 2
+Speed adjusted to: 12
+There were planes on your track. You crashed.
+There were planes on your track. You crashed.
+There were planes on your track. You crashed.
+There were planes on your track. You crashed.
+Speed adjusted to: 10
+Plane moves 2 steps. Current position: 2
+Speed adjusted to: 10
+Plane moves 2 steps. Current position: 4
+Speed adjusted to: 10
+Plane moves 2 steps. Current position: 6
+Speed adjusted to: 3
+Plane does not move.
+Plane does not move.
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

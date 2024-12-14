@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.mygdx.tests.BrakeTest" tests="9" skipped="0" failures="0" errors="0" timestamp="2024-12-14T13:53:40" hostname="DESKTOP-P99594G" time="0.008">
+  <properties/>
+  <testcase name="testDeployBrakeField1Twice()" classname="com.mygdx.tests.BrakeTest" time="0.0"/>
+  <testcase name="testDeployBrakeField1()" classname="com.mygdx.tests.BrakeTest" time="0.0"/>
+  <testcase name="testSetRedMarker()" classname="com.mygdx.tests.BrakeTest" time="0.001"/>
+  <testcase name="testDeployBrakeField2WithField1()" classname="com.mygdx.tests.BrakeTest" time="0.0"/>
+  <testcase name="testDeployBrakeField3WithoutField2()" classname="com.mygdx.tests.BrakeTest" time="0.001"/>
+  <testcase name="testDeployBrakeField2WithoutField1()" classname="com.mygdx.tests.BrakeTest" time="0.001"/>
+  <testcase name="testDeployBrakeInvalidInput()" classname="com.mygdx.tests.BrakeTest" time="0.001"/>
+  <testcase name="testDeployBrakeField3WithField2()" classname="com.mygdx.tests.BrakeTest" time="0.001"/>
+  <testcase name="testInitialValues()" classname="com.mygdx.tests.BrakeTest" time="0.0"/>
+  <system-out><![CDATA[Brake field 1 is now deployed.
+Brake field 1 is already occupied.
+Brake field 1 is now deployed.
+Brake field 1 is now deployed.
+Brake field 2 is now deployed.
+Brake field 1 is now deployed.
+Both Brake field 1 and Brake field 2 must be deployed first before deploying brake field 3.
+Brake field 1 must be deployed first before deploying brake field 2.
+Invalid input for brake deployment. Please choose from 2, 4, or 6.
+Brake field 1 is now deployed.
+Brake field 2 is now deployed.
+Brake field 3 is now deployed.
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

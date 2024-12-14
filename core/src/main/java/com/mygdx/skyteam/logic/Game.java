@@ -18,11 +18,11 @@ public class Game {
 
         System.out.println("Welcome To The Game");
 
-        String name1 = "Player 1";  //hardcoded names for testing
+        String name1 = "Player 1"; // hardcoded names for testing
         String name2 = "Player 2";
 
         System.out.println("Enter role for " + name1 + " : (1 for Pilot, 2 for CoPilot)");
-        int roleChoice1 = 1; //again replaced with hardcoded value for testing
+        int roleChoice1 = 1; // again replaced with hardcoded value for testing
 
         if (roleChoice1 == 1) {
             pilot = new Pilot(name1, airplane);
@@ -135,4 +135,11 @@ public class Game {
 
         return true;
     }
+
+    public Pilot getPilot(){
+        return this.pilot;
+    } 
+    public CoPilot getCoPilot(){
+        return this.coPilot;
+    } 
 }

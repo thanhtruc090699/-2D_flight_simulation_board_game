@@ -1,0 +1,110 @@
+ Axis adjusted. Current tilt: 4
+ Axis adjusted. Current tilt: 5
+ Axis adjusted. Current tilt: 4
+ Axis adjusted. Current tilt: 5
+$Plane tilted 90 degrees. GAME OVER
+ Axis adjusted. Current tilt: 3
+ Axis adjusted. Current tilt: 2
+ Axis adjusted. Current tilt: 1
+ Axis adjusted. Current tilt: 2
+ Axis adjusted. Current tilt: 1
+$Plane tilted 90 degrees. GAME OVER
+ Brake field 1 is now deployed.
+$Brake field 1 is already occupied.
+ Brake field 1 is now deployed.
+ Brake field 1 is now deployed.
+ Brake field 2 is now deployed.
+ Brake field 1 is now deployed.
+]Both Brake field 1 and Brake field 2 must be deployed first before deploying brake field 3.
+FBrake field 1 must be deployed first before deploying brake field 2.
+DInvalid input for brake deployment. Please choose from 2, 4, or 6.
+ Brake field 1 is now deployed.
+ Brake field 2 is now deployed.
+ Brake field 3 is now deployed.
+! 1Coffee Field 1 is now filled with dice value 4.
+!#1Coffee Field 1 is now filled with dice value 6.
+!#1Coffee Field 2 is now filled with dice value 4.
+!#1Coffee Field 3 is now filled with dice value 1.
+!#'All coffee fields are already filled.
+!$1Coffee Field 1 is now filled with dice value 6.
+!&)Invalid dice value 7 for Coffee Field 1
+()BDice value is already at the maximum (6). It can't be increased.
+(*BDice value is already at the minimum (1). It can't be decreased.
+(,Dice value increased to: 6
+(-7Dice has not been rolled yet or has an invalid value.
+(0Dice value decreased to: 4
+46Speed adjusted to: 3
+46Plane does not move.
+47Speed adjusted to: 6
+47/There were planes on your track. You crashed.
+47/There were planes on your track. You crashed.
+47/There were planes on your track. You crashed.
+47/There were planes on your track. You crashed.
+48Speed adjusted to: 6
+48)Plane moves 1 step. Current position: 1
+4:Speed adjusted to: 6
+4:/There were planes on your track. You crashed.
+4:/There were planes on your track. You crashed.
+4:/There were planes on your track. You crashed.
+4:/There were planes on your track. You crashed.
+4:/There were planes on your track. You crashed.
+4;Speed adjusted to: 5
+4;/There were planes on your track. You crashed.
+4;/There were planes on your track. You crashed.
+4;/There were planes on your track. You crashed.
+4;/There were planes on your track. You crashed.
+4=Speed adjusted to: 12
+4=*Plane moves 2 steps. Current position: 2
+4=Speed adjusted to: 12
+4=*Plane moves 2 steps. Current position: 4
+4=Speed adjusted to: 12
+4=*Plane moves 2 steps. Current position: 6
+4=&You lost! You overshoot the airport.
+4@Speed adjusted to: 10
+4@*Plane moves 2 steps. Current position: 2
+4BSpeed adjusted to: 12
+4B/There were planes on your track. You crashed.
+4B/There were planes on your track. You crashed.
+4B/There were planes on your track. You crashed.
+4B/There were planes on your track. You crashed.
+4CSpeed adjusted to: 10
+4C*Plane moves 2 steps. Current position: 2
+4CSpeed adjusted to: 10
+4C*Plane moves 2 steps. Current position: 4
+4CSpeed adjusted to: 10
+4C*Plane moves 2 steps. Current position: 6
+4CSpeed adjusted to: 3
+4CPlane does not move.
+4CPlane does not move.
+KJFlap 1 is now deployed.
+KJFlap 2 is now deployed.
+KJ"Flap 3 should be deployed first.
+KLFlap 1 is now deployed.
+KL"Flap 2 should be deployed first.
+KM"Flap 1 should be deployed first.
+KNFlap 1 is now deployed.
+KOFlap 1 is now deployed.
+KOFlap 1 is now deployed.
+KPFlap 1 is now deployed.
+KRFlap 1 is now deployed.
+KRFlap 2 is now deployed.
+KRFlap 3 is now deployed.
+KRFlap 4 is now deployed.
+KS Invalid dice value for Flap 1!
+KS Invalid dice value for Flap 4!
+KTFlap 1 is now deployed.
+KTFlap 2 is now deployed.
+KTFlap 3 is now deployed.
+KUFlap 1 is now deployed.
+KUFlap 2 is now deployed.
+WV!Landing Gear 1 is now deployed.
+WV0Landing gear field 2 should be deployed first.
+WX!Landing Gear 1 is now deployed.
+WX!Landing Gear 2 is now deployed.
+WX!Landing Gear 3 is now deployed.
+WY0Landing gear field 1 should be deployed first.
+WZ!Landing Gear 1 is now deployed.
+W[!Landing Gear 1 is now deployed.
+W]!Landing Gear 1 is now deployed.
+W]!Landing Gear 2 is now deployed.
+W^(Invalid dice value for Landing Gear 1!
