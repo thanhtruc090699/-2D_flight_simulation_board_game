@@ -11,9 +11,9 @@ public class Brake {
         redMarker = 0;
         brakeFields = new ArrayList<>();
 
-        brakeFields.add(new Field("Brake Field 1", Arrays.asList(2)));
-        brakeFields.add(new Field("Brake Field 2", Arrays.asList(4)));
-        brakeFields.add(new Field("Brake Field 3", Arrays.asList(6)));
+        brakeFields.add(new Field("Brake Field 1", Arrays.asList(2), 865, 893));
+        brakeFields.add(new Field("Brake Field 2", Arrays.asList(4), 948, 893));
+        brakeFields.add(new Field("Brake Field 3", Arrays.asList(6), 1015, 893));    	    
     }
 
     public void deployBrakes(int pilotInput){

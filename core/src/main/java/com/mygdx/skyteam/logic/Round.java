@@ -6,9 +6,13 @@ public class Round {
     private CoPilot coPilot;
     private int currentPlayerIndex;
     private Airplane airplane;
-    private Game game;
+    private GameLogic game;
 
-    public Round(Pilot pilot, CoPilot coPilot, Airplane airplane, Game game){
+    private String currentPlayerInput;
+    private int currentFieldChoice;
+    private int currentDiceIndex;
+
+    public Round(Pilot pilot, CoPilot coPilot, Airplane airplane, GameLogic game){
         turnsLeft = 4;
         this.pilot = pilot;
         this.coPilot = coPilot;
@@ -20,7 +24,11 @@ public class Round {
     public void playRound(){
         
         while(turnsLeft > 0){
-            playTurn();
+
+            if (currentDiceIndex != 0 && currentPlayerInput != null && currentFieldChoice != 0) {
+                playTurn(currentDiceIndex, currentPlayerInput, currentFieldChoice);
+            }
+
             if (currentPlayerIndex == 1) {
                 turnsLeft--;  
             }
@@ -28,7 +36,7 @@ public class Round {
         }
     }
 
-    public void playTurn(){
+    public void playTurn(int diceIndex, String playerInput, int fieldChoice){
         //Pilots turn
         if(currentPlayerIndex == 0){ 
         System.out.println("It's Pilot's turn.");
@@ -70,11 +78,6 @@ public class Round {
 
         pilot.displayUnassignedDice();
 
-        int diceIndex = 2; //for testing, will be replaced later in libgdx with actual index based on user input
-        String playerInput = "engine";  // hardcoded selection for the test
-        int fieldChoice = 1; // harcoded value for fieldchoice (which field is chosen for flaps or landinggear)
-
-
            int selectedDiceValue = pilot.getUnassignedDice().get(diceIndex).getDiceValue();
            System.out.println("You selected dice value: " + selectedDiceValue);
 
@@ -103,11 +106,6 @@ public class Round {
            handleCoffeeToken(pilot);
 
            coPilot.displayUnassignedDice();
-
-            int diceIndex = 3; //for testing, will be replaced later in libgdx with actual index based on user input
-            String playerInput = "axis";  // hardcoded selection for the test
-            int fieldChoice = 0; // harcoded value for placeholder (which field is chosen for flaps or landinggear)
-           
 
            int selectedDiceValue = coPilot.getUnassignedDice().get(diceIndex).getDiceValue();
            System.out.println("You selected dice value: " + selectedDiceValue);
@@ -167,5 +165,12 @@ public class Round {
                 System.out.println("You decided not to use the Coffee Token.");
             }
         }
+    }
+
+    public void collectPlayerInput(int diceIndex, String playerInput, int fieldChoice) {
+        // Store the collected input for later use in playRound
+        currentPlayerInput = playerInput;
+        currentFieldChoice = fieldChoice;
+        currentDiceIndex = diceIndex;
     }
 }

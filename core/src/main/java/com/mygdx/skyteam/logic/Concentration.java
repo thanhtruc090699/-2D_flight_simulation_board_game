@@ -9,9 +9,9 @@ public class Concentration{
     public Concentration(){
         coffeeFields=new ArrayList<>();
 
-        coffeeFields.add(new Field("Coffee Field 1", Arrays.asList(1, 2, 3, 4, 5, 6)));
-        coffeeFields.add(new Field("Coffee Field 2", Arrays.asList(1, 2, 3, 4, 5, 6)));
-        coffeeFields.add(new Field("Coffee Field 3", Arrays.asList(1, 2, 3, 4, 5, 6)));
+        coffeeFields.add(new Field("Coffee Field 1", Arrays.asList(1, 2, 3, 4, 5, 6),862, 1012));
+        coffeeFields.add(new Field("Coffee Field 2", Arrays.asList(1, 2, 3, 4, 5, 6), 942, 1012));
+        coffeeFields.add(new Field("Coffee Field 3", Arrays.asList(1, 2, 3, 4, 5, 6), 1015, 1012));
     }
     
     public void fillCoffeeFields(int diceValue){

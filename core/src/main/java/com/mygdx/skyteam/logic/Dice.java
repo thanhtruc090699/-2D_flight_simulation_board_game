@@ -5,6 +5,7 @@ import java.util.Random;
 public class Dice {
     private int value;
     private boolean assigned;
+    private float x,y;
 
     public int rollDice() {
         Random random = new Random();
@@ -55,6 +56,23 @@ public class Dice {
 
     public void unassign() {
         this.assigned = false;
+    }
+
+    // UI/position related methods
+    public float getX() {
+        return x;
+    }
+
+    public void setX(float x) {
+        this.x = x;
+    }
+
+    public float getY() {
+        return y;
+    }
+
+    public void setY(float y) {
+        this.y = y;
     }
 
 }

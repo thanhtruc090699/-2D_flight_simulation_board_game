@@ -1,6 +1,6 @@
 package com.mygdx.skyteam.logic;
 
-public class Game {
+public class GameLogic {
     private boolean gameOver;
     private Pilot pilot;
     private Airplane airplane;
@@ -8,10 +8,9 @@ public class Game {
     private Round currentRound;
     private int currentRoundNumber;
 
-    public Game() {
+    public GameLogic() {
         airplane = new Airplane();
         currentRoundNumber = 1;
-        startGame();
     }
 
     public void startGame() {
@@ -136,10 +135,27 @@ public class Game {
         return true;
     }
 
-    public Pilot getPilot(){
+    public Pilot getPilot() {
         return this.pilot;
-    } 
-    public CoPilot getCoPilot(){
+    }
+
+    public CoPilot getCoPilot() {
         return this.coPilot;
-    } 
+    }
+
+    public void setPilot(Pilot pilot) {
+        this.pilot = pilot;
+    }
+
+    public void setCoPilot(CoPilot coPilot) {
+        this.coPilot = coPilot;
+    }
+
+    public Airplane getAirplane() {
+        return airplane;
+    }
+
+    public Round getRound() {
+        return currentRound;
+    }
 }

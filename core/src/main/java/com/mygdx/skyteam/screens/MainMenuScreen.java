@@ -24,11 +24,13 @@ import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.graphics.Color;
+import com.mygdx.skyteam.logic.GameLogic;
 
 public class MainMenuScreen implements Screen {
     private Stage stage;
     private Skin skin;
-    private SkyTeamGame game;
+    private final SkyTeamGame game;
+    private GameLogic gameLogic;
 
     public MainMenuScreen(SkyTeamGame game) {
         this.game = game;
@@ -68,7 +70,7 @@ public class MainMenuScreen implements Screen {
             @Override
             public void changed(ChangeEvent event, Actor actor) {
 
-                game.setScreen(new GameplayScreen(game));
+                game.startGame();
             }
         });
 

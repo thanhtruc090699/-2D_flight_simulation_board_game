@@ -4,24 +4,24 @@ import java.util.Arrays;
 
 public class Axis {
     private int currentTilt;
-    private Field pilotField; 
+    private Field pilotField;
     private Field coPilotField;
 
-    public Axis(){
+    public Axis() {
         currentTilt = 3;
-        this.pilotField = new Field("Pilot Axis Field", Arrays.asList(1, 2, 3, 4, 5, 6));
-        this.coPilotField = new Field("Co-Pilot Axis Field", Arrays.asList(1, 2, 3, 4, 5, 6));
+        this.pilotField = new Field("Pilot Axis Field", Arrays.asList(1, 2, 3, 4, 5, 6), 812, 500);
+        this.coPilotField = new Field("Co-Pilot Axis Field", Arrays.asList(1, 2, 3, 4, 5, 6), 1064, 506);
     }
 
-    public void adjustTilt(){
+    public void adjustTilt() {
 
         Integer pilotDice = pilotField.getPlacedDice();
         Integer coPilotDice = coPilotField.getPlacedDice();
 
-        if(pilotDice > coPilotDice){
-            currentTilt --;
+        if (pilotDice > coPilotDice) {
+            currentTilt--;
         } else if (pilotDice < coPilotDice) {
-            currentTilt ++;
+            currentTilt++;
         }
 
         if (currentTilt < 1 || currentTilt > 5) {
@@ -52,13 +52,13 @@ public class Axis {
         return coPilotField;
     }
 
-    public int getCurrentTilt(){
+    public int getCurrentTilt() {
         return currentTilt;
     }
 
     public void resetFields() {
-        pilotField.resetField();  
-        coPilotField.resetField();   
+        pilotField.resetField();
+        coPilotField.resetField();
     }
 
 }

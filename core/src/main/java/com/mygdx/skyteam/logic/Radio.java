@@ -5,21 +5,28 @@ import java.util.Arrays;
 
 public class Radio {
     private ArrayList<Field> radioFields;
-    
-    public Radio(int numFields){
+
+    public Radio(int numFields) {
         radioFields = new ArrayList<>();
 
         for (int i = 0; i < numFields; i++) {
-            radioFields.add(new Field("Radio Field " + (i+1), Arrays.asList(1,2,3,4,5,6)));
+            if (numFields == 1) {
+                radioFields.add(new Field("Radio Field " + (i + 1), Arrays.asList(1, 2, 3, 4, 5, 6), 733, 492));
+            } else if (numFields == 2) {
+                // Logic when numFields is 2
+                radioFields.add(new Field("Radio Field " + (i + 1), Arrays.asList(1, 2, 3, 4, 5, 6), 1141, 424));
+            } else {
+                // Default behavior for other numFields values
+                radioFields.add(new Field("Radio Field " + (i + 1), Arrays.asList(1, 2, 3, 4, 5, 6), 1141, 499));
+            }
         }
     }
 
-
-    public void useRadio(int currentPosition, int diceValue, int chosenField, ArrayList<Integer> planesOnTrack){
+    public void useRadio(int currentPosition, int diceValue, int chosenField, ArrayList<Integer> planesOnTrack) {
 
         int targetPosition = currentPosition + diceValue;
 
-        if(targetPosition > 6){
+        if (targetPosition > 6) {
             targetPosition = 6;
         }
 
@@ -32,26 +39,28 @@ public class Radio {
             System.out.println("Field " + chosenField + " is now filled.");
             removePlane(targetPosition, planesOnTrack);
         }
-   
+
     }
 
-    public void removePlane(int position, ArrayList<Integer> planesOnTrack){
-        if(planesOnTrack.get(position) > 0){
-            planesOnTrack.set(position, planesOnTrack.get(position)-1);
-            System.out.println("Plane removed from field " + position); //track has 7 fields..
-        }
-        else{
+    public void removePlane(int position, ArrayList<Integer> planesOnTrack) {
+        if (planesOnTrack.get(position) > 0) {
+            planesOnTrack.set(position, planesOnTrack.get(position) - 1);
+            System.out.println("Plane removed from field " + position); // track has 7 fields..
+        } else {
             System.out.println("No planes at field " + position + " to remove.");
         }
 
         System.out.println("Current Track: " + planesOnTrack);
     }
 
-
     public void resetFields() {
         for (Field field : radioFields) {
-            field.resetField();  // This will reset both 'isFilled' and 'placedDice'
+            field.resetField(); // This will reset both 'isFilled' and 'placedDice'
         }
     }
-   
+
+    public ArrayList<Field> getRadioFields() {
+        return radioFields;
+    }
+
 }
