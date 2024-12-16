@@ -28,7 +28,7 @@ public class Radio {
             targetPosition = 6;
         }
 
-        Field selectedField = radioFields.get(chosenField - 1);
+        Field selectedField = radioFields.get(chosenField);
 
         if (selectedField.isFilled()) {
             System.out.println("Field " + chosenField + " is already filled.");

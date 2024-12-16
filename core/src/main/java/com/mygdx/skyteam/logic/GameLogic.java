@@ -44,9 +44,6 @@ public class GameLogic {
         System.out.println("\nCoPilot's unassigned dice:");
         coPilot.displayUnassignedDice();
 
-        currentRound.playRound();
-
-        nextRound();
     }
 
     public void nextRound() {

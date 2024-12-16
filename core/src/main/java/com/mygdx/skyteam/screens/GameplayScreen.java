@@ -39,13 +39,13 @@ public class GameplayScreen implements Screen {
     private Dice draggedCoPilotDice = null;
     private float dragStartX = 0;
     private float dragStartY = 0;
-    private Image pilotDiceImage;
-    private Image coPilotDiceImage;
 
     private ArrayList<Texture> pilotDiceTextures;
     private ArrayList<Texture> coPilotDiceTextures;
     private ArrayList<Dice> pilotDice;
     private ArrayList<Dice> coPilotDice;
+    private int playerIndex;
+
 
     public GameplayScreen(SkyTeamGame game, GameLogic gameLogic) {
         this.game = game;
@@ -65,98 +65,122 @@ public class GameplayScreen implements Screen {
         pilotDiceTextures = new ArrayList<>();
         coPilotDiceTextures = new ArrayList<>();
 
-        // Load dice textures into an array
         for (int i = 1; i <= 6; i++) {
             pilotDiceTextures.add(new Texture("dice/" + i + "B.png"));
             coPilotDiceTextures.add(new Texture("dice/" + i + "R.png"));
         }
 
         gameLogic.startGame();
+        playerIndex = gameLogic.getRound().getCurrentPlayerIndex();
 
         pilotDice = new ArrayList<>(gameLogic.getPilot().getDices());
         coPilotDice = new ArrayList<>(gameLogic.getCoPilot().getDices());
 
-        // Drawing dices
-        for (int i = 0; i < pilotDice.size(); i++) {
-            final Dice dice = pilotDice.get(i);
-            final Image pilotDiceImage = new Image(pilotDiceTextures.get(dice.getDiceValue() - 1));
-            pilotDiceImage.setPosition(pilotStartX + i * diceSpacing, pilotStartY);
-            pilotDiceImage.setSize(50, 50);
+        drawDice(coPilotDice, coPilotDiceTextures, false);
+        drawDice(pilotDice, pilotDiceTextures, true);
 
-            pilotDiceImage.addListener(new InputListener() {
-                @Override
-                public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
-                    isDraggingPilotDice = true;
-                    draggedPilotDice = dice;
-                    dragStartX = x;
-                    dragStartY = y;
-                    return true;
-                }
+    }
 
-                @Override
-                public void touchDragged(InputEvent event, float x, float y, int pointer) {
-                    if (isDraggingPilotDice) {
-                        float newX = event.getStageX() - dragStartX;
-                        float newY = event.getStageY() - dragStartY;
-                        pilotDiceImage.setPosition(newX, newY);
-                    }
-                }
+    public void drawDice(ArrayList<Dice> diceList, ArrayList<Texture> diceTextures, boolean isPilot) {
 
-                @Override
-                public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
+        for (int i = 0; i < diceList.size(); i++) {
+            final Dice dice = diceList.get(i);
+            final Image diceImage = new Image(diceTextures.get(dice.getDiceValue() - 1));
 
-                    isDraggingPilotDice = false;
-                    handleInput((int) event.getStageX(), (int) event.getStageY(), true, pilotDiceImage);
-                }
-            });
-            stage.addActor(pilotDiceImage);
+            diceImage.setPosition(isPilot ? pilotStartX + i * diceSpacing : coPilotStartX + i * diceSpacing,
+                    isPilot ? pilotStartY : coPilotStartY);
+            diceImage.setSize(50, 50);
 
+            stage.addActor(diceImage);
+
+            diceImage.clearListeners();
+
+            if (isPilot) {
+                System.out.println("Adding Pilot Listener");
+                handlePilotInteraction(dice, diceImage);
+            } else if (!isPilot) {
+                System.out.println("Adding Co-Pilot Listener");
+                handleCoPilotInteraction(dice, diceImage);
+            }
         }
+    }
 
-        for (int i = 0; i < coPilotDice.size(); i++) {
-            final Dice dice = coPilotDice.get(i);
-            final Image coPilotDiceImage = new Image(coPilotDiceTextures.get(dice.getDiceValue() - 1));
-            coPilotDiceImage.setPosition(coPilotStartX + i * diceSpacing, coPilotStartY);
-            coPilotDiceImage.setSize(50, 50);
+    private void handlePilotInteraction(final Dice dice, final Image diceImage) {
+        diceImage.addListener(new InputListener() {
+            @Override
+            public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
 
-            coPilotDiceImage.addListener(new InputListener() {
-                @Override
-                public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
-                    isDraggingCoPilotDice = true;
-                    draggedCoPilotDice = dice;
-                    dragStartX = x;
-                    dragStartY = y;
-                    return true;
+                System.out.println("Pilot Dice touchDown");
+                isDraggingPilotDice = true;
+                draggedPilotDice = dice;
+                dragStartX = x;
+                dragStartY = y;
+                return true;
+
+            }
+
+            @Override
+            public void touchDragged(InputEvent event, float x, float y, int pointer) {
+
+                if (isDraggingPilotDice) {
+                    float newX = event.getStageX() - dragStartX;
+                    float newY = event.getStageY() - dragStartY;
+                    diceImage.setPosition(newX, newY);
                 }
+            }
 
-                @Override
-                public void touchDragged(InputEvent event, float x, float y, int pointer) {
-                    if (isDraggingCoPilotDice) {
-                        float newX = event.getStageX() - dragStartX;
-                        float newY = event.getStageY() - dragStartY;
-                        coPilotDiceImage.setPosition(newX, newY);
-                    }
+            @Override
+            public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
+
+                isDraggingPilotDice = false;
+                int diceIndex = pilotDice.indexOf(draggedPilotDice);
+                handleInput((int) event.getStageX(), (int) event.getStageY(), true, diceImage, diceIndex);
+            }
+
+        });
+    }
+
+    private void handleCoPilotInteraction(final Dice dice, final Image diceImage) {
+        diceImage.addListener(new InputListener() {
+            @Override
+            public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
+                System.out.println("Co-Pilot Dice touchDown");
+                isDraggingCoPilotDice = true;
+                draggedCoPilotDice = dice;
+                dragStartX = x;
+                dragStartY = y;
+                return true;
+            }
+
+            @Override
+            public void touchDragged(InputEvent event, float x, float y, int pointer) {
+
+                if (isDraggingCoPilotDice) {
+                    float newX = event.getStageX() - dragStartX;
+                    float newY = event.getStageY() - dragStartY;
+                    diceImage.setPosition(newX, newY);
                 }
+            }
 
-                @Override
-                public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
-                    isDraggingCoPilotDice = false;
-                    handleInput((int) event.getStageX(), (int) event.getStageY(), false, coPilotDiceImage);
+            @Override
+            public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
 
-                }
-            });
-            stage.addActor(coPilotDiceImage);
-        }
-
+                isDraggingCoPilotDice = false;
+                int diceIndex = coPilotDice.indexOf(draggedCoPilotDice);
+                handleInput((int) event.getStageX(), (int) event.getStageY(), false, diceImage, diceIndex);
+            }
+        });
     }
 
     @Override
     public void render(float delta) {
 
-        // Testing purposes
-        float screenX = Gdx.input.getX();
-        float screenY = Gdx.input.getY();
-        System.out.println("Screen Position - X: " + screenX + ", Y: " + screenY);
+        /*
+         * // Testing purposes
+         * float screenX = Gdx.input.getX();
+         * float screenY = Gdx.input.getY();
+         * System.out.println("Screen Position - X: " + screenX + ", Y: " + screenY);
+         */
 
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT); // Clear the screen
 
@@ -192,26 +216,16 @@ public class GameplayScreen implements Screen {
         batch.draw(boardTexture, boardX, boardY, boardWidth, boardHeight);
     }
 
-    public void handleInput(int mouseX, int mouseY, boolean isPilot, Image diceImage) {
+    public void handleInput(int mouseX, int mouseY, boolean isPilot, Image diceImage, int diceIndex) {
 
         String playerInput = "";
         int fieldChoice = -1;
-        int diceIndex = -1;
-
-        if (isPilot) {
-            if (draggedPilotDice != null) {
-                diceIndex = pilotDice.indexOf(draggedPilotDice);
-            }
-        } else {
-            if (draggedCoPilotDice != null) {
-                diceIndex = coPilotDice.indexOf(draggedCoPilotDice);
-            }
-        }
 
         if (isPilot) {
             // Axis
             if (isMouseOverField(mouseX, mouseY, gameLogic.getAirplane().getAxis().getPilotAxisField(),
                     diceImage)) {
+
                 playerInput = "axis";
                 fieldChoice = 0;
             }
@@ -344,9 +358,10 @@ public class GameplayScreen implements Screen {
                 diceImage.setPosition(coPilotStartX + coPilotDice.indexOf(draggedCoPilotDice) * diceSpacing,
                         coPilotStartY);
             }
-
-            gameLogic.getRound().collectPlayerInput(diceIndex, playerInput, fieldChoice);
         }
+        gameLogic.getRound().collectPlayerInput(diceIndex, playerInput, fieldChoice);
+        gameLogic.getRound().playRound();
+
     }
 
     public boolean isMouseOverField(int mouseX, int mouseY, Field field, Image diceImage) {

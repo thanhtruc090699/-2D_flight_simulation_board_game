@@ -25,14 +25,18 @@ public class Round {
 
         while (turnsLeft > 0) {
 
-            if (currentDiceIndex != 0 && currentPlayerInput != null && currentFieldChoice != 0) {
+            if (currentDiceIndex != -1 && currentPlayerInput != null && currentFieldChoice != -1) {
                 playTurn(currentDiceIndex, currentPlayerInput, currentFieldChoice);
-            }
 
-            if (currentPlayerIndex == 1) {
-                turnsLeft--;
+                if (currentPlayerIndex == 1) {
+                    turnsLeft--;
+                }
+                switchPlayer();
             }
-            switchPlayer();
+            break;
+        }
+        if (turnsLeft == 0) {
+            game.nextRound();
         }
     }
 
@@ -44,7 +48,7 @@ public class Round {
 
             boolean tokenUsed = false;
 
-            String pilotReroll = "yes"; // harcoded value
+            String pilotReroll = "no"; // harcoded value
             if (pilot.hasRerollToken()) {
                 System.out.println("You have a reroll token. Do you want to use it? (yes/no)");
 
@@ -56,7 +60,7 @@ public class Round {
                     System.out.println("Pilot decided not to use the reroll token.");
                 }
 
-                String coPilotReroll = "yes"; // hardcoded value
+                String coPilotReroll = "no"; // hardcoded value
                 System.out.println("CoPilot, do you want to reroll too? (yes/no)");
 
                 if (coPilotReroll.equals("yes")) {
@@ -136,6 +140,7 @@ public class Round {
     public void switchPlayer() {
         currentPlayerIndex = (currentPlayerIndex == 0) ? 1 : 0; // 0 for pilot, 1 for copilot
         System.out.println("Next player is: " + (currentPlayerIndex == 0 ? "Pilot" : "CoPilot"));
+        System.out.println(currentPlayerIndex);
     }
 
     public boolean checkRoundConditions() {
@@ -152,7 +157,7 @@ public class Round {
         if (player.getCoffeeToken().getQuantity() >= 1) {
             System.out.println("You have a Coffee Token. Do you want to use it? (yes/no)");
 
-            String useCoffeeToken = "yes";
+            String useCoffeeToken = "no";
 
             if (useCoffeeToken.equals("yes")) {
                 System.out.println("Choose a dice from range 1-" + player.getUnassignedDice().size());
@@ -171,9 +176,13 @@ public class Round {
     }
 
     public void collectPlayerInput(int diceIndex, String playerInput, int fieldChoice) {
-        // Store the collected input for later use in playRound
-        currentPlayerInput = playerInput;
-        currentFieldChoice = fieldChoice;
-        currentDiceIndex = diceIndex;
+
+        this.currentDiceIndex = diceIndex;
+        this.currentPlayerInput = playerInput;
+        this.currentFieldChoice = fieldChoice;
+    }
+
+    public int getCurrentPlayerIndex() {
+        return currentPlayerIndex;
     }
 }
