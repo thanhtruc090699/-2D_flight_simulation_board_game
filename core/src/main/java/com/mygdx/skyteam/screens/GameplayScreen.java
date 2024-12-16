@@ -141,8 +141,8 @@ public class GameplayScreen implements Screen {
                 @Override
                 public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
                     isDraggingCoPilotDice = false;
-                    handleInput((int) event.getStageX(), (int) event.getStageY(), false, coPilotDiceImage); 
-                                                                                                            
+                    handleInput((int) event.getStageX(), (int) event.getStageY(), false, coPilotDiceImage);
+
                 }
             });
             stage.addActor(coPilotDiceImage);
@@ -197,157 +197,155 @@ public class GameplayScreen implements Screen {
         String playerInput = "";
         int fieldChoice = -1;
         int diceIndex = -1;
-        Image removedDiceImage = null;
 
         if (isPilot) {
             if (draggedPilotDice != null) {
                 diceIndex = pilotDice.indexOf(draggedPilotDice);
-                removedDiceImage = pilotDiceImage;
-            } else {
-                if (draggedCoPilotDice != null) {
-                    diceIndex = coPilotDice.indexOf(draggedCoPilotDice);
-                    removedDiceImage = coPilotDiceImage;
-                }
+            }
+        } else {
+            if (draggedCoPilotDice != null) {
+                diceIndex = coPilotDice.indexOf(draggedCoPilotDice);
+            }
+        }
+
+        if (isPilot) {
+            // Axis
+            if (isMouseOverField(mouseX, mouseY, gameLogic.getAirplane().getAxis().getPilotAxisField(),
+                    diceImage)) {
+                playerInput = "axis";
+                fieldChoice = 0;
             }
 
-            if (isPilot) {
-                // Axis
-                if (isMouseOverField(mouseX, mouseY, gameLogic.getAirplane().getAxis().getPilotAxisField(),
-                        diceImage)) {
-                    playerInput = "axis";
-                    fieldChoice = 0;
-                }
-
-                // Engine
-                if (isMouseOverField(mouseX, mouseY, gameLogic.getAirplane().getEngine().getPilotField(), diceImage)) {
-                    playerInput = "engine";
-                    fieldChoice = 0;
-                }
-
-                // Brake
-                if (isMouseOverField(mouseX, mouseY, gameLogic.getAirplane().getBrakes().getBrakeFields().get(0),
-                        diceImage)) {
-                    playerInput = "brake";
-                    fieldChoice = 0;
-                } else if (isMouseOverField(mouseX, mouseY, gameLogic.getAirplane().getBrakes().getBrakeFields().get(1),
-                        diceImage)) {
-                    playerInput = "brake";
-                    fieldChoice = 0;
-                } else if (isMouseOverField(mouseX, mouseY, gameLogic.getAirplane().getBrakes().getBrakeFields().get(2),
-                        diceImage)) {
-                    playerInput = "brake";
-                    fieldChoice = 0;
-                }
-
-                // Concentration (Coffee)
-                if (isMouseOverField(mouseX, mouseY,
-                        gameLogic.getAirplane().getConcentration().getCoffeeFields().get(0),
-                        diceImage)) {
-                    playerInput = "concentration";
-                    fieldChoice = 0;
-                } else if (isMouseOverField(mouseX, mouseY,
-                        gameLogic.getAirplane().getConcentration().getCoffeeFields().get(1), diceImage)) {
-                    playerInput = "concentration";
-                    fieldChoice = 0;
-                } else if (isMouseOverField(mouseX, mouseY,
-                        gameLogic.getAirplane().getConcentration().getCoffeeFields().get(2), diceImage)) {
-                    playerInput = "concentration";
-                    fieldChoice = 0;
-                }
-
-                // Landing Gear
-                if (isMouseOverField(mouseX, mouseY,
-                        gameLogic.getAirplane().getLandingGears().getLandingGearFields().get(0), diceImage)) {
-                    playerInput = "landingGear";
-                    fieldChoice = 1;
-                } else if (isMouseOverField(mouseX, mouseY,
-                        gameLogic.getAirplane().getLandingGears().getLandingGearFields().get(1), diceImage)) {
-                    playerInput = "landingGear";
-                    fieldChoice = 2;
-                } else if (isMouseOverField(mouseX, mouseY,
-                        gameLogic.getAirplane().getLandingGears().getLandingGearFields().get(2), diceImage)) {
-                    playerInput = "landingGear";
-                    fieldChoice = 3;
-                }
-
-                // Radio
-                if (isMouseOverField(mouseX, mouseY, gameLogic.getPilot().getRadio().getRadioFields().get(0),
-                        diceImage)) {
-                    playerInput = "radio";
-                    fieldChoice = 0;
-                }
-            }
-            if (!isPilot) {
-                // Axis
-                if (isMouseOverField(mouseX, mouseY, gameLogic.getAirplane().getAxis().getCoPilotAxisField(),
-                        diceImage)) {
-                    playerInput = "axis";
-                    fieldChoice = 0;
-                }
-
-                // Engine
-                if (isMouseOverField(mouseX, mouseY, gameLogic.getAirplane().getEngine().getCoPilotField(),
-                        diceImage)) {
-                    playerInput = "engine";
-                    fieldChoice = 0;
-                }
-
-                // Flaps
-                if (isMouseOverField(mouseX, mouseY, gameLogic.getAirplane().getFlaps().getFlapsFields().get(0),
-                        diceImage)) {
-                    playerInput = "flap";
-                    fieldChoice = 1;
-                } else if (isMouseOverField(mouseX, mouseY, gameLogic.getAirplane().getFlaps().getFlapsFields().get(1),
-                        diceImage)) {
-                    playerInput = "flap";
-                    fieldChoice = 2;
-                } else if (isMouseOverField(mouseX, mouseY, gameLogic.getAirplane().getFlaps().getFlapsFields().get(2),
-                        diceImage)) {
-                    playerInput = "flap";
-                    fieldChoice = 3;
-                } else if (isMouseOverField(mouseX, mouseY, gameLogic.getAirplane().getFlaps().getFlapsFields().get(3),
-                        diceImage)) {
-                    playerInput = "flap";
-                    fieldChoice = 4;
-                }
-
-                // Radio
-                if (isMouseOverField(mouseX, mouseY, gameLogic.getCoPilot().getRadio().getRadioFields().get(0),
-                        diceImage)) {
-                    playerInput = "radio";
-                    fieldChoice = 0;
-                } else if (isMouseOverField(mouseX, mouseY, gameLogic.getCoPilot().getRadio().getRadioFields().get(1),
-                        diceImage)) {
-                    playerInput = "radio";
-                    fieldChoice = 1;
-                }
-
-                // Concentration (Coffee)
-                if (isMouseOverField(mouseX, mouseY,
-                        gameLogic.getAirplane().getConcentration().getCoffeeFields().get(0),
-                        diceImage)) {
-                    playerInput = "concentration";
-                    fieldChoice = 0;
-                } else if (isMouseOverField(mouseX, mouseY,
-                        gameLogic.getAirplane().getConcentration().getCoffeeFields().get(1), diceImage)) {
-                    playerInput = "concentration";
-                    fieldChoice = 0;
-                } else if (isMouseOverField(mouseX, mouseY,
-                        gameLogic.getAirplane().getConcentration().getCoffeeFields().get(2), diceImage)) {
-                    playerInput = "concentration";
-                    fieldChoice = 0;
-                }
+            // Engine
+            if (isMouseOverField(mouseX, mouseY, gameLogic.getAirplane().getEngine().getPilotField(), diceImage)) {
+                playerInput = "engine";
+                fieldChoice = 0;
             }
 
-            if (playerInput.isEmpty()) {
-                if (isPilot && draggedPilotDice != null) {
-                    diceImage.setPosition(pilotStartX + pilotDice.indexOf(draggedPilotDice) * diceSpacing, pilotStartY);
-                } else if (!isPilot && draggedCoPilotDice != null) {
-                    diceImage.setPosition(coPilotStartX + coPilotDice.indexOf(draggedCoPilotDice) * diceSpacing, coPilotStartY);
-                }
+            // Brake
+            if (isMouseOverField(mouseX, mouseY, gameLogic.getAirplane().getBrakes().getBrakeFields().get(0),
+                    diceImage)) {
+                playerInput = "brake";
+                fieldChoice = 0;
+            } else if (isMouseOverField(mouseX, mouseY, gameLogic.getAirplane().getBrakes().getBrakeFields().get(1),
+                    diceImage)) {
+                playerInput = "brake";
+                fieldChoice = 0;
+            } else if (isMouseOverField(mouseX, mouseY, gameLogic.getAirplane().getBrakes().getBrakeFields().get(2),
+                    diceImage)) {
+                playerInput = "brake";
+                fieldChoice = 0;
+            }
+
+            // Concentration (Coffee)
+            if (isMouseOverField(mouseX, mouseY,
+                    gameLogic.getAirplane().getConcentration().getCoffeeFields().get(0),
+                    diceImage)) {
+                playerInput = "concentration";
+                fieldChoice = 0;
+            } else if (isMouseOverField(mouseX, mouseY,
+                    gameLogic.getAirplane().getConcentration().getCoffeeFields().get(1), diceImage)) {
+                playerInput = "concentration";
+                fieldChoice = 0;
+            } else if (isMouseOverField(mouseX, mouseY,
+                    gameLogic.getAirplane().getConcentration().getCoffeeFields().get(2), diceImage)) {
+                playerInput = "concentration";
+                fieldChoice = 0;
+            }
+
+            // Landing Gear
+            if (isMouseOverField(mouseX, mouseY,
+                    gameLogic.getAirplane().getLandingGears().getLandingGearFields().get(0), diceImage)) {
+                playerInput = "landingGear";
+                fieldChoice = 1;
+            } else if (isMouseOverField(mouseX, mouseY,
+                    gameLogic.getAirplane().getLandingGears().getLandingGearFields().get(1), diceImage)) {
+                playerInput = "landingGear";
+                fieldChoice = 2;
+            } else if (isMouseOverField(mouseX, mouseY,
+                    gameLogic.getAirplane().getLandingGears().getLandingGearFields().get(2), diceImage)) {
+                playerInput = "landingGear";
+                fieldChoice = 3;
+            }
+
+            // Radio
+            if (isMouseOverField(mouseX, mouseY, gameLogic.getPilot().getRadio().getRadioFields().get(0),
+                    diceImage)) {
+                playerInput = "radio";
+                fieldChoice = 0;
+            }
+        }
+        if (!isPilot) {
+            // Axis
+            if (isMouseOverField(mouseX, mouseY, gameLogic.getAirplane().getAxis().getCoPilotAxisField(),
+                    diceImage)) {
+                playerInput = "axis";
+                fieldChoice = 0;
+            }
+
+            // Engine
+            if (isMouseOverField(mouseX, mouseY, gameLogic.getAirplane().getEngine().getCoPilotField(),
+                    diceImage)) {
+                playerInput = "engine";
+                fieldChoice = 0;
+            }
+
+            // Flaps
+            if (isMouseOverField(mouseX, mouseY, gameLogic.getAirplane().getFlaps().getFlapsFields().get(0),
+                    diceImage)) {
+                playerInput = "flap";
+                fieldChoice = 1;
+            } else if (isMouseOverField(mouseX, mouseY, gameLogic.getAirplane().getFlaps().getFlapsFields().get(1),
+                    diceImage)) {
+                playerInput = "flap";
+                fieldChoice = 2;
+            } else if (isMouseOverField(mouseX, mouseY, gameLogic.getAirplane().getFlaps().getFlapsFields().get(2),
+                    diceImage)) {
+                playerInput = "flap";
+                fieldChoice = 3;
+            } else if (isMouseOverField(mouseX, mouseY, gameLogic.getAirplane().getFlaps().getFlapsFields().get(3),
+                    diceImage)) {
+                playerInput = "flap";
+                fieldChoice = 4;
+            }
+
+            // Radio
+            if (isMouseOverField(mouseX, mouseY, gameLogic.getCoPilot().getRadio().getRadioFields().get(0),
+                    diceImage)) {
+                playerInput = "radio";
+                fieldChoice = 0;
+            } else if (isMouseOverField(mouseX, mouseY, gameLogic.getCoPilot().getRadio().getRadioFields().get(1),
+                    diceImage)) {
+                playerInput = "radio";
+                fieldChoice = 1;
+            }
+
+            // Concentration (Coffee)
+            if (isMouseOverField(mouseX, mouseY,
+                    gameLogic.getAirplane().getConcentration().getCoffeeFields().get(0),
+                    diceImage)) {
+                playerInput = "concentration";
+                fieldChoice = 0;
+            } else if (isMouseOverField(mouseX, mouseY,
+                    gameLogic.getAirplane().getConcentration().getCoffeeFields().get(1), diceImage)) {
+                playerInput = "concentration";
+                fieldChoice = 0;
+            } else if (isMouseOverField(mouseX, mouseY,
+                    gameLogic.getAirplane().getConcentration().getCoffeeFields().get(2), diceImage)) {
+                playerInput = "concentration";
+                fieldChoice = 0;
+            }
+        }
+
+        if (playerInput.isEmpty()) {
+            if (isPilot && draggedPilotDice != null) {
+                diceImage.setPosition(pilotStartX + pilotDice.indexOf(draggedPilotDice) * diceSpacing, pilotStartY);
+            } else if (!isPilot && draggedCoPilotDice != null) {
+                diceImage.setPosition(coPilotStartX + coPilotDice.indexOf(draggedCoPilotDice) * diceSpacing,
+                        coPilotStartY);
+            }
 
             gameLogic.getRound().collectPlayerInput(diceIndex, playerInput, fieldChoice);
-            }
         }
     }
 

@@ -9,17 +9,15 @@ public class Radio {
     public Radio(int numFields) {
         radioFields = new ArrayList<>();
 
-        for (int i = 0; i < numFields; i++) {
             if (numFields == 1) {
-                radioFields.add(new Field("Radio Field " + (i + 1), Arrays.asList(1, 2, 3, 4, 5, 6), 733, 492));
+                radioFields.add(new Field("Radio Field Pilot 1", Arrays.asList(1, 2, 3, 4, 5, 6), 733, 492));
+
             } else if (numFields == 2) {
-                // Logic when numFields is 2
-                radioFields.add(new Field("Radio Field " + (i + 1), Arrays.asList(1, 2, 3, 4, 5, 6), 1141, 424));
-            } else {
-                // Default behavior for other numFields values
-                radioFields.add(new Field("Radio Field " + (i + 1), Arrays.asList(1, 2, 3, 4, 5, 6), 1141, 499));
-            }
-        }
+                radioFields.add(new Field("Radio Field Copilot 1", Arrays.asList(1, 2, 3, 4, 5, 6), 1141, 424 ));
+                radioFields.add(new Field("Radio Field 2", Arrays.asList(1, 2, 3, 4, 5, 6), 1141, 496));
+               
+            } 
+        
     }
 
     public void useRadio(int currentPosition, int diceValue, int chosenField, ArrayList<Integer> planesOnTrack) {

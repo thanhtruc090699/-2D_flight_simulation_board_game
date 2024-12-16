@@ -8,7 +8,7 @@ public class Flap{
 
     public Flap(){
          flapsFields = new ArrayList<>();
-           flapsFields.add(new Field("Flap 1", Arrays.asList(1, 2), 1143, 761));
+           flapsFields.add(new Field("Flap 1", Arrays.asList(1, 2), 1143, 651));
            flapsFields.add(new Field("Flap 2", Arrays.asList(2, 3), 1143, 761));
            flapsFields.add(new Field("Flap 3", Arrays.asList(4, 5), 1141, 868));
            flapsFields.add(new Field("Flap 4", Arrays.asList(5, 6), 1141, 972));

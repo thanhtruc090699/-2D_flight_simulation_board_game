@@ -10,9 +10,9 @@ public class LandingGear{
     public LandingGear(){
         landingGearFields = new ArrayList<>();
 
-        landingGearFields.add(new Field("Landing Gear 1", Arrays.asList(1, 2), 738, 651));
-        landingGearFields.add(new Field("Landing Gear 2", Arrays.asList(3, 4), 736, 651));
-        landingGearFields.add(new Field("Landing Gear 3", Arrays.asList(5, 6), 738, 867));
+        landingGearFields.add(new Field("Landing Gear 1", Arrays.asList(1, 2), 737, 650));
+        landingGearFields.add(new Field("Landing Gear 2", Arrays.asList(3, 4), 735, 758));
+        landingGearFields.add(new Field("Landing Gear 3", Arrays.asList(5, 6), 737, 865));
     }
 
     public void deployLandingGear(int pilotInput, Airplane airplane, int fieldChoice) {
