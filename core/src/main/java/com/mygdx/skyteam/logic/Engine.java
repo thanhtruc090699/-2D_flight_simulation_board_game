@@ -19,8 +19,8 @@ public class Engine {
         speed = 0;
         blueMarker = 4;
         orangeMarker = 8;
-        pilotField = new Field("Pilot Engine Field", Arrays.asList(1, 2, 3, 4, 5, 6), 858, 750);
-        coPilotField = new Field("CoPilot Engine Field", Arrays.asList(1, 2, 3, 4, 5, 6), 1015, 750);
+        pilotField = new Field("Pilot Engine Field", Arrays.asList(1, 2, 3, 4, 5, 6), 860, 748);
+        coPilotField = new Field("CoPilot Engine Field", Arrays.asList(1, 2, 3, 4, 5, 6), 1012, 748);
     }
 
     public void placePilotDice(int diceValue) {

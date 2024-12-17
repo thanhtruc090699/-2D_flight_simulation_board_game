@@ -13,8 +13,8 @@ public class Radio {
                 radioFields.add(new Field("Radio Field Pilot 1", Arrays.asList(1, 2, 3, 4, 5, 6), 733, 492));
 
             } else if (numFields == 2) {
-                radioFields.add(new Field("Radio Field Copilot 1", Arrays.asList(1, 2, 3, 4, 5, 6), 1141, 424 ));
-                radioFields.add(new Field("Radio Field 2", Arrays.asList(1, 2, 3, 4, 5, 6), 1141, 496));
+                radioFields.add(new Field("Radio Field Copilot 1", Arrays.asList(1, 2, 3, 4, 5, 6), 1139, 420 ));
+                radioFields.add(new Field("Radio Field 2", Arrays.asList(1, 2, 3, 4, 5, 6), 1139, 492));
                
             } 
         

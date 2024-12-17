@@ -86,18 +86,11 @@ public class CoPilot extends Player {
                 break;
 
             case "flaps":
-                boolean allFlapsOccupied = true;
-                for (Field flapField : airplane.getFlaps().getFlapsFields()) {
-                    if (!flapField.isFilled()) {
-                        allFlapsOccupied = false;
-                        break;
+                for (int i = 0; i < airplane.getFlaps().getFlapsFields().size(); i++) {
+                    if (airplane.getFlaps().canPlaceFlap(diceValue, fieldChoice)) {
+                        validPlacement = true; 
+                        break; 
                     }
-                }
-
-                if (allFlapsOccupied) {
-                    System.out.println("All flap fields are already occupied.");
-                } else {
-                    validPlacement = true;
                 }
                 break;
 

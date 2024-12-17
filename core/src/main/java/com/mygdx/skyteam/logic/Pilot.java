@@ -110,11 +110,11 @@ public class Pilot extends Player {
 
             case "landing gears":
                 ArrayList<Field> gearFields = airplane.getLandingGears().getLandingGearFields();
-                if (gearFields.get(0).isFilled() && gearFields.get(1).isFilled() && gearFields.get(2).isFilled()) {
-                    System.out.println("All landing gear fields are already occupied.");
-                    validPlacement = false;
-                } else {
-                    validPlacement = true;
+                for (int i = 0; i < gearFields.size(); i++) {
+                    if (airplane.getLandingGears().canPlaceLandingGear(diceValue, fieldChoice)) {
+                        validPlacement = true;
+                        break;
+                    }
                 }
                 break;
 

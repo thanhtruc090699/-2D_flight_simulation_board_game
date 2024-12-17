@@ -9,8 +9,8 @@ public class Axis {
 
     public Axis() {
         currentTilt = 3;
-        this.pilotField = new Field("Pilot Axis Field", Arrays.asList(1, 2, 3, 4, 5, 6), 812, 500);
-        this.coPilotField = new Field("Co-Pilot Axis Field", Arrays.asList(1, 2, 3, 4, 5, 6), 1064, 506);
+        this.pilotField = new Field("Pilot Axis Field", Arrays.asList(1, 2, 3, 4, 5, 6), 810, 505);
+        this.coPilotField = new Field("Co-Pilot Axis Field", Arrays.asList(1, 2, 3, 4, 5, 6), 1063, 505);
     }
 
     public void adjustTilt() {
@@ -71,7 +71,7 @@ public class Axis {
     public float getRotationAngle() {
         switch (currentTilt) {
             case 0:
-                return 90f;
+                return 80f;
             case 1:
                 return 60f;
             case 2:
@@ -83,7 +83,7 @@ public class Axis {
             case 5:
                 return -60f;
             case 6:
-                return -90f;
+                return -80f;
             default:
                 return 0f;
         }
