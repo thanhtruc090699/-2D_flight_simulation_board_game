@@ -18,14 +18,21 @@ public class Axis {
         Integer pilotDice = pilotField.getPlacedDice();
         Integer coPilotDice = coPilotField.getPlacedDice();
 
+        int difference = Math.abs(pilotDice - coPilotDice);
+
         if (pilotDice > coPilotDice) {
-            currentTilt--;
-        } else if (pilotDice < coPilotDice) {
-            currentTilt++;
+            currentTilt -= difference;
+        } else if (coPilotDice > pilotDice) {
+            currentTilt += difference;
         }
 
-        if (currentTilt < 1 || currentTilt > 5) {
-            currentTilt = -1;
+        if (currentTilt < 1) {
+            currentTilt = 0;
+        } else if (currentTilt > 5) {
+            currentTilt = 6;
+        }
+
+        if (currentTilt == 0 || currentTilt == 6) {
             System.out.println("Plane tilted 90 degrees. GAME OVER");
         } else {
             System.out.println("Axis adjusted. Current tilt: " + currentTilt);
@@ -59,6 +66,27 @@ public class Axis {
     public void resetFields() {
         pilotField.resetField();
         coPilotField.resetField();
+    }
+
+    public float getRotationAngle() {
+        switch (currentTilt) {
+            case 0:
+                return 90f;
+            case 1:
+                return 60f;
+            case 2:
+                return 30f;
+            case 3:
+                return 0f;
+            case 4:
+                return -30f;
+            case 5:
+                return -60f;
+            case 6:
+                return -90f;
+            default:
+                return 0f;
+        }
     }
 
 }

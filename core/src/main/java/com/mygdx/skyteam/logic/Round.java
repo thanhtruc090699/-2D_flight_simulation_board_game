@@ -22,7 +22,7 @@ public class Round {
     }
 
     public void playRound() {
-
+        boolean turnCompleted = false;
         while (turnsLeft > 0) {
 
             if (currentDiceIndex != -1 && currentPlayerInput != null && currentFieldChoice != -1) {
@@ -32,8 +32,11 @@ public class Round {
                     turnsLeft--;
                 }
                 switchPlayer();
+                turnCompleted = true;
             }
-            break;
+            if (turnCompleted) {
+                break;
+            }
         }
         if (turnsLeft == 0) {
             game.nextRound();
@@ -103,37 +106,37 @@ public class Round {
                     }
                 }
             }
-            // CoPilots turn
-            else {
-                System.out.println("It's CoPilot's turn.");
-                System.out.println("These are your unassigned dice: ");
-                coPilot.displayUnassignedDice();
+        }
+        // CoPilots turn
+        else {
+            System.out.println("It's CoPilot's turn.");
+            System.out.println("These are your unassigned dice: ");
+            coPilot.displayUnassignedDice();
 
-                handleCoffeeToken(pilot);
+            handleCoffeeToken(pilot);
 
-                coPilot.displayUnassignedDice();
+            coPilot.displayUnassignedDice();
 
-                int selectedDiceValue = coPilot.getUnassignedDice().get(diceIndex).getDiceValue();
-                System.out.println("You selected dice value: " + selectedDiceValue);
+            int selectedDiceValue = coPilot.getUnassignedDice().get(diceIndex).getDiceValue();
+            System.out.println("You selected dice value: " + selectedDiceValue);
 
-                System.out.println("Where do you want to place your dice?");
-                System.out.println("Available options: engine, axis, radio, flaps, coffee");
+            System.out.println("Where do you want to place your dice?");
+            System.out.println("Available options: engine, axis, radio, flaps, coffee");
 
-                coPilot.placeDice(selectedDiceValue, playerInput, fieldChoice);
+            coPilot.placeDice(selectedDiceValue, playerInput, fieldChoice);
 
-                coPilot.getUnassignedDice().get(diceIndex).assign();
+            coPilot.getUnassignedDice().get(diceIndex).assign();
 
-                if (airplane.getAxis().getPilotAxisField().isFilled()
-                        && airplane.getAxis().getCoPilotAxisField().isFilled()) { // in case axis reaches x prematurely,
-                                                                                  // end game
-                    if (airplane.getAxis().getCurrentTilt() == 6 || airplane.getAxis().getCurrentTilt() == 1) {
-                        checkRoundConditions();
-                        game.endGame();
-                        return;
-                    }
+            if (airplane.getAxis().getPilotAxisField().isFilled()
+                    && airplane.getAxis().getCoPilotAxisField().isFilled()) { // in case axis reaches x prematurely,
+                                                                              // end game
+                if (airplane.getAxis().getCurrentTilt() == 6 || airplane.getAxis().getCurrentTilt() == 1) {
+                    checkRoundConditions();
+                    game.endGame();
+                    return;
                 }
-
             }
+
         }
     }
 

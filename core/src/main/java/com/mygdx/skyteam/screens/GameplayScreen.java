@@ -11,6 +11,7 @@ import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.mygdx.skyteam.logic.Dice;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import java.util.ArrayList;
 import com.mygdx.skyteam.logic.GameLogic;
@@ -22,10 +23,9 @@ public class GameplayScreen implements Screen {
     private Stage stage;
     private SkyTeamGame game;
     private GameLogic gameLogic;
-    private Texture boardTexture;
-    private Texture planeTrack;
-    private Texture altitudeTrack;
+    private Texture boardTexture, planeTrack, altitudeTrack, axisIcon;
     private SpriteBatch batch;
+    private Sprite axisSprite;
 
     float pilotStartX = 300;
     float pilotStartY = 100;
@@ -56,7 +56,8 @@ public class GameplayScreen implements Screen {
         boardTexture = new Texture(Gdx.files.internal("board/Control Panel.png"));
         planeTrack = new Texture(Gdx.files.internal("board/Track.png"));
         altitudeTrack = new Texture(Gdx.files.internal("board/Altitude.png"));
-
+        axisIcon = new Texture(Gdx.files.internal("board/axis_icon.png"));
+        axisSprite = new Sprite(axisIcon);
         batch = new SpriteBatch();
         stage = new Stage(new ScreenViewport());
         Gdx.input.setInputProcessor(stage);
@@ -186,7 +187,7 @@ public class GameplayScreen implements Screen {
         batch.begin();
 
         drawBoardAndTracks();
-
+        axisSprite.draw(batch);
         batch.end();
 
         stage.act(Math.min(Gdx.graphics.getDeltaTime(), 1 / 30f));
@@ -213,6 +214,19 @@ public class GameplayScreen implements Screen {
         float boardX = (Gdx.graphics.getWidth() - boardWidth) / 2f;
         float boardY = 0;
         batch.draw(boardTexture, boardX, boardY, boardWidth, boardHeight);
+
+        float rotationAngle = gameLogic.getAirplane().getAxis().getRotationAngle();
+
+        float axisIconWidth = axisIcon.getWidth() * scaleFactor;
+        float axisIconHeight = axisIcon.getHeight() * scaleFactor;
+        float axisIconX = boardX + (boardWidth - axisIconWidth) / 2f;
+        float axisIconY = boardY + (boardHeight - axisIconHeight) / 2f + 150;
+
+        axisSprite.setSize(axisIconWidth, axisIconHeight);
+        axisSprite.setPosition(axisIconX, axisIconY);
+        axisSprite.setOrigin(axisSprite.getWidth() / 2, axisSprite.getHeight() / 2);
+        axisSprite.setRotation(rotationAngle);
+
     }
 
     public void handleInput(int mouseX, int mouseY, boolean isPilot, Image diceImage, int diceIndex) {
@@ -236,6 +250,7 @@ public class GameplayScreen implements Screen {
                     diceImage.setPosition(fieldStageX, fieldStageY - 50);
                     gameLogic.getRound().collectPlayerInput(diceIndex, playerInput, fieldChoice);
                     gameLogic.getRound().playRound();
+
                 } else {
                     diceImage.setPosition(pilotStartX + diceIndex * diceSpacing, pilotStartY);
                 }
@@ -425,7 +440,8 @@ public class GameplayScreen implements Screen {
 
                     playerInput = "concentration";
                     fieldChoice = 0;
-                    Vector3 fieldPosition = gameLogic.getAirplane().getConcentration().getCoffeeFields().get(i).getStageCoordinates(stage);
+                    Vector3 fieldPosition = gameLogic.getAirplane().getConcentration().getCoffeeFields().get(i)
+                            .getStageCoordinates(stage);
                     float fieldStageX = fieldPosition.x;
                     float fieldStageY = fieldPosition.y;
                     if (gameLogic.getCoPilot().canPlaceDice(diceValue, playerInput, fieldChoice)) {
@@ -454,10 +470,6 @@ public class GameplayScreen implements Screen {
     public boolean isMouseOverField(int mouseX, int mouseY, Field field, Image diceImage) {
         float stageX = stage.getCamera().unproject(new com.badlogic.gdx.math.Vector3(mouseX, mouseY, 0)).x;
         float stageY = stage.getCamera().unproject(new com.badlogic.gdx.math.Vector3(mouseX, mouseY, 0)).y;
-
-        Vector3 fieldPosition = field.getStageCoordinates(stage);
-        float fieldStageX = fieldPosition.x;
-        float fieldStageY = fieldPosition.y;
 
         if (field.isMouseOver(stageX, stageY)) {
             return true;

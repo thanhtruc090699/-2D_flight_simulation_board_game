@@ -28,7 +28,7 @@ public class SkyTeamGame extends Game {
     @Override
     public void create() {
         batch = new SpriteBatch();
-        this.setScreen(new MainMenuScreen(this)); // Start with the main menu screen
+        this.setScreen(new MainMenuScreen(this)); 
     }
 
     public void startGame() {

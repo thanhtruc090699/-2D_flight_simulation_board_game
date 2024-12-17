@@ -12,7 +12,8 @@ public class CoPilot extends Player {
     public void placeDice(int diceValue, String playerInput, int fieldChoice) {
 
         if (!canPlaceDice(diceValue, playerInput, fieldChoice)) {
-            return; 
+            System.out.println("Cannot place dice on " + playerInput + ". The field is already occupied.");
+            return;
         }
         switch (playerInput.toLowerCase()) {
             case "engine":
@@ -31,6 +32,7 @@ public class CoPilot extends Player {
                 Field pilotAxisField = airplane.getAxis().getPilotAxisField();
                 if (pilotAxisField.isFilled()) {
                     airplane.adjustTilt();
+                    System.out.println("testing testingg does it appear");
                 }
                 break;
 
