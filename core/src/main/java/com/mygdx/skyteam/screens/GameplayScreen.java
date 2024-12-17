@@ -3,6 +3,7 @@ package com.mygdx.skyteam.screens;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
+import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.InputListener;
 import com.badlogic.gdx.scenes.scene2d.Stage;
@@ -46,6 +47,21 @@ public class GameplayScreen implements Screen {
     private ArrayList<Dice> coPilotDice;
     private int playerIndex;
 
+    private Texture switchTrack;
+    private Texture redMarkerTrack;
+    private Texture blueMarkerTrack;
+    private Texture orangeMarkerTrack;
+    private Texture coffeeTrack;
+    private ArrayList<Boolean> switchesStates;
+    private ArrayList<Vector2> switchesPositions;
+    private ArrayList<Vector2> coffeesPositions;
+    private Vector2 blueMarkerPosition;
+    private int currentBlueMarkerSteps = 0;
+    private int currentRedMarkerSteps = 0;
+    private int currentOrangeMarkerSteps = 0;
+    private int currentCoffeeQuantity=0;
+    private Vector2 redMarkerPosition;
+    private Vector2 orangeMarkerPosition;
     public GameplayScreen(SkyTeamGame game, GameLogic gameLogic) {
         this.game = game;
         this.gameLogic = gameLogic;
@@ -57,6 +73,11 @@ public class GameplayScreen implements Screen {
         planeTrack = new Texture(Gdx.files.internal("board/Track.png"));
         altitudeTrack = new Texture(Gdx.files.internal("board/Altitude.png"));
         axisIcon = new Texture(Gdx.files.internal("board/axis_icon.png"));
+        switchTrack = new Texture(Gdx.files.internal("board/icons/Switch.png"));
+        blueMarkerTrack = new Texture(Gdx.files.internal("board/markers/MarkerBlue.png"));
+        redMarkerTrack = new Texture(Gdx.files.internal("board/markers/MarkerRed.png"));
+        orangeMarkerTrack = new Texture(Gdx.files.internal("board/markers/MarkerOrange.png"));
+        coffeeTrack = new Texture(Gdx.files.internal("board/icons/Coffee.png"));
         axisSprite = new Sprite(axisIcon);
         batch = new SpriteBatch();
         stage = new Stage(new ScreenViewport());
@@ -78,6 +99,48 @@ public class GameplayScreen implements Screen {
 
         drawDice(coPilotDice, coPilotDiceTextures, false);
         drawDice(pilotDice, pilotDiceTextures, true);
+
+        switchesPositions = new ArrayList<>();
+        switchesStates = new ArrayList<>();
+        for(int i=0; i<10; i++){
+            switchesStates.add(false);
+        }
+
+
+
+        switchesPositions = new ArrayList<>();
+
+        // Switches for Landing gears
+        switchesPositions.add(new Vector2(732,340));
+        switchesPositions.add(new Vector2(732, 236));
+        switchesPositions.add(new Vector2(732, 127));
+
+        // Switches for Flaps
+        switchesPositions.add(new Vector2(1138, 340));
+        switchesPositions.add(new Vector2(1138, 236));
+        switchesPositions.add(new Vector2(1138, 127));
+        switchesPositions.add(new Vector2(1138, 20));
+
+        // Switches for Brakes
+        switchesPositions.add(new Vector2(867, 100));
+        switchesPositions.add(new Vector2(940, 100));
+        switchesPositions.add(new Vector2(1012, 100));
+
+        // Blue Markers
+        blueMarkerPosition = new Vector2(865, 370);
+
+        // Red Markers
+        redMarkerPosition = new Vector2(864, 242);
+
+        // Orange Markers
+
+        orangeMarkerPosition = new Vector2(1014, 353);
+
+        // Coffee positions list
+        coffeesPositions = new ArrayList<>();
+        coffeesPositions.add(new Vector2(763,67));
+        coffeesPositions.add(new Vector2(763, 26));
+        coffeesPositions.add(new Vector2(811, 25));
 
     }
 
@@ -187,6 +250,7 @@ public class GameplayScreen implements Screen {
         batch.begin();
 
         drawBoardAndTracks();
+        drawSwitchesAndMarkers();
         axisSprite.draw(batch);
         batch.end();
 
@@ -229,6 +293,35 @@ public class GameplayScreen implements Screen {
 
     }
 
+    private void drawSwitchesAndMarkers() {
+
+        //Draw Switches
+        for(int i =0;i<switchesPositions.size();i++){
+            Vector2 position = switchesPositions.get(i);
+            boolean isSwitchOn = switchesStates.get(i);
+
+            float switchX = isSwitchOn ? position.x - 9 : position.x + 20;
+            float switchY = position.y;
+            float switchSize = 28;
+
+            batch.draw(switchTrack, switchX, switchY, switchSize, switchSize);
+        }
+        // Draw blue marker
+        batch.draw(blueMarkerTrack, blueMarkerPosition.x, blueMarkerPosition.y, 13, 13);
+        // Draw red marker
+        batch.draw(redMarkerTrack, redMarkerPosition.x, redMarkerPosition.y, 13,13);
+        // Draw orange marker
+        batch.draw(orangeMarkerTrack, orangeMarkerPosition.x, orangeMarkerPosition.y, 13,13);
+
+        // Draw coffee
+        for(int i=0; i<currentCoffeeQuantity;i++){
+            Vector2 position = coffeesPositions.get(i);
+
+            batch.draw(coffeeTrack, position.x, position.y,28,28);
+
+        }
+
+    }
     public void handleInput(int mouseX, int mouseY, boolean isPilot, Image diceImage, int diceIndex) {
 
         String playerInput = "";
@@ -281,10 +374,19 @@ public class GameplayScreen implements Screen {
                     float fieldStageX = fieldPosition.x;
                     float fieldStageY = fieldPosition.y;
                     playerInput = "brake";
-                    fieldChoice = 0;
+                    fieldChoice = i + 1;
                     if (gameLogic.getPilot().canPlaceDice(diceValue, playerInput, fieldChoice)) {
                         diceImage.setPosition(fieldStageX, fieldStageY - 50);
                         gameLogic.getRound().collectPlayerInput(diceIndex, playerInput, fieldChoice);
+                        switchesStates.set(i+7,true);
+                        currentRedMarkerSteps++;
+                        if(currentRedMarkerSteps==1){
+                            redMarkerPosition.set(900,220);
+                        } else if (currentRedMarkerSteps==2){
+                            redMarkerPosition.set(975,207);
+                        } else if (currentRedMarkerSteps==3){
+                            redMarkerPosition.set(1046,243);
+                        }
                         gameLogic.getRound().playRound();
                     } else {
                         diceImage.setPosition(pilotStartX + diceIndex * diceSpacing, pilotStartY);
@@ -301,11 +403,12 @@ public class GameplayScreen implements Screen {
                             .getStageCoordinates(stage);
                     float fieldStageX = fieldPosition.x;
                     float fieldStageY = fieldPosition.y;
-                    playerInput = "concentration";
-                    fieldChoice = 0;
+                    playerInput = "coffee";
+                    fieldChoice = i + 1;
                     if (gameLogic.getPilot().canPlaceDice(diceValue, playerInput, fieldChoice)) {
                         diceImage.setPosition(fieldStageX, fieldStageY - 50);
                         gameLogic.getRound().collectPlayerInput(diceIndex, playerInput, fieldChoice);
+                        currentCoffeeQuantity++;
                         gameLogic.getRound().playRound();
                     } else {
                         diceImage.setPosition(pilotStartX + diceIndex * diceSpacing, pilotStartY);
@@ -322,11 +425,20 @@ public class GameplayScreen implements Screen {
                             .getStageCoordinates(stage);
                     float fieldStageX = fieldPosition.x;
                     float fieldStageY = fieldPosition.y;
-                    playerInput = "landingGear";
+                    playerInput = "landing gears";
                     fieldChoice = i + 1;
                     if (gameLogic.getPilot().canPlaceDice(diceValue, playerInput, fieldChoice)) {
                         diceImage.setPosition(fieldStageX, fieldStageY - 50);
                         gameLogic.getRound().collectPlayerInput(diceIndex, playerInput, fieldChoice);
+                        switchesStates.set(i,true);
+                        currentBlueMarkerSteps++;
+                        if(currentBlueMarkerSteps==1){
+                            blueMarkerPosition.set(900,350);
+                        } else if (currentBlueMarkerSteps==2){
+                            blueMarkerPosition.set(935,340);
+                        } else if (currentBlueMarkerSteps==3){
+                            blueMarkerPosition.set(975,345);
+                        }
                         gameLogic.getRound().playRound();
                     } else {
                         diceImage.setPosition(pilotStartX + diceIndex * diceSpacing, pilotStartY);
@@ -394,7 +506,7 @@ public class GameplayScreen implements Screen {
                 if (isMouseOverField(mouseX, mouseY, gameLogic.getAirplane().getFlaps().getFlapsFields().get(i),
                         diceImage)) {
 
-                    playerInput = "flap";
+                    playerInput = "flaps";
                     fieldChoice = i + 1;
                     Vector3 fieldPosition = gameLogic.getAirplane().getFlaps().getFlapsFields().get(i)
                             .getStageCoordinates(stage);
@@ -403,6 +515,17 @@ public class GameplayScreen implements Screen {
                     if (gameLogic.getCoPilot().canPlaceDice(diceValue, playerInput, fieldChoice)) {
                         diceImage.setPosition(fieldStageX, fieldStageY - 50);
                         gameLogic.getRound().collectPlayerInput(diceIndex, playerInput, fieldChoice);
+                        switchesStates.set(i+3,true);
+                        currentOrangeMarkerSteps++;
+                        if(currentOrangeMarkerSteps==1){
+                            orangeMarkerPosition.set(1045,375);
+                        } else if(currentOrangeMarkerSteps==2){
+                            orangeMarkerPosition.set(1070,403);
+                        } else if(currentOrangeMarkerSteps==3){
+                            orangeMarkerPosition.set(1087,440);
+                        } else if(currentOrangeMarkerSteps==4){
+                            orangeMarkerPosition.set(1095,477);
+                        }
                         gameLogic.getRound().playRound();
                     } else {
                         diceImage.setPosition(coPilotStartX + diceIndex * diceSpacing, coPilotStartY);
@@ -438,7 +561,7 @@ public class GameplayScreen implements Screen {
                 if (isMouseOverField(mouseX, mouseY,
                         gameLogic.getAirplane().getConcentration().getCoffeeFields().get(i), diceImage)) {
 
-                    playerInput = "concentration";
+                    playerInput = "coffee";
                     fieldChoice = 0;
                     Vector3 fieldPosition = gameLogic.getAirplane().getConcentration().getCoffeeFields().get(i)
                             .getStageCoordinates(stage);
@@ -447,6 +570,7 @@ public class GameplayScreen implements Screen {
                     if (gameLogic.getCoPilot().canPlaceDice(diceValue, playerInput, fieldChoice)) {
                         diceImage.setPosition(fieldStageX, fieldStageY - 50);
                         gameLogic.getRound().collectPlayerInput(diceIndex, playerInput, fieldChoice);
+                        currentCoffeeQuantity++;
                         gameLogic.getRound().playRound();
                     } else {
                         diceImage.setPosition(coPilotStartX + diceIndex * diceSpacing, coPilotStartY);
