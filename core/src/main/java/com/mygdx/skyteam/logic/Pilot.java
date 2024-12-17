@@ -11,92 +11,139 @@ public class Pilot extends Player {
     }
 
     public void placeDice(int diceValue, String playerInput, int fieldChoice) {
-        boolean validPlacement = false;
-        // to track if they both put dice on their field so we can call the mutual function
 
-        while (!validPlacement) {
-            switch (playerInput.toLowerCase()) {
-                case "engine":
-                    Field pilotEngineField = airplane.getEngine().getPilotField();
-
-                    if (pilotEngineField.isFilled()) {
-                        System.out.println("Cannot place dice on the Engine. It's already occupied.");
-                    } else {
-                        airplane.getEngine().placePilotDice(diceValue);
-                        validPlacement = true;
-                    }
-
-                    Field coPilotEngineField = airplane.getEngine().getCoPilotField();
-                    if (coPilotEngineField.isFilled()) {
-                        airplane.adjustSpeed();
-                    }
-                    break;
-
-                case "axis":
-                    Field pilotField = airplane.getAxis().getPilotAxisField();
-
-                    if (pilotField.isFilled()) {
-                        System.out.println("Cannot place dice on the Axis. It's already occupied.");
-                    } else {
-                        airplane.getAxis().placePilotDice(diceValue);
-                        validPlacement = true;
-                    }
-
-                    Field coPilotField = airplane.getAxis().getCoPilotAxisField();
-
-                    if (coPilotField.isFilled()) {
-                        airplane.adjustTilt();
-                    }
-
-                    break;
-
-                case "radio":
-                    radio.useRadio(airplane.getEngine().getCurrentPosition(), diceValue, 0,
-                            airplane.getPlanesOnTrack());
-                    validPlacement = true;
-                    break;
-
-                case "landing gears":
-                    ArrayList<Field> gearFields = airplane.getLandingGears().getLandingGearFields();
-
-                    if (gearFields.get(0).isFilled() && gearFields.get(1).isFilled() && gearFields.get(2).isFilled()) {
-                        System.out.println("All landing gear fields are already occupied.");
-                    } else {
-                        airplane.deployLandingGear(diceValue, fieldChoice);
-                        validPlacement = true;
-                    }
-                    break;
-
-                case "brake":
-                    ArrayList<Field> brakeStatus = airplane.getBrakes().getBrakeFields();
-
-                    if (brakeStatus.get(0).isFilled() && brakeStatus.get(1).isFilled()
-                            && brakeStatus.get(2).isFilled()) {
-                        System.out.println("All brake fields are already occupied.");
-                    } else {
-                        airplane.deployBrakes(diceValue);
-                        validPlacement = true;
-                    }
-                    break;
-
-                case "coffee":
-                    if (airplane.getConcentration().getCoffeeFields().get(0).isFilled()
-                            && airplane.getConcentration().getCoffeeFields().get(1).isFilled()
-                            && airplane.getConcentration().getCoffeeFields().get(2).isFilled()) {
-                        System.out.println("All coffee fields are already filled.");
-                    } else {
-                        coffeeTokens.setQuantity(coffeeTokens.getQuantity() + 1);
-                        airplane.fillCoffeeFields(diceValue);
-                        validPlacement = true;
-                    }
-                    break;
-
-                default:
-                    System.out.println("Invalid input. Read the rules first, FOOL!");
-                    playerInput = "engine"; // hardcoded value for testing
-                    break;
-            }
+        if (!canPlaceDice(diceValue, playerInput, fieldChoice)) {
+            System.out.println("Cannot place dice on " + playerInput + ". The field is already occupied.");
+            return;
         }
+
+        switch (playerInput.toLowerCase()) {
+            case "engine":
+                Field pilotEngineField = airplane.getEngine().getPilotField();
+                airplane.getEngine().placePilotDice(diceValue);
+
+                Field coPilotEngineField = airplane.getEngine().getCoPilotField();
+                if (coPilotEngineField.isFilled()) {
+                    airplane.adjustSpeed();
+                }
+                break;
+
+            case "axis":
+                Field pilotField = airplane.getAxis().getPilotAxisField();
+                airplane.getAxis().placePilotDice(diceValue);
+                Field coPilotField = airplane.getAxis().getCoPilotAxisField();
+                if (coPilotField.isFilled()) {
+                    airplane.adjustTilt();
+                }
+                break;
+
+            case "radio":
+                radio.useRadio(airplane.getEngine().getCurrentPosition(), diceValue, 0, airplane.getPlanesOnTrack());
+
+                break;
+
+            case "landing gears":
+                airplane.deployLandingGear(diceValue, fieldChoice);
+                break;
+
+            case "brake":
+                airplane.deployBrakes(diceValue);
+                break;
+
+            case "coffee":
+                coffeeTokens.setQuantity(coffeeTokens.getQuantity() + 1);
+                airplane.fillCoffeeFields(diceValue);
+                break;
+
+            default:
+                System.out.println("Invalid input. Read the rules first, FOOL!");
+                break;
+        }
+    }
+
+    // checks if dice can be placed without modifying the game state
+    public boolean canPlaceDice(int diceValue, String playerInput, int fieldChoice) {
+        boolean validPlacement = false;
+
+        switch (playerInput.toLowerCase()) {
+            case "engine":
+                Field pilotEngineField = airplane.getEngine().getPilotField();
+
+                if (pilotEngineField.isFilled()) {
+                    System.out.println("Cannot place dice on the Engine. It's already occupied.");
+                    validPlacement = false;
+                } else {
+                    System.out.println("hooray you can place it");
+                    validPlacement = true;
+                }
+
+                Field coPilotEngineField = airplane.getEngine().getCoPilotField();
+                if (coPilotEngineField.isFilled()) {
+                    validPlacement = true;
+                }
+                break;
+
+            case "axis":
+                Field pilotField = airplane.getAxis().getPilotAxisField();
+                if (pilotField.isFilled()) {
+                    System.out.println("Cannot place dice on the Axis. It's already occupied.");
+                    validPlacement = false;
+                } else {
+                    System.out.println("hooray you can place it");
+                    validPlacement = true;
+                }
+
+                Field coPilotField = airplane.getAxis().getCoPilotAxisField();
+                if (coPilotField.isFilled()) {
+                    validPlacement = true;
+                }
+                break;
+
+            case "radio":
+                if (getRadio().getRadioFields().get(0).isFilled()) {
+                    System.out.println("Cannot place dice on the Radio. It's already occupied.");
+                    validPlacement = false;
+                } else {
+                    validPlacement = true;
+                }
+                break;
+
+            case "landing gears":
+                ArrayList<Field> gearFields = airplane.getLandingGears().getLandingGearFields();
+                if (gearFields.get(0).isFilled() && gearFields.get(1).isFilled() && gearFields.get(2).isFilled()) {
+                    System.out.println("All landing gear fields are already occupied.");
+                    validPlacement = false;
+                } else {
+                    validPlacement = true;
+                }
+                break;
+
+            case "brake":
+                if (airplane.getBrakes().canPlaceBrakes(diceValue)) {
+                    validPlacement = true;
+                } else {
+                    validPlacement = false;
+                }
+                break;
+
+            case "coffee":
+                if (airplane.getConcentration().getCoffeeFields().get(0).isFilled()
+                        && airplane.getConcentration().getCoffeeFields().get(1).isFilled()
+                        && airplane.getConcentration().getCoffeeFields().get(2).isFilled()) {
+                    System.out.println("All coffee fields are already filled.");
+                    validPlacement = false;
+                } else {
+                    validPlacement = true;
+                }
+                break;
+
+            default:
+                System.out.println("Invalid input. Read the rules first, FOOL!");
+                validPlacement = false;
+                break;
+        }
+
+        return validPlacement;
     }
 
     public boolean hasDicesOnRequiredFields() {
