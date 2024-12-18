@@ -73,7 +73,6 @@ public class Pilot extends Player {
                     System.out.println("Cannot place dice on the Engine. It's already occupied.");
                     validPlacement = false;
                 } else {
-                    System.out.println("hooray you can place it");
                     validPlacement = true;
                 }
 
@@ -89,7 +88,6 @@ public class Pilot extends Player {
                     System.out.println("Cannot place dice on the Axis. It's already occupied.");
                     validPlacement = false;
                 } else {
-                    System.out.println("hooray you can place it");
                     validPlacement = true;
                 }
 

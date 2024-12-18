@@ -27,7 +27,7 @@ public class GameplayScreen implements Screen {
     private Stage stage;
     private SkyTeamGame game;
     private GameLogic gameLogic;
-    private Texture boardTexture, planeTrack, altitudeTrack, axisIcon;
+    private Texture boardTexture, planeTrack, altitudeTrack, axisIcon, backgroundTexture;
     private SpriteBatch batch;
     private Sprite axisSprite;
 
@@ -81,7 +81,7 @@ public class GameplayScreen implements Screen {
 
     private float planeTrackVerticalOffset = 0;
 
-    private BitmapFont font;
+    private Texture[] roundTextures;
     private int previousRoundNumber = 1;
 
     private int lastKnownAltitude = 6000;
@@ -94,6 +94,7 @@ public class GameplayScreen implements Screen {
 
     @Override
     public void show() {
+        backgroundTexture = new Texture(Gdx.files.internal("images/wood_bg.jpg"));
         boardTexture = new Texture(Gdx.files.internal("board/Control Panel.png"));
         planeTrack = new Texture(Gdx.files.internal("board/Track.png"));
         altitudeTrack = new Texture(Gdx.files.internal("board/Altitude.png"));
@@ -109,7 +110,7 @@ public class GameplayScreen implements Screen {
         planeTexture = new Texture(Gdx.files.internal("board/icons/Plane.png"));
         batch = new SpriteBatch();
         stage = new Stage(new ScreenViewport());
-        font = new BitmapFont();
+        roundTextures = new Texture[7];
 
         Gdx.input.setInputProcessor(stage);
 
@@ -119,6 +120,10 @@ public class GameplayScreen implements Screen {
         for (int i = 1; i <= 6; i++) {
             pilotDiceTextures.add(new Texture("dice/" + i + "B.png"));
             coPilotDiceTextures.add(new Texture("dice/" + i + "R.png"));
+        }
+
+        for (int i = 0; i < 7; i++) {
+            roundTextures[i] = new Texture(Gdx.files.internal("images/round" + (i + 1) + ".png"));
         }
 
         gameLogic.startGame();
@@ -139,11 +144,11 @@ public class GameplayScreen implements Screen {
 
         // Switches for Landing gears
         switchesPositions.add(new Vector2(735, 343));
-        switchesPositions.add(new Vector2(735, 236));
+        switchesPositions.add(new Vector2(735, 235));
         switchesPositions.add(new Vector2(735, 126));
 
         // Switches for Flaps
-        switchesPositions.add(new Vector2(1142, 342));
+        switchesPositions.add(new Vector2(1142, 343));
         switchesPositions.add(new Vector2(1142, 235));
         switchesPositions.add(new Vector2(1142, 126));
         switchesPositions.add(new Vector2(1142, 18));
@@ -151,10 +156,10 @@ public class GameplayScreen implements Screen {
         // Switches for Brakes
         switchesPositions.add(new Vector2(867, 100));
         switchesPositions.add(new Vector2(940, 100));
-        switchesPositions.add(new Vector2(1012, 100));
+        switchesPositions.add(new Vector2(1013, 100));
 
         // Blue Markers
-        blueMarkerPosition = new Vector2(865, 368);
+        blueMarkerPosition = new Vector2(865, 367);
 
         // Red Markers
         redMarkerPosition = new Vector2(864, 235);
@@ -164,8 +169,8 @@ public class GameplayScreen implements Screen {
 
         // Coffee positions list
         coffeesPositions = new ArrayList<>();
-        coffeesPositions.add(new Vector2(759, 66));
-        coffeesPositions.add(new Vector2(759, 21));
+        coffeesPositions.add(new Vector2(760, 66));
+        coffeesPositions.add(new Vector2(760, 21));
         coffeesPositions.add(new Vector2(809, 21));
 
     }
@@ -180,9 +185,6 @@ public class GameplayScreen implements Screen {
 
             float xPosition = isPilot ? pilotStartX + i * diceSpacing : coPilotStartX + i * diceSpacing;
             float yPosition = isPilot ? pilotStartY : coPilotStartY;
-
-            System.out.println(
-                    (isPilot ? "Pilot" : "CoPilot") + " Dice Position (X, Y): " + xPosition + ", " + yPosition);
 
             diceImage.setPosition(xPosition, yPosition);
             diceImage.setSize(51, 51);
@@ -337,8 +339,13 @@ public class GameplayScreen implements Screen {
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT); // Clear the screen
 
         batch.begin();
-        // Drawing planeTrack and planes before board, so when they're updated with the
-        // logic, they move under the board, not above
+        if (gameLogic.getGameOver()) {
+            // Transition to GameOverScreen
+            game.setScreen(new GameOverScreen(game));
+            return; 
+        }
+        
+        batch.draw(backgroundTexture, 0, 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
         updatePlaneTrackVerticalOffset(gameLogic.getAirplane().getEngine().getCurrentPosition());
         drawBoardAndAltitudeTrack();
         drawSwitchesAndMarkers();
@@ -361,34 +368,33 @@ public class GameplayScreen implements Screen {
     }
 
     private void renderRoundNumber() {
-        String roundText = "Round " + gameLogic.getCurrentRoundNumber() + "/7";
+        int currentRound = gameLogic.getCurrentRoundNumber();
 
-        font.getData().setScale(2);
-        font.setColor(121f / 255f, 199f / 255f, 232f / 255f, 1f);
+        if (currentRound >= 1 && currentRound <= 7) {
+            Texture roundTexture = roundTextures[currentRound - 1];
 
-        float xPosition = 10;
-        float yPosition = Gdx.graphics.getHeight() - 10;
+            float xPosition = 30;
+            float yPosition = Gdx.graphics.getHeight() - 80;
 
-        font.draw(batch, roundText, xPosition, yPosition);
+            batch.draw(roundTexture, xPosition, yPosition);
+        }
     }
 
     private void drawBoardAndAltitudeTrack() {
         float scaleFactor = 0.8f;
 
         int currentAltitude = gameLogic.getAirplane().getAltitude().getAltitudeValue();
-        
 
         if (currentAltitude != lastKnownAltitude) {
             altitudeOffset += 75;
             lastKnownAltitude = currentAltitude;
-            
+
         }
 
         float altitudeTrackWidth = altitudeTrack.getWidth() * scaleFactor - 6;
         float altitudeTrackHeight = altitudeTrack.getHeight() * scaleFactor;
         float altitudeTrackX = (Gdx.graphics.getWidth() - altitudeTrackWidth) / 2f + 95 - 2;
         float altitudeTrackY = boardTexture.getHeight() * scaleFactor - 100 - altitudeOffset;
-        System.out.println("hello!"+ altitudeOffset);
         batch.draw(altitudeTrack, altitudeTrackX, altitudeTrackY, altitudeTrackWidth, altitudeTrackHeight);
 
         float boardWidth = boardTexture.getWidth() * scaleFactor;
@@ -636,7 +642,7 @@ public class GameplayScreen implements Screen {
                         switchesStates.set(i, true);
                         currentBlueMarkerSteps++;
                         if (currentBlueMarkerSteps == 1) {
-                            blueMarkerPosition.set(900, 345);
+                            blueMarkerPosition.set(900, 344);
                             blueMarkerRotation = -30;
                         } else if (currentBlueMarkerSteps == 2) {
                             blueMarkerPosition.set(935, 336);

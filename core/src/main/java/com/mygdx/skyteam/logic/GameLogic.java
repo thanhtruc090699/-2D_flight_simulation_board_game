@@ -158,4 +158,7 @@ public class GameLogic {
     public int getCurrentRoundNumber(){
         return currentRoundNumber;
     }
+    public boolean getGameOver(){
+        return gameOver;
+    }
 }

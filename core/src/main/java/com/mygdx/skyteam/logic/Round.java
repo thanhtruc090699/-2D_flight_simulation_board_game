@@ -97,16 +97,7 @@ public class Round {
 
             pilot.getDices().get(diceIndex).assign();
 
-            if (airplane.getAxis().getPilotAxisField().isFilled()
-                    && airplane.getAxis().getCoPilotAxisField().isFilled()) { // in case axis reaches x prematurely,
-                                                                              // end game
-                if (airplane.getAxis().getCurrentTilt() == 6 || airplane.getAxis().getCurrentTilt() == 1) {
-                    System.out.println("tilt is: " + airplane.getAxis().getCurrentTilt());
-                    checkRoundConditions();
-                    game.endGame();
-                    return;
-                }
-            }
+            checkTurnConditions();
         }
         // CoPilots turn
         else {
@@ -124,15 +115,7 @@ public class Round {
 
             coPilot.getDices().get(diceIndex).assign();
 
-            if (airplane.getAxis().getPilotAxisField().isFilled()
-                    && airplane.getAxis().getCoPilotAxisField().isFilled()) { // in case axis reaches x prematurely,
-                                                                              // end game
-                if (airplane.getAxis().getCurrentTilt() == 6 || airplane.getAxis().getCurrentTilt() == 1) {
-                    checkRoundConditions();
-                    game.endGame();
-                    return;
-                }
-            }
+            checkTurnConditions();
 
         }
     }
@@ -151,6 +134,23 @@ public class Round {
             return false;
         else
             return true;
+    }
+
+    private void checkTurnConditions() {
+
+        if (airplane.getEngine().getPilotField().isFilled() && airplane.getEngine().getCoPilotField().isFilled()) {
+            if (!airplane.getEngine().isPositionMoveSuccessful()) {
+                game.endGame();
+                return;
+            }
+        }
+
+        if (airplane.getAxis().getPilotAxisField().isFilled() && airplane.getAxis().getCoPilotAxisField().isFilled()) {
+
+            if (airplane.getAxis().getCurrentTilt() == 6 || airplane.getAxis().getCurrentTilt() == 0) {
+                game.endGame();
+            }
+        }
     }
 
     public void handleCoffeeToken(Player player) {

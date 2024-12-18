@@ -32,7 +32,6 @@ public class CoPilot extends Player {
                 Field pilotAxisField = airplane.getAxis().getPilotAxisField();
                 if (pilotAxisField.isFilled()) {
                     airplane.adjustTilt();
-                    System.out.println("testing testingg does it appear");
                 }
                 break;
 

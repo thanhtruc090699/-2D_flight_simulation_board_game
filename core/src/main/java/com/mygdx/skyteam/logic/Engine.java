@@ -57,19 +57,17 @@ public class Engine {
         if (speed < blueMarker) {
             System.out.println("Plane does not move.");
             isPositionMoveSuccessful = true;
-            return;
         }
         if (currentPosition == airportLocation && speed >= blueMarker) {
             System.out.println("You lost! You overshot the airport.");
             isPositionMoveSuccessful = false;
-            return; // Game over, no movement
         }
         if (speed > blueMarker && speed <= orangeMarker) {
             if (checkPlanesOnTrack(planesOnTrack, currentPosition + 1)) {
                 currentPosition++;
                 System.out.println("Plane moves 1 step. Current position: " + currentPosition);
                 isPositionMoveSuccessful = true;
-                return;
+                
             }
 
         } else if (speed > orangeMarker) {
@@ -78,11 +76,11 @@ public class Engine {
                 currentPosition += 2;
                 System.out.println("Plane moves 2 steps. Current position: " + currentPosition);
                 isPositionMoveSuccessful = true;
-                return;
             }
         }
-        System.out.println("There were planes on your track. You crashed.");
+
         isPositionMoveSuccessful = false;
+        System.out.println(isPositionMoveSuccessful);
     }
 
     public boolean checkPlanesOnTrack(ArrayList<Integer> planesOnTrack, int currentPosition) {
@@ -93,7 +91,6 @@ public class Engine {
             return true;
         }
     }
-
 
     public int getCurrentPosition() {
         return currentPosition;
