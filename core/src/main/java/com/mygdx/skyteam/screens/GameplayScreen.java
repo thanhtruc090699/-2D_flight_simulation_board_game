@@ -12,6 +12,7 @@ import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.mygdx.skyteam.logic.Dice;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import java.util.ArrayList;
@@ -69,7 +70,14 @@ public class GameplayScreen implements Screen {
     private Texture coffeeTrack;
     private ArrayList<Vector2> coffeesPositions;
     private int currentCoffeeQuantity = 0;
-   
+
+    private Texture pilotTurnTexture;
+    private Texture coPilotTurnTexture;
+
+    private Texture planeTexture;
+    private ArrayList<Vector2> planePositions;
+
+    private float planeTrackVerticalOffset = 0;
 
     public GameplayScreen(SkyTeamGame game, GameLogic gameLogic) {
         this.game = game;
@@ -87,7 +95,10 @@ public class GameplayScreen implements Screen {
         redMarkerTrack = new Texture(Gdx.files.internal("board/markers/MarkerRed.png"));
         orangeMarkerTrack = new Texture(Gdx.files.internal("board/markers/MarkerOrange.png"));
         coffeeTrack = new Texture(Gdx.files.internal("board/icons/Coffee.png"));
+        pilotTurnTexture = new Texture(Gdx.files.internal("images/pilots_turn.png"));
+        coPilotTurnTexture = new Texture(Gdx.files.internal("images/copilots_turn.png"));
         axisSprite = new Sprite(axisIcon);
+        planeTexture = new Texture(Gdx.files.internal("board/icons/Plane.png"));
         batch = new SpriteBatch();
         stage = new Stage(new ScreenViewport());
 
@@ -102,7 +113,6 @@ public class GameplayScreen implements Screen {
         }
 
         gameLogic.startGame();
-        playerIndex = gameLogic.getRound().getCurrentPlayerIndex();
 
         pilotDice = new ArrayList<>(gameLogic.getPilot().getDices());
         coPilotDice = new ArrayList<>(gameLogic.getCoPilot().getDices());
@@ -179,13 +189,15 @@ public class GameplayScreen implements Screen {
         diceImage.addListener(new InputListener() {
             @Override
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
-
-                System.out.println("Pilot Dice touchDown");
-                isDraggingPilotDice = true;
-                draggedPilotDice = dice;
-                dragStartX = x;
-                dragStartY = y;
-                return true;
+                if (gameLogic.getRound().getCurrentPlayerIndex() == 0) {
+                    System.out.println("Pilot Dice touchDown");
+                    isDraggingPilotDice = true;
+                    draggedPilotDice = dice;
+                    dragStartX = x;
+                    dragStartY = y;
+                    return true;
+                }
+                return false;
 
             }
 
@@ -214,12 +226,15 @@ public class GameplayScreen implements Screen {
         diceImage.addListener(new InputListener() {
             @Override
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
-                System.out.println("Co-Pilot Dice touchDown");
-                isDraggingCoPilotDice = true;
-                draggedCoPilotDice = dice;
-                dragStartX = x;
-                dragStartY = y;
-                return true;
+                if (gameLogic.getRound().getCurrentPlayerIndex() == 1) {
+                    System.out.println("Co-Pilot Dice touchDown");
+                    isDraggingCoPilotDice = true;
+                    draggedCoPilotDice = dice;
+                    dragStartX = x;
+                    dragStartY = y;
+                    return true;
+                }
+                return false;
             }
 
             @Override
@@ -255,10 +270,21 @@ public class GameplayScreen implements Screen {
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT); // Clear the screen
 
         batch.begin();
-
-        drawBoardAndTracks();
+        // Drawing planeTrack and planes before board, so when they're updated with the
+        // logic, they move under the board, not above
+        updatePlaneTrackVerticalOffset(gameLogic.getAirplane().getEngine().getCurrentPosition());
+        drawBoardAndAltitudeTrack();
         drawSwitchesAndMarkers();
         axisSprite.draw(batch);
+
+        playerIndex = gameLogic.getRound().getCurrentPlayerIndex();
+
+        if (playerIndex == 0) {
+            batch.draw(pilotTurnTexture, 300, 750);
+        } else if (playerIndex == 1) {
+            batch.draw(coPilotTurnTexture, Gdx.graphics.getWidth() - 600, 750);
+        }
+
         batch.end();
 
         stage.act(Math.min(Gdx.graphics.getDeltaTime(), 1 / 30f));
@@ -266,19 +292,14 @@ public class GameplayScreen implements Screen {
 
     }
 
-    private void drawBoardAndTracks() {
+    private void drawBoardAndAltitudeTrack() {
         float scaleFactor = 0.8f;
-
-        float planeTrackWidth = planeTrack.getWidth() * scaleFactor - 6;
-        float planeTrackHeight = planeTrack.getHeight() * scaleFactor;
-        float planeTrackX = (Gdx.graphics.getWidth() - planeTrackWidth) / 2f - 95 + 3;
-        float planeTrackY = boardTexture.getHeight() * scaleFactor - 100;
-        batch.draw(planeTrack, planeTrackX, planeTrackY, planeTrackWidth, planeTrackHeight);
 
         float altitudeTrackWidth = altitudeTrack.getWidth() * scaleFactor - 6;
         float altitudeTrackHeight = altitudeTrack.getHeight() * scaleFactor;
         float altitudeTrackX = (Gdx.graphics.getWidth() - altitudeTrackWidth) / 2f + 95 - 2;
-        batch.draw(altitudeTrack, altitudeTrackX, planeTrackY, altitudeTrackWidth, altitudeTrackHeight);
+        float altitudeTrackY = boardTexture.getHeight() * scaleFactor - 100;
+        batch.draw(altitudeTrack, altitudeTrackX, altitudeTrackY, altitudeTrackWidth, altitudeTrackHeight);
 
         float boardWidth = boardTexture.getWidth() * scaleFactor;
         float boardHeight = boardTexture.getHeight() * scaleFactor;
@@ -336,6 +357,80 @@ public class GameplayScreen implements Screen {
 
         }
 
+    }
+
+    /**
+     * Dynamically generates and draws planes based on the number of planes at each
+     * track position.
+     * 
+     * The function adapts to changes in the number of planes at each track
+     * position by adjusting the Y-axis for track indices and the X-axis for
+     * multiple
+     * planes at the same position.
+     * 
+     * The `planesOnTrack` variable, updated by game logic, automatically reflects
+     * the
+     * current plane state, removing planes when the `useRadio` event is triggered.
+     * 
+     * @param planesOnTrack A list representing the number of planes at each track
+     *                      position.
+     *                      The list size determines the number of positions, and
+     *                      each element
+     *                      represents how many planes are at that position.
+     */
+    public void generateAndDrawPlanesWithTrack(ArrayList<Integer> planesOnTrack) {
+        planePositions = new ArrayList<>();
+
+        float scaleFactor = 0.26f;
+        float scaledWidth = planeTexture.getWidth() * scaleFactor;
+        float scaledHeight = planeTexture.getHeight() * scaleFactor;
+
+        // Drawing plane track
+        float planeTrackScaleFactor = 0.8f;
+        float planeTrackWidth = planeTrack.getWidth() * planeTrackScaleFactor - 6;
+        float planeTrackHeight = planeTrack.getHeight() * planeTrackScaleFactor;
+        float planeTrackX = (Gdx.graphics.getWidth() - planeTrackWidth) / 2f - 95 + 3;
+        float planeTrackY = boardTexture.getHeight() * planeTrackScaleFactor - 100 - planeTrackVerticalOffset;
+        batch.draw(planeTrack, planeTrackX, planeTrackY, planeTrackWidth, planeTrackHeight);
+
+        int baseY = 620;
+        int verticalSpacing = 75;
+        int positionSpacing = 50;
+
+        int screenCenterX = Gdx.graphics.getWidth() / 2;
+        int xOffsetFromCenter = -100;
+        int xPosition = screenCenterX + xOffsetFromCenter;
+
+        for (int i = 0; i < planesOnTrack.size(); i++) {
+            int planesAtCurrentPosition = planesOnTrack.get(i);
+            int yBasePosition = baseY + i * verticalSpacing - (int) planeTrackVerticalOffset;
+
+            for (int j = 0; j < planesAtCurrentPosition; j++) {
+
+                int xOffset = 0;
+                if (planesAtCurrentPosition == 2) {
+                    xOffset = (j == 0) ? -20 : 20;
+                } else if (planesAtCurrentPosition == 3) {
+                    xOffset = (j == 0) ? -30 : (j == 1 ? 0 : 30);
+                }
+
+                int xAdjustedPosition = xPosition + xOffset;
+                int yPosition = yBasePosition;
+
+                Vector2 planePosition = new Vector2(xAdjustedPosition, yPosition);
+                planePositions.add(planePosition);
+
+                batch.draw(planeTexture, planePosition.x, planePosition.y, scaledWidth, scaledHeight);
+            }
+        }
+    }
+
+    public void updatePlaneTrackVerticalOffset(int currentPosition) {
+        // Calculate the planeTrackVerticalOffset based on the currentPosition
+        planeTrackVerticalOffset = currentPosition * 80;
+
+        // Call the plane generation and drawing method with updated position
+        generateAndDrawPlanesWithTrack(gameLogic.getAirplane().getPlanesOnTrack());
     }
 
     public void handleInput(int mouseX, int mouseY, boolean isPilot, Image diceImage, int diceIndex) {
