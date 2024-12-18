@@ -155,7 +155,7 @@ public class GameplayScreen implements Screen {
 
         // Coffee positions list
         coffeesPositions = new ArrayList<>();
-        coffeesPositions.add(new Vector2(760, 66));
+        coffeesPositions.add(new Vector2(759, 66));
         coffeesPositions.add(new Vector2(760, 21));
         coffeesPositions.add(new Vector2(809, 21));
 

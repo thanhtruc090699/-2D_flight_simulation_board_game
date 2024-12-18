@@ -18,7 +18,7 @@ public class Engine {
         airportLocation = 6;
         speed = 0;
         blueMarker = 4;
-        orangeMarker = 8;
+        orangeMarker = 9;
         pilotField = new Field("Pilot Engine Field", Arrays.asList(1, 2, 3, 4, 5, 6), 860, 748);
         coPilotField = new Field("CoPilot Engine Field", Arrays.asList(1, 2, 3, 4, 5, 6), 1012, 748);
     }

@@ -86,7 +86,7 @@ public class Round {
 
                 pilot.displayUnassignedDice();
 
-                int selectedDiceValue = pilot.getUnassignedDice().get(diceIndex).getDiceValue();
+                int selectedDiceValue = pilot.getDices().get(diceIndex).getDiceValue();
                 System.out.println("You selected dice value: " + selectedDiceValue);
 
                 System.out.println("Where do you want to place your dice?");
@@ -94,7 +94,7 @@ public class Round {
 
                 pilot.placeDice(selectedDiceValue, playerInput, fieldChoice);
 
-                pilot.getUnassignedDice().get(diceIndex).assign();
+                pilot.getDices().get(diceIndex).assign();
 
                 if (airplane.getAxis().getPilotAxisField().isFilled()
                         && airplane.getAxis().getCoPilotAxisField().isFilled()) { // in case axis reaches x prematurely,
@@ -117,15 +117,12 @@ public class Round {
 
             coPilot.displayUnassignedDice();
 
-            int selectedDiceValue = coPilot.getUnassignedDice().get(diceIndex).getDiceValue();
+            int selectedDiceValue = coPilot.getDices().get(diceIndex).getDiceValue();
             System.out.println("You selected dice value: " + selectedDiceValue);
-
-            System.out.println("Where do you want to place your dice?");
-            System.out.println("Available options: engine, axis, radio, flaps, coffee");
 
             coPilot.placeDice(selectedDiceValue, playerInput, fieldChoice);
 
-            coPilot.getUnassignedDice().get(diceIndex).assign();
+            coPilot.getDices().get(diceIndex).assign();
 
             if (airplane.getAxis().getPilotAxisField().isFilled()
                     && airplane.getAxis().getCoPilotAxisField().isFilled()) { // in case axis reaches x prematurely,

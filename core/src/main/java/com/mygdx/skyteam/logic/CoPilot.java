@@ -78,7 +78,7 @@ public class CoPilot extends Player {
                 break;
 
             case "radio":
-                if (getRadio().getRadioFields().get(0).isFilled()) {
+                if (getRadio().getRadioFields().get(fieldChoice).isFilled()) {
                     System.out.println("Cannot place dice on the Radio. It's already occupied.");
                 } else {
                     validPlacement = true;
