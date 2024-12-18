@@ -84,6 +84,9 @@ public class GameplayScreen implements Screen {
     private BitmapFont font;
     private int previousRoundNumber = 1;
 
+    private int lastKnownAltitude = 6000;
+    private float altitudeOffset = 0;
+
     public GameplayScreen(SkyTeamGame game, GameLogic gameLogic) {
         this.game = game;
         this.gameLogic = gameLogic;
@@ -372,10 +375,20 @@ public class GameplayScreen implements Screen {
     private void drawBoardAndAltitudeTrack() {
         float scaleFactor = 0.8f;
 
+        int currentAltitude = gameLogic.getAirplane().getAltitude().getAltitudeValue();
+        
+
+        if (currentAltitude != lastKnownAltitude) {
+            altitudeOffset += 75;
+            lastKnownAltitude = currentAltitude;
+            
+        }
+
         float altitudeTrackWidth = altitudeTrack.getWidth() * scaleFactor - 6;
         float altitudeTrackHeight = altitudeTrack.getHeight() * scaleFactor;
         float altitudeTrackX = (Gdx.graphics.getWidth() - altitudeTrackWidth) / 2f + 95 - 2;
-        float altitudeTrackY = boardTexture.getHeight() * scaleFactor - 100;
+        float altitudeTrackY = boardTexture.getHeight() * scaleFactor - 100 - altitudeOffset;
+        System.out.println("hello!"+ altitudeOffset);
         batch.draw(altitudeTrack, altitudeTrackX, altitudeTrackY, altitudeTrackWidth, altitudeTrackHeight);
 
         float boardWidth = boardTexture.getWidth() * scaleFactor;
@@ -503,10 +516,9 @@ public class GameplayScreen implements Screen {
     }
 
     public void updatePlaneTrackVerticalOffset(int currentPosition) {
-        // Calculate the planeTrackVerticalOffset based on the currentPosition
-        planeTrackVerticalOffset = currentPosition * 80;
 
-        // Call the plane generation and drawing method with updated position
+        planeTrackVerticalOffset = currentPosition * 75;
+
         generateAndDrawPlanesWithTrack(gameLogic.getAirplane().getPlanesOnTrack());
     }
 

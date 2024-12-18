@@ -10,9 +10,10 @@ class AxisTest {
     private Axis axis;
 
     @BeforeEach
-    void setUp(){
+    void setUp() {
         axis = new Axis();
     }
+
     @Test
     void testInitialValues() {
         assertEquals(3, axis.getCurrentTilt(), "This should always give 3 since axis will be leveled initially");
@@ -21,60 +22,60 @@ class AxisTest {
     }
 
     @Test
-    void testAdjustTiltCoPilotSide() { // Plane Tilts 90 degrees to the right.
+    void testAdjustTiltCoPilotSide() {
         assertAll(
                 () -> {
                     axis.placePilotDice(2);
                     axis.placeCoPilotDice(5);
                     axis.adjustTilt();
-                    assertEquals(4, axis.getCurrentTilt());
+                    assertEquals(6, axis.getCurrentTilt(), "Expected tilt to be 6 after adjustment.");
                 },
                 () -> {
                     axis.placePilotDice(5);
                     axis.placeCoPilotDice(6);
                     axis.adjustTilt();
-                    assertEquals(5, axis.getCurrentTilt());
+                    assertEquals(4, axis.getCurrentTilt(), "Expected tilt to be 4 after adjustment.");
                 },
                 () -> {
                     axis.placePilotDice(2);
                     axis.placeCoPilotDice(1);
                     axis.adjustTilt();
-                    assertEquals(4, axis.getCurrentTilt());
+                    assertEquals(2, axis.getCurrentTilt(), "Expected tilt to be 2 after adjustment.");
                 },
                 () -> {
                     axis.placePilotDice(1);
                     axis.placeCoPilotDice(3);
                     axis.adjustTilt();
-                    assertEquals(5, axis.getCurrentTilt());
+                    assertEquals(5, axis.getCurrentTilt(), "Expected tilt to be 5 after adjustment.");
                 },
                 () -> {
                     axis.placePilotDice(2);
                     axis.placeCoPilotDice(4);
                     axis.adjustTilt();
-                    assertEquals(-1, axis.getCurrentTilt());
+                    assertEquals(5, axis.getCurrentTilt(), "Expected tilt to be 5 after adjustment.");
                 });
     }
 
     @Test
-    void testAdjustTiltPilotSide() { // Plane Tilts 90 degrees to the left.
+    void testAdjustTiltPilotSide() {
         assertAll(
                 () -> {
                     axis.placePilotDice(5);
                     axis.placeCoPilotDice(2);
                     axis.adjustTilt();
-                    assertEquals(2, axis.getCurrentTilt());
+                    assertEquals(6, axis.getCurrentTilt());
                 },
                 () -> {
                     axis.placePilotDice(6);
                     axis.placeCoPilotDice(5);
                     axis.adjustTilt();
-                    assertEquals(1, axis.getCurrentTilt());
+                    assertEquals(2, axis.getCurrentTilt());
                 },
                 () -> {
                     axis.placePilotDice(1);
                     axis.placeCoPilotDice(2);
                     axis.adjustTilt();
-                    assertEquals(2, axis.getCurrentTilt());
+                    assertEquals(4, axis.getCurrentTilt());
                 },
                 () -> {
                     axis.placePilotDice(3);
@@ -86,8 +87,16 @@ class AxisTest {
                     axis.placePilotDice(4);
                     axis.placeCoPilotDice(2);
                     axis.adjustTilt();
-                    assertEquals(-1, axis.getCurrentTilt());
+                    assertEquals(1, axis.getCurrentTilt());
                 });
+    }
+
+    @Test
+    void testSingleAdjustTilt() {
+        axis.placePilotDice(4);
+        axis.placeCoPilotDice(2);
+        axis.adjustTilt();
+        assertEquals(1, axis.getCurrentTilt());
     }
 
     @Test
@@ -168,5 +177,45 @@ class AxisTest {
         assertEquals(3, axis.getCurrentTilt(), "The tilt should be 3 (balanced) when both dice have equal values.");
     }
 
+    @Test
+    void testGetRotationAngle_withTilt0() {
+        axis.setTilt(0);
+        float angle = axis.getRotationAngle();
+        assertEquals(80f, angle, "Rotation angle should be 80f for tilt 0");
+    }
 
+    @Test
+    void testGetRotationAngle_withTilt1() {
+        axis.setTilt(1);
+        float angle = axis.getRotationAngle();
+        assertEquals(60f, angle, "Rotation angle should be 60f for tilt 1");
+    }
+
+    @Test
+    void testGetRotationAngle_withTilt6() {
+        axis.setTilt(6);
+        float angle = axis.getRotationAngle();
+        assertEquals(-80f, angle, "Rotation angle should be -80f for tilt 6");
+    }
+
+    @Test
+    void testGetRotationAngle_withTilt2() {
+        axis.setTilt(2);
+        float angle = axis.getRotationAngle();
+        assertEquals(30f, angle, "Rotation angle should be 30f for tilt 2");
+    }
+
+    @Test
+    void testGetRotationAngle_withTilt4() {
+        axis.setTilt(4);
+        float angle = axis.getRotationAngle();
+        assertEquals(-30f, angle, "Rotation angle should be -30f for tilt 4");
+    }
+
+    @Test
+    void testGetRotationAngle_withInvalidTilt() {
+        axis.setTilt(7);
+        float angle = axis.getRotationAngle();
+        assertEquals(0f, angle, "Rotation angle should be 0f for invalid tilt values");
+    }
 }

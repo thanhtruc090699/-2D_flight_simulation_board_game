@@ -5,7 +5,6 @@ import org.junit.jupiter.api.Test;
 import com.mygdx.skyteam.logic.Flap;
 import com.mygdx.skyteam.logic.Airplane;
 
-
 import static org.junit.jupiter.api.Assertions.*;
 
 class FlapTest {
@@ -88,25 +87,41 @@ class FlapTest {
     }
 
     @Test
-    void testDeployFlapShiftsOrangeMarker(){
+    void testDeployFlapShiftsOrangeMarker() {
         flap.deployFlaps(1, airplane, 1);
 
-        assertEquals(9, airplane.getEngine().getOrangeMarker());
+        assertEquals(10, airplane.getEngine().getOrangeMarker());
     }
 
     @Test
     void testDeployInvalidFlapValue() {
-        
-        flap.deployFlaps(5, airplane, 1);  // Invalid flap number
-        flap.deployFlaps(1, airplane, 4);  // Invalid flap number
+
+        flap.deployFlaps(5, airplane, 1); // Invalid flap number
+        flap.deployFlaps(1, airplane, 4); // Invalid flap number
 
         assertAll(
-            () -> assertFalse(flap.getFlapsFields().get(0).isFilled()),
-            () -> assertFalse(flap.getFlapsFields().get(1).isFilled()),
-            () -> assertFalse(flap.getFlapsFields().get(2).isFilled()),
-            () -> assertFalse(flap.getFlapsFields().get(3).isFilled())
-        );
+                () -> assertFalse(flap.getFlapsFields().get(0).isFilled()),
+                () -> assertFalse(flap.getFlapsFields().get(1).isFilled()),
+                () -> assertFalse(flap.getFlapsFields().get(2).isFilled()),
+                () -> assertFalse(flap.getFlapsFields().get(3).isFilled()));
     }
 
+    @Test
+    public void testCanPlaceFlap_validDiceAndFieldChoice() {
+        flap.getFlapsFields().get(0).setFilled(true);
+        assertTrue(flap.canPlaceFlap(2, 2)); // Field 2 has valid dice 4,5,6 and is filled
+    }
+
+    @Test
+    public void testCanPlaceFlap_invalidDice() {
+        flap.getFlapsFields().get(0).setFilled(true);
+        assertFalse(flap.canPlaceFlap(4, 1)); // Field 1 has valid dice 1,2,3, not 4
+    }
+
+    @Test
+    public void testCanPlaceFlap_unfilledPreviousField() {
+        flap.getFlapsFields().get(0).setFilled(false); // Unfill field 1
+        assertFalse(flap.canPlaceFlap(4, 2)); // Field 2 can't be filled before field 1
+    }
 
 }

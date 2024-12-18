@@ -88,5 +88,8 @@ public class Axis {
                 return 0f;
         }
     }
+    public void setTilt(int tilt){
+        this.currentTilt=tilt;
+    }
 
 }

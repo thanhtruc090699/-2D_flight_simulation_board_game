@@ -54,16 +54,7 @@ public class Airplane {
     public void fillCoffeeFields(int diceValue){
         coffee.fillCoffeeFields(diceValue);
     }
-    public boolean checkAirplaneConditions(){ //checking for every Round, not end Round (we have a seperate function)
-        if(axis.getCurrentTilt() == -1){ 
-            System.out.println("The plane has spun and crashed!");
-            return false;
-        }
-        if(!engine.checkWinLossConditionForEngine(planesOnTrack)){
-            return false;
-        }
-        return true;
-    }
+
     //getters and setters
     public Engine getEngine(){
         return engine;

@@ -101,6 +101,7 @@ public class Round {
                     && airplane.getAxis().getCoPilotAxisField().isFilled()) { // in case axis reaches x prematurely,
                                                                               // end game
                 if (airplane.getAxis().getCurrentTilt() == 6 || airplane.getAxis().getCurrentTilt() == 1) {
+                    System.out.println("tilt is: " + airplane.getAxis().getCurrentTilt());
                     checkRoundConditions();
                     game.endGame();
                     return;
@@ -118,7 +119,6 @@ public class Round {
             coPilot.displayUnassignedDice();
 
             int selectedDiceValue = coPilot.getDices().get(diceIndex).getDiceValue();
-            System.out.println("You selected dice value: " + selectedDiceValue);
 
             coPilot.placeDice(selectedDiceValue, playerInput, fieldChoice);
 
@@ -145,9 +145,9 @@ public class Round {
 
     public boolean checkRoundConditions() {
 
-        if (!pilot.hasDicesOnRequiredFields() && !pilot.hasDicesOnRequiredFields())
+        if (!pilot.hasDicesOnRequiredFields() && !coPilot.hasDicesOnRequiredFields())
             return false;
-        if (!airplane.checkAirplaneConditions())
+        if (!airplane.getEngine().isPositionMoveSuccessful())
             return false;
         else
             return true;

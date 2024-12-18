@@ -28,7 +28,7 @@ class EngineTest {
         assertEquals(0, engine.getCurrentPosition(), "Initial position should be 0.");
         assertEquals(0, engine.getSpeed(), "Initial speed should be 0.");
         assertEquals(4, engine.getBlueMarker(), "Initial blue marker should be 5.");
-        assertEquals(8, engine.getOrangeMarker(), "Initial orange marker should be 9.");
+        assertEquals(9, engine.getOrangeMarker(), "Initial orange marker should be 9.");
     }
 
     @Test
@@ -53,7 +53,7 @@ class EngineTest {
     @Test
     void testShiftOrangeMarker() {
         engine.shiftOrangeMarker();
-        assertEquals(9, engine.getOrangeMarker(), "Orange marker should be incremented to 9.");
+        assertEquals(10, engine.getOrangeMarker(), "Orange marker should be incremented to 10.");
         assertEquals(0, engine.getCurrentPosition(),
                 "Position should remain the same after shifting the orange marker.");
     }
