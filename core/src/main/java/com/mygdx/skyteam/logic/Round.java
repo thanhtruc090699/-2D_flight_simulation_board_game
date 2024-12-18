@@ -74,36 +74,36 @@ public class Round {
                 } else {
                     System.out.println("CoPilot decided not to use the reroll token.");
                 }
+            }
 
-                if (tokenUsed) {
-                    airplane.getAltitude().getRerollToken()
-                            .setQuantity(airplane.getAltitude().getRerollToken().getQuantity() - 1);
-                    System.out.println("Reroll token count reduced. Remaining tokens: "
-                            + airplane.getAltitude().getRerollToken().getQuantity());
-                }
+            if (tokenUsed) {
+                airplane.getAltitude().getRerollToken()
+                        .setQuantity(airplane.getAltitude().getRerollToken().getQuantity() - 1);
+                System.out.println("Reroll token count reduced. Remaining tokens: "
+                        + airplane.getAltitude().getRerollToken().getQuantity());
+            }
 
-                handleCoffeeToken(pilot);
+            handleCoffeeToken(pilot);
 
-                pilot.displayUnassignedDice();
+            pilot.displayUnassignedDice();
 
-                int selectedDiceValue = pilot.getDices().get(diceIndex).getDiceValue();
-                System.out.println("You selected dice value: " + selectedDiceValue);
+            int selectedDiceValue = pilot.getDices().get(diceIndex).getDiceValue();
+            System.out.println("You selected dice value: " + selectedDiceValue);
 
-                System.out.println("Where do you want to place your dice?");
-                System.out.println("Available options: engine, axis, radio, landing gears, brake, coffee");
+            System.out.println("Where do you want to place your dice?");
+            System.out.println("Available options: engine, axis, radio, landing gears, brake, coffee");
 
-                pilot.placeDice(selectedDiceValue, playerInput, fieldChoice);
+            pilot.placeDice(selectedDiceValue, playerInput, fieldChoice);
 
-                pilot.getDices().get(diceIndex).assign();
+            pilot.getDices().get(diceIndex).assign();
 
-                if (airplane.getAxis().getPilotAxisField().isFilled()
-                        && airplane.getAxis().getCoPilotAxisField().isFilled()) { // in case axis reaches x prematurely,
-                                                                                  // end game
-                    if (airplane.getAxis().getCurrentTilt() == 6 || airplane.getAxis().getCurrentTilt() == 1) {
-                        checkRoundConditions();
-                        game.endGame();
-                        return;
-                    }
+            if (airplane.getAxis().getPilotAxisField().isFilled()
+                    && airplane.getAxis().getCoPilotAxisField().isFilled()) { // in case axis reaches x prematurely,
+                                                                              // end game
+                if (airplane.getAxis().getCurrentTilt() == 6 || airplane.getAxis().getCurrentTilt() == 1) {
+                    checkRoundConditions();
+                    game.endGame();
+                    return;
                 }
             }
         }

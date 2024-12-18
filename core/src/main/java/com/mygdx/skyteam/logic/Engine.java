@@ -80,7 +80,7 @@ public class Engine {
     }
 
     public boolean checkPlanesOnTrack(ArrayList<Integer> planesOnTrack, int currentPosition) {
-        if (planesOnTrack.get(currentPosition) != 0) {
+        if (planesOnTrack.get(currentPosition - 1) != 0) {
             System.out.println("There were planes on your track. You crashed.");
             return false;
         } else {

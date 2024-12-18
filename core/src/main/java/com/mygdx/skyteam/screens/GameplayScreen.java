@@ -2,8 +2,10 @@ package com.mygdx.skyteam.screens;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.InputListener;
 import com.badlogic.gdx.scenes.scene2d.Stage;
@@ -79,6 +81,9 @@ public class GameplayScreen implements Screen {
 
     private float planeTrackVerticalOffset = 0;
 
+    private BitmapFont font;
+    private int previousRoundNumber = 1;
+
     public GameplayScreen(SkyTeamGame game, GameLogic gameLogic) {
         this.game = game;
         this.gameLogic = gameLogic;
@@ -101,6 +106,7 @@ public class GameplayScreen implements Screen {
         planeTexture = new Texture(Gdx.files.internal("board/icons/Plane.png"));
         batch = new SpriteBatch();
         stage = new Stage(new ScreenViewport());
+        font = new BitmapFont();
 
         Gdx.input.setInputProcessor(stage);
 
@@ -117,8 +123,8 @@ public class GameplayScreen implements Screen {
         pilotDice = new ArrayList<>(gameLogic.getPilot().getDices());
         coPilotDice = new ArrayList<>(gameLogic.getCoPilot().getDices());
 
-        drawDice(coPilotDice, coPilotDiceTextures, false);
         drawDice(pilotDice, pilotDiceTextures, true);
+        drawDice(coPilotDice, coPilotDiceTextures, false);
 
         switchesPositions = new ArrayList<>();
         switchesStates = new ArrayList<>();
@@ -156,7 +162,7 @@ public class GameplayScreen implements Screen {
         // Coffee positions list
         coffeesPositions = new ArrayList<>();
         coffeesPositions.add(new Vector2(759, 66));
-        coffeesPositions.add(new Vector2(760, 21));
+        coffeesPositions.add(new Vector2(759, 21));
         coffeesPositions.add(new Vector2(809, 21));
 
     }
@@ -167,11 +173,22 @@ public class GameplayScreen implements Screen {
             final Dice dice = diceList.get(i);
             final Image diceImage = new Image(diceTextures.get(dice.getDiceValue() - 1));
 
-            diceImage.setPosition(isPilot ? pilotStartX + i * diceSpacing : coPilotStartX + i * diceSpacing,
-                    isPilot ? pilotStartY : coPilotStartY);
+            diceImage.setName(isPilot ? "PilotDice" : "CoPilotDice");
+
+            float xPosition = isPilot ? pilotStartX + i * diceSpacing : coPilotStartX + i * diceSpacing;
+            float yPosition = isPilot ? pilotStartY : coPilotStartY;
+
+            System.out.println(
+                    (isPilot ? "Pilot" : "CoPilot") + " Dice Position (X, Y): " + xPosition + ", " + yPosition);
+
+            diceImage.setPosition(xPosition, yPosition);
             diceImage.setSize(51, 51);
 
             stage.addActor(diceImage);
+
+            if (isPilot) {
+                diceImage.setZIndex(10); // Set a higher z-index for pilot dice
+            }
 
             diceImage.clearListeners();
 
@@ -182,6 +199,53 @@ public class GameplayScreen implements Screen {
                 System.out.println("Adding Co-Pilot Listener");
                 handleCoPilotInteraction(dice, diceImage);
             }
+        }
+    }
+
+    /**
+     * Resets and redraws the dice for either the pilot or co-pilot.
+     * - Removes existing dice images from the stage.
+     * - Clears any dragging state for the corresponding dice.
+     * - Redraws the dice in their original positions.
+     *
+     * @param diceList     The list of dice objects to be drawn.
+     * @param diceTextures The list of textures corresponding to the dice values.
+     * @param isPilot      A boolean indicating whether the dice are for the pilot
+     *                     (true) or co-pilot (false).
+     */
+    public void resetAndDrawDice(ArrayList<Dice> diceList, ArrayList<Texture> diceTextures, boolean isPilot) {
+
+        ArrayList<Actor> actorsToRemove = new ArrayList<>();
+        for (Actor actor : stage.getActors()) {
+            if (actor instanceof Image) {
+                Image image = (Image) actor;
+
+                if ((image.getName().equals("PilotDice") && isPilot)
+                        || (image.getName().equals("CoPilotDice") && !isPilot)) {
+                    actorsToRemove.add(image);
+                }
+            }
+        }
+        for (Actor actor : actorsToRemove) {
+            actor.remove();
+        }
+        if (isPilot) {
+            isDraggingPilotDice = false;
+        } else {
+            isDraggingCoPilotDice = false;
+        }
+
+        drawDice(diceList, diceTextures, isPilot);
+    }
+
+    public void handleRoundChange() {
+        // Check if the round number has changed
+        int currentRoundNumber = gameLogic.getCurrentRoundNumber();
+        if (currentRoundNumber != previousRoundNumber) {
+            previousRoundNumber = currentRoundNumber;
+            resetAndDrawDice(pilotDice, pilotDiceTextures, true);
+            resetAndDrawDice(coPilotDice, coPilotDiceTextures, false);
+
         }
     }
 
@@ -284,12 +348,25 @@ public class GameplayScreen implements Screen {
         } else if (playerIndex == 1) {
             batch.draw(coPilotTurnTexture, Gdx.graphics.getWidth() - 600, 750);
         }
-
+        handleRoundChange();
+        renderRoundNumber();
         batch.end();
 
         stage.act(Math.min(Gdx.graphics.getDeltaTime(), 1 / 30f));
         stage.draw();
 
+    }
+
+    private void renderRoundNumber() {
+        String roundText = "Round " + gameLogic.getCurrentRoundNumber() + "/7";
+
+        font.getData().setScale(2);
+        font.setColor(121f / 255f, 199f / 255f, 232f / 255f, 1f);
+
+        float xPosition = 10;
+        float yPosition = Gdx.graphics.getHeight() - 10;
+
+        font.draw(batch, roundText, xPosition, yPosition);
     }
 
     private void drawBoardAndAltitudeTrack() {

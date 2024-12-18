@@ -155,4 +155,7 @@ public class GameLogic {
     public Round getRound() {
         return currentRound;
     }
+    public int getCurrentRoundNumber(){
+        return currentRoundNumber;
+    }
 }
