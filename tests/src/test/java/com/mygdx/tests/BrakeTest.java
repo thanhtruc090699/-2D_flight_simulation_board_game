@@ -78,10 +78,9 @@ class BrakeTest {
     void testDeployBrakeInvalidInput() {
         brake.deployBrakes(5);
         assertAll(
-            () -> assertFalse(brake.getBrakeFields().get(0).isFilled()),
-            () -> assertFalse(brake.getBrakeFields().get(1).isFilled()),
-            () -> assertFalse(brake.getBrakeFields().get(2).isFilled())
-        );
+                () -> assertFalse(brake.getBrakeFields().get(0).isFilled()),
+                () -> assertFalse(brake.getBrakeFields().get(1).isFilled()),
+                () -> assertFalse(brake.getBrakeFields().get(2).isFilled()));
         assertEquals(0, brake.getRedMarker());
     }
 
@@ -100,8 +99,56 @@ class BrakeTest {
                     brake.setRedMarker(6);
                     assertEquals(6, brake.getRedMarker());
                 },
+                () -> {
+                    Exception exception = assertThrows(IllegalArgumentException.class, () -> brake.setRedMarker(0));
+                    assertEquals("Not a valid input", exception.getMessage());
+                },
                 () -> assertThrows(IllegalArgumentException.class, () -> brake.setRedMarker(1)),
                 () -> assertThrows(IllegalArgumentException.class, () -> brake.setRedMarker(7)));
 
     }
+
+    @Test
+    void testCanPlaceBrakes() {
+        assertAll(
+                () -> {
+                    assertFalse(brake.canPlaceBrakes(1));
+                },
+                () -> {
+                    assertFalse(brake.canPlaceBrakes(3));
+                },
+                () -> {
+                    brake.getBrakeFields().get(0).setFilled(false);
+                    assertTrue(brake.canPlaceBrakes(2));
+                },
+                () -> {
+                    brake.getBrakeFields().get(0).setFilled(true);
+                    assertFalse(brake.canPlaceBrakes(2));
+                },
+                () -> {
+                    brake.getBrakeFields().get(0).setFilled(true);
+                    brake.getBrakeFields().get(1).setFilled(false);
+                    assertTrue(brake.canPlaceBrakes(4));
+                },
+                () -> {
+                    brake.getBrakeFields().get(0).setFilled(false);
+                    assertFalse(brake.canPlaceBrakes(4));
+                },
+                () -> {
+                    brake.getBrakeFields().get(0).setFilled(true);
+                    brake.getBrakeFields().get(1).setFilled(true);
+                    brake.getBrakeFields().get(2).setFilled(false);
+                    assertTrue(brake.canPlaceBrakes(6));
+                },
+                () -> {
+                    brake.getBrakeFields().get(0).setFilled(false);
+                    assertFalse(brake.canPlaceBrakes(6));
+                },
+                () -> {
+                    brake.getBrakeFields().get(0).setFilled(true);
+                    brake.getBrakeFields().get(1).setFilled(false);
+                    assertFalse(brake.canPlaceBrakes(6));
+                });
+    }
+
 }

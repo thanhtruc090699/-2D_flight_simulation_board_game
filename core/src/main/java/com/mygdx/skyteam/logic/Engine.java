@@ -20,7 +20,7 @@ public class Engine {
         airportLocation = 6;
         speed = 0;
         blueMarker = 4;
-        orangeMarker = 9;
+        orangeMarker = 8;
         pilotField = new Field("Pilot Engine Field", Arrays.asList(1, 2, 3, 4, 5, 6), 860, 748);
         coPilotField = new Field("CoPilot Engine Field", Arrays.asList(1, 2, 3, 4, 5, 6), 1012, 748);
     }
@@ -38,11 +38,20 @@ public class Engine {
     }
 
     public void shiftBlueMarker() {
-        blueMarker++;
+        if (blueMarker == 7) {
+            blueMarker = 7;
+        } else {
+            blueMarker++;
+        }
+
     }
 
     public void shiftOrangeMarker() {
-        orangeMarker++;
+        if (orangeMarker == 12) {
+            orangeMarker = 12;
+        } else {
+            orangeMarker++;
+        }
     }
 
     public void adjustSpeed(ArrayList<Integer> planeOnTrack) {
@@ -61,13 +70,14 @@ public class Engine {
         if (currentPosition == airportLocation && speed >= blueMarker) {
             System.out.println("You lost! You overshot the airport.");
             isPositionMoveSuccessful = false;
+            return;
         }
         if (speed > blueMarker && speed <= orangeMarker) {
             if (checkPlanesOnTrack(planesOnTrack, currentPosition + 1)) {
                 currentPosition++;
                 System.out.println("Plane moves 1 step. Current position: " + currentPosition);
                 isPositionMoveSuccessful = true;
-                
+
             }
 
         } else if (speed > orangeMarker) {
@@ -77,10 +87,13 @@ public class Engine {
                 System.out.println("Plane moves 2 steps. Current position: " + currentPosition);
                 isPositionMoveSuccessful = true;
             }
+            if (currentPosition >= airportLocation) {
+                System.out.println("Plane overshot the airport.");
+                isPositionMoveSuccessful = false;
+                return; // Stop further processing
+            }
         }
 
-        isPositionMoveSuccessful = false;
-        System.out.println(isPositionMoveSuccessful);
     }
 
     public boolean checkPlanesOnTrack(ArrayList<Integer> planesOnTrack, int currentPosition) {

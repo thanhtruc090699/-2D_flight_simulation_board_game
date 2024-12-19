@@ -24,11 +24,6 @@ public class LandingGear {
             return;
         }
 
-        if (fieldChoice > 1 && !landingGearFields.get(fieldChoice - 2).isFilled()) {
-            System.out.println("Landing gear field " + (fieldChoice - 1) + " should be deployed first.");
-            return;
-        }
-
         selectedField.setDiceValue(pilotInput);
         airplane.getEngine().shiftBlueMarker();
         System.out.println(selectedField.getName() + " is now deployed.");

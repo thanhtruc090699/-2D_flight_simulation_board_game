@@ -28,7 +28,7 @@ class EngineTest {
         assertEquals(0, engine.getCurrentPosition(), "Initial position should be 0.");
         assertEquals(0, engine.getSpeed(), "Initial speed should be 0.");
         assertEquals(4, engine.getBlueMarker(), "Initial blue marker should be 5.");
-        assertEquals(9, engine.getOrangeMarker(), "Initial orange marker should be 9.");
+        assertEquals(8, engine.getOrangeMarker(), "Initial orange marker should be 8.");
     }
 
     @Test
@@ -53,7 +53,7 @@ class EngineTest {
     @Test
     void testShiftOrangeMarker() {
         engine.shiftOrangeMarker();
-        assertEquals(10, engine.getOrangeMarker(), "Orange marker should be incremented to 10.");
+        assertEquals(9, engine.getOrangeMarker(), "Orange marker should be incremented to 9.");
         assertEquals(0, engine.getCurrentPosition(),
                 "Position should remain the same after shifting the orange marker.");
     }
@@ -61,7 +61,7 @@ class EngineTest {
     @Test
     void testAdjustSpeedAndUpdatePositionMoveOneStep() {
         engine.placePilotDice(3);
-        engine.placeCoPilotDice(3); // Total speed = 6
+        engine.placeCoPilotDice(3);
         engine.adjustSpeed(planesOnTrack);
         assertEquals(6, engine.getSpeed(), "Speed should be calculated as 6.");
         assertEquals(1, engine.getCurrentPosition(), "Plane should move 1 step.");
@@ -69,13 +69,15 @@ class EngineTest {
 
     @Test
     void testAdjustSpeedAndCrashDueToPlaneOnTrack() {
-        planesOnTrack.set(1, 1); // Placed a plane on track at position 1 to crash it purposefully
+        planesOnTrack.set(1, 1);
         engine.placePilotDice(3);
-        engine.placeCoPilotDice(3); // Total speed = 6
+        engine.placeCoPilotDice(3);
+
         engine.adjustSpeed(planesOnTrack);
-        assertFalse(engine.updatePosition(planesOnTrack));
-        assertFalse(engine.checkPlanesOnTrack(planesOnTrack, 1));
-        assertEquals(0, engine.getCurrentPosition(), "Plane should not move due to a crash.");
+
+        assertFalse(engine.isPositionMoveSuccessful(), "Plane should crash and not move.");
+        assertFalse(engine.checkPlanesOnTrack(planesOnTrack, 1), "Position 1 should be blocked, causing a crash.");
+        assertEquals(0, engine.getCurrentPosition(), "Plane's position should remain 0 after the crash.");
     }
 
     @Test
@@ -98,17 +100,16 @@ class EngineTest {
 
     @Test
     void testCheckWinConditionOvershoot() {
+        for (int i = 0; i < planesOnTrack.size(); i++) {
+            planesOnTrack.set(i, 0);
+        }
         engine.placePilotDice(6);
-        engine.placeCoPilotDice(6); // High speed
-        planesOnTrack.set(2, 0);
-        planesOnTrack.set(3, 0);
-        planesOnTrack.set(4, 0);
-        planesOnTrack.set(5, 0);
-        planesOnTrack.set(6, 0);
+        engine.placeCoPilotDice(6);
         engine.adjustSpeed(planesOnTrack);
         engine.adjustSpeed(planesOnTrack);
         engine.adjustSpeed(planesOnTrack);
-        assertFalse(engine.checkWinLossConditionForEngine(planesOnTrack), "Should lose for overshooting the airport.");
+
+        assertFalse(engine.isPositionMoveSuccessful(), "Should lose for overshooting the airport.");
     }
 
     @Test
@@ -116,26 +117,31 @@ class EngineTest {
         planesOnTrack.set(1, 1);
         engine.placePilotDice(3);
         engine.placeCoPilotDice(3);
+
         engine.adjustSpeed(planesOnTrack);
-        assertFalse(engine.checkWinLossConditionForEngine(planesOnTrack), "Should lose due to a crash on track.");
+
+        assertEquals(0, engine.getCurrentPosition(), "Position should remain 0 after crash.");
+        assertFalse(engine.isPositionMoveSuccessful(), "Should lose due to a crash on track.");
     }
 
     @Test
     void testCheckWinConditionSuccess() {
-        planesOnTrack.set(2, 0);
-        planesOnTrack.set(3, 0);
-        planesOnTrack.set(4, 0);
-        planesOnTrack.set(5, 0);
-        planesOnTrack.set(6, 0);
+        for (int i = 0; i < planesOnTrack.size(); i++) {
+            planesOnTrack.set(i, 0);
+        }
+
         engine.placePilotDice(5);
         engine.placeCoPilotDice(5);
         engine.adjustSpeed(planesOnTrack);
         engine.adjustSpeed(planesOnTrack);
         engine.adjustSpeed(planesOnTrack);
+
         engine.placePilotDice(1);
         engine.placeCoPilotDice(2);
         engine.adjustSpeed(planesOnTrack);
-        assertTrue(engine.checkWinLossConditionForEngine(planesOnTrack));
+
+        assertEquals(6, engine.getCurrentPosition(), "Plane should be at the airport.");
+        assertTrue(engine.isPositionMoveSuccessful(), "Plane should successfully win the game.");
     }
 
     @Test
@@ -151,28 +157,27 @@ class EngineTest {
 
     @Test
     void testAllTracksBlocked() {
+
         for (int i = 0; i < planesOnTrack.size(); i++) {
-            planesOnTrack.set(i, 1); // Mark all tracks as blocked
+            planesOnTrack.set(i, 1);
         }
         engine.placePilotDice(2);
         engine.placeCoPilotDice(3);
 
         engine.adjustSpeed(planesOnTrack);
-
-        assertFalse(engine.updatePosition(planesOnTrack), "Plane should not move because all tracks are blocked.");
+        assertEquals(0, engine.getCurrentPosition(), "Plane should not move because all tracks are blocked.");
     }
 
     @Test
     void testUpdatePositionMoveTwoSteps_Crash() {
         engine.placePilotDice(6);
         engine.placeCoPilotDice(6);
+        ArrayList<Integer> planesOnTrack = new ArrayList<>(Arrays.asList(0, 1, 1, 0));
+
         engine.adjustSpeed(planesOnTrack);
 
-        ArrayList<Integer> planesOnTrack = new ArrayList<>(Arrays.asList(0, 1, 1, 0));
-        boolean result = engine.updatePosition(planesOnTrack);
-
-        assertFalse(result, "Plane should crash due to occupied positions.");
         assertEquals(0, engine.getCurrentPosition(), "Position should remain 0 after crash.");
+        assertFalse(engine.isPositionMoveSuccessful(), "Plane should not move due to occupied positions.");
     }
 
     @Test

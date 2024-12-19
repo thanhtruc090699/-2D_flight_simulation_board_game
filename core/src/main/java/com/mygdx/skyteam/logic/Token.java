@@ -31,6 +31,7 @@ public class Token {
             dice.modifyValue(input);
             quantity--;
             airplane.getConcentration().resetCoffeeField(coffeeTokenIndex);
+            System.out.println("After using, Coffee Token quantity: " + quantity);
             System.out.println("You used one of the Coffee Tokens.");
 
         } else {
@@ -44,10 +45,12 @@ public class Token {
                 for (Dice dice : selectedDice) {
                     dice.rollDice();
                 }
-
+                quantity--;
             } else {
                 System.out.println("No dice selected to reroll.");
             }
+        } else {
+            System.out.println("No reroll tokens left to use.");
         }
     }
 
