@@ -42,7 +42,6 @@ public class GameplayScreen implements Screen {
     private ArrayList<Texture> coPilotDiceTextures;
     private ArrayList<Dice> pilotDice;
     private ArrayList<Dice> coPilotDice;
-    private boolean isTurnChanged = true;
     private int playerIndex;
 
     private boolean isDraggingPilotDice = false;
@@ -91,6 +90,9 @@ public class GameplayScreen implements Screen {
 
     private Texture buttonUpTexture;
     private Texture buttonDownTexture;
+    private Texture rerollIconTrack;
+    private int currentRerollTokenQuantity =3;
+    private ArrayList<Vector2> rerollIconPositions;
     private ArrayList<Vector2> buttonUpPilotPositions;
     private ArrayList<Vector2> buttonDownPilotPositions;
     private ArrayList<Vector2> buttonUpCoPilotPositions;
@@ -122,6 +124,7 @@ public class GameplayScreen implements Screen {
         coffeeTrack = new Texture(Gdx.files.internal("board/icons/Coffee.png"));
         buttonDownTexture = new Texture(Gdx.files.internal("buttons/1832043-200.png"));
         buttonUpTexture = new Texture(Gdx.files.internal("buttons/1832044-200.png"));
+        rerollIconTrack = new Texture(Gdx.files.internal("board/icons/Re-roll.png"));
         pilotTurnTexture = new Texture(Gdx.files.internal("images/pilots_turn.png"));
         coPilotTurnTexture = new Texture(Gdx.files.internal("images/copilots_turn.png"));
         axisSprite = new Sprite(axisIcon);
@@ -244,6 +247,15 @@ public class GameplayScreen implements Screen {
 
 
         }
+
+        rerollIconPositions = new ArrayList<>();
+
+        //Position of reroll token
+
+        rerollIconPositions.add(new Vector2(744, 610));
+        rerollIconPositions.add(new Vector2(1076, 615));
+        rerollIconPositions.add(new Vector2(1076,920));
+
         handlePilotCoffeeInteraction();
         handleCoPilotCoffeeInteraction();
 
@@ -289,6 +301,8 @@ public class GameplayScreen implements Screen {
             }
 
         }
+
+
     }
 
     /**
@@ -376,15 +390,15 @@ public class GameplayScreen implements Screen {
      * - The increase and decrease button will appear above (increase button) and below (decrease button) the dice list
      * - Pilot can click the button to increase or decrease the value of a specific dice that they want
      * The Logic of method:
-     * 1. Detects a click on a coffee token. if clicked:
-     *  - Activate the using coffee mode (isUsingCoffee = true)
-     *  - Remove the coffee token from the board
-     *  - Update the state of the selectable dice. Selectable dice list is a list of dices that has not been placed
-     * 2. Detect a click on increase or decrease button for each dice:
-     *  - If increase button is clicked and the dice value is less than 6, it increases the dice value by one
-     *  - If decrease button is clicked and the dice value is greater than 1, it decreases the dice value by one
-     *  - Updates the image of dice corresponding to the updated value
-     *  3. Escape from coffee mode (isUsingCoffee = false) after all
+     * - Detects a click on a coffee token. if clicked:
+     *  + Activate the using coffee mode (isUsingCoffee = true)
+     *  + Remove the coffee token from the board
+     *  + Update the state of the selectable dice. Selectable dice list is a list of dices that has not been placed
+     * - Detect a click on increase or decrease button for each dice:
+     *  + If increase button is clicked and the dice value is less than 6, it increases the dice value by one
+     *  + If decrease button is clicked and the dice value is greater than 1, it decreases the dice value by one
+     *  + Updates the image of dice corresponding to the updated value
+     * - Escape from coffee mode (isUsingCoffee = false) after all
      *
      */
     private  void handlePilotCoffeeInteraction(){
@@ -457,15 +471,15 @@ public class GameplayScreen implements Screen {
      * - The increase and decrease button will appear above (increase button) and below (decrease button) the dice list
      * - CoPilot can click the button to increase or decrease the value of a specific dice that they want
      * The Logic of method:
-     * 1. Detects a click on a coffee token. if clicked:
-     *  - Activate the using coffee mode (isUsingCoffee = true)
-     *  - Remove the coffee token from the board
-     *  - Update the state of the selectable dice. Selectable dice list is a list of dices that has not been placed
-     * 2. Detect a click on increase or decrease button for each dice:
-     *  - If increase button is clicked and the dice value is less than 6, it increases the dice value by one
-     *  - If decrease button is clicked and the dice value is greater than 1, it decreases the dice value by one
-     *  - Updates the image of dice corresponding to the updated value
-     *  3. Escape from coffee mode (isUsingCoffee = false) after all
+     * - Detects a click on a coffee token. if clicked:
+     *  + Activate the using coffee mode (isUsingCoffee = true)
+     *  + Remove the coffee token from the board
+     *  + Update the state of the selectable dice. Selectable dice list is a list of dices that has not been placed
+     * - Detect a click on increase or decrease button for each dice:
+     *  + If increase button is clicked and the dice value is less than 6, it increases the dice value by one
+     *  + If decrease button is clicked and the dice value is greater than 1, it decreases the dice value by one
+     *  + Updates the image of dice corresponding to the updated value
+     * - Escape from coffee mode (isUsingCoffee = false) after all
      *
      */
     private  void handleCoPilotCoffeeInteraction(){
@@ -541,13 +555,19 @@ public class GameplayScreen implements Screen {
         playerIndex = gameLogic.getRound().getCurrentPlayerIndex();
         if (currentRoundNumber != previousRoundNumber) {
             previousRoundNumber = currentRoundNumber;
-
-
-            if (playerIndex==0) resetAndDrawDice(pilotDice, pilotDiceTextures, true);
-            else if(playerIndex==1) resetAndDrawDice(coPilotDice, coPilotDiceTextures, false);
-
-
-
+            isUsingCoffee = false;
+            for (int i=0; i<pilotDice.size();i++){
+                coffeePilotDiceSelectable.set(i,true);
+                PilotDicePlacedInPlaceHolder.set(i, false);
+            }
+            for (int i=0; i<coPilotDice.size();i++){
+                coffeeCopilotDiceSelectable.set(i,true);
+                CopilotDicePlacedInPlaceHolder.set(i, false);
+            }
+            resetAndDrawDice(pilotDice, pilotDiceTextures, true);
+            resetAndDrawDice(coPilotDice, coPilotDiceTextures, false);
+            handlePilotCoffeeInteraction();
+            handlePilotCoffeeInteraction();
 
         }
     }
@@ -658,6 +678,7 @@ public class GameplayScreen implements Screen {
         batch.draw(backgroundTexture, 0, 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
         updatePlaneTrackVerticalOffset(gameLogic.getAirplane().getEngine().getCurrentPosition());
         drawBoardAndAltitudeTrack();
+        drawRerollToken();
         drawSwitchesAndMarkers();
         axisSprite.draw(batch);
 
@@ -826,6 +847,13 @@ public class GameplayScreen implements Screen {
             }
         }
 
+    }
+
+    private void drawRerollToken(){
+        for(int i =0; i<currentRerollTokenQuantity;i++){
+            Vector2 rerollTokenPosition = rerollIconPositions.get(i);
+            batch.draw(rerollIconTrack, rerollTokenPosition.x, rerollTokenPosition.y, 35, 35);
+        }
     }
 
     /**
