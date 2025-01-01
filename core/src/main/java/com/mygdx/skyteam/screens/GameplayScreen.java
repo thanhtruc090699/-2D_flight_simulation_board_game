@@ -107,6 +107,17 @@ public class GameplayScreen implements Screen {
     private ArrayList<Boolean> coffeeCopilotDiceSelectable;
     private ArrayList<Boolean> PilotDicePlacedInPlaceHolder;
     private ArrayList<Boolean> CopilotDicePlacedInPlaceHolder;
+    private Texture reRollTexture;
+    private Texture doneButtonTexture;
+    private boolean isUsingReroll = false;
+    private ArrayList<Vector2> reRollPilotPositions;
+    private ArrayList<Vector2> reRollCoPilotPositions;
+    private ArrayList<Boolean> rerollPilotDiceSelectable;
+    private ArrayList<Boolean> rerollCopilotDiceSelectable;
+    private ArrayList<Boolean> rerollPilotDicePlacedInPlaceHolder;
+    private ArrayList<Boolean> rerollCopilotDicePlacedInPlaceHolder;
+    private Vector2 rerollButtonDonePosition;
+
 
 
     public GameplayScreen(SkyTeamGame game, GameLogic gameLogic) {
@@ -129,6 +140,8 @@ public class GameplayScreen implements Screen {
         buttonDownTexture = new Texture(Gdx.files.internal("buttons/1832043-200.png"));
         buttonUpTexture = new Texture(Gdx.files.internal("buttons/1832044-200.png"));
         rerollIconTrack = new Texture(Gdx.files.internal("board/icons/Re-roll.png"));
+        doneButtonTexture = new Texture(Gdx.files.internal("buttons/done.png"));
+        reRollTexture = new Texture(Gdx.files.internal("buttons/re.png"));
         pilotTurnTexture = new Texture(Gdx.files.internal("images/pilots_turn.png"));
         coPilotTurnTexture = new Texture(Gdx.files.internal("images/copilots_turn.png"));
         axisSprite = new Sprite(axisIcon);
@@ -261,8 +274,141 @@ public class GameplayScreen implements Screen {
         handlePilotCoffeeInteraction();
         handleCoPilotCoffeeInteraction();
 
+        reRollPilotPositions = new ArrayList<>();
+        reRollCoPilotPositions = new ArrayList<>();
+
+        rerollPilotDiceSelectable = new ArrayList<>();
+        rerollCopilotDiceSelectable = new ArrayList<>();
+        rerollPilotDicePlacedInPlaceHolder = new ArrayList<>();
+        rerollCopilotDicePlacedInPlaceHolder = new ArrayList<>();
+
+        rerollButtonDonePosition = new Vector2(700, 610);
+
+        for (int i = 0; i < pilotDice.size(); i++) {
+            rerollPilotDiceSelectable.add(true);
+            rerollPilotDicePlacedInPlaceHolder.add(false);
+
+            float xPosition = pilotStartX + i * diceSpacing;
+            float yPosition = pilotStartY;
+            Vector2 reRollPosition = new Vector2(xPosition, yPosition + 50);
+
+            reRollPilotPositions.add(reRollPosition);
+        }
+
+        for (int i = 0; i < coPilotDice.size(); i++) {
+            rerollCopilotDiceSelectable.add(true);
+            rerollCopilotDicePlacedInPlaceHolder.add(false);
+
+            float xPosition = coPilotStartX + i * diceSpacing;
+            float yPosition = coPilotStartY;
+            Vector2 reRollPosition = new Vector2(xPosition, yPosition + 50);
+
+            reRollCoPilotPositions.add(reRollPosition);
+        }
+
+        handleRerollInteraction();
+
 
     }
+
+    private void handleRerollInteraction() {
+        stage.addListener(new InputListener() {
+            @Override
+            public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
+                if (!isUsingReroll) {
+                    for (int i = 0; i < rerollPlaceholders.size(); i++) {
+                        Vector2 placeholderPosition = rerollPlaceholders.get(i);
+                        if (Math.abs(placeholderPosition.x - event.getStageX()) < 35 &&
+                            Math.abs(placeholderPosition.y - event.getStageY()) < 35) {
+                            isUsingReroll = true;
+
+                            rerollPlaceholders.remove(i);
+                            currentRerollTokenQuantity--;
+
+                            rerollPilotDiceSelectable.clear();
+                            rerollCopilotDiceSelectable.clear();
+                            rerollPilotDicePlacedInPlaceHolder.clear();
+                            rerollCopilotDicePlacedInPlaceHolder.clear();
+
+                            for (int j = 0; j < pilotDice.size(); j++) {
+                                rerollPilotDiceSelectable.add(!PilotDicePlacedInPlaceHolder.get(j));
+                                rerollPilotDicePlacedInPlaceHolder.add(false);
+                            }
+                            for (int j = 0; j < coPilotDice.size(); j++) {
+                                rerollCopilotDiceSelectable.add(!CopilotDicePlacedInPlaceHolder.get(j));
+                                rerollCopilotDicePlacedInPlaceHolder.add(false);
+                            }
+                            return true;
+                        }
+                    }
+                } else {
+                    if (Math.abs(rerollButtonDonePosition.x - event.getStageX()) < 50 &&
+                        Math.abs(rerollButtonDonePosition.y - event.getStageY()) < 50) {
+                        isUsingReroll = false;
+                        finalizeReroll();
+                        return true;
+                    }
+
+                    for (int i = 0; i < rerollPilotDiceSelectable.size(); i++) {
+                        if (rerollPilotDiceSelectable.get(i) && !rerollPilotDicePlacedInPlaceHolder.get(i)) {
+                            Vector2 downPos = reRollPilotPositions.get(i);
+
+                            if (Math.abs(downPos.x - event.getStageX()) < 50 && Math.abs(downPos.y - event.getStageY()) < 50) {
+                                Dice dice = pilotDice.get(i);
+                                dice.rollDice();
+                                updateSingleDice(i, dice, true);
+                                rerollPilotDicePlacedInPlaceHolder.set(i, true);
+                                return true;
+                            }
+                        }
+                    }
+
+                    for (int i = 0; i < rerollCopilotDiceSelectable.size(); i++) {
+                        if (rerollCopilotDiceSelectable.get(i) && !rerollCopilotDicePlacedInPlaceHolder.get(i)) {
+                            Vector2 downPos = reRollCoPilotPositions.get(i);
+
+                            if (Math.abs(downPos.x - event.getStageX()) < 50 && Math.abs(downPos.y - event.getStageY()) < 50) {
+                                Dice dice = coPilotDice.get(i);
+                                dice.rollDice();
+                                updateSingleDice(i, dice, false);
+                                rerollCopilotDicePlacedInPlaceHolder.set(i, true);
+                                return true;
+                            }
+                        }
+                    }
+                }
+                return false;
+            }
+        });
+    }
+
+    private void drawButtons() {
+        if (isUsingReroll) {
+            batch.draw(doneButtonTexture, rerollButtonDonePosition.x, rerollButtonDonePosition.y, 50, 50);
+
+            for (int i = 0; i < rerollPilotDiceSelectable.size(); i++) {
+                if (rerollPilotDiceSelectable.get(i) && !rerollPilotDicePlacedInPlaceHolder.get(i)) {
+                    Vector2 positionButtonDown = reRollPilotPositions.get(i);
+                    batch.draw(reRollTexture, positionButtonDown.x, positionButtonDown.y, 50, 50);
+                }
+            }
+            for (int i = 0; i < rerollCopilotDiceSelectable.size(); i++) {
+                if (rerollCopilotDiceSelectable.get(i) && !rerollCopilotDicePlacedInPlaceHolder.get(i)) {
+                    Vector2 positionButtonDown = reRollCoPilotPositions.get(i);
+                    batch.draw(reRollTexture, positionButtonDown.x, positionButtonDown.y, 50, 50);
+                }
+            }
+        }
+    }
+
+
+    private void finalizeReroll() {
+        rerollPilotDiceSelectable.clear();
+        rerollCopilotDiceSelectable.clear();
+        rerollPilotDicePlacedInPlaceHolder.clear();
+        rerollCopilotDicePlacedInPlaceHolder.clear();
+    }
+
 
     public void drawDice(ArrayList<Dice> diceList, ArrayList<Texture> diceTextures, boolean isPilot) {
 
@@ -691,6 +837,7 @@ public class GameplayScreen implements Screen {
         drawBoardAndAltitudeTrack();
         drawRerollToken();
         drawSwitchesAndMarkers();
+        drawButtons();
         axisSprite.draw(batch);
 
         playerIndex = gameLogic.getRound().getCurrentPlayerIndex();
