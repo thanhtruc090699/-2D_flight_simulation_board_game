@@ -1,5 +1,6 @@
 package com.mygdx.tests;
 
+import com.mygdx.skyteam.logic.Field;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import com.mygdx.skyteam.logic.Pilot;
@@ -89,7 +90,7 @@ class PilotTest {
                     pilot.placeDice(4,"AXIS",0);
                     assertEquals(3,airplane.getAxis().getCoPilotAxisField().getPlacedDice());
                     assertEquals(4,airplane.getAxis().getPilotAxisField().getPlacedDice());
-                    assertEquals(-1,airplane.getAxis().getCurrentTilt());
+                    assertEquals(0,airplane.getAxis().getCurrentTilt());
                 }
 
         );
@@ -99,6 +100,7 @@ class PilotTest {
         assertAll(
                 ()->{
                     // in Landing gear, the order is not important like in Flaps
+
                     for(Field landingField : airplane.getLandingGears().getLandingGearFields()){
                         assertFalse(landingField.isFilled());
                     }

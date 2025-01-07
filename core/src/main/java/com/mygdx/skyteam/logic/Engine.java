@@ -129,6 +129,13 @@ public class Engine {
         return orangeMarker;
     }
 
+    public int setCurrentPosition(int position){
+        return currentPosition=position;
+    }
+
+    public int setSpeed(int newSpeed) {
+        return speed=newSpeed;
+    }
     public void resetFields() {
         pilotField.resetField();
         coPilotField.resetField();

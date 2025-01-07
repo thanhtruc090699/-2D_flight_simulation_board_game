@@ -30,6 +30,11 @@ public class Flap {
             return;
         }
 
+        if(selectedFlap.isFilled()){
+            System.out.println("Flap " + (fieldChoice) + " is already filled.");
+            return;
+        }
+
         selectedFlap.setDiceValue(coPilotInput);
         airplane.getEngine().shiftOrangeMarker();
         System.out.println("Flap " + fieldChoice + " is now deployed.");

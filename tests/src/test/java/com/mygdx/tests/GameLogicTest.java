@@ -1,5 +1,6 @@
 package com.mygdx.tests;
 
+import com.mygdx.skyteam.logic.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import com.mygdx.skyteam.logic.GameLogic;
@@ -42,7 +43,7 @@ public class GameLogicTest {
         // Verify that the game initializes correctly
         assertNotNull(game, "Game should be initialized");
         assertEquals(1, game.getCurrentRoundNumber(), "Game should start at round 1");
-        assertFalse(game.isGameOver(), "Game should not be over initially");
+        assertFalse(game.getGameOver(), "Game should not be over initially");
     }
 
     @Test
@@ -52,7 +53,7 @@ public class GameLogicTest {
             game.nextRound();
         }
 
-        assertTrue(game.isGameOver(), "Game should be over after 7 rounds");
+        assertTrue(game.getGameOver(), "Game should be over after 7 rounds");
         assertEquals(7, game.getCurrentRoundNumber(), "Game should complete exactly 7 rounds");
     }
 
@@ -72,7 +73,7 @@ public class GameLogicTest {
 
         // Set engine position and tilt to winning conditions
         game.getAirplane().getEngine().setCurrentPosition(6);
-        game.getAirplane().getAxis().setCurrentTilt(3);
+        game.getAirplane().getAxis().setTilt(3);
 
         // Set the speed below the brake's red marker
         game.getAirplane().getEngine().setSpeed(2);
@@ -107,8 +108,8 @@ public class GameLogicTest {
             game.nextRound();
         }
 
-        game.isGameOver();
+        game.getGameOver();
 
-        assertTrue(game.isGameOver(), "Game should end after 7 rounds");
+        assertTrue(game.getGameOver(), "Game should end after 7 rounds");
     }
 }

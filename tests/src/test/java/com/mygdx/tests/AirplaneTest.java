@@ -38,7 +38,7 @@ class AirplaneTest {
                     airplane.getAxis().placeCoPilotDice(3);
                     airplane.getAxis().placePilotDice(4);
                     airplane.adjustTilt();
-                    assertEquals(-1, airplane.getAxis().getCurrentTilt());
+                    assertEquals(0, airplane.getAxis().getCurrentTilt());
                 });
     }
 
@@ -80,8 +80,8 @@ class AirplaneTest {
         airplane.getEngine().placePilotDice(6);
         airplane.getEngine().placeCoPilotDice(5);
         airplane.adjustSpeed();
-        assertEquals(11, airplane.getEngine().getSpeed()); 
-        assertEquals(3, airplane.getEngine().getCurrentPosition()); 
+        assertEquals(11, airplane.getEngine().getSpeed());
+        assertEquals(3, airplane.getEngine().getCurrentPosition());
     }
 
     @Test

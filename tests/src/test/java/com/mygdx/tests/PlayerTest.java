@@ -183,7 +183,7 @@ class PlayerTest {
    @Test
     void testGetCoffeeToken(){
        assertEquals(0,player.getCoffeeToken().getQuantity());
-       assertEquals("Coffee",player.coffeeTokens.getType());
+       assertEquals("Coffee",player.getCoffeeToken().getType());
    }
 
    @Test

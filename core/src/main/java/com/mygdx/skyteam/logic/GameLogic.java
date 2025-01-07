@@ -1,6 +1,6 @@
 package com.mygdx.skyteam.logic;
 
-public class GameLogic {
+public class  GameLogic {
     private boolean gameOver;
     private Pilot pilot;
     private Airplane airplane;

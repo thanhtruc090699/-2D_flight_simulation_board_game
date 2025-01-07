@@ -85,10 +85,11 @@ public class CoPilot extends Player {
                 break;
 
             case "flaps":
+
                 for (int i = 0; i < airplane.getFlaps().getFlapsFields().size(); i++) {
                     if (airplane.getFlaps().canPlaceFlap(diceValue, fieldChoice)) {
-                        validPlacement = true; 
-                        break; 
+                        validPlacement = true;
+                        break;
                     }
                 }
                 break;
