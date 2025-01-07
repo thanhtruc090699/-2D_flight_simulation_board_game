@@ -137,8 +137,8 @@ public class GameplayScreen implements Screen {
         redMarkerTrack = new Texture(Gdx.files.internal("board/markers/MarkerRed.png"));
         orangeMarkerTrack = new Texture(Gdx.files.internal("board/markers/MarkerOrange.png"));
         coffeeTrack = new Texture(Gdx.files.internal("board/icons/Coffee.png"));
-        buttonDownTexture = new Texture(Gdx.files.internal("buttons/1832043-200.png"));
-        buttonUpTexture = new Texture(Gdx.files.internal("buttons/1832044-200.png"));
+        buttonDownTexture = new Texture(Gdx.files.internal("buttons/white-up.png"));
+        buttonUpTexture = new Texture(Gdx.files.internal("buttons/down-white.png"));
         rerollIconTrack = new Texture(Gdx.files.internal("board/icons/Re-roll.png"));
         doneButtonTexture = new Texture(Gdx.files.internal("buttons/done.png"));
         reRollTexture = new Texture(Gdx.files.internal("buttons/re.png"));
@@ -983,7 +983,7 @@ public class GameplayScreen implements Screen {
 
             if(playerIndex == 0) {
                 for (int i = 0; i < coffeePilotDiceSelectable.size(); i++) {
-                    if (coffeePilotDiceSelectable.get(i) && !PilotDicePlacedInPlaceHolder.get(i)) {
+                    if (coffeePilotDiceSelectable.get(i) && !PilotDicePlacedInPlaceHolder.get(i) && pilotDice.get(i).getDiceValue()!=1 && pilotDice.get(i).getDiceValue()!=6) {
                         Vector2 positionButtonUp = buttonUpPilotPositions.get(i);
                         Vector2 positionButtonDown = buttonDownPilotPositions.get(i);
                         batch.draw(buttonUpTexture, positionButtonUp.x, positionButtonUp.y, 50, 50);
@@ -996,7 +996,7 @@ public class GameplayScreen implements Screen {
 
             } else {
                 for (int i = 0; i < coffeeCopilotDiceSelectable.size(); i++) {
-                    if (coffeeCopilotDiceSelectable.get(i) && !CopilotDicePlacedInPlaceHolder.get(i)) {
+                    if (coffeeCopilotDiceSelectable.get(i) && !CopilotDicePlacedInPlaceHolder.get(i) && coPilotDice.get(i).getDiceValue()!=1 && coPilotDice.get(i).getDiceValue()!=6) {
                         Vector2 positionButtonUp = buttonUpCoPilotPositions.get(i);
                         Vector2 positionButtonDown = buttonDownCoPilotPositions.get(i);
                         batch.draw(buttonUpTexture, positionButtonUp.x, positionButtonUp.y, 50, 50);
