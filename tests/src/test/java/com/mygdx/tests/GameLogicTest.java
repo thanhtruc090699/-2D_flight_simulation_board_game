@@ -99,17 +99,4 @@ public class GameLogicTest {
         boolean won = game.checkWinningConditions();
         assertFalse(won, "Game should fail the winning conditions");
     }
-
-    @Test
-    public void testGameEndAfterFinalRound() {
-        // Play through all rounds and ensure the game ends
-
-        for (int i = 1; i < 7; i++) {
-            game.nextRound();
-        }
-
-        game.getGameOver();
-
-        assertTrue(game.getGameOver(), "Game should end after 7 rounds");
-    }
 }

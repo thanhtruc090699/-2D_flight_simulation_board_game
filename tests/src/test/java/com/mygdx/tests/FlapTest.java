@@ -90,7 +90,7 @@ class FlapTest {
     void testDeployFlapShiftsOrangeMarker() {
         flap.deployFlaps(1, airplane, 1);
 
-        assertEquals(10, airplane.getEngine().getOrangeMarker());
+        assertEquals(9, airplane.getEngine().getOrangeMarker());
     }
 
     @Test

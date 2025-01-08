@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.mygdx.tests.LandingGearTest" tests="11" skipped="0" failures="0" errors="0" timestamp="2025-01-08T11:40:52" hostname="wstud2-be41ae783ae8.hof-university.de" time="0.005">
+  <properties/>
+  <testcase name="testDeployLandingGear3WithoutLandingGear2()" classname="com.mygdx.tests.LandingGearTest" time="0.001"/>
+  <testcase name="testDeployLandingGear3WithLandingGear2()" classname="com.mygdx.tests.LandingGearTest" time="0.0"/>
+  <testcase name="testDeployLandingGear2WithoutLandingGear1()" classname="com.mygdx.tests.LandingGearTest" time="0.0"/>
+  <testcase name="testCanPlaceLandingGear_invalidDice()" classname="com.mygdx.tests.LandingGearTest" time="0.0"/>
+  <testcase name="testCanPlaceLandingGear_validDiceAndFieldChoice()" classname="com.mygdx.tests.LandingGearTest" time="0.0"/>
+  <testcase name="testCanPlaceLandingGear_unfilledPreviousField()" classname="com.mygdx.tests.LandingGearTest" time="0.0"/>
+  <testcase name="testDeployLandingGear1()" classname="com.mygdx.tests.LandingGearTest" time="0.0"/>
+  <testcase name="testDeployLandingGearShiftsBlueMarker()" classname="com.mygdx.tests.LandingGearTest" time="0.001"/>
+  <testcase name="testLandingGearInitialState()" classname="com.mygdx.tests.LandingGearTest" time="0.0"/>
+  <testcase name="testDeployLandingGear2WithLandingGear1()" classname="com.mygdx.tests.LandingGearTest" time="0.001"/>
+  <testcase name="testDeployLandingGearInvalidDiceValue()" classname="com.mygdx.tests.LandingGearTest" time="0.0"/>
+  <system-out><![CDATA[Landing Gear 1 is now deployed.
+Landing Gear 3 is now deployed.
+Landing Gear 1 is now deployed.
+Landing Gear 2 is now deployed.
+Landing Gear 3 is now deployed.
+Landing Gear 2 is now deployed.
+Landing Gear 1 is now deployed.
+Landing Gear 1 is now deployed.
+Landing Gear 1 is now deployed.
+Landing Gear 2 is now deployed.
+Invalid dice value for Landing Gear 1!
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

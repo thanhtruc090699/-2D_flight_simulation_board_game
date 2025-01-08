@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.mygdx.tests.ConcentrationTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2025-01-08T11:40:52" hostname="wstud2-be41ae783ae8.hof-university.de" time="0.004">
+  <properties/>
+  <testcase name="testFillCoffeeFieldsValidValue()" classname="com.mygdx.tests.ConcentrationTest" time="0.001"/>
+  <testcase name="testInitialization()" classname="com.mygdx.tests.ConcentrationTest" time="0.0"/>
+  <testcase name="testFillingWhenAllFieldsAreFilled()" classname="com.mygdx.tests.ConcentrationTest" time="0.001"/>
+  <testcase name="testResetCoffeeFields()" classname="com.mygdx.tests.ConcentrationTest" time="0.0"/>
+  <testcase name="testResetCoffeeFieldInvalidIndex()" classname="com.mygdx.tests.ConcentrationTest" time="0.0"/>
+  <testcase name="testFillCoffeeFieldsInvalidValue()" classname="com.mygdx.tests.ConcentrationTest" time="0.0"/>
+  <system-out><![CDATA[Coffee Field 1 is now filled with dice value 4.
+Coffee Field 1 is now filled with dice value 6.
+Coffee Field 2 is now filled with dice value 4.
+Coffee Field 3 is now filled with dice value 1.
+All coffee fields are already filled.
+Coffee Field 1 is now filled with dice value 6.
+Invalid dice value 7 for Coffee Field 1
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

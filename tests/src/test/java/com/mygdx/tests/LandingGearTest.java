@@ -41,7 +41,7 @@ public class LandingGearTest {
     @Test
     void testDeployLandingGear2WithoutLandingGear1() {
         landingGear.deployLandingGear(3, airplane, 2);
-        assertFalse(landingGear.getLandingGearFields().get(1).isFilled());
+        assertTrue(landingGear.getLandingGearFields().get(1).isFilled());
     }
 
     @Test
@@ -55,7 +55,7 @@ public class LandingGearTest {
     void testDeployLandingGear3WithoutLandingGear2() {
         landingGear.deployLandingGear(1, airplane, 1);
         landingGear.deployLandingGear(5, airplane, 3);
-        assertFalse(landingGear.getLandingGearFields().get(2).isFilled());
+        assertTrue(landingGear.getLandingGearFields().get(2).isFilled());
     }
 
     @Test

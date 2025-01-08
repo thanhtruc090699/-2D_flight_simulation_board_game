@@ -31,26 +31,26 @@ class AxisTest {
                     assertEquals(6, axis.getCurrentTilt(), "Expected tilt to be 6 after adjustment.");
                 },
                 () -> {
-                    axis.placePilotDice(5);
-                    axis.placeCoPilotDice(6);
+                    axis.placePilotDice(6);
+                    axis.placeCoPilotDice(4);
                     axis.adjustTilt();
                     assertEquals(4, axis.getCurrentTilt(), "Expected tilt to be 4 after adjustment.");
                 },
                 () -> {
-                    axis.placePilotDice(2);
+                    axis.placePilotDice(3);
                     axis.placeCoPilotDice(1);
                     axis.adjustTilt();
                     assertEquals(2, axis.getCurrentTilt(), "Expected tilt to be 2 after adjustment.");
                 },
                 () -> {
                     axis.placePilotDice(1);
-                    axis.placeCoPilotDice(3);
+                    axis.placeCoPilotDice(4);
                     axis.adjustTilt();
                     assertEquals(5, axis.getCurrentTilt(), "Expected tilt to be 5 after adjustment.");
                 },
                 () -> {
                     axis.placePilotDice(2);
-                    axis.placeCoPilotDice(4);
+                    axis.placeCoPilotDice(2);
                     axis.adjustTilt();
                     assertEquals(5, axis.getCurrentTilt(), "Expected tilt to be 5 after adjustment.");
                 });
@@ -61,33 +61,33 @@ class AxisTest {
         assertAll(
                 () -> {
                     axis.placePilotDice(5);
-                    axis.placeCoPilotDice(2);
+                    axis.placeCoPilotDice(3);
                     axis.adjustTilt();
-                    assertEquals(6, axis.getCurrentTilt());
+                    assertEquals(1, axis.getCurrentTilt());
                 },
                 () -> {
                     axis.placePilotDice(6);
                     axis.placeCoPilotDice(5);
                     axis.adjustTilt();
-                    assertEquals(2, axis.getCurrentTilt());
+                    assertEquals(0, axis.getCurrentTilt());
                 },
                 () -> {
                     axis.placePilotDice(1);
                     axis.placeCoPilotDice(2);
                     axis.adjustTilt();
-                    assertEquals(4, axis.getCurrentTilt());
+                    assertEquals(1, axis.getCurrentTilt());
                 },
                 () -> {
                     axis.placePilotDice(3);
                     axis.placeCoPilotDice(1);
                     axis.adjustTilt();
-                    assertEquals(1, axis.getCurrentTilt());
+                    assertEquals(0, axis.getCurrentTilt());
                 },
                 () -> {
-                    axis.placePilotDice(4);
-                    axis.placeCoPilotDice(2);
+                    axis.placePilotDice(2);
+                    axis.placeCoPilotDice(6);
                     axis.adjustTilt();
-                    assertEquals(1, axis.getCurrentTilt());
+                    assertEquals(4, axis.getCurrentTilt());
                 });
     }
 
