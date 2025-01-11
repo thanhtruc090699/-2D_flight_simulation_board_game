@@ -34,13 +34,21 @@ public class MainMenuScreen implements Screen {
 
         // Title
         Texture titleTexture = new Texture(Gdx.files.internal("images/title.png"));
-        Image titleImage = new Image(titleTexture); // Create an image actor
+        Image titleImage = new Image(titleTexture); 
 
-        // Position the title image above the buttons
         titleImage.setPosition(
-            (Gdx.graphics.getWidth() - titleImage.getWidth()) / 2f,
-            Gdx.graphics.getHeight() - titleImage.getHeight() - 150 // Adjust Y position to leave space for buttons
+                (Gdx.graphics.getWidth() - titleImage.getWidth()) / 2f,
+                Gdx.graphics.getHeight() - titleImage.getHeight() - 150 
         );
+
+          // Plane Icon
+          Texture planeIconTexture = new Texture(Gdx.files.internal("images/plane_icon.png"));
+          Image planeIcon = new Image(planeIconTexture);
+          planeIcon.setSize(450, 450);
+          planeIcon.setPosition(
+              titleImage.getX() + 800,
+              titleImage.getY() - 250  
+          );
 
         // Start Button
         Texture normalStartTexture = new Texture(Gdx.files.internal("buttons/button_start_normal.png"));
@@ -63,6 +71,28 @@ public class MainMenuScreen implements Screen {
             }
         });
 
+        // How to Play Button
+        Texture normalHowToPlayTexture = new Texture(Gdx.files.internal("buttons/how_button.png"));
+        Texture pressedHowToPlayTexture = new Texture(Gdx.files.internal("buttons/how_button_pressed.png"));
+
+        TextureRegionDrawable normalHowToPlayDrawable = new TextureRegionDrawable(
+                new TextureRegion(normalHowToPlayTexture));
+        TextureRegionDrawable pressedHowToPlayDrawable = new TextureRegionDrawable(
+                new TextureRegion(pressedHowToPlayTexture));
+
+        ImageButton howToPlayButton = new ImageButton(normalHowToPlayDrawable, pressedHowToPlayDrawable);
+        howToPlayButton.setSize(400, 80);
+        howToPlayButton.setPosition(
+                (Gdx.graphics.getWidth() - howToPlayButton.getWidth()) / 2f,
+                (Gdx.graphics.getHeight() - howToPlayButton.getHeight()) / 2f - 70); // Positioned between Play and Quit
+
+        howToPlayButton.addListener(new ChangeListener() {
+            @Override
+            public void changed(ChangeEvent event, Actor actor) {
+                // Link has to be added to our manual 
+            }
+        });
+
         // Exit Button
         Texture normalQuitTexture = new Texture(Gdx.files.internal("buttons/button_quit_normal.png"));
         Texture pressedQuitTexture = new Texture(Gdx.files.internal("buttons/button_quit_pressed.png"));
@@ -74,7 +104,7 @@ public class MainMenuScreen implements Screen {
         quitButton.setSize(400, 80);
         quitButton.setPosition(
                 (Gdx.graphics.getWidth() - quitButton.getWidth()) / 2f,
-                (Gdx.graphics.getHeight() - quitButton.getHeight()) / 2f - 100);
+                (Gdx.graphics.getHeight() - quitButton.getHeight()) / 2f - 180);
 
         quitButton.addListener(new ChangeListener() {
             @Override
@@ -82,9 +112,10 @@ public class MainMenuScreen implements Screen {
                 Gdx.app.exit();
             }
         });
-
+        stage.addActor(planeIcon);
         stage.addActor(titleImage);
         stage.addActor(startButton);
+        stage.addActor(howToPlayButton);
         stage.addActor(quitButton);
 
         Gdx.input.setInputProcessor(stage);

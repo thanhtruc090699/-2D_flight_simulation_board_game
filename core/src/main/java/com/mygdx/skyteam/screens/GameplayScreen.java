@@ -2,7 +2,6 @@ package com.mygdx.skyteam.screens;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
-import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.Actor;
@@ -14,7 +13,6 @@ import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.mygdx.skyteam.logic.Dice;
 import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
@@ -24,7 +22,6 @@ import java.util.List;
 import com.mygdx.skyteam.logic.GameLogic;
 
 import com.mygdx.skyteam.logic.Field;
-import com.mygdx.skyteam.logic.Pilot;
 
 public class GameplayScreen implements Screen {
 
@@ -118,7 +115,10 @@ public class GameplayScreen implements Screen {
     private ArrayList<Boolean> rerollCopilotDicePlacedInPlaceHolder;
     private Vector2 rerollButtonDonePosition;
 
+    private List<Image> droppedPilotDiceList = new ArrayList<>();
+    private List<Image> droppedCoPilotDiceList = new ArrayList<>();
 
+    private float testTimer = 0f; 
 
     public GameplayScreen(SkyTeamGame game, GameLogic gameLogic) {
         this.game = game;
@@ -155,7 +155,6 @@ public class GameplayScreen implements Screen {
         pilotDiceTextures = new ArrayList<>();
         coPilotDiceTextures = new ArrayList<>();
 
-
         for (int i = 1; i <= 6; i++) {
             pilotDiceTextures.add(new Texture("dice/" + i + "B.png"));
             coPilotDiceTextures.add(new Texture("dice/" + i + "R.png"));
@@ -169,7 +168,6 @@ public class GameplayScreen implements Screen {
 
         pilotDice = new ArrayList<>(gameLogic.getPilot().getDices());
         coPilotDice = new ArrayList<>(gameLogic.getCoPilot().getDices());
-
 
         drawDice(pilotDice, pilotDiceTextures, true);
         drawDice(coPilotDice, coPilotDiceTextures, false);
@@ -213,7 +211,6 @@ public class GameplayScreen implements Screen {
         coffeesPositions.add(new Vector2(760, 21));
         coffeesPositions.add(new Vector2(809, 21));
 
-
         buttonUpPilotPositions = new ArrayList<>();
         buttonDownPilotPositions = new ArrayList<>();
         buttonUpCoPilotPositions = new ArrayList<>();
@@ -221,11 +218,10 @@ public class GameplayScreen implements Screen {
 
         isUsingCoffee = false;
 
-        coffeePilotDiceSelectable = new ArrayList<>(); //Pilot Selectable dice list
+        coffeePilotDiceSelectable = new ArrayList<>(); // Pilot Selectable dice list
         coffeeCopilotDiceSelectable = new ArrayList<>(); // Copilot Selectable dice list
         PilotDicePlacedInPlaceHolder = new ArrayList<>(); // Pilot dice list of placed dice
-        CopilotDicePlacedInPlaceHolder = new ArrayList<>();  // CoPilot dice list of placed dice
-
+        CopilotDicePlacedInPlaceHolder = new ArrayList<>(); // CoPilot dice list of placed dice
 
         // Position of increase and decrease button of pilot
         for (int i = 0; i < pilotDice.size(); i++) {
@@ -239,7 +235,6 @@ public class GameplayScreen implements Screen {
 
             buttonUpPilotPositions.add(buttonUpPosition);
             buttonDownPilotPositions.add(buttonDownPosition);
-
 
         }
 
@@ -257,7 +252,6 @@ public class GameplayScreen implements Screen {
             buttonUpCoPilotPositions.add(buttonUpPosition);
             buttonDownCoPilotPositions.add(buttonDownPosition);
 
-
         }
 
         rerollIconPositions = new ArrayList<>();
@@ -266,7 +260,7 @@ public class GameplayScreen implements Screen {
         // Position of reroll token
 
         // rerollIconPositions.add(new Vector2(744, 610));
-        //rerollIconPositions.add(new Vector2(1076, 615));
+        // rerollIconPositions.add(new Vector2(1076, 615));
         rerollIconPositions.add(new Vector2(1076, 920));
 
         rerollPlaceholders.add(new Vector2(744, 610));
@@ -308,7 +302,6 @@ public class GameplayScreen implements Screen {
 
         handleRerollInteraction();
 
-
     }
 
     private void handleRerollInteraction() {
@@ -319,7 +312,7 @@ public class GameplayScreen implements Screen {
                     for (int i = 0; i < rerollPlaceholders.size(); i++) {
                         Vector2 placeholderPosition = rerollPlaceholders.get(i);
                         if (Math.abs(placeholderPosition.x - event.getStageX()) < 35 &&
-                            Math.abs(placeholderPosition.y - event.getStageY()) < 35) {
+                                Math.abs(placeholderPosition.y - event.getStageY()) < 35) {
                             isUsingReroll = true;
 
                             rerollPlaceholders.remove(i);
@@ -343,7 +336,7 @@ public class GameplayScreen implements Screen {
                     }
                 } else {
                     if (Math.abs(rerollButtonDonePosition.x - event.getStageX()) < 50 &&
-                        Math.abs(rerollButtonDonePosition.y - event.getStageY()) < 50) {
+                            Math.abs(rerollButtonDonePosition.y - event.getStageY()) < 50) {
                         isUsingReroll = false;
                         finalizeReroll();
                         return true;
@@ -353,7 +346,8 @@ public class GameplayScreen implements Screen {
                         if (rerollPilotDiceSelectable.get(i) && !rerollPilotDicePlacedInPlaceHolder.get(i)) {
                             Vector2 downPos = reRollPilotPositions.get(i);
 
-                            if (Math.abs(downPos.x - event.getStageX()) < 50 && Math.abs(downPos.y - event.getStageY()) < 50) {
+                            if (Math.abs(downPos.x - event.getStageX()) < 50
+                                    && Math.abs(downPos.y - event.getStageY()) < 50) {
                                 Dice dice = pilotDice.get(i);
                                 dice.rollDice();
                                 updateSingleDice(i, dice, true);
@@ -367,7 +361,8 @@ public class GameplayScreen implements Screen {
                         if (rerollCopilotDiceSelectable.get(i) && !rerollCopilotDicePlacedInPlaceHolder.get(i)) {
                             Vector2 downPos = reRollCoPilotPositions.get(i);
 
-                            if (Math.abs(downPos.x - event.getStageX()) < 50 && Math.abs(downPos.y - event.getStageY()) < 50) {
+                            if (Math.abs(downPos.x - event.getStageX()) < 50
+                                    && Math.abs(downPos.y - event.getStageY()) < 50) {
                                 Dice dice = coPilotDice.get(i);
                                 dice.rollDice();
                                 updateSingleDice(i, dice, false);
@@ -384,7 +379,7 @@ public class GameplayScreen implements Screen {
 
     private void drawButtons() {
         if (isUsingReroll) {
-            batch.draw(doneButtonTexture, rerollButtonDonePosition.x, rerollButtonDonePosition.y, 50, 50);
+            batch.draw(doneButtonTexture, rerollButtonDonePosition.x, rerollButtonDonePosition.y, 60, 60);
 
             for (int i = 0; i < rerollPilotDiceSelectable.size(); i++) {
                 if (rerollPilotDiceSelectable.get(i) && !rerollPilotDicePlacedInPlaceHolder.get(i)) {
@@ -401,7 +396,6 @@ public class GameplayScreen implements Screen {
         }
     }
 
-
     private void finalizeReroll() {
         rerollPilotDiceSelectable.clear();
         rerollCopilotDiceSelectable.clear();
@@ -409,12 +403,9 @@ public class GameplayScreen implements Screen {
         rerollCopilotDicePlacedInPlaceHolder.clear();
     }
 
-
     public void drawDice(ArrayList<Dice> diceList, ArrayList<Texture> diceTextures, boolean isPilot) {
 
-
         for (int i = 0; i < diceList.size(); i++) {
-
 
             final Dice dice = diceList.get(i);
             final Image diceImage = new Image(diceTextures.get(dice.getDiceValue() - 1));
@@ -428,7 +419,6 @@ public class GameplayScreen implements Screen {
             diceImage.setSize(51, 51);
 
             stage.addActor(diceImage);
-
 
             if (isPilot) {
                 diceImage.setZIndex(10); // Set a higher z-index for pilot dice
@@ -445,7 +435,6 @@ public class GameplayScreen implements Screen {
             }
 
         }
-
 
     }
 
@@ -468,7 +457,7 @@ public class GameplayScreen implements Screen {
                 Image image = (Image) actor;
 
                 if ((image.getName().equals("PilotDice") && isPilot)
-                    || (image.getName().equals("CoPilotDice") && !isPilot)) {
+                        || (image.getName().equals("CoPilotDice") && !isPilot)) {
                     actorsToRemove.add(image);
                 }
             }
@@ -476,7 +465,6 @@ public class GameplayScreen implements Screen {
         for (Actor actor : actorsToRemove) {
             actor.remove();
         }
-
 
         if (isPilot) {
             isDraggingPilotDice = false;
@@ -488,8 +476,10 @@ public class GameplayScreen implements Screen {
     }
 
     /**
-     * Update the single dice image after the player (Copilot or Pilot) chooses to increase or decrease dice when using coffee token
-     * It refreshes the texture of dice ti match its value and repositions it at its original location
+     * Update the single dice image after the player (Copilot or Pilot) chooses to
+     * increase or decrease dice when using coffee token
+     * It refreshes the texture of dice ti match its value and repositions it at its
+     * original location
      * - Find the specific dice image in the stage by iterating over all actor
      * - Update the texture of image and set its position back to the start position
      *
@@ -509,14 +499,14 @@ public class GameplayScreen implements Screen {
                 Image diceImage = (Image) actor;
 
                 if ((isPilot && diceImage.getName().equals("PilotDice")) ||
-                    (!isPilot && diceImage.getName().equals("CoPilotDice"))) {
+                        (!isPilot && diceImage.getName().equals("CoPilotDice"))) {
 
                     if (actorIndex == diceIndex) {
                         diceImage.setDrawable(new Image(diceTextures.get(dice.getDiceValue() - 1)).getDrawable());
                         diceImage.setPosition(startX + diceIndex * diceSpacing, startY);
                         System.out.println("Updated " + (isPilot ? "Pilot" : "CoPilot") +
-                            " Dice at index: " + diceIndex +
-                            ", Value: " + dice.getDiceValue());
+                                " Dice at index: " + diceIndex +
+                                ", Value: " + dice.getDiceValue());
                         return;
                     }
                     actorIndex++;
@@ -524,24 +514,29 @@ public class GameplayScreen implements Screen {
             }
         }
         System.out.println("Failed to update " + (isPilot ? "Pilot" : "CoPilot") +
-            " Dice at index: " + diceIndex);
+                " Dice at index: " + diceIndex);
     }
 
-
     /**
-     * Handle the input when Pilot player clicks the increase button or decrease button to adjust the dice value that
+     * Handle the input when Pilot player clicks the increase button or decrease
+     * button to adjust the dice value that
      * they want after using coffee token
      * - Pilot can select coffee token
-     * - The increase and decrease button will appear above (increase button) and below (decrease button) the dice list
-     * - Pilot can click the button to increase or decrease the value of a specific dice that they want
+     * - The increase and decrease button will appear above (increase button) and
+     * below (decrease button) the dice list
+     * - Pilot can click the button to increase or decrease the value of a specific
+     * dice that they want
      * The Logic of method:
      * - Detects a click on a coffee token. if clicked:
      * + Activate the using coffee mode (isUsingCoffee = true)
      * + Remove the coffee token from the board
-     * + Update the state of the selectable dice. Selectable dice list is a list of dices that has not been placed
+     * + Update the state of the selectable dice. Selectable dice list is a list of
+     * dices that has not been placed
      * - Detect a click on increase or decrease button for each dice:
-     * + If increase button is clicked and the dice value is less than 6, it increases the dice value by one
-     * + If decrease button is clicked and the dice value is greater than 1, it decreases the dice value by one
+     * + If increase button is clicked and the dice value is less than 6, it
+     * increases the dice value by one
+     * + If decrease button is clicked and the dice value is greater than 1, it
+     * decreases the dice value by one
      * + Updates the image of dice corresponding to the updated value
      * - Escape from coffee mode (isUsingCoffee = false) after all
      */
@@ -553,7 +548,7 @@ public class GameplayScreen implements Screen {
                     for (int i = 0; i < coffeesPositions.size(); i++) {
                         Vector2 coffeePosition = coffeesPositions.get(i);
                         if (Math.abs(coffeePosition.x - event.getStageX()) < 35 &&
-                            Math.abs(coffeePosition.y - event.getStageY()) < 35) {
+                                Math.abs(coffeePosition.y - event.getStageY()) < 35) {
                             isUsingCoffee = true;
                             coffeesPositions.remove(i);
                             currentCoffeeQuantity--;
@@ -572,7 +567,7 @@ public class GameplayScreen implements Screen {
                             Vector2 downPos = buttonDownPilotPositions.get(i);
 
                             if (Math.abs(upPos.x - event.getStageX()) < 50 &&
-                                Math.abs(upPos.y - event.getStageY()) < 50) {
+                                    Math.abs(upPos.y - event.getStageY()) < 50) {
                                 Dice dice = pilotDice.get(i);
 
                                 if (dice.getDiceValue() > 1) {
@@ -580,14 +575,13 @@ public class GameplayScreen implements Screen {
                                     updateSingleDice(i, dice, true);
                                 }
 
-
                                 isUsingCoffee = false;
                                 return true;
 
                             }
 
                             if (Math.abs(downPos.x - event.getStageX()) < 50 &&
-                                Math.abs(downPos.y - event.getStageY()) < 50) {
+                                    Math.abs(downPos.y - event.getStageY()) < 50) {
                                 Dice dice = pilotDice.get(i);
 
                                 if (dice.getDiceValue() < 6) {
@@ -609,19 +603,25 @@ public class GameplayScreen implements Screen {
     }
 
     /**
-     * Handle the input when CoPilot player clicks the increase button or decrease button to adjust the dice value that
+     * Handle the input when CoPilot player clicks the increase button or decrease
+     * button to adjust the dice value that
      * they want after using coffee token
      * - CoPilot can select coffee token
-     * - The increase and decrease button will appear above (increase button) and below (decrease button) the dice list
-     * - CoPilot can click the button to increase or decrease the value of a specific dice that they want
+     * - The increase and decrease button will appear above (increase button) and
+     * below (decrease button) the dice list
+     * - CoPilot can click the button to increase or decrease the value of a
+     * specific dice that they want
      * The Logic of method:
      * - Detects a click on a coffee token. if clicked:
      * + Activate the using coffee mode (isUsingCoffee = true)
      * + Remove the coffee token from the board
-     * + Update the state of the selectable dice. Selectable dice list is a list of dices that has not been placed
+     * + Update the state of the selectable dice. Selectable dice list is a list of
+     * dices that has not been placed
      * - Detect a click on increase or decrease button for each dice:
-     * + If increase button is clicked and the dice value is less than 6, it increases the dice value by one
-     * + If decrease button is clicked and the dice value is greater than 1, it decreases the dice value by one
+     * + If increase button is clicked and the dice value is less than 6, it
+     * increases the dice value by one
+     * + If decrease button is clicked and the dice value is greater than 1, it
+     * decreases the dice value by one
      * + Updates the image of dice corresponding to the updated value
      * - Escape from coffee mode (isUsingCoffee = false) after all
      */
@@ -633,7 +633,7 @@ public class GameplayScreen implements Screen {
                     for (int i = 0; i < coffeesPositions.size(); i++) {
                         Vector2 coffeePosition = coffeesPositions.get(i);
                         if (Math.abs(coffeePosition.x - event.getStageX()) < 35 &&
-                            Math.abs(coffeePosition.y - event.getStageY()) < 35) {
+                                Math.abs(coffeePosition.y - event.getStageY()) < 35) {
                             isUsingCoffee = true;
                             coffeesPositions.remove(i);
                             currentCoffeeQuantity--;
@@ -652,7 +652,7 @@ public class GameplayScreen implements Screen {
                             Vector2 downPos = buttonDownCoPilotPositions.get(i);
 
                             if (Math.abs(upPos.x - event.getStageX()) < 50 &&
-                                Math.abs(upPos.y - event.getStageY()) < 50) {
+                                    Math.abs(upPos.y - event.getStageY()) < 50) {
                                 Dice dice = coPilotDice.get(i);
 
                                 if (dice.getDiceValue() > 1) {
@@ -661,14 +661,13 @@ public class GameplayScreen implements Screen {
                                     ;
                                 }
 
-
                                 isUsingCoffee = false;
                                 return true;
 
                             }
 
                             if (Math.abs(downPos.x - event.getStageX()) < 50 &&
-                                Math.abs(downPos.y - event.getStageY()) < 50) {
+                                    Math.abs(downPos.y - event.getStageY()) < 50) {
                                 Dice dice = coPilotDice.get(i);
 
                                 if (dice.getDiceValue() < 6) {
@@ -678,8 +677,10 @@ public class GameplayScreen implements Screen {
                                 isUsingCoffee = false;
                                 return true;
                             }
-                            System.out.println("CoPilot Dice " + i + " Selectable: " + coffeeCopilotDiceSelectable.get(i));
-                            System.out.println("CoPilot Dice " + i + " Placed: " + CopilotDicePlacedInPlaceHolder.get(i));
+                            System.out.println(
+                                    "CoPilot Dice " + i + " Selectable: " + coffeeCopilotDiceSelectable.get(i));
+                            System.out
+                                    .println("CoPilot Dice " + i + " Placed: " + CopilotDicePlacedInPlaceHolder.get(i));
                             System.out.println("CoPilot Dice " + i + " Value: " + coPilotDice.get(i).getDiceValue());
 
                         }
@@ -721,12 +722,66 @@ public class GameplayScreen implements Screen {
                 }
             }
 
-
             resetAndDrawDice(pilotDice, pilotDiceTextures, true);
             resetAndDrawDice(coPilotDice, coPilotDiceTextures, false);
             handlePilotCoffeeInteraction();
             handlePilotCoffeeInteraction();
 
+            if (playerIndex == 0) {
+                hideCoPilotDice(); 
+                showPilotDice(); 
+            } else if (playerIndex == 1) {
+                hidePilotDice(); 
+                showCoPilotDice(); 
+            }
+
+        }
+    }
+
+    private void showPilotDice() {
+        for (Actor actor : stage.getActors()) {
+            if (actor instanceof Image) {
+                Image diceImage = (Image) actor;
+                if (diceImage.getName().equals("PilotDice") && !droppedPilotDiceList.contains(diceImage)) {
+                    diceImage.setVisible(true);
+                }
+            }
+        }
+    }
+
+    private void showCoPilotDice() {
+        for (Actor actor : stage.getActors()) {
+            if (actor instanceof Image) {
+                Image diceImage = (Image) actor;
+               
+                if (diceImage.getName().equals("CoPilotDice") && !droppedCoPilotDiceList.contains(diceImage)) {
+                    diceImage.setVisible(true); 
+                }
+            }
+        }
+    }
+
+    private void hidePilotDice() {
+        for (Actor actor : stage.getActors()) {
+            if (actor instanceof Image) {
+                Image diceImage = (Image) actor;
+
+                if (diceImage.getName().equals("PilotDice") && !droppedPilotDiceList.contains(diceImage)) {
+                    diceImage.setVisible(false);
+                }
+            }
+        }
+    }
+
+    private void hideCoPilotDice() {
+        for (Actor actor : stage.getActors()) {
+            if (actor instanceof Image) {
+                Image diceImage = (Image) actor;
+
+                if (diceImage.getName().equals("CoPilotDice") && !droppedCoPilotDiceList.contains(diceImage)) {
+                    diceImage.setVisible(false);
+                }
+            }
         }
     }
 
@@ -761,8 +816,12 @@ public class GameplayScreen implements Screen {
 
                 isDraggingPilotDice = false;
                 if (gameLogic.getRound().getCurrentPlayerIndex() == 0) {
+                    droppedPilotDiceList.add(diceImage);
+
+                    diceImage.setVisible(true);
                     int diceIndex = pilotDice.indexOf(draggedPilotDice);
                     handleInput((int) event.getStageX(), (int) event.getStageY(), true, diceImage, diceIndex);
+
                 } else {
                     System.out.println("Pilot Dice touchUp is ignored: Not Pilot's turn");
                 }
@@ -802,6 +861,11 @@ public class GameplayScreen implements Screen {
 
                 isDraggingCoPilotDice = false;
                 if (gameLogic.getRound().getCurrentPlayerIndex() == 1) {
+                    diceImage.setVisible(true);
+                    droppedCoPilotDiceList.add(diceImage);
+                    // Print the entire dropped list to debug
+                    System.out.println("Dropped Co-Pilot Dice List: " + droppedCoPilotDiceList);
+
                     int diceIndex = coPilotDice.indexOf(draggedCoPilotDice);
                     handleInput((int) event.getStageX(), (int) event.getStageY(), false, diceImage, diceIndex);
                 } else {
@@ -825,12 +889,21 @@ public class GameplayScreen implements Screen {
 
         batch.begin();
 
-        if (gameLogic.getGameOver()) {
-            // Transition to GameOverScreen
-            game.setScreen(new GameOverScreen(game));
+        testTimer += delta;
+        if (testTimer > 3f) { // After 3 seconds, transition to VictoryScreen
+            game.setScreen(new VictoryScreen(game));
             return;
         }
 
+        if (gameLogic.getGameOver()) {
+            
+            game.setScreen(new GameOverScreen(game));
+            return;
+        } else if (gameLogic.hasWon()) {
+            
+            game.setScreen(new VictoryScreen(game));
+            return;
+        }
 
         batch.draw(backgroundTexture, 0, 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
         updatePlaneTrackVerticalOffset(gameLogic.getAirplane().getEngine().getCurrentPosition());
@@ -844,12 +917,15 @@ public class GameplayScreen implements Screen {
 
         if (playerIndex == 0) {
             batch.draw(pilotTurnTexture, 300, 750);
+            hideCoPilotDice(); // Hide co-pilot's dice when it's the pilot's turn
+            showPilotDice();
 
         } else if (playerIndex == 1) {
             batch.draw(coPilotTurnTexture, Gdx.graphics.getWidth() - 600, 750);
+            hidePilotDice(); // Hide pilot's dice when it's the co-pilot's turn
+            showCoPilotDice();
 
         }
-
 
         handleRoundChange();
 
@@ -917,26 +993,31 @@ public class GameplayScreen implements Screen {
      * + They are drawn by their positions and states
      * + When the dice is placed into corresponding field of landing gear or flaps,
      * the associated switches state turn true (on).
-     * + Activated switches automatically move to the left so that the players can visually
-     * see the green light, representing  this flaps or gears has been activated
+     * + Activated switches automatically move to the left so that the players can
+     * visually
+     * see the green light, representing this flaps or gears has been activated
      * + The activation states and position switch is preserved throughout 7 rounds
      * <p>
      * - Red marker on Brakes:
      * + It is drawn by their position and rotation angles
      * + Its Positions were already defined above in show method
-     * + When the pilot placed dice, the position of the red marker will change accordingly
+     * + When the pilot placed dice, the position of the red marker will change
+     * accordingly
      * to visually show for the player the range of brake level
      * <p>
      * - Orange and Blue markers on Engine Speed Adjustment:
      * + It is drawn by their position and rotation angles
      * + Their Positions were already defined above in show method
-     * + When the players placed dice, the position of the blue or orange marker will change accordingly
+     * + When the players placed dice, the position of the blue or orange marker
+     * will change accordingly
      * to visually show for the player the range of speed engine adjustment
      * - Coffee token on Concentration mode:
      * + It is drawn by its respective position and current quantity
-     * + When the player places dice into Concentration field, the coffee icon will appear
+     * + When the player places dice into Concentration field, the coffee icon will
+     * appear
      * - Increase and decrease buttons when using coffee mode is activated
-     * + Buttons appear when Coffee mode (isUsingCoffee) is active and for selectable dice
+     * + Buttons appear when Coffee mode (isUsingCoffee) is active and for
+     * selectable dice
      * + These buttons allow pilot or copilot to adjust one dice value
      * + Only buttons corresponding to unplaced dice
      * (!PilotDicePlacedPlaceHolder or !CoPilotDicePlacedPlaceHolder) are shown
@@ -956,18 +1037,18 @@ public class GameplayScreen implements Screen {
         }
         // Draw blue marker
         batch.draw(blueMarkerTrack, blueMarkerPosition.x, blueMarkerPosition.y,
-            17 / 2f, 28 / 2f, 17, 28, 1, 1, blueMarkerRotation,
-            0, 0, blueMarkerTrack.getWidth(), blueMarkerTrack.getHeight(),
-            false, false);
+                17 / 2f, 28 / 2f, 17, 28, 1, 1, blueMarkerRotation,
+                0, 0, blueMarkerTrack.getWidth(), blueMarkerTrack.getHeight(),
+                false, false);
         // Draw red marker
         batch.draw(redMarkerTrack, redMarkerPosition.x, redMarkerPosition.y, 17 / 2f, 28 / 2f, 17, 28, 1, 1,
-            redMarkerRotation, 0, 0,
-            redMarkerTrack.getWidth(), redMarkerTrack.getHeight(), false, false);
+                redMarkerRotation, 0, 0,
+                redMarkerTrack.getWidth(), redMarkerTrack.getHeight(), false, false);
         // Draw orange marker
         batch.draw(orangeMarkerTrack, orangeMarkerPosition.x, orangeMarkerPosition.y,
-            17 / 2f, 28 / 2f, 17, 28, 1, 1, orangeMarkerRotation,
-            0, 0, orangeMarkerTrack.getWidth(), orangeMarkerTrack.getHeight(),
-            false, false);
+                17 / 2f, 28 / 2f, 17, 28, 1, 1, orangeMarkerRotation,
+                0, 0, orangeMarkerTrack.getWidth(), orangeMarkerTrack.getHeight(),
+                false, false);
 
         // Draw coffee
         for (int i = 0; i < currentCoffeeQuantity; i++) {
@@ -981,9 +1062,10 @@ public class GameplayScreen implements Screen {
 
             playerIndex = gameLogic.getRound().getCurrentPlayerIndex();
 
-            if(playerIndex == 0) {
+            if (playerIndex == 0) {
                 for (int i = 0; i < coffeePilotDiceSelectable.size(); i++) {
-                    if (coffeePilotDiceSelectable.get(i) && !PilotDicePlacedInPlaceHolder.get(i) && pilotDice.get(i).getDiceValue()!=1 && pilotDice.get(i).getDiceValue()!=6) {
+                    if (coffeePilotDiceSelectable.get(i) && !PilotDicePlacedInPlaceHolder.get(i)
+                            && pilotDice.get(i).getDiceValue() != 1 && pilotDice.get(i).getDiceValue() != 6) {
                         Vector2 positionButtonUp = buttonUpPilotPositions.get(i);
                         Vector2 positionButtonDown = buttonDownPilotPositions.get(i);
                         batch.draw(buttonUpTexture, positionButtonUp.x, positionButtonUp.y, 50, 50);
@@ -996,7 +1078,8 @@ public class GameplayScreen implements Screen {
 
             } else {
                 for (int i = 0; i < coffeeCopilotDiceSelectable.size(); i++) {
-                    if (coffeeCopilotDiceSelectable.get(i) && !CopilotDicePlacedInPlaceHolder.get(i) && coPilotDice.get(i).getDiceValue()!=1 && coPilotDice.get(i).getDiceValue()!=6) {
+                    if (coffeeCopilotDiceSelectable.get(i) && !CopilotDicePlacedInPlaceHolder.get(i)
+                            && coPilotDice.get(i).getDiceValue() != 1 && coPilotDice.get(i).getDiceValue() != 6) {
                         Vector2 positionButtonUp = buttonUpCoPilotPositions.get(i);
                         Vector2 positionButtonDown = buttonDownCoPilotPositions.get(i);
                         batch.draw(buttonUpTexture, positionButtonUp.x, positionButtonUp.y, 50, 50);
@@ -1017,8 +1100,15 @@ public class GameplayScreen implements Screen {
         }
 
         // Draw tokens in the placeholders
-        for (Vector2 placeholderPosition : rerollPlaceholders) {
-            batch.draw(rerollIconTrack, placeholderPosition.x, placeholderPosition.y, 35, 35);
+        for (int i = 0; i < rerollPlaceholders.size(); i++) {
+            Vector2 placeholderPosition = rerollPlaceholders.get(i);
+
+            if (i == 0) {
+                batch.draw(rerollIconTrack, placeholderPosition.x - 10, placeholderPosition.y, 50, 50); // larger
+                                                                                                        // size
+            } else {
+                batch.draw(rerollIconTrack, placeholderPosition.x, placeholderPosition.y, 35, 35); // normal size
+            }
         }
     }
 
@@ -1100,16 +1190,16 @@ public class GameplayScreen implements Screen {
         String playerInput = "";
         int fieldChoice = -1;
         int diceValue = isPilot ? pilotDice.get(diceIndex).getDiceValue()
-            : coPilotDice.get(diceIndex).getDiceValue();
+                : coPilotDice.get(diceIndex).getDiceValue();
 
         if (isPilot) {
             // Axis
             if (isMouseOverField(mouseX, mouseY, gameLogic.getAirplane().getAxis().getPilotAxisField(),
-                diceImage)) {
+                    diceImage)) {
                 playerInput = "axis";
                 fieldChoice = 0;
                 Vector3 fieldPosition = gameLogic.getAirplane().getAxis().getPilotAxisField()
-                    .getStageCoordinates(stage);
+                        .getStageCoordinates(stage);
                 float fieldStageX = fieldPosition.x;
                 float fieldStageY = fieldPosition.y;
                 if (gameLogic.getPilot().canPlaceDice(diceValue, playerInput, fieldChoice)) {
@@ -1143,9 +1233,9 @@ public class GameplayScreen implements Screen {
             // Brake
             for (int i = 0; i < 3; i++) {
                 if (isMouseOverField(mouseX, mouseY, gameLogic.getAirplane().getBrakes().getBrakeFields().get(i),
-                    diceImage)) {
+                        diceImage)) {
                     Vector3 fieldPosition = gameLogic.getAirplane().getBrakes().getBrakeFields().get(i)
-                        .getStageCoordinates(stage);
+                            .getStageCoordinates(stage);
                     float fieldStageX = fieldPosition.x;
                     float fieldStageY = fieldPosition.y;
                     playerInput = "brake";
@@ -1177,9 +1267,9 @@ public class GameplayScreen implements Screen {
             // Concentration (Coffee)
             for (int i = 0; i < 3; i++) {
                 if (isMouseOverField(mouseX, mouseY,
-                    gameLogic.getAirplane().getConcentration().getCoffeeFields().get(i), diceImage)) {
+                        gameLogic.getAirplane().getConcentration().getCoffeeFields().get(i), diceImage)) {
                     Vector3 fieldPosition = gameLogic.getAirplane().getConcentration().getCoffeeFields().get(i)
-                        .getStageCoordinates(stage);
+                            .getStageCoordinates(stage);
                     float fieldStageX = fieldPosition.x;
                     float fieldStageY = fieldPosition.y;
                     playerInput = "coffee";
@@ -1200,9 +1290,9 @@ public class GameplayScreen implements Screen {
             // Landing Gear
             for (int i = 0; i < 3; i++) {
                 if (isMouseOverField(mouseX, mouseY,
-                    gameLogic.getAirplane().getLandingGears().getLandingGearFields().get(i), diceImage)) {
+                        gameLogic.getAirplane().getLandingGears().getLandingGearFields().get(i), diceImage)) {
                     Vector3 fieldPosition = gameLogic.getAirplane().getLandingGears().getLandingGearFields().get(i)
-                        .getStageCoordinates(stage);
+                            .getStageCoordinates(stage);
                     float fieldStageX = fieldPosition.x;
                     float fieldStageY = fieldPosition.y;
                     playerInput = "landing gears";
@@ -1234,7 +1324,7 @@ public class GameplayScreen implements Screen {
             // Radio
             if (isMouseOverField(mouseX, mouseY, gameLogic.getPilot().getRadio().getRadioFields().get(0), diceImage)) {
                 Vector3 fieldPosition = gameLogic.getPilot().getRadio().getRadioFields().get(0)
-                    .getStageCoordinates(stage);
+                        .getStageCoordinates(stage);
                 float fieldStageX = fieldPosition.x;
                 float fieldStageY = fieldPosition.y;
                 playerInput = "radio";
@@ -1255,7 +1345,7 @@ public class GameplayScreen implements Screen {
                 playerInput = "axis";
                 fieldChoice = 0;
                 Vector3 fieldPosition = gameLogic.getAirplane().getAxis().getCoPilotAxisField()
-                    .getStageCoordinates(stage);
+                        .getStageCoordinates(stage);
                 float fieldStageX = fieldPosition.x;
                 float fieldStageY = fieldPosition.y;
                 if (gameLogic.getCoPilot().canPlaceDice(diceValue, playerInput, fieldChoice)) {
@@ -1275,7 +1365,7 @@ public class GameplayScreen implements Screen {
                 playerInput = "engine";
                 fieldChoice = 0;
                 Vector3 fieldPosition = gameLogic.getAirplane().getEngine().getCoPilotField()
-                    .getStageCoordinates(stage);
+                        .getStageCoordinates(stage);
                 float fieldStageX = fieldPosition.x;
                 float fieldStageY = fieldPosition.y;
                 if (gameLogic.getCoPilot().canPlaceDice(diceValue, playerInput, fieldChoice)) {
@@ -1291,12 +1381,12 @@ public class GameplayScreen implements Screen {
             // Flaps
             for (int i = 0; i < 4; i++) {
                 if (isMouseOverField(mouseX, mouseY, gameLogic.getAirplane().getFlaps().getFlapsFields().get(i),
-                    diceImage)) {
+                        diceImage)) {
 
                     playerInput = "flaps";
                     fieldChoice = i + 1;
                     Vector3 fieldPosition = gameLogic.getAirplane().getFlaps().getFlapsFields().get(i)
-                        .getStageCoordinates(stage);
+                            .getStageCoordinates(stage);
                     float fieldStageX = fieldPosition.x;
                     float fieldStageY = fieldPosition.y;
                     if (gameLogic.getCoPilot().canPlaceDice(diceValue, playerInput, fieldChoice)) {
@@ -1329,12 +1419,12 @@ public class GameplayScreen implements Screen {
             // Radio
             for (int i = 0; i < 2; i++) {
                 if (isMouseOverField(mouseX, mouseY, gameLogic.getCoPilot().getRadio().getRadioFields().get(i),
-                    diceImage)) {
+                        diceImage)) {
 
                     playerInput = "radio";
                     fieldChoice = i;
                     Vector3 fieldPosition = gameLogic.getCoPilot().getRadio().getRadioFields().get(i)
-                        .getStageCoordinates(stage);
+                            .getStageCoordinates(stage);
                     float fieldStageX = fieldPosition.x;
                     float fieldStageY = fieldPosition.y;
                     if (gameLogic.getCoPilot().canPlaceDice(diceValue, playerInput, fieldChoice)) {
@@ -1352,12 +1442,12 @@ public class GameplayScreen implements Screen {
             // Concentration (Coffee)
             for (int i = 0; i < 3; i++) {
                 if (isMouseOverField(mouseX, mouseY,
-                    gameLogic.getAirplane().getConcentration().getCoffeeFields().get(i), diceImage)) {
+                        gameLogic.getAirplane().getConcentration().getCoffeeFields().get(i), diceImage)) {
 
                     playerInput = "coffee";
                     fieldChoice = 0;
                     Vector3 fieldPosition = gameLogic.getAirplane().getConcentration().getCoffeeFields().get(i)
-                        .getStageCoordinates(stage);
+                            .getStageCoordinates(stage);
                     float fieldStageX = fieldPosition.x;
                     float fieldStageY = fieldPosition.y;
                     if (gameLogic.getCoPilot().canPlaceDice(diceValue, playerInput, fieldChoice)) {
@@ -1379,7 +1469,7 @@ public class GameplayScreen implements Screen {
                 diceImage.setPosition(pilotStartX + pilotDice.indexOf(draggedPilotDice) * diceSpacing, pilotStartY);
             } else if (!isPilot && draggedCoPilotDice != null) {
                 diceImage.setPosition(coPilotStartX + coPilotDice.indexOf(draggedCoPilotDice) * diceSpacing,
-                    coPilotStartY);
+                        coPilotStartY);
             }
         }
 

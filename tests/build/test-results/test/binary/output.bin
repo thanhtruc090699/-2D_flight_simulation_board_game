@@ -1,251 +1,259 @@
-!Flap 1 should be deployed first.
-Invalid dice value for Flap 1!
-Flap 1 is now deployed.
-Flap 2 is now deployed.
-Flap 3 is now deployed.
-Flap 4 is now deployed.
-Flap 4 is already filled.
-	CInvalid input for brake deployment. Please choose from 2, 4, or 6.
-	EBrake field 1 must be deployed first before deploying brake field 2.
-	Brake field 1 is now deployed.
-	Brake field 2 is now deployed.
-	Brake field 3 is now deployed.
-	#Brake field 3 is already occupied.
+ Axis adjusted. Current tilt: 2
+ Axis adjusted. Current tilt: 1
+$Plane tilted 90 degrees. GAME OVER
+Speed adjusted to: 6
+)Plane moves 1 step. Current position: 1
+1Coffee Field 1 is now filled with dice value 3.
+1Coffee Field 2 is now filled with dice value 3.
+1Coffee Field 3 is now filled with dice value 3.
+'All coffee fields are already filled.
+=Cannot place dice on Coffee. The field is already occupied.
+<Cannot place dice on flaps. The field is already occupied.
+Flap 1 is now deployed.
+Flap 2 is now deployed.
+Flap 2 is already filled.
+<Cannot place dice on flaps. The field is already occupied.
+Flap 3 is now deployed.
+Flap 4 is now deployed.
+Field 1 is now filled.
+Plane removed from field 3
+&Current Track: [0, 0, 1, 1, 1, 3, 2]
+	,Invalid input. Read the rules first, FOOL!
+	>Cannot place dice on enginer. The field is already occupied.
 
-0Coffee Field 1 is now filled with dice value 3.
-Speed adjusted to: 6
-.There were planes on your track. You crashed.
-Speed adjusted to: 8
-(Plane moves 1 step. Current position: 1
-Speed adjusted to: 11
-)Plane moves 2 steps. Current position: 3
- Landing Gear 2 is now deployed.
-'Invalid dice value for Landing Gear 1!
- Landing Gear 1 is now deployed.
- Landing Gear 3 is now deployed.
- Landing Gear 3 is now deployed.
-Speed adjusted to: 7
-(Plane moves 1 step. Current position: 1
-Speed adjusted to: 12
-.There were planes on your track. You crashed.
-Axis adjusted. Current tilt: 2
-Axis adjusted. Current tilt: 1
-#Plane tilted 90 degrees. GAME OVER
-%Axis adjusted. Current tilt: 1
-&#Plane tilted 90 degrees. GAME OVER
-&Axis adjusted. Current tilt: 4
-&Axis adjusted. Current tilt: 2
-&Axis adjusted. Current tilt: 5
-&Axis adjusted. Current tilt: 5
-'Axis adjusted. Current tilt: 3
--Axis adjusted. Current tilt: 1
--#Plane tilted 90 degrees. GAME OVER
--Axis adjusted. Current tilt: 1
--#Plane tilted 90 degrees. GAME OVER
--Axis adjusted. Current tilt: 4
-/.Brake field 1 is now deployed.
-/.#Brake field 1 is already occupied.
-/0Brake field 1 is now deployed.
-/2Brake field 1 is now deployed.
-/2Brake field 2 is now deployed.
-/3CInvalid input for brake deployment. Please choose from 2, 4, or 6.
-/3CInvalid input for brake deployment. Please choose from 2, 4, or 6.
-/3#Brake field 1 is already occupied.
-/3EBrake field 1 must be deployed first before deploying brake field 2.
-/3\Both Brake field 1 and Brake field 2 must be deployed first before deploying brake field 3.
-/3\Both Brake field 1 and Brake field 2 must be deployed first before deploying brake field 3.
-/4Brake field 1 is now deployed.
-/4\Both Brake field 1 and Brake field 2 must be deployed first before deploying brake field 3.
-/5EBrake field 1 must be deployed first before deploying brake field 2.
-/6CInvalid input for brake deployment. Please choose from 2, 4, or 6.
-/7Brake field 1 is now deployed.
-/7Brake field 2 is now deployed.
-/7Brake field 3 is now deployed.
-:;Axis adjusted. Current tilt: 2
-:;Axis adjusted. Current tilt: 1
-:;#Plane tilted 90 degrees. GAME OVER
-:<Speed adjusted to: 6
-:<(Plane moves 1 step. Current position: 1
-:=0Coffee Field 1 is now filled with dice value 3.
-:=0Coffee Field 2 is now filled with dice value 3.
-:=0Coffee Field 3 is now filled with dice value 3.
-:=&All coffee fields are already filled.
-:=<Cannot place dice on Coffee. The field is already occupied.
-:?;Cannot place dice on flaps. The field is already occupied.
-:?Flap 1 is now deployed.
-:?Flap 2 is now deployed.
-:?Flap 2 is already filled.
-:?;Cannot place dice on flaps. The field is already occupied.
-:?Flap 3 is now deployed.
-:?Flap 4 is now deployed.
-:@Field 1 is now filled.
-:@Plane removed from field 3
-:@%Current Track: [0, 0, 1, 1, 1, 3, 2]
-:A+Invalid input. Read the rules first, FOOL!
-:A=Cannot place dice on enginer. The field is already occupied.
-:BSpeed adjusted to: 7
-:B(Plane moves 1 step. Current position: 1
-:B8Cannot place dice on the Engine. It's already occupied.
-:B<Cannot place dice on ENGINE. The field is already occupied.
-:B8Cannot place dice on the Engine. It's already occupied.
-:BSpeed adjusted to: 7
-:B.There were planes on your track. You crashed.
-:BSpeed adjusted to: 12
-:B.There were planes on your track. You crashed.
-:CAxis adjusted. Current tilt: 2
-ED0Coffee Field 1 is now filled with dice value 4.
-EG0Coffee Field 1 is now filled with dice value 6.
-EG0Coffee Field 2 is now filled with dice value 4.
-EG0Coffee Field 3 is now filled with dice value 1.
-EG&All coffee fields are already filled.
-EH0Coffee Field 1 is now filled with dice value 6.
-EJ(Invalid dice value 7 for Coffee Field 1
-LMADice value is already at the maximum (6). It can't be increased.
-LNADice value is already at the minimum (1). It can't be decreased.
-LPDice value increased to: 3
-LQ6Dice has not been rolled yet or has an invalid value.
-LTDice value decreased to: 1
-XZSpeed adjusted to: 3
-XZPlane does not move.
-X[Speed adjusted to: 6
-X[.There were planes on your track. You crashed.
-X\Speed adjusted to: 6
-X\(Plane moves 1 step. Current position: 1
-X^Speed adjusted to: 6
-X^.There were planes on your track. You crashed.
-X^.There were planes on your track. You crashed.
-X_Speed adjusted to: 5
-X_.There were planes on your track. You crashed.
-XaSpeed adjusted to: 12
-Xa)Plane moves 2 steps. Current position: 2
-XaSpeed adjusted to: 12
-Xa)Plane moves 2 steps. Current position: 4
-XaSpeed adjusted to: 12
-Xa)Plane moves 2 steps. Current position: 6
-XaPlane overshot the airport.
-XdSpeed adjusted to: 10
-Xd)Plane moves 2 steps. Current position: 2
-XfSpeed adjusted to: 12
-Xf.There were planes on your track. You crashed.
-XgSpeed adjusted to: 10
-Xg)Plane moves 2 steps. Current position: 2
-XgSpeed adjusted to: 10
-Xg)Plane moves 2 steps. Current position: 4
-XgSpeed adjusted to: 10
-Xg)Plane moves 2 steps. Current position: 6
-XgPlane overshot the airport.
-XgSpeed adjusted to: 3
-XgPlane does not move.
-srFlap 1 is now deployed.
-srFlap 2 is now deployed.
-sr!Flap 3 should be deployed first.
-stFlap 1 is now deployed.
-st!Flap 2 should be deployed first.
-su!Flap 1 should be deployed first.
-svFlap 1 is now deployed.
-swFlap 1 is now deployed.
-swFlap 1 is already filled.
-sxFlap 1 is now deployed.
-s|Flap 1 is now deployed.
-s|Flap 2 is now deployed.
-s|Flap 3 is now deployed.
-s|Flap 4 is now deployed.
-s}Invalid dice value for Flap 1!
-s}Invalid dice value for Flap 4!
-s~Flap 1 is now deployed.
-s~Flap 2 is now deployed.
-s~Flap 3 is now deployed.
-sFlap 1 is now deployed.
-sFlap 2 is now deployed.
-ÇÅ.You crash-landed before reaching the airport!
-áÜ Landing Gear 1 is now deployed.
-áÜ Landing Gear 3 is now deployed.
-áà Landing Gear 1 is now deployed.
-áà Landing Gear 2 is now deployed.
-áà Landing Gear 3 is now deployed.
-áâ Landing Gear 2 is now deployed.
-áç Landing Gear 1 is now deployed.
-áé Landing Gear 1 is now deployed.
-áê Landing Gear 1 is now deployed.
-áê Landing Gear 2 is now deployed.
-áë'Invalid dice value for Landing Gear 1!
-ìíAxis adjusted. Current tilt: 2
-ìíAxis adjusted. Current tilt: 1
-ìí#Plane tilted 90 degrees. GAME OVER
-ìîCCannot place dice on landing gears. The field is already occupied.
-ìîCCannot place dice on landing gears. The field is already occupied.
-ìî Landing Gear 1 is now deployed.
-ìî Landing Gear 1 is now deployed.
-ìîCCannot place dice on landing gears. The field is already occupied.
-ìîCCannot place dice on landing gears. The field is already occupied.
-ìñEBrake field 1 must be deployed first before deploying brake field 2.
-ìñ;Cannot place dice on BRAKE. The field is already occupied.
-ìñBrake field 1 is now deployed.
-ìñ#Brake field 1 is already occupied.
-ìñ;Cannot place dice on BRAKE. The field is already occupied.
-ìñBrake field 2 is now deployed.
-ìñBrake field 3 is now deployed.
-ìñ#Brake field 3 is already occupied.
-ìñ;Cannot place dice on BRAKE. The field is already occupied.
-ìóSpeed adjusted to: 6
-ìó(Plane moves 1 step. Current position: 1
-ìò0Coffee Field 1 is now filled with dice value 3.
-ìò0Coffee Field 2 is now filled with dice value 4.
-ìò0Coffee Field 3 is now filled with dice value 3.
-ìò&All coffee fields are already filled.
-ìò<Cannot place dice on Coffee. The field is already occupied.
-ìôField 0 is now filled.
-ìôPlane removed from field 3
-ìô%Current Track: [0, 0, 1, 1, 1, 3, 2]
-ìö+Invalid input. Read the rules first, FOOL!
-ìö=Cannot place dice on enginer. The field is already occupied.
-ìõSpeed adjusted to: 7
-ìõ(Plane moves 1 step. Current position: 1
-ìõSpeed adjusted to: 12
-ìõ.There were planes on your track. You crashed.
-ìùAxis adjusted. Current tilt: 2
-ü°(All dice have been reset to unassigned.
-ü£Unassigned dices: 
-ü£5 
-ü£2 
-ü£5 
-ü£4 
-ü£
-ü£Unassigned dices: 
-ü£3 
-ü£2 
-ü£1 
-ü£4 
-ü£
-ü•Unassigned dices: 
-ü•1 
-ü•6 
-ü•5 
-ü•5 
-ü•
-ü•Dice 1 selected.
-ü¶Unassigned dices: 
-ü¶2 
-ü¶4 
-ü¶5 
-ü¶3 
-ü¶
-©®Field 0 is already filled.
-©™ No planes at field 1 to remove.
-©™%Current Track: [0, 0, 1, 2, 1, 3, 2]
-©™Plane removed from field 3
-©™%Current Track: [0, 0, 1, 1, 1, 3, 2]
-©™Plane removed from field 3
-©™%Current Track: [0, 0, 1, 0, 1, 3, 2]
-©ØField 1 is now filled.
-©ØPlane removed from field 3
-©Ø%Current Track: [0, 0, 1, 1, 1, 3, 2]
-≤≥>Which Coffee Token would you like to use? (Enter 0, 1, or 2):
-≤≥RThe selected Coffee Token is not filled yet. Please choose a filled Coffee Token.
-≤∂>Which Coffee Token would you like to use? (Enter 0, 1, or 2):
-≤∂UDo you want to increase or decrease the dice value? (Enter 'increase' or 'decrease')
-≤∂Dice value increased to: 6
-≤∂&After using, Coffee Token quantity: 2
-≤∂#You used one of the Coffee Tokens.
-≤∑No reroll tokens left to use.
-≤∏No dice selected to reroll.
+Speed adjusted to: 7
+
+)Plane moves 1 step. Current position: 1
+
+9Cannot place dice on the Engine. It's already occupied.
+
+=Cannot place dice on ENGINE. The field is already occupied.
+
+9Cannot place dice on the Engine. It's already occupied.
+
+Speed adjusted to: 7
+
+/There were planes on your track. You crashed.
+
+Speed adjusted to: 12
+
+/There were planes on your track. You crashed.
+ Axis adjusted. Current tilt: 2
+/You crash-landed before reaching the airport!
+ Axis adjusted. Current tilt: 2
+ Axis adjusted. Current tilt: 1
+$Plane tilted 90 degrees. GAME OVER
+DCannot place dice on landing gears. The field is already occupied.
+DCannot place dice on landing gears. The field is already occupied.
+!Landing Gear 1 is now deployed.
+!Landing Gear 1 is now deployed.
+DCannot place dice on landing gears. The field is already occupied.
+DCannot place dice on landing gears. The field is already occupied.
+FBrake field 1 must be deployed first before deploying brake field 2.
+<Cannot place dice on BRAKE. The field is already occupied.
+ Brake field 1 is now deployed.
+$Brake field 1 is already occupied.
+<Cannot place dice on BRAKE. The field is already occupied.
+ Brake field 2 is now deployed.
+ Brake field 3 is now deployed.
+$Brake field 3 is already occupied.
+<Cannot place dice on BRAKE. The field is already occupied.
+Speed adjusted to: 6
+)Plane moves 1 step. Current position: 1
+1Coffee Field 1 is now filled with dice value 3.
+1Coffee Field 2 is now filled with dice value 4.
+1Coffee Field 3 is now filled with dice value 3.
+'All coffee fields are already filled.
+=Cannot place dice on Coffee. The field is already occupied.
+Field 0 is now filled.
+Plane removed from field 3
+&Current Track: [0, 0, 1, 1, 1, 3, 2]
+,Invalid input. Read the rules first, FOOL!
+>Cannot place dice on enginer. The field is already occupied.
+Speed adjusted to: 7
+)Plane moves 1 step. Current position: 1
+Speed adjusted to: 12
+/There were planes on your track. You crashed.
+ Axis adjusted. Current tilt: 2
+Field 0 is already filled.
+!No planes at field 1 to remove.
+&Current Track: [0, 0, 1, 2, 1, 3, 2]
+Plane removed from field 3
+&Current Track: [0, 0, 1, 1, 1, 3, 2]
+Plane removed from field 3
+&Current Track: [0, 0, 1, 0, 1, 3, 2]
+$Field 1 is now filled.
+$Plane removed from field 3
+$&Current Track: [0, 0, 1, 1, 1, 3, 2]
+',"Flap 1 should be deployed first.
+', Invalid dice value for Flap 1!
+',Flap 1 is now deployed.
+',Flap 2 is now deployed.
+',Flap 3 is now deployed.
+',Flap 4 is now deployed.
+',Flap 4 is already filled.
+'.DInvalid input for brake deployment. Please choose from 2, 4, or 6.
+'.FBrake field 1 must be deployed first before deploying brake field 2.
+'. Brake field 1 is now deployed.
+'. Brake field 2 is now deployed.
+'. Brake field 3 is now deployed.
+'.$Brake field 3 is already occupied.
+'/1Coffee Field 1 is now filled with dice value 3.
+'0Speed adjusted to: 6
+'0/There were planes on your track. You crashed.
+'1Speed adjusted to: 8
+'1)Plane moves 1 step. Current position: 1
+'1Speed adjusted to: 11
+'1*Plane moves 2 steps. Current position: 3
+'2!Landing Gear 2 is now deployed.
+'2(Invalid dice value for Landing Gear 1!
+'2!Landing Gear 1 is now deployed.
+'2!Landing Gear 3 is now deployed.
+'2!Landing Gear 3 is now deployed.
+'3Speed adjusted to: 7
+'3)Plane moves 1 step. Current position: 1
+'3Speed adjusted to: 12
+'3/There were planes on your track. You crashed.
+'5 Axis adjusted. Current tilt: 2
+'5 Axis adjusted. Current tilt: 1
+'5$Plane tilted 90 degrees. GAME OVER
+DJ Axis adjusted. Current tilt: 1
+DK$Plane tilted 90 degrees. GAME OVER
+DK Axis adjusted. Current tilt: 4
+DK Axis adjusted. Current tilt: 2
+DK Axis adjusted. Current tilt: 5
+DK Axis adjusted. Current tilt: 5
+DL Axis adjusted. Current tilt: 3
+DR Axis adjusted. Current tilt: 1
+DR$Plane tilted 90 degrees. GAME OVER
+DR Axis adjusted. Current tilt: 1
+DR$Plane tilted 90 degrees. GAME OVER
+DR Axis adjusted. Current tilt: 4
+TS Brake field 1 is now deployed.
+TS$Brake field 1 is already occupied.
+TU Brake field 1 is now deployed.
+TW Brake field 1 is now deployed.
+TW Brake field 2 is now deployed.
+TXDInvalid input for brake deployment. Please choose from 2, 4, or 6.
+TXDInvalid input for brake deployment. Please choose from 2, 4, or 6.
+TX$Brake field 1 is already occupied.
+TXFBrake field 1 must be deployed first before deploying brake field 2.
+TX]Both Brake field 1 and Brake field 2 must be deployed first before deploying brake field 3.
+TX]Both Brake field 1 and Brake field 2 must be deployed first before deploying brake field 3.
+TY Brake field 1 is now deployed.
+TY]Both Brake field 1 and Brake field 2 must be deployed first before deploying brake field 3.
+TZFBrake field 1 must be deployed first before deploying brake field 2.
+T[DInvalid input for brake deployment. Please choose from 2, 4, or 6.
+T\ Brake field 1 is now deployed.
+T\ Brake field 2 is now deployed.
+T\ Brake field 3 is now deployed.
+_^1Coffee Field 1 is now filled with dice value 4.
+_a1Coffee Field 1 is now filled with dice value 6.
+_a1Coffee Field 2 is now filled with dice value 4.
+_a1Coffee Field 3 is now filled with dice value 1.
+_a'All coffee fields are already filled.
+_b1Coffee Field 1 is now filled with dice value 6.
+_d)Invalid dice value 7 for Coffee Field 1
+fgBDice value is already at the maximum (6). It can't be increased.
+fhBDice value is already at the minimum (1). It can't be decreased.
+fjDice value increased to: 6
+fk7Dice has not been rolled yet or has an invalid value.
+fnDice value decreased to: 5
+rtSpeed adjusted to: 3
+rtPlane does not move.
+ruSpeed adjusted to: 6
+ru/There were planes on your track. You crashed.
+rvSpeed adjusted to: 6
+rv)Plane moves 1 step. Current position: 1
+rxSpeed adjusted to: 6
+rx/There were planes on your track. You crashed.
+rx/There were planes on your track. You crashed.
+rySpeed adjusted to: 5
+ry/There were planes on your track. You crashed.
+r{Speed adjusted to: 12
+r{*Plane moves 2 steps. Current position: 2
+r{Speed adjusted to: 12
+r{*Plane moves 2 steps. Current position: 4
+r{Speed adjusted to: 12
+r{*Plane moves 2 steps. Current position: 6
+r{Plane overshot the airport.
+r~Speed adjusted to: 10
+r~*Plane moves 2 steps. Current position: 2
+rÄSpeed adjusted to: 12
+rÄ/There were planes on your track. You crashed.
+rÅSpeed adjusted to: 10
+rÅ*Plane moves 2 steps. Current position: 2
+rÅSpeed adjusted to: 10
+rÅ*Plane moves 2 steps. Current position: 4
+rÅSpeed adjusted to: 10
+rÅ*Plane moves 2 steps. Current position: 6
+rÅPlane overshot the airport.
+rÅSpeed adjusted to: 3
+rÅPlane does not move.
+çåFlap 1 is now deployed.
+çåFlap 2 is now deployed.
+çå"Flap 3 should be deployed first.
+çéFlap 1 is now deployed.
+çé"Flap 2 should be deployed first.
+çè"Flap 1 should be deployed first.
+çêFlap 1 is now deployed.
+çëFlap 1 is now deployed.
+çëFlap 1 is already filled.
+çíFlap 1 is now deployed.
+çñFlap 1 is now deployed.
+çñFlap 2 is now deployed.
+çñFlap 3 is now deployed.
+çñFlap 4 is now deployed.
+çó Invalid dice value for Flap 1!
+çó Invalid dice value for Flap 4!
+çòFlap 1 is now deployed.
+çòFlap 2 is now deployed.
+çòFlap 3 is now deployed.
+çôFlap 1 is now deployed.
+çôFlap 2 is now deployed.
+úõ!Landing Gear 1 is now deployed.
+úõ!Landing Gear 3 is now deployed.
+úù!Landing Gear 1 is now deployed.
+úù!Landing Gear 2 is now deployed.
+úù!Landing Gear 3 is now deployed.
+úû!Landing Gear 2 is now deployed.
+ú¢!Landing Gear 1 is now deployed.
+ú£!Landing Gear 1 is now deployed.
+ú•!Landing Gear 1 is now deployed.
+ú•!Landing Gear 2 is now deployed.
+ú¶(Invalid dice value for Landing Gear 1!
+®™)All dice have been reset to unassigned.
+®¨Unassigned dices: 
+®¨1 
+®¨3 
+®¨5 
+®¨3 
+®¨
+®¨Unassigned dices: 
+®¨6 
+®¨3 
+®¨3 
+®¨4 
+®¨
+®ÆUnassigned dices: 
+®Æ6 
+®Æ1 
+®Æ1 
+®Æ1 
+®Æ
+®ÆDice 1 selected.
+®ØUnassigned dices: 
+®Ø6 
+®Ø5 
+®Ø6 
+®Ø2 
+®Ø
+≤≥?Which Coffee Token would you like to use? (Enter 0, 1, or 2):
+≤≥SThe selected Coffee Token is not filled yet. Please choose a filled Coffee Token.
+≤∂?Which Coffee Token would you like to use? (Enter 0, 1, or 2):
+≤∂VDo you want to increase or decrease the dice value? (Enter 'increase' or 'decrease')
+≤∂BDice value is already at the maximum (6). It can't be increased.
+≤∂'After using, Coffee Token quantity: 2
+≤∂$You used one of the Coffee Tokens.
+≤∑No reroll tokens left to use.
+≤∏No dice selected to reroll.

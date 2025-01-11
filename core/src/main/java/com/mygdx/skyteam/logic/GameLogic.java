@@ -2,6 +2,7 @@ package com.mygdx.skyteam.logic;
 
 public class  GameLogic {
     private boolean gameOver;
+    private boolean hasWon;
     private Pilot pilot;
     private Airplane airplane;
     private CoPilot coPilot;
@@ -90,6 +91,7 @@ public class  GameLogic {
 
     public void endGame() {
         if (currentRoundNumber == 7 && checkWinningConditions()) {
+            hasWon = true;
             System.err.println("You won!");
         } else {
             gameOver = true;
@@ -160,5 +162,8 @@ public class  GameLogic {
     }
     public boolean getGameOver(){
         return gameOver;
+    }
+    public boolean hasWon(){
+        return hasWon;
     }
 }

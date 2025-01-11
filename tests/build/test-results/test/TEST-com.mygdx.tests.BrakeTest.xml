@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.mygdx.tests.BrakeTest" tests="10" skipped="0" failures="0" errors="0" timestamp="2025-01-08T11:40:52" hostname="wstud2-be41ae783ae8.hof-university.de" time="0.008">
+<testsuite name="com.mygdx.tests.BrakeTest" tests="10" skipped="0" failures="0" errors="0" timestamp="2025-01-11T22:41:48" hostname="DESKTOP-P99594G" time="0.01">
   <properties/>
   <testcase name="testDeployBrakeField1Twice()" classname="com.mygdx.tests.BrakeTest" time="0.0"/>
   <testcase name="testDeployBrakeField1()" classname="com.mygdx.tests.BrakeTest" time="0.0"/>
   <testcase name="testSetRedMarker()" classname="com.mygdx.tests.BrakeTest" time="0.001"/>
-  <testcase name="testDeployBrakeField2WithField1()" classname="com.mygdx.tests.BrakeTest" time="0.0"/>
-  <testcase name="testCanPlaceBrakes()" classname="com.mygdx.tests.BrakeTest" time="0.001"/>
-  <testcase name="testDeployBrakeField3WithoutField2()" classname="com.mygdx.tests.BrakeTest" time="0.0"/>
+  <testcase name="testDeployBrakeField2WithField1()" classname="com.mygdx.tests.BrakeTest" time="0.001"/>
+  <testcase name="testCanPlaceBrakes()" classname="com.mygdx.tests.BrakeTest" time="0.002"/>
+  <testcase name="testDeployBrakeField3WithoutField2()" classname="com.mygdx.tests.BrakeTest" time="0.001"/>
   <testcase name="testDeployBrakeField2WithoutField1()" classname="com.mygdx.tests.BrakeTest" time="0.001"/>
   <testcase name="testDeployBrakeInvalidInput()" classname="com.mygdx.tests.BrakeTest" time="0.001"/>
   <testcase name="testDeployBrakeField3WithField2()" classname="com.mygdx.tests.BrakeTest" time="0.0"/>
