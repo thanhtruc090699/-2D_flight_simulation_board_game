@@ -118,7 +118,6 @@ public class GameplayScreen implements Screen {
     private List<Image> droppedPilotDiceList = new ArrayList<>();
     private List<Image> droppedCoPilotDiceList = new ArrayList<>();
 
-    private float testTimer = 0f; 
 
     public GameplayScreen(SkyTeamGame game, GameLogic gameLogic) {
         this.game = game;
@@ -888,12 +887,6 @@ public class GameplayScreen implements Screen {
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT); // Clear the screen
 
         batch.begin();
-
-        testTimer += delta;
-        if (testTimer > 3f) { // After 3 seconds, transition to VictoryScreen
-            game.setScreen(new VictoryScreen(game));
-            return;
-        }
 
         if (gameLogic.getGameOver()) {
             
