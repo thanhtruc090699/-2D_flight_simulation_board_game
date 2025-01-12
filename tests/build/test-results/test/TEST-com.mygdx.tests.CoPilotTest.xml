@@ -1,64 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.mygdx.tests.CoPilotTest" tests="10" skipped="0" failures="1" errors="0" timestamp="2025-01-11T22:41:48" hostname="DESKTOP-P99594G" time="0.034">
+<testsuite name="com.mygdx.tests.CoPilotTest" tests="10" skipped="0" failures="0" errors="0" timestamp="2025-01-12T19:38:56" hostname="DESKTOP-9CTSVT6" time="0.04">
   <properties/>
-  <testcase name="testGetRadio()" classname="com.mygdx.tests.CoPilotTest" time="0.012"/>
-  <testcase name="testPlaceDiceAxisPass90Degree()" classname="com.mygdx.tests.CoPilotTest" time="0.004"/>
+  <testcase name="testGetRadio()" classname="com.mygdx.tests.CoPilotTest" time="0.004"/>
+  <testcase name="testPlaceDiceAxisPass90Degree()" classname="com.mygdx.tests.CoPilotTest" time="0.002"/>
   <testcase name="testPlaceDiceEngine()" classname="com.mygdx.tests.CoPilotTest" time="0.001"/>
-  <testcase name="testPlaceDiceConcentration()" classname="com.mygdx.tests.CoPilotTest" time="0.002"/>
-  <testcase name="testHasDicesOnRequiredFields()" classname="com.mygdx.tests.CoPilotTest" time="0.0"/>
-  <testcase name="testPlaceDiceFlaps()" classname="com.mygdx.tests.CoPilotTest" time="0.007">
-    <failure message="org.opentest4j.MultipleFailuresError: Multiple Failures (1 failure)&#13;&#10;&#9;org.opentest4j.AssertionFailedError: expected: &lt;10&gt; but was: &lt;9&gt;" type="org.opentest4j.MultipleFailuresError">org.opentest4j.MultipleFailuresError: Multiple Failures (1 failure)
-	org.opentest4j.AssertionFailedError: expected: &lt;10&gt; but was: &lt;9&gt;
-	at app//org.junit.jupiter.api.AssertAll.assertAll(AssertAll.java:80)
-	at app//org.junit.jupiter.api.AssertAll.assertAll(AssertAll.java:44)
-	at app//org.junit.jupiter.api.AssertAll.assertAll(AssertAll.java:38)
-	at app//org.junit.jupiter.api.Assertions.assertAll(Assertions.java:2944)
-	at app//com.mygdx.tests.CoPilotTest.testPlaceDiceFlaps(CoPilotTest.java:111)
-	at java.base@22/java.lang.reflect.Method.invoke(Method.java:580)
-	at java.base@22/java.util.ArrayList.forEach(ArrayList.java:1597)
-	at java.base@22/java.util.ArrayList.forEach(ArrayList.java:1597)
-	Suppressed: org.opentest4j.AssertionFailedError: expected: &lt;10&gt; but was: &lt;9&gt;
-		at app//org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
-		at app//org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
-		at app//org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:197)
-		at app//org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:150)
-		at app//org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:145)
-		at app//org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:531)
-		at app//com.mygdx.tests.CoPilotTest.lambda$testPlaceDiceFlaps$7(CoPilotTest.java:129)
-		at app//org.junit.jupiter.api.AssertAll.lambda$assertAll$0(AssertAll.java:68)
-		at java.base@22/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:212)
-		at java.base@22/java.util.Spliterators$ArraySpliterator.forEachRemaining(Spliterators.java:1024)
-		at java.base@22/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:556)
-		at java.base@22/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:546)
-		at java.base@22/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:921)
-		at java.base@22/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:265)
-		at java.base@22/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:702)
-		at app//org.junit.jupiter.api.AssertAll.assertAll(AssertAll.java:77)
-		... 7 more
-Caused by: org.opentest4j.AssertionFailedError: expected: &lt;10&gt; but was: &lt;9&gt;
-	at app//org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
-	at app//org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
-	at app//org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:197)
-	at app//org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:150)
-	at app//org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:145)
-	at app//org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:531)
-	at app//com.mygdx.tests.CoPilotTest.lambda$testPlaceDiceFlaps$7(CoPilotTest.java:129)
-	at app//org.junit.jupiter.api.AssertAll.lambda$assertAll$0(AssertAll.java:68)
-	at java.base@22/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:212)
-	at java.base@22/java.util.Spliterators$ArraySpliterator.forEachRemaining(Spliterators.java:1024)
-	at java.base@22/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:556)
-	at java.base@22/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:546)
-	at java.base@22/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:921)
-	at java.base@22/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:265)
-	at java.base@22/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:702)
-	at app//org.junit.jupiter.api.AssertAll.assertAll(AssertAll.java:77)
-	... 7 more
-</failure>
-  </testcase>
-  <testcase name="testPlaceDiceRadio()" classname="com.mygdx.tests.CoPilotTest" time="0.001"/>
-  <testcase name="testInvalidValues()" classname="com.mygdx.tests.CoPilotTest" time="0.001"/>
-  <testcase name="testPlaceDiceEngineWhenCrashHappen()" classname="com.mygdx.tests.CoPilotTest" time="0.001"/>
-  <testcase name="testPlaceDiceAxis()" classname="com.mygdx.tests.CoPilotTest" time="0.001"/>
+  <testcase name="testPlaceDiceConcentration()" classname="com.mygdx.tests.CoPilotTest" time="0.005"/>
+  <testcase name="testHasDicesOnRequiredFields()" classname="com.mygdx.tests.CoPilotTest" time="0.001"/>
+  <testcase name="testPlaceDiceFlaps()" classname="com.mygdx.tests.CoPilotTest" time="0.004"/>
+  <testcase name="testPlaceDiceRadio()" classname="com.mygdx.tests.CoPilotTest" time="0.002"/>
+  <testcase name="testInvalidValues()" classname="com.mygdx.tests.CoPilotTest" time="0.003"/>
+  <testcase name="testPlaceDiceEngineWhenCrashHappen()" classname="com.mygdx.tests.CoPilotTest" time="0.003"/>
+  <testcase name="testPlaceDiceAxis()" classname="com.mygdx.tests.CoPilotTest" time="0.002"/>
   <system-out><![CDATA[Axis adjusted. Current tilt: 2
 Axis adjusted. Current tilt: 1
 Plane tilted 90 degrees. GAME OVER

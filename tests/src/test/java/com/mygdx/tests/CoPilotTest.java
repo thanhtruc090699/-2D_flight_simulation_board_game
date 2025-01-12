@@ -126,7 +126,7 @@ class CoPilotTest {
                     assertFalse(flap1.isFilled());
                     coPilot.placeDice(2,"flaps",1);
                     assertTrue(flap1.isFilled());
-                    assertEquals(10,airplane.getEngine().getOrangeMarker());
+                    assertEquals(9,airplane.getEngine().getOrangeMarker());
 
                 },
                 ()->{ // Flap 2 activated

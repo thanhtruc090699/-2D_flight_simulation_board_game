@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.mygdx.tests.TokenTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2025-01-11T22:41:48" hostname="DESKTOP-P99594G" time="0.004">
+<testsuite name="com.mygdx.tests.TokenTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2025-01-12T19:38:57" hostname="DESKTOP-9CTSVT6" time="0.019">
   <properties/>
-  <testcase name="testGetType()" classname="com.mygdx.tests.TokenTest" time="0.001"/>
-  <testcase name="testInvalidCoffeeTokenIndex()" classname="com.mygdx.tests.TokenTest" time="0.0"/>
+  <testcase name="testGetType()" classname="com.mygdx.tests.TokenTest" time="0.003"/>
+  <testcase name="testInvalidCoffeeTokenIndex()" classname="com.mygdx.tests.TokenTest" time="0.001"/>
   <testcase name="testSetQuantity()" classname="com.mygdx.tests.TokenTest" time="0.001"/>
-  <testcase name="testGetQuantity()" classname="com.mygdx.tests.TokenTest" time="0.0"/>
-  <testcase name="testUseCoffeeToken()" classname="com.mygdx.tests.TokenTest" time="0.001"/>
-  <testcase name="testUseRerollToken()" classname="com.mygdx.tests.TokenTest" time="0.001"/>
-  <testcase name="testInvalidSelectedDicesToUseRerollToken()" classname="com.mygdx.tests.TokenTest" time="0.0"/>
+  <testcase name="testGetQuantity()" classname="com.mygdx.tests.TokenTest" time="0.001"/>
+  <testcase name="testUseCoffeeToken()" classname="com.mygdx.tests.TokenTest" time="0.002"/>
+  <testcase name="testUseRerollToken()" classname="com.mygdx.tests.TokenTest" time="0.005"/>
+  <testcase name="testInvalidSelectedDicesToUseRerollToken()" classname="com.mygdx.tests.TokenTest" time="0.002"/>
   <system-out><![CDATA[Which Coffee Token would you like to use? (Enter 0, 1, or 2):
 The selected Coffee Token is not filled yet. Please choose a filled Coffee Token.
 Which Coffee Token would you like to use? (Enter 0, 1, or 2):
 Do you want to increase or decrease the dice value? (Enter 'increase' or 'decrease')
-Dice value is already at the maximum (6). It can't be increased.
+Dice value increased to: 3
 After using, Coffee Token quantity: 2
 You used one of the Coffee Tokens.
 No reroll tokens left to use.

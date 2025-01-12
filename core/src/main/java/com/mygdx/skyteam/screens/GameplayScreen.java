@@ -340,6 +340,7 @@ public class GameplayScreen implements Screen {
                             }
                             return true;
                         }
+
                     }
                 } else {
                     if (Math.abs(rerollButtonDonePosition.x - event.getStageX()) < 50 &&
@@ -897,7 +898,7 @@ public class GameplayScreen implements Screen {
                             }
                         }
                     }
-                }  
+                }
             }
 
             @Override
@@ -954,6 +955,10 @@ public class GameplayScreen implements Screen {
             batch.draw(coPilotTurnTexture, Gdx.graphics.getWidth() - 600, 750);
             hidePilotDice();
             showCoPilotDice();
+        }
+        if(isUsingReroll){
+            showCoPilotDice();
+            showPilotDice();
         }
 
         handleRoundChange();

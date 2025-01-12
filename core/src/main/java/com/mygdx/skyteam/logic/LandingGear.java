@@ -34,8 +34,13 @@ public class LandingGear {
         if (!selectedField.getValidDiceValues().contains(pilotInput)) {
             return false;
         }
-
+        /*
         if (fieldChoice > 1 && !landingGearFields.get(fieldChoice - 2).isFilled()) {
+            return false;
+        }
+
+         */
+        if (landingGearFields.get(fieldChoice-1).isFilled()) {
             return false;
         }
         return true;
@@ -45,5 +50,5 @@ public class LandingGear {
         return landingGearFields;
     }
 
-    
+
 }
