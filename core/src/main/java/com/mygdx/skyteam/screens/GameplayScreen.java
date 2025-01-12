@@ -15,6 +15,7 @@ import com.mygdx.skyteam.logic.Dice;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -118,6 +119,9 @@ public class GameplayScreen implements Screen {
     private List<Image> droppedPilotDiceList = new ArrayList<>();
     private List<Image> droppedCoPilotDiceList = new ArrayList<>();
 
+    private ArrayList<Field> allPilotFields;
+    private ArrayList<Field> allCoPilotFields;
+    private ShapeRenderer shapeRenderer;
 
     public GameplayScreen(SkyTeamGame game, GameLogic gameLogic) {
         this.game = game;
@@ -153,6 +157,7 @@ public class GameplayScreen implements Screen {
 
         pilotDiceTextures = new ArrayList<>();
         coPilotDiceTextures = new ArrayList<>();
+        shapeRenderer = new ShapeRenderer();
 
         for (int i = 1; i <= 6; i++) {
             pilotDiceTextures.add(new Texture("dice/" + i + "B.png"));
@@ -300,6 +305,9 @@ public class GameplayScreen implements Screen {
         }
 
         handleRerollInteraction();
+
+        allPilotFields = gameLogic.getAllFieldsForPilot();
+        allCoPilotFields = gameLogic.getAllFieldsForCoPilot();
 
     }
 
@@ -727,11 +735,11 @@ public class GameplayScreen implements Screen {
             handlePilotCoffeeInteraction();
 
             if (playerIndex == 0) {
-                hideCoPilotDice(); 
-                showPilotDice(); 
+                hideCoPilotDice();
+                showPilotDice();
             } else if (playerIndex == 1) {
-                hidePilotDice(); 
-                showCoPilotDice(); 
+                hidePilotDice();
+                showCoPilotDice();
             }
 
         }
@@ -752,9 +760,9 @@ public class GameplayScreen implements Screen {
         for (Actor actor : stage.getActors()) {
             if (actor instanceof Image) {
                 Image diceImage = (Image) actor;
-               
+
                 if (diceImage.getName().equals("CoPilotDice") && !droppedCoPilotDiceList.contains(diceImage)) {
-                    diceImage.setVisible(true); 
+                    diceImage.setVisible(true);
                 }
             }
         }
@@ -807,6 +815,23 @@ public class GameplayScreen implements Screen {
                     float newX = event.getStageX() - dragStartX;
                     float newY = event.getStageY() - dragStartY;
                     diceImage.setPosition(newX, newY);
+
+                    for (Field field : allPilotFields) {
+                        field.setHighlighted(false); // Reset highlight
+                    }
+
+                    for (Field field : allPilotFields) {
+                        if (field.canAcceptDice(dice.getDiceValue())) {
+                            if (field.isBrakes()) {
+                                if (gameLogic.getAirplane().getBrakes().canPlaceBrakes(dice.getDiceValue())) {
+                                    field.setHighlighted(true);
+                                }
+                            } else {
+                                field.setHighlighted(true);
+                            }
+                        }
+                    }
+
                 }
             }
 
@@ -816,8 +841,12 @@ public class GameplayScreen implements Screen {
                 isDraggingPilotDice = false;
                 if (gameLogic.getRound().getCurrentPlayerIndex() == 0) {
                     droppedPilotDiceList.add(diceImage);
-
                     diceImage.setVisible(true);
+
+                    for (Field field : allPilotFields) {
+                        field.setHighlighted(false);
+                    }
+
                     int diceIndex = pilotDice.indexOf(draggedPilotDice);
                     handleInput((int) event.getStageX(), (int) event.getStageY(), true, diceImage, diceIndex);
 
@@ -852,7 +881,23 @@ public class GameplayScreen implements Screen {
                     float newX = event.getStageX() - dragStartX;
                     float newY = event.getStageY() - dragStartY;
                     diceImage.setPosition(newX, newY);
-                }
+
+                    for (Field field : allCoPilotFields) {
+                        field.setHighlighted(false); // Reset highlight
+                    }
+
+                    for (Field field : allCoPilotFields) {
+                        if (field.canAcceptDice(dice.getDiceValue())) {
+                            if (field.isFlaps()) {
+                                if (gameLogic.getAirplane().getFlaps().canPlaceFlapsForDice(dice.getDiceValue())) {
+                                    field.setHighlighted(true);
+                                }
+                            } else {
+                                field.setHighlighted(true);
+                            }
+                        }
+                    }
+                }  
             }
 
             @Override
@@ -862,8 +907,10 @@ public class GameplayScreen implements Screen {
                 if (gameLogic.getRound().getCurrentPlayerIndex() == 1) {
                     diceImage.setVisible(true);
                     droppedCoPilotDiceList.add(diceImage);
-                    // Print the entire dropped list to debug
-                    System.out.println("Dropped Co-Pilot Dice List: " + droppedCoPilotDiceList);
+
+                    for (Field field : allCoPilotFields) {
+                        field.setHighlighted(false);
+                    }
 
                     int diceIndex = coPilotDice.indexOf(draggedCoPilotDice);
                     handleInput((int) event.getStageX(), (int) event.getStageY(), false, diceImage, diceIndex);
@@ -877,23 +924,14 @@ public class GameplayScreen implements Screen {
     @Override
     public void render(float delta) {
 
-        /*
-         * // Testing purposes
-         * float screenX = Gdx.input.getX();
-         * float screenY = Gdx.input.getY();
-         * System.out.println("Screen Position - X: " + screenX + ", Y: " + screenY);
-         */
-
-        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT); // Clear the screen
+        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
         batch.begin();
 
         if (gameLogic.getGameOver()) {
-            
             game.setScreen(new GameOverScreen(game));
             return;
         } else if (gameLogic.hasWon()) {
-            
             game.setScreen(new VictoryScreen(game));
             return;
         }
@@ -910,24 +948,50 @@ public class GameplayScreen implements Screen {
 
         if (playerIndex == 0) {
             batch.draw(pilotTurnTexture, 300, 750);
-            hideCoPilotDice(); // Hide co-pilot's dice when it's the pilot's turn
+            hideCoPilotDice();
             showPilotDice();
-
         } else if (playerIndex == 1) {
             batch.draw(coPilotTurnTexture, Gdx.graphics.getWidth() - 600, 750);
-            hidePilotDice(); // Hide pilot's dice when it's the co-pilot's turn
+            hidePilotDice();
             showCoPilotDice();
-
         }
 
         handleRoundChange();
-
         renderRoundNumber();
+
         batch.end();
+
+        shapeRenderer.begin(ShapeRenderer.ShapeType.Line);
+        float borderThickness = 5f;
+
+        for (Field field : allPilotFields) {
+            field.draw(draggedPilotDice != null ? draggedPilotDice.getDiceValue() : 0);
+            Vector3 stageCoordinates = field.getStageCoordinates(stage);
+            shapeRenderer.setColor(field.getColor());
+
+            if (field.isHighlighted()) {
+                shapeRenderer.rect(stageCoordinates.x - borderThickness / 2,
+                        stageCoordinates.y - borderThickness / 2 - 50,
+                        50 + borderThickness, 50 + borderThickness);
+            }
+        }
+
+        for (Field field : allCoPilotFields) {
+            field.draw(draggedCoPilotDice != null ? draggedCoPilotDice.getDiceValue() : 0);
+            Vector3 stageCoordinates = field.getStageCoordinates(stage);
+            shapeRenderer.setColor(field.getColor());
+
+            if (field.isHighlighted()) {
+                shapeRenderer.rect(stageCoordinates.x - borderThickness / 2,
+                        stageCoordinates.y - borderThickness / 2 - 50,
+                        50 + borderThickness, 50 + borderThickness);
+            }
+        }
+
+        shapeRenderer.end();
 
         stage.act(Math.min(Gdx.graphics.getDeltaTime(), 1 / 30f));
         stage.draw();
-
     }
 
     private void renderRoundNumber() {

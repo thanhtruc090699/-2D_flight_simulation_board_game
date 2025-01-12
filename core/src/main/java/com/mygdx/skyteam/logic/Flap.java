@@ -30,7 +30,7 @@ public class Flap {
             return;
         }
 
-        if(selectedFlap.isFilled()){
+        if (selectedFlap.isFilled()) {
             System.out.println("Flap " + (fieldChoice) + " is already filled.");
             return;
         }
@@ -55,5 +55,32 @@ public class Flap {
     public ArrayList<Field> getFlapsFields() {
         return flapsFields;
     }
+
+    public boolean canPlaceFlapsForDice(int diceValue) {
+        if (diceValue != 1 && diceValue != 2 && diceValue != 3 && diceValue != 4 && diceValue != 5 && diceValue != 6) {
+            return false;
+        }
+    
+        if (diceValue == 1 || diceValue == 2) {
+            if (flapsFields.get(0).isFilled()) {
+                return false;
+            }
+        } else if (diceValue == 3 || diceValue == 4) {
+            if (!flapsFields.get(0).isFilled()) {
+                return false;
+            } else if (flapsFields.get(1).isFilled()) {
+                return false;
+            }
+        } else if (diceValue == 5 || diceValue == 6) {
+            if (!flapsFields.get(0).isFilled() || !flapsFields.get(1).isFilled()) {
+                return false;
+            } else if (flapsFields.get(2).isFilled()) {
+                return false;
+            }
+        }
+    
+        return true;
+    }
+    
 
 }

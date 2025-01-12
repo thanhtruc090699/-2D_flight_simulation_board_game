@@ -1,6 +1,9 @@
 package com.mygdx.skyteam.logic;
 
-public class  GameLogic {
+import java.util.ArrayList;
+import com.badlogic.gdx.scenes.scene2d.ui.List;
+
+public class GameLogic {
     private boolean gameOver;
     private boolean hasWon;
     private Pilot pilot;
@@ -8,6 +11,9 @@ public class  GameLogic {
     private CoPilot coPilot;
     private Round currentRound;
     private int currentRoundNumber;
+    private List<Field> pilotFields;
+
+    private List<Field> coPilotFields;
 
     public GameLogic() {
         airplane = new Airplane();
@@ -157,13 +163,46 @@ public class  GameLogic {
     public Round getRound() {
         return currentRound;
     }
-    public int getCurrentRoundNumber(){
+
+    public int getCurrentRoundNumber() {
         return currentRoundNumber;
     }
-    public boolean getGameOver(){
+
+    public boolean getGameOver() {
         return gameOver;
     }
-    public boolean hasWon(){
+
+    public boolean hasWon() {
         return hasWon;
     }
+
+    public ArrayList<Field> getAllFieldsForPilot() {
+        ArrayList<Field> pilotFields = new ArrayList<>();
+        pilotFields.addAll(pilot.getRadio().getRadioFields());
+        pilotFields.addAll(airplane.getLandingGears().getLandingGearFields());
+        pilotFields.addAll(airplane.getBrakes().getBrakeFields());
+        pilotFields.addAll(airplane.getConcentration().getCoffeeFields());
+
+        // Add single fields
+        pilotFields.add(airplane.getEngine().getPilotField());
+        pilotFields.add(airplane.getAxis().getPilotAxisField());
+
+        return pilotFields;
+    }
+
+    public ArrayList<Field> getAllFieldsForCoPilot() {
+        ArrayList<Field> coPilotFields = new ArrayList<>();
+        
+        coPilotFields.addAll(coPilot.getRadio().getRadioFields());
+        coPilotFields.addAll(airplane.getFlaps().getFlapsFields());
+        coPilotFields.addAll(airplane.getConcentration().getCoffeeFields());
+        
+        // Add single fields
+        coPilotFields.add(airplane.getEngine().getCoPilotField());  
+        coPilotFields.add(airplane.getAxis().getCoPilotAxisField());  
+        
+        return coPilotFields;
+    }
+    
+
 }

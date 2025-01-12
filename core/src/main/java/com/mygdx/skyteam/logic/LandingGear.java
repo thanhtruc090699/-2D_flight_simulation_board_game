@@ -44,4 +44,6 @@ public class LandingGear {
     public ArrayList<Field> getLandingGearFields() {
         return landingGearFields;
     }
+
+    
 }

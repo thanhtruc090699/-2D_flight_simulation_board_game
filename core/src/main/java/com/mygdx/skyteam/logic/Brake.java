@@ -54,35 +54,34 @@ public class Brake {
     public boolean canPlaceBrakes(int pilotInput) {
         if (pilotInput != 2 && pilotInput != 4 && pilotInput != 6) {
             System.out.println("Invalid input for brake deployment. Please choose from 2, 4, or 6.");
-            return false; 
+            return false;
         }
 
         if (pilotInput == 2) {
             if (brakeFields.get(0).isFilled()) {
                 System.out.println("Brake field 1 is already occupied.");
-                return false; 
+                return false;
             }
         }
 
         else if (pilotInput == 4) {
             if (!brakeFields.get(0).isFilled()) {
                 System.out.println("Brake field 1 must be deployed first before deploying brake field 2.");
-                return false; 
+                return false;
             } else if (brakeFields.get(1).isFilled()) {
                 System.out.println("Brake field 2 is already occupied.");
-                return false; 
+                return false;
             }
         }
 
-      
         else if (pilotInput == 6) {
             if (!brakeFields.get(0).isFilled() || !brakeFields.get(1).isFilled()) {
                 System.out.println(
                         "Both Brake field 1 and Brake field 2 must be deployed first before deploying brake field 3.");
-                return false; 
+                return false;
             } else if (brakeFields.get(2).isFilled()) {
                 System.out.println("Brake field 3 is already occupied.");
-                return false; 
+                return false;
             }
         }
 
@@ -103,5 +102,31 @@ public class Brake {
 
     public int getRedMarker() {
         return redMarker;
+    }
+
+    public boolean canPlaceBrakesForDice(int diceValue) {
+        if (diceValue != 2 && diceValue != 4 && diceValue != 6) {
+            return false;
+        }
+
+        if (diceValue == 2) {
+            if (brakeFields.get(0).isFilled()) {
+                return false;
+            }
+        } else if (diceValue == 4) {
+            if (!brakeFields.get(0).isFilled()) {
+                return false;
+            } else if (brakeFields.get(1).isFilled()) {
+                return false;
+            }
+        } else if (diceValue == 6) {
+            if (!brakeFields.get(0).isFilled() || !brakeFields.get(1).isFilled()) {
+                return false;
+            } else if (brakeFields.get(2).isFilled()) {
+                return false;
+            }
+        }
+
+        return true;
     }
 }
