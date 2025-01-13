@@ -31,16 +31,16 @@ class RadioTest {
                 () -> {
                     assertFalse(radioCopilot.getRadioFields().get(0).isFilled());
                     assertFalse(radioCopilot.getRadioFields().get(1).isFilled());
-                    radioCopilot.useRadio(airplane.getEngine().getCurrentPosition(), 3, 1, airplane.getPlanesOnTrack());
+                    radioCopilot.useRadio(airplane.getEngine().getCurrentPosition(), 3, 0, airplane.getPlanesOnTrack());
                     assertTrue(radioCopilot.getRadioFields().get(0).isFilled());
                 },
                 () -> {
-                    radioCopilot.useRadio(airplane.getEngine().getCurrentPosition(), 1, 2, airplane.getPlanesOnTrack());
+                    radioCopilot.useRadio(airplane.getEngine().getCurrentPosition(), 1, 1, airplane.getPlanesOnTrack());
                     assertTrue(radioCopilot.getRadioFields().get(1).isFilled());
                 },
                 () -> {
                     // already occupied
-                    radioCopilot.useRadio(airplane.getEngine().getCurrentPosition(), 1, 2, airplane.getPlanesOnTrack());
+                    radioCopilot.useRadio(airplane.getEngine().getCurrentPosition(), 1, 1, airplane.getPlanesOnTrack());
                     assertTrue(radioCopilot.getRadioFields().get(1).isFilled());
                 });
 
@@ -51,12 +51,12 @@ class RadioTest {
         assertAll(
                 () -> {
                     assertFalse(radioPilot.getRadioFields().get(0).isFilled());
-                    radioPilot.useRadio(airplane.getEngine().getCurrentPosition(), 5, 1, airplane.getPlanesOnTrack());
+                    radioPilot.useRadio(airplane.getEngine().getCurrentPosition(), 5, 0, airplane.getPlanesOnTrack());
                     assertTrue(radioPilot.getRadioFields().get(0).isFilled());
                 },
                 () -> {
                     // Already occupied
-                    radioPilot.useRadio(airplane.getEngine().getCurrentPosition(), 3, 1, airplane.getPlanesOnTrack());
+                    radioPilot.useRadio(airplane.getEngine().getCurrentPosition(), 3, 0, airplane.getPlanesOnTrack());
                     assertTrue(radioPilot.getRadioFields().get(0).isFilled());
                 });
 
@@ -113,9 +113,9 @@ class RadioTest {
         int diceValue = 3;
         int chosenField = 0;
 
-        radioPilot = new Radio(1); 
+        radioPilot = new Radio(1);
         Field field = radioPilot.getRadioFields().get(chosenField);
-        field.setDiceValue(diceValue); 
+        field.setDiceValue(diceValue);
 
         ArrayList<Integer> planesOnTrack = new ArrayList<>();
         planesOnTrack.add(1);

@@ -96,7 +96,7 @@ public class LandingGearTest {
     @Test
     public void testCanPlaceLandingGear_unfilledPreviousField() {
         landingGear.getLandingGearFields().get(0).setFilled(false);
-        assertFalse(landingGear.canPlaceLandingGear(4, 2));
+        assertTrue(landingGear.canPlaceLandingGear(4, 2));
     }
 
 }

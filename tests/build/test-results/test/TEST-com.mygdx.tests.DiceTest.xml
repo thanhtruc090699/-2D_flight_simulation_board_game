@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.mygdx.tests.DiceTest" tests="11" skipped="0" failures="0" errors="0" timestamp="2025-01-11T22:41:48" hostname="DESKTOP-P99594G" time="0.006">
+<testsuite name="com.mygdx.tests.DiceTest" tests="11" skipped="0" failures="0" errors="0" timestamp="2025-01-12T19:38:56" hostname="DESKTOP-9CTSVT6" time="0.027">
   <properties/>
   <testcase name="testRollDiceProducesDifferentValues()" classname="com.mygdx.tests.DiceTest" time="0.001"/>
-  <testcase name="testModifyValueIncreaseAtMax()" classname="com.mygdx.tests.DiceTest" time="0.0"/>
-  <testcase name="testModifyValueDecreaseAtMin()" classname="com.mygdx.tests.DiceTest" time="0.001"/>
-  <testcase name="testModifyValueWithInvalidInput()" classname="com.mygdx.tests.DiceTest" time="0.0"/>
-  <testcase name="testModifyValueIncrease()" classname="com.mygdx.tests.DiceTest" time="0.001"/>
-  <testcase name="testDiceValueDoesNotChangeWithoutRoll()" classname="com.mygdx.tests.DiceTest" time="0.0"/>
-  <testcase name="testUnassign()" classname="com.mygdx.tests.DiceTest" time="0.0"/>
+  <testcase name="testModifyValueIncreaseAtMax()" classname="com.mygdx.tests.DiceTest" time="0.002"/>
+  <testcase name="testModifyValueDecreaseAtMin()" classname="com.mygdx.tests.DiceTest" time="0.002"/>
+  <testcase name="testModifyValueWithInvalidInput()" classname="com.mygdx.tests.DiceTest" time="0.001"/>
+  <testcase name="testModifyValueIncrease()" classname="com.mygdx.tests.DiceTest" time="0.002"/>
+  <testcase name="testDiceValueDoesNotChangeWithoutRoll()" classname="com.mygdx.tests.DiceTest" time="0.001"/>
+  <testcase name="testUnassign()" classname="com.mygdx.tests.DiceTest" time="0.001"/>
   <testcase name="testRollDice()" classname="com.mygdx.tests.DiceTest" time="0.001"/>
-  <testcase name="testModifyValueDecrease()" classname="com.mygdx.tests.DiceTest" time="0.001"/>
-  <testcase name="testAssign()" classname="com.mygdx.tests.DiceTest" time="0.0"/>
-  <testcase name="testInitialDiceValue()" classname="com.mygdx.tests.DiceTest" time="0.0"/>
+  <testcase name="testModifyValueDecrease()" classname="com.mygdx.tests.DiceTest" time="0.002"/>
+  <testcase name="testAssign()" classname="com.mygdx.tests.DiceTest" time="0.002"/>
+  <testcase name="testInitialDiceValue()" classname="com.mygdx.tests.DiceTest" time="0.001"/>
   <system-out><![CDATA[Dice value is already at the maximum (6). It can't be increased.
 Dice value is already at the minimum (1). It can't be decreased.
-Dice value increased to: 6
+Dice value is already at the maximum (6). It can't be increased.
 Dice has not been rolled yet or has an invalid value.
-Dice value decreased to: 5
+Dice value is already at the minimum (1). It can't be decreased.
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

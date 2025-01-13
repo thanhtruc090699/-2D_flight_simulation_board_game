@@ -340,6 +340,7 @@ public class GameplayScreen implements Screen {
                             }
                             return true;
                         }
+
                     }
                 } else {
                     if (Math.abs(rerollButtonDonePosition.x - event.getStageX()) < 50 &&
@@ -948,6 +949,10 @@ public class GameplayScreen implements Screen {
             showCoPilotDice();
             hidePilotDice();
             
+        }
+        if(isUsingReroll){
+            showCoPilotDice();
+            showPilotDice();
         }
 
         handleRoundChange();
