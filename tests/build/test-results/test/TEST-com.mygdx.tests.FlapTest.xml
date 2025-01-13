@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.mygdx.tests.FlapTest" tests="14" skipped="0" failures="0" errors="0" timestamp="2025-01-12T19:38:56" hostname="DESKTOP-9CTSVT6" time="0.035">
+<testsuite name="com.mygdx.tests.FlapTest" tests="14" skipped="0" failures="0" errors="0" timestamp="2025-01-13T10:33:06" hostname="DESKTOP-9CTSVT6" time="0.11">
   <properties/>
-  <testcase name="testDeployFlap4WithoutFlap3()" classname="com.mygdx.tests.FlapTest" time="0.001"/>
-  <testcase name="testDeployFlap3WithoutFlap2()" classname="com.mygdx.tests.FlapTest" time="0.001"/>
-  <testcase name="testDeployFlap2WithoutFlap1()" classname="com.mygdx.tests.FlapTest" time="0.001"/>
-  <testcase name="testDeployFlapShiftsOrangeMarker()" classname="com.mygdx.tests.FlapTest" time="0.001"/>
+  <testcase name="testDeployFlap4WithoutFlap3()" classname="com.mygdx.tests.FlapTest" time="0.009"/>
+  <testcase name="testDeployFlap3WithoutFlap2()" classname="com.mygdx.tests.FlapTest" time="0.007"/>
+  <testcase name="testDeployFlap2WithoutFlap1()" classname="com.mygdx.tests.FlapTest" time="0.003"/>
+  <testcase name="testDeployFlapShiftsOrangeMarker()" classname="com.mygdx.tests.FlapTest" time="0.003"/>
   <testcase name="testDeployFlap1AlreadyDeployed()" classname="com.mygdx.tests.FlapTest" time="0.002"/>
-  <testcase name="testDeployFlap1()" classname="com.mygdx.tests.FlapTest" time="0.003"/>
-  <testcase name="testCanPlaceFlap_invalidDice()" classname="com.mygdx.tests.FlapTest" time="0.0"/>
-  <testcase name="testCanPlaceFlap_unfilledPreviousField()" classname="com.mygdx.tests.FlapTest" time="0.001"/>
-  <testcase name="testInitialFlapsStatus()" classname="com.mygdx.tests.FlapTest" time="0.002"/>
-  <testcase name="testDeployFlap4WithFlap3()" classname="com.mygdx.tests.FlapTest" time="0.001"/>
-  <testcase name="testDeployInvalidFlapValue()" classname="com.mygdx.tests.FlapTest" time="0.002"/>
+  <testcase name="testDeployFlap1()" classname="com.mygdx.tests.FlapTest" time="0.005"/>
+  <testcase name="testCanPlaceFlap_invalidDice()" classname="com.mygdx.tests.FlapTest" time="0.002"/>
+  <testcase name="testCanPlaceFlap_unfilledPreviousField()" classname="com.mygdx.tests.FlapTest" time="0.004"/>
+  <testcase name="testInitialFlapsStatus()" classname="com.mygdx.tests.FlapTest" time="0.009"/>
+  <testcase name="testDeployFlap4WithFlap3()" classname="com.mygdx.tests.FlapTest" time="0.005"/>
+  <testcase name="testDeployInvalidFlapValue()" classname="com.mygdx.tests.FlapTest" time="0.007"/>
   <testcase name="testDeployFlap3WithFlap2()" classname="com.mygdx.tests.FlapTest" time="0.002"/>
-  <testcase name="testDeployFlap2WithFlap1()" classname="com.mygdx.tests.FlapTest" time="0.003"/>
+  <testcase name="testDeployFlap2WithFlap1()" classname="com.mygdx.tests.FlapTest" time="0.001"/>
   <testcase name="testCanPlaceFlap_validDiceAndFieldChoice()" classname="com.mygdx.tests.FlapTest" time="0.002"/>
   <system-out><![CDATA[Flap 1 is now deployed.
 Flap 2 is now deployed.

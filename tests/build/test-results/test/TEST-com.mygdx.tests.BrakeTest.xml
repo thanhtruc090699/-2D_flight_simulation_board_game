@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.mygdx.tests.BrakeTest" tests="10" skipped="0" failures="0" errors="0" timestamp="2025-01-12T19:38:56" hostname="DESKTOP-9CTSVT6" time="0.036">
+<testsuite name="com.mygdx.tests.BrakeTest" tests="10" skipped="0" failures="0" errors="0" timestamp="2025-01-13T10:33:05" hostname="DESKTOP-9CTSVT6" time="0.088">
   <properties/>
-  <testcase name="testDeployBrakeField1Twice()" classname="com.mygdx.tests.BrakeTest" time="0.002"/>
-  <testcase name="testDeployBrakeField1()" classname="com.mygdx.tests.BrakeTest" time="0.002"/>
-  <testcase name="testSetRedMarker()" classname="com.mygdx.tests.BrakeTest" time="0.004"/>
-  <testcase name="testDeployBrakeField2WithField1()" classname="com.mygdx.tests.BrakeTest" time="0.001"/>
-  <testcase name="testCanPlaceBrakes()" classname="com.mygdx.tests.BrakeTest" time="0.004"/>
-  <testcase name="testDeployBrakeField3WithoutField2()" classname="com.mygdx.tests.BrakeTest" time="0.002"/>
-  <testcase name="testDeployBrakeField2WithoutField1()" classname="com.mygdx.tests.BrakeTest" time="0.001"/>
-  <testcase name="testDeployBrakeInvalidInput()" classname="com.mygdx.tests.BrakeTest" time="0.003"/>
-  <testcase name="testDeployBrakeField3WithField2()" classname="com.mygdx.tests.BrakeTest" time="0.001"/>
-  <testcase name="testInitialValues()" classname="com.mygdx.tests.BrakeTest" time="0.002"/>
+  <testcase name="testDeployBrakeField1Twice()" classname="com.mygdx.tests.BrakeTest" time="0.016"/>
+  <testcase name="testDeployBrakeField1()" classname="com.mygdx.tests.BrakeTest" time="0.001"/>
+  <testcase name="testSetRedMarker()" classname="com.mygdx.tests.BrakeTest" time="0.009"/>
+  <testcase name="testDeployBrakeField2WithField1()" classname="com.mygdx.tests.BrakeTest" time="0.003"/>
+  <testcase name="testCanPlaceBrakes()" classname="com.mygdx.tests.BrakeTest" time="0.024"/>
+  <testcase name="testDeployBrakeField3WithoutField2()" classname="com.mygdx.tests.BrakeTest" time="0.004"/>
+  <testcase name="testDeployBrakeField2WithoutField1()" classname="com.mygdx.tests.BrakeTest" time="0.005"/>
+  <testcase name="testDeployBrakeInvalidInput()" classname="com.mygdx.tests.BrakeTest" time="0.004"/>
+  <testcase name="testDeployBrakeField3WithField2()" classname="com.mygdx.tests.BrakeTest" time="0.003"/>
+  <testcase name="testInitialValues()" classname="com.mygdx.tests.BrakeTest" time="0.003"/>
   <system-out><![CDATA[Brake field 1 is now deployed.
 Brake field 1 is already occupied.
 Brake field 1 is now deployed.

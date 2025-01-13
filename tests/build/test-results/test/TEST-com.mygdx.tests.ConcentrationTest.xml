@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.mygdx.tests.ConcentrationTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2025-01-12T19:38:56" hostname="DESKTOP-9CTSVT6" time="0.014">
+<testsuite name="com.mygdx.tests.ConcentrationTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2025-01-13T10:33:05" hostname="DESKTOP-9CTSVT6" time="0.02">
   <properties/>
-  <testcase name="testFillCoffeeFieldsValidValue()" classname="com.mygdx.tests.ConcentrationTest" time="0.002"/>
-  <testcase name="testInitialization()" classname="com.mygdx.tests.ConcentrationTest" time="0.001"/>
-  <testcase name="testFillingWhenAllFieldsAreFilled()" classname="com.mygdx.tests.ConcentrationTest" time="0.002"/>
+  <testcase name="testFillCoffeeFieldsValidValue()" classname="com.mygdx.tests.ConcentrationTest" time="0.003"/>
+  <testcase name="testInitialization()" classname="com.mygdx.tests.ConcentrationTest" time="0.003"/>
+  <testcase name="testFillingWhenAllFieldsAreFilled()" classname="com.mygdx.tests.ConcentrationTest" time="0.001"/>
   <testcase name="testResetCoffeeFields()" classname="com.mygdx.tests.ConcentrationTest" time="0.001"/>
   <testcase name="testResetCoffeeFieldInvalidIndex()" classname="com.mygdx.tests.ConcentrationTest" time="0.001"/>
   <testcase name="testFillCoffeeFieldsInvalidValue()" classname="com.mygdx.tests.ConcentrationTest" time="0.001"/>

@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.mygdx.tests.AltitudeTest" tests="11" skipped="0" failures="0" errors="0" timestamp="2025-01-12T19:38:56" hostname="DESKTOP-9CTSVT6" time="0.036">
+<testsuite name="com.mygdx.tests.AltitudeTest" tests="11" skipped="0" failures="0" errors="0" timestamp="2025-01-13T10:33:05" hostname="DESKTOP-9CTSVT6" time="0.136">
   <properties/>
-  <testcase name="testSetAltitudeInvalidInput()" classname="com.mygdx.tests.AltitudeTest" time="0.005"/>
-  <testcase name="testGetAltitudeValue()" classname="com.mygdx.tests.AltitudeTest" time="0.001"/>
-  <testcase name="testAdjustAltitudeOnRound5()" classname="com.mygdx.tests.AltitudeTest" time="0.001"/>
-  <testcase name="testSetAltitudeValidInput()" classname="com.mygdx.tests.AltitudeTest" time="0.003"/>
-  <testcase name="testGetRerollTokenInitial()" classname="com.mygdx.tests.AltitudeTest" time="0.003"/>
-  <testcase name="testAdjustAltitudeRound2()" classname="com.mygdx.tests.AltitudeTest" time="0.003"/>
-  <testcase name="testAdjustAltitudeRound3()" classname="com.mygdx.tests.AltitudeTest" time="0.001"/>
-  <testcase name="testAdjustAltitudeRound4()" classname="com.mygdx.tests.AltitudeTest" time="0.002"/>
-  <testcase name="testAdjustAltitudeRound6()" classname="com.mygdx.tests.AltitudeTest" time="0.001"/>
-  <testcase name="testAdjustAltitudeRound7()" classname="com.mygdx.tests.AltitudeTest" time="0.001"/>
-  <testcase name="testInitialValues()" classname="com.mygdx.tests.AltitudeTest" time="0.001"/>
+  <testcase name="testSetAltitudeInvalidInput()" classname="com.mygdx.tests.AltitudeTest" time="0.016"/>
+  <testcase name="testGetAltitudeValue()" classname="com.mygdx.tests.AltitudeTest" time="0.009"/>
+  <testcase name="testAdjustAltitudeOnRound5()" classname="com.mygdx.tests.AltitudeTest" time="0.002"/>
+  <testcase name="testSetAltitudeValidInput()" classname="com.mygdx.tests.AltitudeTest" time="0.03"/>
+  <testcase name="testGetRerollTokenInitial()" classname="com.mygdx.tests.AltitudeTest" time="0.007"/>
+  <testcase name="testAdjustAltitudeRound2()" classname="com.mygdx.tests.AltitudeTest" time="0.004"/>
+  <testcase name="testAdjustAltitudeRound3()" classname="com.mygdx.tests.AltitudeTest" time="0.002"/>
+  <testcase name="testAdjustAltitudeRound4()" classname="com.mygdx.tests.AltitudeTest" time="0.007"/>
+  <testcase name="testAdjustAltitudeRound6()" classname="com.mygdx.tests.AltitudeTest" time="0.002"/>
+  <testcase name="testAdjustAltitudeRound7()" classname="com.mygdx.tests.AltitudeTest" time="0.003"/>
+  <testcase name="testInitialValues()" classname="com.mygdx.tests.AltitudeTest" time="0.003"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
