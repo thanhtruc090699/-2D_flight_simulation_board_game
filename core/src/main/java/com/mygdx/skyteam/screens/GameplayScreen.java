@@ -970,7 +970,7 @@ public class GameplayScreen implements Screen {
 
             if (field.isHighlighted()) {
                 shapeRenderer.rect(stageCoordinates.x - borderThickness / 2,
-                        stageCoordinates.y - borderThickness / 2 - 50,
+                        stageCoordinates.y - borderThickness / 2 - 30,
                         50 + borderThickness, 50 + borderThickness);
             }
         }
@@ -982,7 +982,7 @@ public class GameplayScreen implements Screen {
 
             if (field.isHighlighted()) {
                 shapeRenderer.rect(stageCoordinates.x - borderThickness / 2,
-                        stageCoordinates.y - borderThickness / 2 - 50,
+                        stageCoordinates.y - borderThickness / 2 - 30,
                         50 + borderThickness, 50 + borderThickness);
             }
         }
@@ -1259,7 +1259,7 @@ public class GameplayScreen implements Screen {
                 float fieldStageX = fieldPosition.x;
                 float fieldStageY = fieldPosition.y;
                 if (gameLogic.getPilot().canPlaceDice(diceValue, playerInput, fieldChoice)) {
-                    diceImage.setPosition(fieldStageX, fieldStageY - 50);
+                    diceImage.setPosition(fieldStageX, fieldStageY - 30);
                     gameLogic.getRound().collectPlayerInput(diceIndex, playerInput, fieldChoice);
                     PilotDicePlacedInPlaceHolder.set(diceIndex, true);
                     gameLogic.getRound().playRound();
@@ -1277,7 +1277,7 @@ public class GameplayScreen implements Screen {
                 float fieldStageX = fieldPosition.x;
                 float fieldStageY = fieldPosition.y;
                 if (gameLogic.getPilot().canPlaceDice(diceValue, playerInput, fieldChoice)) {
-                    diceImage.setPosition(fieldStageX, fieldStageY - 50);
+                    diceImage.setPosition(fieldStageX, fieldStageY - 30);
                     gameLogic.getRound().collectPlayerInput(diceIndex, playerInput, fieldChoice);
                     PilotDicePlacedInPlaceHolder.set(diceIndex, true);
                     gameLogic.getRound().playRound();
@@ -1297,7 +1297,7 @@ public class GameplayScreen implements Screen {
                     playerInput = "brake";
                     fieldChoice = i + 1;
                     if (gameLogic.getPilot().canPlaceDice(diceValue, playerInput, fieldChoice)) {
-                        diceImage.setPosition(fieldStageX, fieldStageY - 50);
+                        diceImage.setPosition(fieldStageX, fieldStageY - 30);
                         gameLogic.getRound().collectPlayerInput(diceIndex, playerInput, fieldChoice);
                         PilotDicePlacedInPlaceHolder.set(diceIndex, true);
                         switchesStates.set(i + 7, true);
@@ -1331,7 +1331,7 @@ public class GameplayScreen implements Screen {
                     playerInput = "coffee";
                     fieldChoice = i + 1;
                     if (gameLogic.getPilot().canPlaceDice(diceValue, playerInput, fieldChoice)) {
-                        diceImage.setPosition(fieldStageX, fieldStageY - 50);
+                        diceImage.setPosition(fieldStageX, fieldStageY - 30);
                         gameLogic.getRound().collectPlayerInput(diceIndex, playerInput, fieldChoice);
                         PilotDicePlacedInPlaceHolder.set(diceIndex, true);
                         currentCoffeeQuantity++;
@@ -1354,7 +1354,7 @@ public class GameplayScreen implements Screen {
                     playerInput = "landing gears";
                     fieldChoice = i + 1;
                     if (gameLogic.getPilot().canPlaceDice(diceValue, playerInput, fieldChoice)) {
-                        diceImage.setPosition(fieldStageX, fieldStageY - 50);
+                        diceImage.setPosition(fieldStageX, fieldStageY - 30);
                         gameLogic.getRound().collectPlayerInput(diceIndex, playerInput, fieldChoice);
                         PilotDicePlacedInPlaceHolder.set(diceIndex, true);
                         switchesStates.set(i, true);
@@ -1366,7 +1366,7 @@ public class GameplayScreen implements Screen {
                             blueMarkerPosition.set(935, 336);
                             blueMarkerRotation = -10;
                         } else if (currentBlueMarkerSteps == 3) {
-                            blueMarkerPosition.set(975, 340);
+                            blueMarkerPosition.set(973, 337);
                             blueMarkerRotation = 5;
                         }
                         gameLogic.getRound().playRound();
@@ -1386,7 +1386,7 @@ public class GameplayScreen implements Screen {
                 playerInput = "radio";
                 fieldChoice = 0;
                 if (gameLogic.getPilot().canPlaceDice(diceValue, playerInput, fieldChoice)) {
-                    diceImage.setPosition(fieldStageX, fieldStageY - 50);
+                    diceImage.setPosition(fieldStageX, fieldStageY - 30);
                     gameLogic.getRound().collectPlayerInput(diceIndex, playerInput, fieldChoice);
                     PilotDicePlacedInPlaceHolder.set(diceIndex, true);
                     gameLogic.getRound().playRound();
@@ -1405,7 +1405,7 @@ public class GameplayScreen implements Screen {
                 float fieldStageX = fieldPosition.x;
                 float fieldStageY = fieldPosition.y;
                 if (gameLogic.getCoPilot().canPlaceDice(diceValue, playerInput, fieldChoice)) {
-                    diceImage.setPosition(fieldStageX, fieldStageY - 50);
+                    diceImage.setPosition(fieldStageX, fieldStageY - 30);
                     gameLogic.getRound().collectPlayerInput(diceIndex, playerInput, fieldChoice);
                     CopilotDicePlacedInPlaceHolder.set(diceIndex, true);
                     gameLogic.getRound().playRound();
@@ -1425,7 +1425,7 @@ public class GameplayScreen implements Screen {
                 float fieldStageX = fieldPosition.x;
                 float fieldStageY = fieldPosition.y;
                 if (gameLogic.getCoPilot().canPlaceDice(diceValue, playerInput, fieldChoice)) {
-                    diceImage.setPosition(fieldStageX, fieldStageY - 50);
+                    diceImage.setPosition(fieldStageX, fieldStageY - 30);
                     gameLogic.getRound().collectPlayerInput(diceIndex, playerInput, fieldChoice);
                     CopilotDicePlacedInPlaceHolder.set(diceIndex, true);
                     gameLogic.getRound().playRound();
@@ -1446,7 +1446,7 @@ public class GameplayScreen implements Screen {
                     float fieldStageX = fieldPosition.x;
                     float fieldStageY = fieldPosition.y;
                     if (gameLogic.getCoPilot().canPlaceDice(diceValue, playerInput, fieldChoice)) {
-                        diceImage.setPosition(fieldStageX, fieldStageY - 50);
+                        diceImage.setPosition(fieldStageX, fieldStageY - 30);
                         gameLogic.getRound().collectPlayerInput(diceIndex, playerInput, fieldChoice);
                         CopilotDicePlacedInPlaceHolder.set(diceIndex, true);
                         switchesStates.set(i + 3, true);
@@ -1484,7 +1484,7 @@ public class GameplayScreen implements Screen {
                     float fieldStageX = fieldPosition.x;
                     float fieldStageY = fieldPosition.y;
                     if (gameLogic.getCoPilot().canPlaceDice(diceValue, playerInput, fieldChoice)) {
-                        diceImage.setPosition(fieldStageX, fieldStageY - 50);
+                        diceImage.setPosition(fieldStageX, fieldStageY - 30);
                         gameLogic.getRound().collectPlayerInput(diceIndex, playerInput, fieldChoice);
                         CopilotDicePlacedInPlaceHolder.set(diceIndex, true);
                         gameLogic.getRound().playRound();
@@ -1507,7 +1507,7 @@ public class GameplayScreen implements Screen {
                     float fieldStageX = fieldPosition.x;
                     float fieldStageY = fieldPosition.y;
                     if (gameLogic.getCoPilot().canPlaceDice(diceValue, playerInput, fieldChoice)) {
-                        diceImage.setPosition(fieldStageX, fieldStageY - 50);
+                        diceImage.setPosition(fieldStageX, fieldStageY - 30);
                         gameLogic.getRound().collectPlayerInput(diceIndex, playerInput, fieldChoice);
                         CopilotDicePlacedInPlaceHolder.set(diceIndex, true);
                         currentCoffeeQuantity++;

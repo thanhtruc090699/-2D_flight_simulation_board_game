@@ -20,6 +20,7 @@ public class MainMenuScreen implements Screen {
     private Skin skin;
     private final SkyTeamGame game;
     private GameLogic gameLogic;
+    private boolean isFullscreen = false;
 
     public MainMenuScreen(SkyTeamGame game) {
         this.game = game;
@@ -27,7 +28,11 @@ public class MainMenuScreen implements Screen {
 
     @Override
     public void show() {
-        Gdx.graphics.setFullscreenMode(Gdx.graphics.getDisplayMode());
+        if (isFullscreen) {
+            setFullscreenMode();
+        } else {
+            setWindowedMode();
+        }
 
         stage = new Stage(new ScreenViewport());
         skin = new Skin(Gdx.files.internal("uiskin.json"));
@@ -129,14 +134,24 @@ public class MainMenuScreen implements Screen {
         stage.draw();
     }
 
+    private void setFullscreenMode() {
+        Gdx.graphics.setFullscreenMode(Gdx.graphics.getDisplayMode()); 
+    }
+
+    private void setWindowedMode() {
+        Gdx.graphics.setWindowedMode(1920, 1080); 
+        Gdx.graphics.setResizable(true); 
+    }
+
+    
     @Override
     public void resize(int width, int height) {
-        stage.getViewport().update(width, height, true); // Update stage on resize
+        stage.getViewport().update(width, height, true); 
     }
 
     @Override
     public void hide() {
-        stage.dispose(); // Dispose when hidden
+        stage.dispose(); 
     }
 
     @Override
