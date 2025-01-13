@@ -734,14 +734,6 @@ public class GameplayScreen implements Screen {
             handlePilotCoffeeInteraction();
             handlePilotCoffeeInteraction();
 
-            if (playerIndex == 0) {
-                hideCoPilotDice();
-                showPilotDice();
-            } else if (playerIndex == 1) {
-                hidePilotDice();
-                showCoPilotDice();
-            }
-
         }
     }
 
@@ -897,7 +889,7 @@ public class GameplayScreen implements Screen {
                             }
                         }
                     }
-                }  
+                }
             }
 
             @Override
@@ -948,12 +940,14 @@ public class GameplayScreen implements Screen {
 
         if (playerIndex == 0) {
             batch.draw(pilotTurnTexture, 300, 750);
-            hideCoPilotDice();
             showPilotDice();
+            hideCoPilotDice();
+            
         } else if (playerIndex == 1) {
             batch.draw(coPilotTurnTexture, Gdx.graphics.getWidth() - 600, 750);
-            hidePilotDice();
             showCoPilotDice();
+            hidePilotDice();
+            
         }
 
         handleRoundChange();

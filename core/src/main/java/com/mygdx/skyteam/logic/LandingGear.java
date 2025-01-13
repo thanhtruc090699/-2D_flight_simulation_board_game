@@ -31,13 +31,15 @@ public class LandingGear {
 
     public boolean canPlaceLandingGear(int pilotInput, int fieldChoice) {
         Field selectedField = landingGearFields.get(fieldChoice - 1);
+
         if (!selectedField.getValidDiceValues().contains(pilotInput)) {
             return false;
         }
 
-        if (fieldChoice > 1 && !landingGearFields.get(fieldChoice - 2).isFilled()) {
+        if (selectedField.isFilled()) {
             return false;
         }
+
         return true;
     }
 
@@ -45,5 +47,4 @@ public class LandingGear {
         return landingGearFields;
     }
 
-    
 }

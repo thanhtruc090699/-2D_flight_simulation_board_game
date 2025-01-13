@@ -139,7 +139,9 @@ public class Round {
     private void checkTurnConditions() {
 
         if (airplane.getEngine().getPilotField().isFilled() && airplane.getEngine().getCoPilotField().isFilled()) {
+            System.out.println("Both engine fields are filled.");
             if (!airplane.getEngine().isPositionMoveSuccessful()) {
+                System.out.println("Position move failed. Ending game.");
                 game.endGame();
                 return;
             }
