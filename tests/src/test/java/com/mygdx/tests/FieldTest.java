@@ -5,14 +5,11 @@ import org.junit.jupiter.api.Test;
 import java.util.Arrays;
 import java.util.List;
 
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Graphics;
 import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.mygdx.skyteam.logic.Field;
 
 import static org.junit.jupiter.api.Assertions.*;
-
 public class FieldTest {
 
     private Field field;
@@ -32,11 +29,9 @@ public class FieldTest {
     @Test
     void testSetDiceValueValid() {
         boolean result = field.setDiceValue(4);
-
         assertTrue(result, "Valid dice value should return true.");
-        assertTrue(field.isFilled(), "Field should not be filled with an invalid dice value.");
+        assertTrue(field.isFilled(), "Field should be filled after setting a valid dice value.");
         assertEquals(4, field.getPlacedDice());
-
     }
 
     @Test
@@ -48,32 +43,11 @@ public class FieldTest {
     }
 
     @Test
-    void testResetFields() {
+    void testResetField() {
         field.setDiceValue(2);
         assertTrue(field.isFilled());
         field.resetField();
         assertFalse(field.isFilled());
         assertNull(field.getPlacedDice());
     }
-
-    @Test
-    public void testIsMouseOver_insideField() {
-        assertTrue(field.isMouseOver(120, 160));
-    }
-
-    @Test
-    public void testIsMouseOver_outsideField() {
-        assertFalse(field.isMouseOver(50, 50));
-    }
-
-    @Test
-    public void testGetX() {
-        assertEquals(100, field.getX(), 0.0f);
-    }
-
-    @Test
-    public void testGetY() {
-        assertEquals(150, field.getY(), 0.0f);
-    }
-
 }

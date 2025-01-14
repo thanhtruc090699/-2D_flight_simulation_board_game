@@ -155,10 +155,10 @@ public class Engine {
         return orangeMarker;
     }
 
+    public int setBlueMarker(int value) {return blueMarker = value;}
     public int setCurrentPosition(int position) {
         return currentPosition = position;
     }
-
     public int setSpeed(int newSpeed) {
         return speed = newSpeed;
     }
@@ -167,7 +167,6 @@ public class Engine {
         pilotField.resetField();
         coPilotField.resetField();
     }
-
     public boolean isPositionMoveSuccessful() {
         return isPositionMoveSuccessful;
     }
