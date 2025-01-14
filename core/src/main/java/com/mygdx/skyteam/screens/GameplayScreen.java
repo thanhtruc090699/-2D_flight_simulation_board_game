@@ -1012,10 +1012,19 @@ public class GameplayScreen implements Screen {
                         field.setHighlighted(false); // Reset highlight
                     }
 
+                    int fieldChoice = -1;
+                    for (int i = 0; i < gameLogic.getAirplane().getFlaps().getFlapsFields().size(); i++) {
+                        Field field = gameLogic.getAirplane().getFlaps().getFlapsFields().get(i);
+                        if (isMouseOverField((int) event.getStageX(), (int) event.getStageY(), field, diceImage)) {
+                            fieldChoice = i + 1; // Index is zero-based, fieldChoice is 1-based
+                            break;
+                        }
+                    }
+
                     for (Field field : allCoPilotFields) {
                         if (field.canAcceptDice(dice.getDiceValue())) {
                             if (field.isFlaps()) {
-                                if (gameLogic.getAirplane().getFlaps().canPlaceFlapsForDice(dice.getDiceValue())) {
+                                if (fieldChoice != -1 && gameLogic.getAirplane().getFlaps().canPlaceFlapsForDice(dice.getDiceValue(), fieldChoice)) {
                                     field.setHighlighted(true);
                                 }
                             } else {

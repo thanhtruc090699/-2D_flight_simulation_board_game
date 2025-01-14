@@ -124,4 +124,35 @@ class FlapTest {
         assertFalse(flap.canPlaceFlap(4, 2)); // Field 2 can't be filled before field 1
     }
 
+    @Test
+    void testCanPlaceFlapsForDice() {
+        // Dice Value 1 or 2
+        flap.getFlapsFields().get(0).setFilled(false);
+        assertTrue(flap.canPlaceFlapsForDice(1,1), "Should return true when Flap 1 is not filled for dice 1.");
+        flap.getFlapsFields().get(0).setFilled(true);
+        assertFalse(flap.canPlaceFlapsForDice(1,1), "Should return false when Flap 1 is filled for dice 1.");
+
+        // Dice Value 2 or 3
+        flap.getFlapsFields().get(0).setFilled(true);
+        flap.getFlapsFields().get(1).setFilled(false);
+        assertTrue(flap.canPlaceFlapsForDice(2,2), "Should return true when Flap 1 is filled and Flap 2 is not filled for dice 2.");
+        flap.getFlapsFields().get(1).setFilled(true);
+        assertFalse(flap.canPlaceFlapsForDice(2,2), "Should return false when Flap 2 is already filled for dice 2.");
+
+        // Dice Value 4 or 5
+        flap.getFlapsFields().get(1).setFilled(true);
+        flap.getFlapsFields().get(2).setFilled(false);
+        assertTrue(flap.canPlaceFlapsForDice(4,3), "Should return true when Flap 1 and Flap 2 are filled and Flap 3 is not filled for dice 4.");
+        flap.getFlapsFields().get(2).setFilled(true);
+        assertFalse(flap.canPlaceFlapsForDice(4,3), "Should return false when Flap 3 is already filled for dice 4.");
+
+        // Dice Value 5 or 6
+        flap.getFlapsFields().get(2).setFilled(true);
+        flap.getFlapsFields().get(3).setFilled(false);
+        assertTrue(flap.canPlaceFlapsForDice(5,4), "Should return true when Flap 1, Flap 2, and Flap 3 are filled and Flap 4 is not filled for dice 5.");
+        flap.getFlapsFields().get(3).setFilled(true);
+        assertFalse(flap.canPlaceFlapsForDice(5,4), "Should return false when Flap 4 is already filled for dice 5.");
+    }
+
+
 }
