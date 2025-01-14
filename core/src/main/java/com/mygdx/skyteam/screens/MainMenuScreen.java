@@ -39,21 +39,19 @@ public class MainMenuScreen implements Screen {
 
         // Title
         Texture titleTexture = new Texture(Gdx.files.internal("images/title.png"));
-        Image titleImage = new Image(titleTexture); 
+        Image titleImage = new Image(titleTexture);
 
         titleImage.setPosition(
                 (Gdx.graphics.getWidth() - titleImage.getWidth()) / 2f,
-                Gdx.graphics.getHeight() - titleImage.getHeight() - 150 
-        );
+                Gdx.graphics.getHeight() - titleImage.getHeight() - 150);
 
-          // Plane Icon
-          Texture planeIconTexture = new Texture(Gdx.files.internal("images/plane_icon.png"));
-          Image planeIcon = new Image(planeIconTexture);
-          planeIcon.setSize(450, 450);
-          planeIcon.setPosition(
-              titleImage.getX() + 800,
-              titleImage.getY() - 250  
-          );
+        // Plane Icon
+        Texture planeIconTexture = new Texture(Gdx.files.internal("images/plane_icon.png"));
+        Image planeIcon = new Image(planeIconTexture);
+        planeIcon.setSize(450, 450);
+        planeIcon.setPosition(
+                titleImage.getX() + 800,
+                titleImage.getY() - 250);
 
         // Start Button
         Texture normalStartTexture = new Texture(Gdx.files.internal("buttons/button_start_normal.png"));
@@ -94,7 +92,7 @@ public class MainMenuScreen implements Screen {
         howToPlayButton.addListener(new ChangeListener() {
             @Override
             public void changed(ChangeEvent event, Actor actor) {
-                // Link has to be added to our manual 
+                // Link has to be added to our manual
             }
         });
 
@@ -135,23 +133,24 @@ public class MainMenuScreen implements Screen {
     }
 
     private void setFullscreenMode() {
-        Gdx.graphics.setFullscreenMode(Gdx.graphics.getDisplayMode()); 
+        Gdx.graphics.setFullscreenMode(Gdx.graphics.getDisplayMode());
     }
 
     private void setWindowedMode() {
-        Gdx.graphics.setWindowedMode(1920, 1080); 
-        Gdx.graphics.setResizable(true); 
+        int windowWidth = 1920;
+        int windowHeight = 1080;
+        Gdx.graphics.setWindowedMode(windowWidth, windowHeight);
+        System.out.println("Window resolution set to: " + windowWidth + "x" + windowHeight);
     }
 
-    
     @Override
     public void resize(int width, int height) {
-        stage.getViewport().update(width, height, true); 
+        stage.getViewport().update(width, height, true);
     }
 
     @Override
     public void hide() {
-        stage.dispose(); 
+        stage.dispose();
     }
 
     @Override

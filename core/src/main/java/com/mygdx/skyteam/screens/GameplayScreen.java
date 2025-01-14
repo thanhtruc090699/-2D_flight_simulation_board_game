@@ -131,9 +131,9 @@ public class GameplayScreen implements Screen {
     @Override
     public void show() {
         backgroundTexture = new Texture(Gdx.files.internal("images/wood_bg.jpg"));
-        boardTexture = new Texture(Gdx.files.internal("board/Control Panel.png"));
-        planeTrack = new Texture(Gdx.files.internal("board/Track.png"));
-        altitudeTrack = new Texture(Gdx.files.internal("board/Altitude.png"));
+        boardTexture = new Texture(Gdx.files.internal("board/Control Panel copy.png"));
+        planeTrack = new Texture(Gdx.files.internal("board/Track copy.png"));
+        altitudeTrack = new Texture(Gdx.files.internal("board/Altitude copy.png"));
         axisIcon = new Texture(Gdx.files.internal("board/axis_icon.png"));
         switchTrack = new Texture(Gdx.files.internal("board/icons/Switch.png"));
         blueMarkerTrack = new Texture(Gdx.files.internal("board/markers/MarkerBlue.png"));
@@ -185,13 +185,13 @@ public class GameplayScreen implements Screen {
         switchesPositions = new ArrayList<>();
 
         // Switches for Landing gears
-        switchesPositions.add(new Vector2(735, 343));
-        switchesPositions.add(new Vector2(735, 235));
+        switchesPositions.add(new Vector2(735, 342));
+        switchesPositions.add(new Vector2(735, 234));
         switchesPositions.add(new Vector2(735, 126));
 
         // Switches for Flaps
-        switchesPositions.add(new Vector2(1142, 343));
-        switchesPositions.add(new Vector2(1142, 235));
+        switchesPositions.add(new Vector2(1142, 342));
+        switchesPositions.add(new Vector2(1142, 234));
         switchesPositions.add(new Vector2(1142, 126));
         switchesPositions.add(new Vector2(1142, 18));
 
@@ -1017,14 +1017,14 @@ public class GameplayScreen implements Screen {
 
         }
 
-        float altitudeTrackWidth = altitudeTrack.getWidth() * scaleFactor - 6;
-        float altitudeTrackHeight = altitudeTrack.getHeight() * scaleFactor;
+        float altitudeTrackWidth = altitudeTrack.getWidth() - 6;
+        float altitudeTrackHeight = altitudeTrack.getHeight();
         float altitudeTrackX = (Gdx.graphics.getWidth() - altitudeTrackWidth) / 2f + 95 - 2;
-        float altitudeTrackY = boardTexture.getHeight() * scaleFactor - 100 - altitudeOffset;
+        float altitudeTrackY = boardTexture.getHeight() - 100 - altitudeOffset;
         batch.draw(altitudeTrack, altitudeTrackX, altitudeTrackY, altitudeTrackWidth, altitudeTrackHeight);
 
-        float boardWidth = boardTexture.getWidth() * scaleFactor;
-        float boardHeight = boardTexture.getHeight() * scaleFactor;
+        float boardWidth = boardTexture.getWidth();
+        float boardHeight = boardTexture.getHeight();
         float boardX = (Gdx.graphics.getWidth() - boardWidth) / 2f;
         float boardY = 0;
         batch.draw(boardTexture, boardX, boardY, boardWidth, boardHeight);
@@ -1160,8 +1160,8 @@ public class GameplayScreen implements Screen {
             Vector2 placeholderPosition = rerollPlaceholders.get(i);
 
             if (i == 0) {
-                batch.draw(rerollIconTrack, placeholderPosition.x - 10, placeholderPosition.y, 50, 50); // larger
-                                                                                                        // size
+                batch.draw(rerollIconTrack, placeholderPosition.x - 10, placeholderPosition.y - 5, 50, 50); // larger
+                // size
             } else {
                 batch.draw(rerollIconTrack, placeholderPosition.x, placeholderPosition.y, 35, 35); // normal size
             }
@@ -1195,11 +1195,10 @@ public class GameplayScreen implements Screen {
         float scaledHeight = planeTexture.getHeight() * scaleFactor;
 
         // Drawing plane track
-        float planeTrackScaleFactor = 0.8f;
-        float planeTrackWidth = planeTrack.getWidth() * planeTrackScaleFactor - 6;
-        float planeTrackHeight = planeTrack.getHeight() * planeTrackScaleFactor;
+        float planeTrackWidth = planeTrack.getWidth() - 6;
+        float planeTrackHeight = planeTrack.getHeight();
         float planeTrackX = (Gdx.graphics.getWidth() - planeTrackWidth) / 2f - 95 + 3;
-        float planeTrackY = boardTexture.getHeight() * planeTrackScaleFactor - 100 - planeTrackVerticalOffset;
+        float planeTrackY = boardTexture.getHeight() - 100 - planeTrackVerticalOffset;
         batch.draw(planeTrack, planeTrackX, planeTrackY, planeTrackWidth, planeTrackHeight);
 
         int baseY = 620;
