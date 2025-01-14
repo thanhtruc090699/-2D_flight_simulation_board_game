@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.mygdx.tests.BrakeTest" tests="11" skipped="0" failures="0" errors="0" timestamp="2025-01-14T22:52:36" hostname="DESKTOP-9CTSVT6" time="0.048">
+  <properties/>
+  <testcase name="testCanPlaceBrakesForDice()" classname="com.mygdx.tests.BrakeTest" time="0.002"/>
+  <testcase name="testDeployBrakeField1Twice()" classname="com.mygdx.tests.BrakeTest" time="0.002"/>
+  <testcase name="testDeployBrakeField1()" classname="com.mygdx.tests.BrakeTest" time="0.003"/>
+  <testcase name="testSetRedMarker()" classname="com.mygdx.tests.BrakeTest" time="0.007"/>
+  <testcase name="testDeployBrakeField2WithField1()" classname="com.mygdx.tests.BrakeTest" time="0.003"/>
+  <testcase name="testCanPlaceBrakes()" classname="com.mygdx.tests.BrakeTest" time="0.005"/>
+  <testcase name="testDeployBrakeField3WithoutField2()" classname="com.mygdx.tests.BrakeTest" time="0.003"/>
+  <testcase name="testDeployBrakeField2WithoutField1()" classname="com.mygdx.tests.BrakeTest" time="0.001"/>
+  <testcase name="testDeployBrakeInvalidInput()" classname="com.mygdx.tests.BrakeTest" time="0.002"/>
+  <testcase name="testDeployBrakeField3WithField2()" classname="com.mygdx.tests.BrakeTest" time="0.002"/>
+  <testcase name="testInitialValues()" classname="com.mygdx.tests.BrakeTest" time="0.003"/>
+  <system-out><![CDATA[Brake field 1 is now deployed.
+Brake field 2 is now deployed.
+Brake field 3 is now deployed.
+Brake field 1 is now deployed.
+Brake field 1 is already occupied.
+Brake field 1 is now deployed.
+Brake field 1 is now deployed.
+Brake field 2 is now deployed.
+Invalid input for brake deployment. Please choose from 2, 4, or 6.
+Invalid input for brake deployment. Please choose from 2, 4, or 6.
+Brake field 1 is already occupied.
+Brake field 1 must be deployed first before deploying brake field 2.
+Both Brake field 1 and Brake field 2 must be deployed first before deploying brake field 3.
+Both Brake field 1 and Brake field 2 must be deployed first before deploying brake field 3.
+Brake field 1 is now deployed.
+Both Brake field 1 and Brake field 2 must be deployed first before deploying brake field 3.
+Brake field 1 must be deployed first before deploying brake field 2.
+Invalid input for brake deployment. Please choose from 2, 4, or 6.
+Brake field 1 is now deployed.
+Brake field 2 is now deployed.
+Brake field 3 is now deployed.
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
