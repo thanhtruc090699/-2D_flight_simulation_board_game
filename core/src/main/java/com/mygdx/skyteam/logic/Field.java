@@ -19,7 +19,7 @@ public class Field {
 
     private boolean isHighlighted = false;
     private Rectangle fieldRect;
-    private Color color = new Color(0, 0, 0, 0); 
+    private Color color = new Color(0, 0, 0, 0);
 
 
     public Field(String name, List<Integer> validDiceValues, int x, int y) {
@@ -52,6 +52,7 @@ public class Field {
     public Integer getPlacedDice() {
         return placedDice;
     }
+    public Integer setPlacedDice(int x) {return placedDice = x;}
 
     public String getName() {
         return name;
@@ -88,20 +89,20 @@ public class Field {
 
     public void draw(int diceValue) {
         if (canAcceptDice(diceValue)) {
-            float width = 50;  
+            float width = 50;
             float height = 50;
-    
-    
+
+
             if (isHighlighted) {
                 color = new Color(0x39 / 255f, 0xFF / 255f, 0x14 / 255f, 1f);
             } else {
-                color = new Color(0, 0, 0, 0);  
+                color = new Color(0, 0, 0, 0);
             }
-    
+
             this.fieldRect = new Rectangle(x, y, width, height);
         }
     }
-    
+
 
     public boolean canAcceptDice(int diceValue) {
         return validDiceValues.contains(diceValue) && !isFilled;
@@ -116,7 +117,7 @@ public class Field {
     }
 
     public Color getColor() {
-        return color;  
+        return color;
     }
 
 

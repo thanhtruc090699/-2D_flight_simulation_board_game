@@ -44,6 +44,35 @@ class EngineTest {
     }
 
     @Test
+    void testSetCurrentPosition() {
+        engine.setCurrentPosition(3);
+        assertEquals(3, engine.getCurrentPosition(), "Current position should be updated to 3.");
+    }
+
+    @Test
+    void testSetSpeed() {
+        engine.setSpeed(12);
+        assertEquals(12, engine.getSpeed(), "Speed should be updated to 12.");
+    }
+
+    @Test
+    void testShiftBlueMarker_Boundary() {
+        engine.setCurrentPosition(6);
+        for (int i = 4; i <= 7; i++) {
+            engine.shiftBlueMarker();
+        }
+        assertEquals(7, engine.getBlueMarker(), "Blue marker should not exceed 7.");
+    }
+
+    @Test
+    void testShiftOrangeMarker_Boundary() {
+        for (int i = 8; i <= 12; i++) {
+            engine.shiftOrangeMarker();
+        }
+        assertEquals(12, engine.getOrangeMarker(), "Orange marker should not exceed 12.");
+    }
+
+    @Test
     void testShiftBlueMarker() {
         engine.shiftBlueMarker();
         assertEquals(5, engine.getBlueMarker(), "Blue marker should be incremented to 5.");
@@ -68,6 +97,27 @@ class EngineTest {
     }
 
     @Test
+    void testUpdatePositionWithExactBlueMarker() {
+        planesOnTrack.set(1, 0);
+        engine.placePilotDice(2);
+        engine.placeCoPilotDice(2);
+        engine.adjustSpeed(planesOnTrack);
+        assertEquals(4, engine.getSpeed(), "Speed should match blue marker.");
+        assertEquals(1, engine.getCurrentPosition(), "Plane should move 1 step.");
+    }
+
+    @Test
+    void testUpdatePositionWithExactOrangeMarker() {
+        planesOnTrack.set(1, 0);
+        planesOnTrack.set(2, 0);
+        engine.placePilotDice(4);
+        engine.placeCoPilotDice(4);
+        engine.adjustSpeed(planesOnTrack);
+        assertEquals(8, engine.getSpeed(), "Speed should match orange marker.");
+        assertEquals(2, engine.getCurrentPosition(), "Plane should move 2 steps.");
+    }
+
+    @Test
     void testAdjustSpeedAndCrashDueToPlaneOnTrack() {
         planesOnTrack.set(1, 1);
         engine.placePilotDice(3);
@@ -81,6 +131,20 @@ class EngineTest {
     }
 
     @Test
+    void testUpdatePositionWithOvershootAtAirport() {
+        for (int i = 0; i < planesOnTrack.size(); i++) {
+            planesOnTrack.set(i, 0);
+        }
+        engine.setCurrentPosition(5);
+        engine.setBlueMarker(6);
+        engine.placePilotDice(2);
+        engine.placeCoPilotDice(2);
+        engine.adjustSpeed(planesOnTrack);
+        assertEquals(4, engine.getSpeed(), "Speed should be 4.");
+        assertEquals(5, engine.getCurrentPosition(), "Plane should not overshoot if speed matches blue marker.");
+    }
+
+    @Test
     void testAdjustSpeedAndMoveTwoSteps() {
         planesOnTrack.set(2, 0);
         engine.placePilotDice(5);
@@ -88,6 +152,16 @@ class EngineTest {
         engine.adjustSpeed(planesOnTrack);
         assertEquals(10, engine.getSpeed());
         assertEquals(2, engine.getCurrentPosition());
+    }
+
+    @Test
+    void testUpdatePositionFailsOnBlockedTrack() {
+        planesOnTrack.set(1, 1); // Block position 1
+        engine.placePilotDice(3);
+        engine.placeCoPilotDice(3);
+        engine.adjustSpeed(planesOnTrack);
+        assertEquals(0, engine.getCurrentPosition(), "Plane should not move due to blocked track.");
+        assertFalse(engine.isPositionMoveSuccessful(), "Movement should fail due to an obstacle.");
     }
 
     @Test

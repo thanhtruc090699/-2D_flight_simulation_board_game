@@ -83,8 +83,6 @@ public class Round {
                         + airplane.getAltitude().getRerollToken().getQuantity());
             }
 
-            handleCoffeeToken(pilot);
-
             pilot.displayUnassignedDice();
 
             int selectedDiceValue = pilot.getDices().get(diceIndex).getDiceValue();
@@ -105,7 +103,6 @@ public class Round {
             System.out.println("These are your unassigned dice: ");
             coPilot.displayUnassignedDice();
 
-            handleCoffeeToken(pilot);
 
             coPilot.displayUnassignedDice();
 
@@ -136,7 +133,7 @@ public class Round {
             return true;
     }
 
-    private void checkTurnConditions() {
+    public void checkTurnConditions() {
 
         if (airplane.getEngine().getPilotField().isFilled() && airplane.getEngine().getCoPilotField().isFilled()) {
             System.out.println("Both engine fields are filled.");
@@ -155,28 +152,6 @@ public class Round {
         }
     }
 
-    public void handleCoffeeToken(Player player) {
-        if (player.getCoffeeToken().getQuantity() >= 1) {
-            System.out.println("You have a Coffee Token. Do you want to use it? (yes/no)");
-
-            String useCoffeeToken = "no";
-
-            if (useCoffeeToken.equals("yes")) {
-                System.out.println("Choose a dice from range 1-" + player.getUnassignedDice().size());
-                int diceIndex = 0;
-
-                if (diceIndex >= 0 && diceIndex < player.getUnassignedDice().size()) {
-                    player.getCoffeeToken().useCoffeeToken(player.getUnassignedDice().get(diceIndex), airplane);
-                    System.out.println("Coffee Token used.");
-                } else {
-                    System.out.println("Invalid dice index. Please choose a valid dice.");
-                }
-            } else {
-                System.out.println("You decided not to use the Coffee Token.");
-            }
-        }
-    }
-
     public void collectPlayerInput(int diceIndex, String playerInput, int fieldChoice) {
 
         this.currentDiceIndex = diceIndex;
@@ -187,4 +162,19 @@ public class Round {
     public int getCurrentPlayerIndex() {
         return currentPlayerIndex;
     }
+    public int getTurnsLeft() {
+        return turnsLeft;
+    }
+    public int getCurrentDiceIndex() {
+        return currentDiceIndex;
+    }
+    public int getCurrentFieldChoice() {
+        return currentFieldChoice;
+    }
+
+    public String getCurrentPlayerInput() {
+        return currentPlayerInput;
+    }
 }
+
+
