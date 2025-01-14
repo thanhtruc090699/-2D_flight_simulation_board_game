@@ -170,5 +170,8 @@ public class Engine {
     public boolean isPositionMoveSuccessful() {
         return isPositionMoveSuccessful;
     }
+    public boolean setPositionMoveSuccessful(boolean x) {
+       return isPositionMoveSuccessful = x;
+    }
 
 }
