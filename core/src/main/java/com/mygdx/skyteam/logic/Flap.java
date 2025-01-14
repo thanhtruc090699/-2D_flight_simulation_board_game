@@ -57,13 +57,13 @@ public class Flap {
     }
 
     public boolean canPlaceFlapsForDice(int diceValue, int fieldChoice) {
-        if ((diceValue == 1 || diceValue == 2) && fieldChoice-1 == 0) {
+        if ((diceValue == 1 || diceValue == 2) && fieldChoice - 1 == 0) {
             if (flapsFields.get(0).isFilled()) {
                 return false;
             }
         }
 
-        if ((diceValue == 2 || diceValue == 3) && fieldChoice-1 == 1) {
+        if ((diceValue == 2 || diceValue == 3) && fieldChoice - 1 == 1) {
             if (!flapsFields.get(0).isFilled()) {
                 return false;
             }
@@ -72,7 +72,7 @@ public class Flap {
             }
         }
 
-        if ((diceValue == 4 || diceValue == 5) && fieldChoice-1 == 2) {
+        if ((diceValue == 4 || diceValue == 5) && fieldChoice - 1 == 2) {
             if (!flapsFields.get(0).isFilled() || !flapsFields.get(1).isFilled()) {
                 return false;
             }
@@ -81,7 +81,7 @@ public class Flap {
             }
         }
 
-        if ((diceValue == 5 || diceValue == 6) && fieldChoice-1 == 3) {
+        if ((diceValue == 5 || diceValue == 6) && fieldChoice - 1 == 3) {
             if (!flapsFields.get(0).isFilled() || !flapsFields.get(1).isFilled() || !flapsFields.get(2).isFilled()) {
                 return false;
             }

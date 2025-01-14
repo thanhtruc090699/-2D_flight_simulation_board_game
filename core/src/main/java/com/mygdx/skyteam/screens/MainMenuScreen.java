@@ -28,11 +28,7 @@ public class MainMenuScreen implements Screen {
 
     @Override
     public void show() {
-        if (isFullscreen) {
-            setFullscreenMode();
-        } else {
-            setWindowedMode();
-        }
+      
 
         stage = new Stage(new ScreenViewport());
         skin = new Skin(Gdx.files.internal("uiskin.json"));
