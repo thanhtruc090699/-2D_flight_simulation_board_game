@@ -1,4 +1,5 @@
 package com.mygdx.tests;
+import static org.junit.Assert.*;
 
 import com.mygdx.skyteam.logic.*;
 import org.junit.jupiter.api.BeforeEach;
@@ -6,17 +7,16 @@ import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
+import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class GameLogicTest {
 
     private GameLogic game;
-    private Airplane airplane;
 
     @BeforeEach
     public void setUp() {
         game = new GameLogic();
-        airplane = new Airplane();
         setInitialAirplaneConditions();
     }
 
@@ -50,11 +50,11 @@ public class GameLogicTest {
     @Test
     public void testNextRound() {
         game.startGame();
-        airplane.getEngine().getPilotField().setPlacedDice(3);
-        airplane.getAxis().getPilotAxisField().setPlacedDice(3);
-        airplane.getEngine().getCoPilotField().setPlacedDice(3);
-        airplane.getAxis().getCoPilotAxisField().setPlacedDice(3);
-        airplane.getEngine().setPositionMoveSuccessful(true);
+        game.getAirplane().getEngine().getPilotField().setPlacedDice(1);
+        game.getAirplane().getAxis().getPilotAxisField().setPlacedDice(3);
+        game.getAirplane().getEngine().getCoPilotField().setPlacedDice(2);
+        game.getAirplane().getAxis().getCoPilotAxisField().setPlacedDice(3);
+        game.getAirplane().getEngine().setPositionMoveSuccessful(true);
         game.nextRound();
         assertEquals(2, game.getCurrentRoundNumber(), "Round number should increase");
     }
@@ -65,19 +65,25 @@ public class GameLogicTest {
 
         // Simulate reaching the final round
         for (int i = 0; i < 6; i++) {
-            airplane.getEngine().getPilotField().setPlacedDice(3);
-            airplane.getAxis().getPilotAxisField().setPlacedDice(3);
-            airplane.getEngine().getCoPilotField().setPlacedDice(3);
-            airplane.getAxis().getCoPilotAxisField().setPlacedDice(3);
-            airplane.getEngine().setPositionMoveSuccessful(true);
+            game.getAirplane().getEngine().getPilotField().setPlacedDice(1);
+            game.getAirplane().getAxis().getPilotAxisField().setPlacedDice(3);
+            game.getAirplane().getEngine().getCoPilotField().setPlacedDice(2);
+            game.getAirplane().getAxis().getCoPilotAxisField().setPlacedDice(3);
+            game.getAirplane().getEngine().setPositionMoveSuccessful(true);
             game.nextRound();
         }
 
         assertEquals(7, game.getCurrentRoundNumber(), "Round number should be 7 after final round");
         assertFalse(game.getGameOver(), "Game should not be over yet");
 
+        game.getAirplane().getEngine().getPilotField().setPlacedDice(3);
+        game.getAirplane().getAxis().getPilotAxisField().setPlacedDice(3);
+        game.getAirplane().getEngine().getCoPilotField().setPlacedDice(3);
+        game.getAirplane().getAxis().getCoPilotAxisField().setPlacedDice(3);
+        game.getAirplane().getEngine().setPositionMoveSuccessful(true);
+
         game.nextRound();
-        assertTrue(game.getGameOver(), "Game should end after the 7th round");
+        assertTrue("Game should end after the 7th round", game.getGameOver());
     }
 
     @Test
@@ -91,13 +97,15 @@ public class GameLogicTest {
         for (Field field : game.getAirplane().getFlaps().getFlapsFields()) {
             field.setFilled(true);
         }
+
+        game.setCurrentRoundNumber(7);
         game.getAirplane().getEngine().setCurrentPosition(6);
         game.getAirplane().getAxis().setTilt(3);
         game.getAirplane().getEngine().setSpeed(2);
         game.getAirplane().getBrakes().setRedMarker(3);
 
         game.endGame();
-        assertTrue(game.hasWon(), "Game should be won");
+        assertTrue("Game should be won", game.hasWon());
     }
 
     @Test
@@ -108,7 +116,7 @@ public class GameLogicTest {
         game.getAirplane().getEngine().setCurrentPosition(3);
 
         game.endGame();
-        assertTrue(game.getGameOver(), "Game should be over");
+        assertTrue("Game should be over", game.getGameOver());
         assertFalse(game.hasWon(), "Game should not be won");
     }
 

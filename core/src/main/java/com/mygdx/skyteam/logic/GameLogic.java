@@ -77,7 +77,7 @@ public class GameLogic {
         } else if (!stillAlive) {
             endGame();
         } else {
-            currentRoundNumber++;
+            //currentRoundNumber++;
 
             pilot.resetDiceAssignments();
             coPilot.resetDiceAssignments();
@@ -148,14 +148,6 @@ public class GameLogic {
         return this.coPilot;
     }
 
-    public void setPilot(Pilot pilot) {
-        this.pilot = pilot;
-    }
-
-    public void setCoPilot(CoPilot coPilot) {
-        this.coPilot = coPilot;
-    }
-
     public Airplane getAirplane() {
         return airplane;
     }
@@ -167,6 +159,7 @@ public class GameLogic {
     public int getCurrentRoundNumber() {
         return currentRoundNumber;
     }
+    public int setCurrentRoundNumber(int x) { return currentRoundNumber = x;}
 
     public boolean getGameOver() {
         return gameOver;
