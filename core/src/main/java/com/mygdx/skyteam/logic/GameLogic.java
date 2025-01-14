@@ -23,12 +23,12 @@ public class GameLogic {
     public void startGame() {
 
         System.out.println("Welcome To The Game");
-
-        String name1 = "Player 1"; // hardcoded names for testing
+        // We didn't make name/role choosing an option so it stays like this
+        String name1 = "Player 1";
         String name2 = "Player 2";
 
         System.out.println("Enter role for " + name1 + " : (1 for Pilot, 2 for CoPilot)");
-        int roleChoice1 = 1; // again replaced with hardcoded value for testing
+        int roleChoice1 = 1;
 
         if (roleChoice1 == 1) {
             pilot = new Pilot(name1, airplane);
@@ -192,17 +192,16 @@ public class GameLogic {
 
     public ArrayList<Field> getAllFieldsForCoPilot() {
         ArrayList<Field> coPilotFields = new ArrayList<>();
-        
+
         coPilotFields.addAll(coPilot.getRadio().getRadioFields());
         coPilotFields.addAll(airplane.getFlaps().getFlapsFields());
         coPilotFields.addAll(airplane.getConcentration().getCoffeeFields());
-        
+
         // Add single fields
-        coPilotFields.add(airplane.getEngine().getCoPilotField());  
-        coPilotFields.add(airplane.getAxis().getCoPilotAxisField());  
-        
+        coPilotFields.add(airplane.getEngine().getCoPilotField());
+        coPilotFields.add(airplane.getAxis().getCoPilotAxisField());
+
         return coPilotFields;
     }
-    
 
 }

@@ -10,7 +10,7 @@ public class Radio {
         radioFields = new ArrayList<>();
 
             if (numFields == 1) {
-                radioFields.add(new Field("Radio Field Pilot 1", Arrays.asList(1, 2, 3, 4, 5, 6), 733, 492));
+                radioFields.add(new Field("Radio Field Pilot 1", Arrays.asList(1, 2, 3, 4, 5, 6), 733, 494));
 
             } else if (numFields == 2) {
                 radioFields.add(new Field("Radio Field Copilot 1", Arrays.asList(1, 2, 3, 4, 5, 6), 1139, 420 ));

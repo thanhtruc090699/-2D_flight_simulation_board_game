@@ -77,6 +77,7 @@ public class GameplayScreen implements Screen {
 
     private Texture pilotTurnTexture;
     private Texture coPilotTurnTexture;
+    private Texture borderTexture;
 
     private Texture planeTexture;
     private ArrayList<Vector2> planePositions;
@@ -116,12 +117,11 @@ public class GameplayScreen implements Screen {
     private ArrayList<Boolean> rerollCopilotDicePlacedInPlaceHolder;
     private Vector2 rerollButtonDonePosition;
     private int time = 0;
-    private int currentRerollStage = 0; // 0: Pilot reroll, 1: Copilot reroll
+    private int currentRerollStage = 0;
 
     private enum RerollStage {
         PILOT, COPILOT, NONE
     }
-    // private RerollStage currentRerollStage = RerollStage.NONE;
 
     private List<Image> droppedPilotDiceList = new ArrayList<>();
     private List<Image> droppedCoPilotDiceList = new ArrayList<>();
@@ -138,9 +138,9 @@ public class GameplayScreen implements Screen {
     @Override
     public void show() {
         backgroundTexture = new Texture(Gdx.files.internal("images/wood_bg.jpg"));
-        boardTexture = new Texture(Gdx.files.internal("board/Control Panel copy.png"));
-        planeTrack = new Texture(Gdx.files.internal("board/Track copy.png"));
-        altitudeTrack = new Texture(Gdx.files.internal("board/Altitude copy.png"));
+        boardTexture = new Texture(Gdx.files.internal("board/Control Panel.png"));
+        planeTrack = new Texture(Gdx.files.internal("board/Track.png"));
+        altitudeTrack = new Texture(Gdx.files.internal("board/Altitude.png"));
         axisIcon = new Texture(Gdx.files.internal("board/axis_icon.png"));
         switchTrack = new Texture(Gdx.files.internal("board/icons/Switch.png"));
         blueMarkerTrack = new Texture(Gdx.files.internal("board/markers/MarkerBlue.png"));
@@ -156,6 +156,7 @@ public class GameplayScreen implements Screen {
         coPilotTurnTexture = new Texture(Gdx.files.internal("images/copilots_turn.png"));
         axisSprite = new Sprite(axisIcon);
         planeTexture = new Texture(Gdx.files.internal("board/icons/Plane.png"));
+        borderTexture = new Texture(Gdx.files.internal("images/border.png"));
         batch = new SpriteBatch();
         stage = new Stage(new ScreenViewport());
         roundTextures = new Texture[7];
@@ -1107,37 +1108,8 @@ public class GameplayScreen implements Screen {
 
         handleRoundChange();
         renderRoundNumber();
-
+        drawHighlights();
         batch.end();
-
-        shapeRenderer.begin(ShapeRenderer.ShapeType.Line);
-        float borderThickness = 5f;
-
-        for (Field field : allPilotFields) {
-            field.draw(draggedPilotDice != null ? draggedPilotDice.getDiceValue() : 0);
-            Vector3 stageCoordinates = field.getStageCoordinates(stage);
-            shapeRenderer.setColor(field.getColor());
-
-            if (field.isHighlighted()) {
-                shapeRenderer.rect(stageCoordinates.x - borderThickness / 2,
-                        stageCoordinates.y - borderThickness / 2 - 50,
-                        50 + borderThickness, 50 + borderThickness);
-            }
-        }
-
-        for (Field field : allCoPilotFields) {
-            field.draw(draggedCoPilotDice != null ? draggedCoPilotDice.getDiceValue() : 0);
-            Vector3 stageCoordinates = field.getStageCoordinates(stage);
-            shapeRenderer.setColor(field.getColor());
-
-            if (field.isHighlighted()) {
-                shapeRenderer.rect(stageCoordinates.x - borderThickness / 2,
-                        stageCoordinates.y - borderThickness / 2 - 50,
-                        50 + borderThickness, 50 + borderThickness);
-            }
-        }
-
-        shapeRenderer.end();
 
         stage.act(Math.min(Gdx.graphics.getDeltaTime(), 1 / 30f));
         stage.draw();
@@ -1156,8 +1128,34 @@ public class GameplayScreen implements Screen {
         }
     }
 
+    private void drawHighlights() {
+
+        for (Field field : allPilotFields) {
+            field.draw(draggedPilotDice != null ? draggedPilotDice.getDiceValue() : 0);
+            Vector3 stageCoordinates = field.getStageCoordinates(stage);
+
+            if (field.isHighlighted()) {
+                batch.draw(
+                        borderTexture,
+                        stageCoordinates.x -2,
+                        stageCoordinates.y - 52);
+            }
+        }
+
+        for (Field field : allCoPilotFields) {
+            field.draw(draggedCoPilotDice != null ? draggedCoPilotDice.getDiceValue() : 0);
+            Vector3 stageCoordinates = field.getStageCoordinates(stage);
+
+            if (field.isHighlighted()) {
+                batch.draw(
+                        borderTexture,
+                        stageCoordinates.x -2,
+                        stageCoordinates.y - 52);
+            }
+        }
+    }
+
     private void drawBoardAndAltitudeTrack() {
-        float scaleFactor = 0.8f;
 
         int currentAltitude = gameLogic.getAirplane().getAltitude().getAltitudeValue();
 
@@ -1181,8 +1179,8 @@ public class GameplayScreen implements Screen {
 
         float rotationAngle = gameLogic.getAirplane().getAxis().getRotationAngle();
 
-        float axisIconWidth = axisIcon.getWidth() * scaleFactor;
-        float axisIconHeight = axisIcon.getHeight() * scaleFactor;
+        float axisIconWidth = axisIcon.getWidth() * 0.85f;
+        float axisIconHeight = axisIcon.getHeight() * 0.85f;
         float axisIconX = boardX + (boardWidth - axisIconWidth) / 2f;
         float axisIconY = boardY + (boardHeight - axisIconHeight) / 2f + 150;
 
