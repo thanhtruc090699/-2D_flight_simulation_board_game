@@ -71,17 +71,19 @@ class AirplaneTest {
     void testAdjustEngineAndMove() {
         airplane.getEngine().placePilotDice(5);
         airplane.getEngine().placeCoPilotDice(3);
-        airplane.adjustSpeed();
-        assertEquals(8, airplane.getEngine().getSpeed());
-        assertEquals(1, airplane.getEngine().getCurrentPosition());
-
         airplane.getPlanesOnTrack().set(2, 0);
         airplane.getPlanesOnTrack().set(3, 0);
+        airplane.adjustSpeed();
+        assertEquals(8, airplane.getEngine().getSpeed());
+        assertEquals(2, airplane.getEngine().getCurrentPosition());
+
+        airplane.getPlanesOnTrack().set(4, 0);
+        airplane.getPlanesOnTrack().set(5, 0);
         airplane.getEngine().placePilotDice(6);
         airplane.getEngine().placeCoPilotDice(5);
         airplane.adjustSpeed();
         assertEquals(11, airplane.getEngine().getSpeed());
-        assertEquals(3, airplane.getEngine().getCurrentPosition());
+        assertEquals(4, airplane.getEngine().getCurrentPosition());
     }
 
     @Test

@@ -1,54 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.mygdx.tests.AirplaneTest" tests="16" skipped="0" failures="0" errors="0" timestamp="2025-01-13T10:33:05" hostname="DESKTOP-9CTSVT6" time="0.091">
+<testsuite name="com.mygdx.tests.AirplaneTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2025-01-14T09:36:41" hostname="RATHINs-MacBook-Air.local" time="0.017">
   <properties/>
-  <testcase name="testGetBrake()" classname="com.mygdx.tests.AirplaneTest" time="0.002"/>
-  <testcase name="testGetFlaps()" classname="com.mygdx.tests.AirplaneTest" time="0.002"/>
-  <testcase name="testGetLandingGear()" classname="com.mygdx.tests.AirplaneTest" time="0.001"/>
-  <testcase name="testGetPlanesOnTrack()" classname="com.mygdx.tests.AirplaneTest" time="0.004"/>
-  <testcase name="testGetAltitude()" classname="com.mygdx.tests.AirplaneTest" time="0.002"/>
-  <testcase name="testDeployFlaps()" classname="com.mygdx.tests.AirplaneTest" time="0.01"/>
-  <testcase name="testGetAxis()" classname="com.mygdx.tests.AirplaneTest" time="0.001"/>
-  <testcase name="testDeployBrakes()" classname="com.mygdx.tests.AirplaneTest" time="0.005"/>
-  <testcase name="testFillTheCoffeeField()" classname="com.mygdx.tests.AirplaneTest" time="0.003"/>
-  <testcase name="testAdjustSpeedAndCrash()" classname="com.mygdx.tests.AirplaneTest" time="0.005"/>
-  <testcase name="testAdjustEngineAndMove()" classname="com.mygdx.tests.AirplaneTest" time="0.005"/>
-  <testcase name="testDeployLandingGears()" classname="com.mygdx.tests.AirplaneTest" time="0.006"/>
-  <testcase name="testAdjustSpeed()" classname="com.mygdx.tests.AirplaneTest" time="0.003"/>
-  <testcase name="testGetEngine()" classname="com.mygdx.tests.AirplaneTest" time="0.002"/>
-  <testcase name="testAdjustAxis()" classname="com.mygdx.tests.AirplaneTest" time="0.008"/>
-  <testcase name="testGetConcentration()" classname="com.mygdx.tests.AirplaneTest" time="0.002"/>
-  <system-out><![CDATA[Flap 1 should be deployed first.
-Invalid dice value for Flap 1!
-Flap 1 is now deployed.
-Flap 2 is now deployed.
-Flap 3 is now deployed.
-Flap 4 is now deployed.
-Flap 4 is already filled.
-Invalid input for brake deployment. Please choose from 2, 4, or 6.
-Brake field 1 must be deployed first before deploying brake field 2.
-Brake field 1 is now deployed.
-Brake field 2 is now deployed.
-Brake field 3 is now deployed.
-Brake field 3 is already occupied.
-Coffee Field 1 is now filled with dice value 3.
-Speed adjusted to: 6
-There were planes on your track. You crashed.
-Speed adjusted to: 8
-Plane moves 1 step. Current position: 1
+  <testcase name="testAdjustEngineAndMove()" classname="com.mygdx.tests.AirplaneTest" time="0.017"/>
+  <system-out><![CDATA[Speed adjusted to: 8
+Speed matches orange marker. Plane moves 2 steps. Current position: 2
 Speed adjusted to: 11
-Plane moves 2 steps. Current position: 3
-Landing Gear 2 is now deployed.
-Invalid dice value for Landing Gear 1!
-Landing Gear 1 is now deployed.
-Landing Gear 3 is now deployed.
-Landing Gear 3 is now deployed.
-Speed adjusted to: 7
-Plane moves 1 step. Current position: 1
-Speed adjusted to: 12
-There were planes on your track. You crashed.
-Axis adjusted. Current tilt: 2
-Axis adjusted. Current tilt: 1
-Plane tilted 90 degrees. GAME OVER
+Plane moves 2 steps. Current position: 4
+End of updatePosition logic.
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
