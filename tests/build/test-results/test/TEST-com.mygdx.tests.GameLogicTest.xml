@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.mygdx.tests.GameLogicTest" tests="1" skipped="0" failures="1" errors="0" timestamp="2025-01-14T21:13:04" hostname="RATHINs-MacBook-Air.local" time="0.04">
+  <properties/>
+  <testcase name="testEndGameWin()" classname="com.mygdx.tests.GameLogicTest" time="0.04">
+    <failure message="org.opentest4j.AssertionFailedError: Game should be won ==&gt; expected: &lt;true&gt; but was: &lt;false&gt;" type="org.opentest4j.AssertionFailedError">org.opentest4j.AssertionFailedError: Game should be won ==&gt; expected: &lt;true&gt; but was: &lt;false&gt;
+	at app//org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at app//org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at app//org.junit.jupiter.api.AssertTrue.failNotTrue(AssertTrue.java:63)
+	at app//org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:36)
+	at app//org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:214)
+	at app//com.mygdx.tests.GameLogicTest.testEndGameWin(GameLogicTest.java:100)
+	at java.base@17.0.9/java.lang.reflect.Method.invoke(Method.java:568)
+	at java.base@17.0.9/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base@17.0.9/java.util.ArrayList.forEach(ArrayList.java:1511)
+</failure>
+  </testcase>
+  <system-out><![CDATA[Welcome To The Game
+Enter role for Player 1 : (1 for Pilot, 2 for CoPilot)
+ROUND : 1
+
+Pilot's unassigned dice:
+Unassigned dices: 
+2 
+2 
+1 
+6 
+
+
+CoPilot's unassigned dice:
+Unassigned dices: 
+6 
+6 
+5 
+1 
+
+]]></system-out>
+  <system-err><![CDATA[You lost! :(
+]]></system-err>
+</testsuite>

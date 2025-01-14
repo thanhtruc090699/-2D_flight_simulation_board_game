@@ -87,10 +87,6 @@ public class RoundTest {
 
     @Test
     public void testCheckRoundConditions_fail() {
-        // Simulate a failed condition (missing dice on required fields, etc.)
-        // Modify conditions in the game (not shown in this simple test case)
-
-        // Example: let's say pilot didn't place all necessary dice, which fails the condition
         assertFalse("Round should fail the conditions", round.checkRoundConditions());
     }
 
