@@ -1518,7 +1518,9 @@ public class GameplayScreen implements Screen {
                         playDiceSound();
                         gameLogic.getRound().collectPlayerInput(diceIndex, playerInput, fieldChoice);
                         PilotDicePlacedInPlaceHolder.set(diceIndex, true);
-                        currentCoffeeQuantity++;
+                        if(currentCoffeeQuantity<3){
+                            currentCoffeeQuantity++;
+                        }
                         if (currentCoffeeQuantity==1){
                             coffeesPositions.add(new Vector2(760, 66));
                         } else if (currentCoffeeQuantity==2){
@@ -1723,7 +1725,9 @@ public class GameplayScreen implements Screen {
                         droppedCoPilotDiceList.add(diceImage);
                         gameLogic.getRound().collectPlayerInput(diceIndex, playerInput, fieldChoice);
                         CopilotDicePlacedInPlaceHolder.set(diceIndex, true);
-                        currentCoffeeQuantity++;
+                        if(currentCoffeeQuantity<3){
+                            currentCoffeeQuantity++;
+                        }
                         if (currentCoffeeQuantity==1){
                             coffeesPositions.add(new Vector2(760, 66));
                         } else if (currentCoffeeQuantity==2){
