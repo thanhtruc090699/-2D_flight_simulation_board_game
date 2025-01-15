@@ -70,7 +70,7 @@ public class Engine {
         }
 
         if (speed == blueMarker) {
-            if (checkPlanesOnTrack(planesOnTrack, currentPosition + 1)) {
+            if (checkPlanesOnTrack(planesOnTrack, currentPosition)) {
                 currentPosition++;
                 System.out
                         .println("Speed matches blue marker. Plane moves 1 step. Current position: " + currentPosition);
@@ -82,8 +82,8 @@ public class Engine {
         }
 
         if (speed == orangeMarker) {
-            if (checkPlanesOnTrack(planesOnTrack, currentPosition + 1) &&
-                    checkPlanesOnTrack(planesOnTrack, currentPosition + 2)) {
+            if (checkPlanesOnTrack(planesOnTrack, currentPosition) &&
+                    checkPlanesOnTrack(planesOnTrack, currentPosition + 1)) {
                 currentPosition += 2;
                 System.out.println(
                         "Speed matches orange marker. Plane moves 2 steps. Current position: " + currentPosition);
@@ -101,14 +101,14 @@ public class Engine {
         }
 
         if (speed > blueMarker && speed < orangeMarker) {
-            if (checkPlanesOnTrack(planesOnTrack, currentPosition + 1)) {
+            if (checkPlanesOnTrack(planesOnTrack, currentPosition)) {
                 currentPosition++;
                 System.out.println("Plane moves 1 step. Current position: " + currentPosition);
                 isPositionMoveSuccessful = true;
             }
         } else if (speed > orangeMarker) {
-            if (checkPlanesOnTrack(planesOnTrack, currentPosition + 1) &&
-                    checkPlanesOnTrack(planesOnTrack, currentPosition + 2)) {
+            if (checkPlanesOnTrack(planesOnTrack, currentPosition) &&
+                    checkPlanesOnTrack(planesOnTrack, currentPosition + 1)) {
                 currentPosition += 2;
                 System.out.println("Plane moves 2 steps. Current position: " + currentPosition);
                 isPositionMoveSuccessful = true;

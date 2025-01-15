@@ -15,14 +15,14 @@ public class Radio {
             } else if (numFields == 2) {
                 radioFields.add(new Field("Radio Field Copilot 1", Arrays.asList(1, 2, 3, 4, 5, 6), 1139, 420 ));
                 radioFields.add(new Field("Radio Field 2", Arrays.asList(1, 2, 3, 4, 5, 6), 1139, 492));
-               
-            } 
-        
+
+            }
+
     }
 
     public void useRadio(int currentPosition, int diceValue, int chosenField, ArrayList<Integer> planesOnTrack) {
 
-        int targetPosition = currentPosition + diceValue;
+        int targetPosition = currentPosition + diceValue - 1;
 
         if (targetPosition > 6) {
             targetPosition = 6;
