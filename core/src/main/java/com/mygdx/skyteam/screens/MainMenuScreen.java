@@ -14,6 +14,8 @@ import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.mygdx.skyteam.logic.GameLogic;
+import com.mygdx.skyteam.screens.InstructionScreen; 
+
 
 public class MainMenuScreen implements Screen {
     private Stage stage;
@@ -96,7 +98,7 @@ public class MainMenuScreen implements Screen {
         howToPlayButton.addListener(new ChangeListener() {
             @Override
             public void changed(ChangeEvent event, Actor actor) {
-                // Link has to be added to our manual
+                game.setScreen(new InstructionScreen(game));
             }
         });
 
@@ -128,20 +130,9 @@ public class MainMenuScreen implements Screen {
 
     @Override
     public void render(float delta) {
-        ScreenUtils.clear(0.988f, 0.584f, 0.0f, 1f);
+        ScreenUtils.clear(0.9843f, 0.6667f, 0.0980f, 1f); 
         stage.act(Math.min(Gdx.graphics.getDeltaTime(), 1 / 30f));
         stage.draw();
-    }
-
-    private void setFullscreenMode() {
-        Gdx.graphics.setFullscreenMode(Gdx.graphics.getDisplayMode());
-    }
-
-    private void setWindowedMode() {
-        int windowWidth = 1920;
-        int windowHeight = 1080;
-        Gdx.graphics.setWindowedMode(windowWidth, windowHeight);
-        System.out.println("Window resolution set to: " + windowWidth + "x" + windowHeight);
     }
 
     @Override

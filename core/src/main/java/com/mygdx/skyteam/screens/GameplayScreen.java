@@ -16,6 +16,7 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
+import com.badlogic.gdx.audio.Sound;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -119,6 +120,8 @@ public class GameplayScreen implements Screen {
     private int time = 0;
     private int currentRerollStage = 0;
 
+    private Sound diceSound;
+
     private enum RerollStage {
         PILOT, COPILOT, NONE
     }
@@ -160,6 +163,7 @@ public class GameplayScreen implements Screen {
         batch = new SpriteBatch();
         stage = new Stage(new ScreenViewport());
         roundTextures = new Texture[7];
+        diceSound = Gdx.audio.newSound(Gdx.files.internal("audio/dice_sound.mp3"));
 
         Gdx.input.setInputProcessor(stage);
 
@@ -609,6 +613,12 @@ public class GameplayScreen implements Screen {
             isDraggingCoPilotDice = false;
         }
         drawDice(diceList, diceTextures, isPilot);
+    }
+
+    public void playDiceSound() {
+        if (diceSound != null) {
+            diceSound.play();
+        }
     }
 
     /**
@@ -1137,7 +1147,7 @@ public class GameplayScreen implements Screen {
             if (field.isHighlighted()) {
                 batch.draw(
                         borderTexture,
-                        stageCoordinates.x -2,
+                        stageCoordinates.x - 2,
                         stageCoordinates.y - 52);
             }
         }
@@ -1149,7 +1159,7 @@ public class GameplayScreen implements Screen {
             if (field.isHighlighted()) {
                 batch.draw(
                         borderTexture,
-                        stageCoordinates.x -2,
+                        stageCoordinates.x - 2,
                         stageCoordinates.y - 52);
             }
         }
@@ -1417,6 +1427,7 @@ public class GameplayScreen implements Screen {
                     diceImage.setPosition(fieldStageX, fieldStageY - 50);
                     droppedPilotDiceList.add(diceImage);
                     diceImage.setVisible(true);
+                    playDiceSound();
                     gameLogic.getRound().collectPlayerInput(diceIndex, playerInput, fieldChoice);
                     PilotDicePlacedInPlaceHolder.set(diceIndex, true);
                     gameLogic.getRound().playRound();
@@ -1438,6 +1449,7 @@ public class GameplayScreen implements Screen {
                     diceImage.setPosition(fieldStageX, fieldStageY - 50);
                     droppedPilotDiceList.add(diceImage);
                     diceImage.setVisible(true);
+                    playDiceSound();
                     gameLogic.getRound().collectPlayerInput(diceIndex, playerInput, fieldChoice);
                     PilotDicePlacedInPlaceHolder.set(diceIndex, true);
                     gameLogic.getRound().playRound();
@@ -1460,6 +1472,7 @@ public class GameplayScreen implements Screen {
                         diceImage.setPosition(fieldStageX, fieldStageY - 50);
                         droppedPilotDiceList.add(diceImage);
                         diceImage.setVisible(true);
+                        playDiceSound();
                         gameLogic.getRound().collectPlayerInput(diceIndex, playerInput, fieldChoice);
                         PilotDicePlacedInPlaceHolder.set(diceIndex, true);
                         switchesStates.set(i + 7, true);
@@ -1496,6 +1509,7 @@ public class GameplayScreen implements Screen {
                         diceImage.setPosition(fieldStageX, fieldStageY - 50);
                         droppedPilotDiceList.add(diceImage);
                         diceImage.setVisible(true);
+                        playDiceSound();
                         gameLogic.getRound().collectPlayerInput(diceIndex, playerInput, fieldChoice);
                         PilotDicePlacedInPlaceHolder.set(diceIndex, true);
                         currentCoffeeQuantity++;
@@ -1521,6 +1535,7 @@ public class GameplayScreen implements Screen {
                         diceImage.setPosition(fieldStageX, fieldStageY - 50);
                         droppedPilotDiceList.add(diceImage);
                         diceImage.setVisible(true);
+                        playDiceSound();
                         gameLogic.getRound().collectPlayerInput(diceIndex, playerInput, fieldChoice);
                         PilotDicePlacedInPlaceHolder.set(diceIndex, true);
                         switchesStates.set(i, true);
@@ -1555,6 +1570,7 @@ public class GameplayScreen implements Screen {
                     diceImage.setPosition(fieldStageX, fieldStageY - 50);
                     droppedPilotDiceList.add(diceImage);
                     diceImage.setVisible(true);
+                    playDiceSound();
                     gameLogic.getRound().collectPlayerInput(diceIndex, playerInput, fieldChoice);
                     PilotDicePlacedInPlaceHolder.set(diceIndex, true);
                     gameLogic.getRound().playRound();
@@ -1575,6 +1591,7 @@ public class GameplayScreen implements Screen {
                 if (gameLogic.getCoPilot().canPlaceDice(diceValue, playerInput, fieldChoice)) {
                     diceImage.setPosition(fieldStageX, fieldStageY - 50);
                     diceImage.setVisible(true);
+                    playDiceSound();
                     droppedCoPilotDiceList.add(diceImage);
                     gameLogic.getRound().collectPlayerInput(diceIndex, playerInput, fieldChoice);
                     CopilotDicePlacedInPlaceHolder.set(diceIndex, true);
@@ -1598,6 +1615,7 @@ public class GameplayScreen implements Screen {
                     diceImage.setPosition(fieldStageX, fieldStageY - 50);
                     diceImage.setVisible(true);
                     droppedCoPilotDiceList.add(diceImage);
+                    playDiceSound();
                     gameLogic.getRound().collectPlayerInput(diceIndex, playerInput, fieldChoice);
                     CopilotDicePlacedInPlaceHolder.set(diceIndex, true);
                     gameLogic.getRound().playRound();
@@ -1620,6 +1638,7 @@ public class GameplayScreen implements Screen {
                     if (gameLogic.getCoPilot().canPlaceDice(diceValue, playerInput, fieldChoice)) {
                         diceImage.setPosition(fieldStageX, fieldStageY - 50);
                         diceImage.setVisible(true);
+                        playDiceSound();
                         droppedCoPilotDiceList.add(diceImage);
                         gameLogic.getRound().collectPlayerInput(diceIndex, playerInput, fieldChoice);
                         CopilotDicePlacedInPlaceHolder.set(diceIndex, true);
@@ -1660,6 +1679,7 @@ public class GameplayScreen implements Screen {
                     if (gameLogic.getCoPilot().canPlaceDice(diceValue, playerInput, fieldChoice)) {
                         diceImage.setPosition(fieldStageX, fieldStageY - 50);
                         diceImage.setVisible(true);
+                        playDiceSound();
                         droppedCoPilotDiceList.add(diceImage);
                         gameLogic.getRound().collectPlayerInput(diceIndex, playerInput, fieldChoice);
                         CopilotDicePlacedInPlaceHolder.set(diceIndex, true);
@@ -1685,6 +1705,7 @@ public class GameplayScreen implements Screen {
                     if (gameLogic.getCoPilot().canPlaceDice(diceValue, playerInput, fieldChoice)) {
                         diceImage.setPosition(fieldStageX, fieldStageY - 50);
                         diceImage.setVisible(true);
+                        playDiceSound();
                         droppedCoPilotDiceList.add(diceImage);
                         gameLogic.getRound().collectPlayerInput(diceIndex, playerInput, fieldChoice);
                         CopilotDicePlacedInPlaceHolder.set(diceIndex, true);
