@@ -1,40 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.mygdx.tests.PlayerTest" tests="9" skipped="0" failures="0" errors="0" timestamp="2025-01-14T22:52:37" hostname="DESKTOP-9CTSVT6" time="0.02">
+<testsuite name="com.mygdx.tests.PlayerTest" tests="9" skipped="0" failures="0" errors="0" timestamp="2025-01-15T14:06:16" hostname="DESKTOP-P99594G" time="0.006">
   <properties/>
   <testcase name="testGetDices()" classname="com.mygdx.tests.PlayerTest" time="0.001"/>
-  <testcase name="testGetUnassignedDice()" classname="com.mygdx.tests.PlayerTest" time="0.001"/>
+  <testcase name="testGetUnassignedDice()" classname="com.mygdx.tests.PlayerTest" time="0.0"/>
   <testcase name="testResetDiceAssignments()" classname="com.mygdx.tests.PlayerTest" time="0.001"/>
-  <testcase name="testGetName()" classname="com.mygdx.tests.PlayerTest" time="0.001"/>
-  <testcase name="testRerollDice()" classname="com.mygdx.tests.PlayerTest" time="0.002"/>
-  <testcase name="testGetCoffeeToken()" classname="com.mygdx.tests.PlayerTest" time="0.002"/>
-  <testcase name="testUseRerollToken()" classname="com.mygdx.tests.PlayerTest" time="0.002"/>
-  <testcase name="testDisplayUnassignedDice()" classname="com.mygdx.tests.PlayerTest" time="0.002"/>
+  <testcase name="testGetName()" classname="com.mygdx.tests.PlayerTest" time="0.0"/>
+  <testcase name="testRerollDice()" classname="com.mygdx.tests.PlayerTest" time="0.0"/>
+  <testcase name="testGetCoffeeToken()" classname="com.mygdx.tests.PlayerTest" time="0.0"/>
+  <testcase name="testUseRerollToken()" classname="com.mygdx.tests.PlayerTest" time="0.001"/>
+  <testcase name="testDisplayUnassignedDice()" classname="com.mygdx.tests.PlayerTest" time="0.0"/>
   <testcase name="testHasRerollToken()" classname="com.mygdx.tests.PlayerTest" time="0.001"/>
   <system-out><![CDATA[All dice have been reset to unassigned.
 Unassigned dices: 
-4 
-2 
-1 
 6 
-
-Unassigned dices: 
-4 
-2 
-2 
-4 
-
-Unassigned dices: 
 6 
 2 
 3 
-2 
+
+Unassigned dices: 
+4 
+1 
+6 
+3 
+
+Unassigned dices: 
+3 
+5 
+4 
+6 
 
 Dice 1 selected.
 Unassigned dices: 
 6 
+6 
 4 
 1 
-4 
 
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>

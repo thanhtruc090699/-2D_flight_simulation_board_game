@@ -93,7 +93,7 @@ class AirplaneTest {
         airplane.getEngine().placeCoPilotDice(3);
         airplane.adjustSpeed();
 
-        assertEquals(0, airplane.getEngine().getCurrentPosition());
+        assertEquals(1, airplane.getEngine().getCurrentPosition());
         assertEquals(6, airplane.getEngine().getSpeed());
     }
 

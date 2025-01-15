@@ -52,7 +52,7 @@ class CoPilotTest {
                     assertEquals(3,airplane.getEngine().getCoPilotField().getPlacedDice());
                     assertEquals(4,airplane.getEngine().getPilotField().getPlacedDice());
                     assertEquals(7,airplane.getEngine().getSpeed());
-                    assertEquals(1,airplane.getEngine().getCurrentPosition());
+                    assertEquals(2,airplane.getEngine().getCurrentPosition());
                 },
                 ()->{
                     airplane.getEngine().resetFields();

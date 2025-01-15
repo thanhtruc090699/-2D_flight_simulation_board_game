@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.mygdx.tests.AirplaneTest" tests="16" skipped="0" failures="0" errors="0" timestamp="2025-01-14T22:52:36" hostname="DESKTOP-9CTSVT6" time="0.128">
+<testsuite name="com.mygdx.tests.AirplaneTest" tests="16" skipped="0" failures="0" errors="0" timestamp="2025-01-15T14:06:16" hostname="DESKTOP-P99594G" time="0.032">
   <properties/>
-  <testcase name="testGetBrake()" classname="com.mygdx.tests.AirplaneTest" time="0.054"/>
+  <testcase name="testGetBrake()" classname="com.mygdx.tests.AirplaneTest" time="0.013"/>
   <testcase name="testGetFlaps()" classname="com.mygdx.tests.AirplaneTest" time="0.001"/>
   <testcase name="testGetLandingGear()" classname="com.mygdx.tests.AirplaneTest" time="0.001"/>
-  <testcase name="testGetPlanesOnTrack()" classname="com.mygdx.tests.AirplaneTest" time="0.004"/>
-  <testcase name="testGetAltitude()" classname="com.mygdx.tests.AirplaneTest" time="0.002"/>
-  <testcase name="testDeployFlaps()" classname="com.mygdx.tests.AirplaneTest" time="0.013"/>
-  <testcase name="testGetAxis()" classname="com.mygdx.tests.AirplaneTest" time="0.002"/>
-  <testcase name="testDeployBrakes()" classname="com.mygdx.tests.AirplaneTest" time="0.005"/>
-  <testcase name="testFillTheCoffeeField()" classname="com.mygdx.tests.AirplaneTest" time="0.004"/>
-  <testcase name="testAdjustSpeedAndCrash()" classname="com.mygdx.tests.AirplaneTest" time="0.003"/>
-  <testcase name="testAdjustEngineAndMove()" classname="com.mygdx.tests.AirplaneTest" time="0.005"/>
-  <testcase name="testDeployLandingGears()" classname="com.mygdx.tests.AirplaneTest" time="0.004"/>
-  <testcase name="testAdjustSpeed()" classname="com.mygdx.tests.AirplaneTest" time="0.003"/>
-  <testcase name="testGetEngine()" classname="com.mygdx.tests.AirplaneTest" time="0.001"/>
-  <testcase name="testAdjustAxis()" classname="com.mygdx.tests.AirplaneTest" time="0.003"/>
-  <testcase name="testGetConcentration()" classname="com.mygdx.tests.AirplaneTest" time="0.002"/>
+  <testcase name="testGetPlanesOnTrack()" classname="com.mygdx.tests.AirplaneTest" time="0.001"/>
+  <testcase name="testGetAltitude()" classname="com.mygdx.tests.AirplaneTest" time="0.0"/>
+  <testcase name="testDeployFlaps()" classname="com.mygdx.tests.AirplaneTest" time="0.003"/>
+  <testcase name="testGetAxis()" classname="com.mygdx.tests.AirplaneTest" time="0.0"/>
+  <testcase name="testDeployBrakes()" classname="com.mygdx.tests.AirplaneTest" time="0.001"/>
+  <testcase name="testFillTheCoffeeField()" classname="com.mygdx.tests.AirplaneTest" time="0.001"/>
+  <testcase name="testAdjustSpeedAndCrash()" classname="com.mygdx.tests.AirplaneTest" time="0.001"/>
+  <testcase name="testAdjustEngineAndMove()" classname="com.mygdx.tests.AirplaneTest" time="0.0"/>
+  <testcase name="testDeployLandingGears()" classname="com.mygdx.tests.AirplaneTest" time="0.001"/>
+  <testcase name="testAdjustSpeed()" classname="com.mygdx.tests.AirplaneTest" time="0.001"/>
+  <testcase name="testGetEngine()" classname="com.mygdx.tests.AirplaneTest" time="0.0"/>
+  <testcase name="testAdjustAxis()" classname="com.mygdx.tests.AirplaneTest" time="0.001"/>
+  <testcase name="testGetConcentration()" classname="com.mygdx.tests.AirplaneTest" time="0.0"/>
   <system-out><![CDATA[Flap 1 should be deployed first.
 Invalid dice value for Flap 1!
 Flap 1 is now deployed.
@@ -32,7 +32,7 @@ Brake field 3 is now deployed.
 Brake field 3 is already occupied.
 Coffee Field 1 is now filled with dice value 3.
 Speed adjusted to: 6
-There were planes on your track. You crashed.
+Plane moves 1 step. Current position: 1
 End of updatePosition logic.
 Speed adjusted to: 8
 Speed matches orange marker. Plane moves 2 steps. Current position: 2

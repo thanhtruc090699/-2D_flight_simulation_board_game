@@ -61,7 +61,7 @@ public class Engine {
     }
 
     public void updatePosition(ArrayList<Integer> planesOnTrack) {
-        isPositionMoveSuccessful = false; // Default to false
+        isPositionMoveSuccessful = false;
 
         if (speed < blueMarker) {
             System.out.println("Plane does not move.");
@@ -105,6 +105,9 @@ public class Engine {
                 currentPosition++;
                 System.out.println("Plane moves 1 step. Current position: " + currentPosition);
                 isPositionMoveSuccessful = true;
+            } else {
+                System.out.println("Obstacle on track. Plane does not move.");
+                isPositionMoveSuccessful = false;
             }
         } else if (speed > orangeMarker) {
             if (checkPlanesOnTrack(planesOnTrack, currentPosition) &&
@@ -155,10 +158,14 @@ public class Engine {
         return orangeMarker;
     }
 
-    public int setBlueMarker(int value) {return blueMarker = value;}
+    public int setBlueMarker(int value) {
+        return blueMarker = value;
+    }
+
     public int setCurrentPosition(int position) {
         return currentPosition = position;
     }
+
     public int setSpeed(int newSpeed) {
         return speed = newSpeed;
     }
@@ -167,11 +174,13 @@ public class Engine {
         pilotField.resetField();
         coPilotField.resetField();
     }
+
     public boolean isPositionMoveSuccessful() {
         return isPositionMoveSuccessful;
     }
+
     public boolean setPositionMoveSuccessful(boolean x) {
-       return isPositionMoveSuccessful = x;
+        return isPositionMoveSuccessful = x;
     }
 
 }

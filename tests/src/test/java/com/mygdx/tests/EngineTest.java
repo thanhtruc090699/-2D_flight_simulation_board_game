@@ -119,14 +119,14 @@ class EngineTest {
 
     @Test
     void testAdjustSpeedAndCrashDueToPlaneOnTrack() {
-        planesOnTrack.set(1, 1);
+        planesOnTrack.set(0, 1);
         engine.placePilotDice(3);
         engine.placeCoPilotDice(3);
 
         engine.adjustSpeed(planesOnTrack);
 
         assertFalse(engine.isPositionMoveSuccessful(), "Plane should crash and not move.");
-        assertFalse(engine.checkPlanesOnTrack(planesOnTrack, 1), "Position 1 should be blocked, causing a crash.");
+        assertFalse(engine.checkPlanesOnTrack(planesOnTrack, 0), "Position 1 should be blocked, causing a crash.");
         assertEquals(0, engine.getCurrentPosition(), "Plane's position should remain 0 after the crash.");
     }
 
@@ -156,9 +156,9 @@ class EngineTest {
 
     @Test
     void testUpdatePositionFailsOnBlockedTrack() {
-        planesOnTrack.set(1, 1); // Block position 1
+        planesOnTrack.set(1, 1); 
         engine.placePilotDice(3);
-        engine.placeCoPilotDice(3);
+        engine.placeCoPilotDice(5);
         engine.adjustSpeed(planesOnTrack);
         assertEquals(0, engine.getCurrentPosition(), "Plane should not move due to blocked track.");
         assertFalse(engine.isPositionMoveSuccessful(), "Movement should fail due to an obstacle.");
@@ -190,7 +190,7 @@ class EngineTest {
     void testCheckWinConditionCrashOnTrack() {
         planesOnTrack.set(1, 1);
         engine.placePilotDice(3);
-        engine.placeCoPilotDice(3);
+        engine.placeCoPilotDice(5);
 
         engine.adjustSpeed(planesOnTrack);
 

@@ -14,7 +14,7 @@
 
 1Coffee Field 1 is now filled with dice value 3.
 Speed adjusted to: 6
-/There were planes on your track. You crashed.
+)Plane moves 1 step. Current position: 1
 End of updatePosition logic.
 Speed adjusted to: 8
 GSpeed matches orange marker. Plane moves 2 steps. Current position: 2
@@ -35,139 +35,141 @@
  Axis adjusted. Current tilt: 2
  Axis adjusted. Current tilt: 1
 $Plane tilted 90 degrees. GAME OVER
-% Axis adjusted. Current tilt: 1
-&$Plane tilted 90 degrees. GAME OVER
-& Axis adjusted. Current tilt: 4
-& Axis adjusted. Current tilt: 2
-& Axis adjusted. Current tilt: 5
-& Axis adjusted. Current tilt: 5
-' Axis adjusted. Current tilt: 3
-- Axis adjusted. Current tilt: 1
--$Plane tilted 90 degrees. GAME OVER
-- Axis adjusted. Current tilt: 1
--$Plane tilted 90 degrees. GAME OVER
-- Axis adjusted. Current tilt: 4
-/. Brake field 1 is now deployed.
-/. Brake field 2 is now deployed.
-/. Brake field 3 is now deployed.
-/0 Brake field 1 is now deployed.
-/0$Brake field 1 is already occupied.
-/1 Brake field 1 is now deployed.
-/3 Brake field 1 is now deployed.
-/3 Brake field 2 is now deployed.
-/4DInvalid input for brake deployment. Please choose from 2, 4, or 6.
-/4DInvalid input for brake deployment. Please choose from 2, 4, or 6.
-/4$Brake field 1 is already occupied.
-/4FBrake field 1 must be deployed first before deploying brake field 2.
-/4]Both Brake field 1 and Brake field 2 must be deployed first before deploying brake field 3.
-/4]Both Brake field 1 and Brake field 2 must be deployed first before deploying brake field 3.
-/5 Brake field 1 is now deployed.
-/5]Both Brake field 1 and Brake field 2 must be deployed first before deploying brake field 3.
-/6FBrake field 1 must be deployed first before deploying brake field 2.
-/7DInvalid input for brake deployment. Please choose from 2, 4, or 6.
-/8 Brake field 1 is now deployed.
-/8 Brake field 2 is now deployed.
-/8 Brake field 3 is now deployed.
-;< Axis adjusted. Current tilt: 2
-;< Axis adjusted. Current tilt: 1
-;<$Plane tilted 90 degrees. GAME OVER
-;=Speed adjusted to: 6
-;=)Plane moves 1 step. Current position: 1
-;=End of updatePosition logic.
-;>1Coffee Field 1 is now filled with dice value 3.
-;>1Coffee Field 2 is now filled with dice value 3.
-;>1Coffee Field 3 is now filled with dice value 3.
-;>'All coffee fields are already filled.
-;>=Cannot place dice on Coffee. The field is already occupied.
-;@<Cannot place dice on flaps. The field is already occupied.
-;@Flap 1 is now deployed.
-;@Flap 2 is now deployed.
-;@Flap 2 is already filled.
-;@<Cannot place dice on flaps. The field is already occupied.
-;@Flap 3 is now deployed.
-;@Flap 4 is now deployed.
-;AField 1 is now filled.
-;APlane removed from field 3
-;A&Current Track: [0, 0, 1, 1, 1, 3, 2]
-;B,Invalid input. Read the rules first, FOOL!
-;B>Cannot place dice on enginer. The field is already occupied.
-;CSpeed adjusted to: 7
-;C)Plane moves 1 step. Current position: 1
-;CEnd of updatePosition logic.
-;C9Cannot place dice on the Engine. It's already occupied.
-;C=Cannot place dice on ENGINE. The field is already occupied.
-;C9Cannot place dice on the Engine. It's already occupied.
-;CSpeed adjusted to: 7
-;C/There were planes on your track. You crashed.
-;CEnd of updatePosition logic.
-;CSpeed adjusted to: 12
-;C/There were planes on your track. You crashed.
-;CEnd of updatePosition logic.
-;D Axis adjusted. Current tilt: 2
-FE1Coffee Field 1 is now filled with dice value 4.
-FH1Coffee Field 1 is now filled with dice value 6.
-FH1Coffee Field 2 is now filled with dice value 4.
-FH1Coffee Field 3 is now filled with dice value 1.
-FH'All coffee fields are already filled.
-FI1Coffee Field 1 is now filled with dice value 6.
-FK)Invalid dice value 7 for Coffee Field 1
-MNBDice value is already at the maximum (6). It can't be increased.
-MOBDice value is already at the minimum (1). It can't be decreased.
-MQBDice value is already at the maximum (6). It can't be increased.
-MR7Dice has not been rolled yet or has an invalid value.
-MUDice value decreased to: 5
-Y[Speed adjusted to: 3
-Y[Plane does not move.
-Y\Speed adjusted to: 4
-Y\Plane does not move.
-Y]Speed adjusted to: 6
-Y]/There were planes on your track. You crashed.
-Y]End of updatePosition logic.
-Y^Speed adjusted to: 6
-Y^)Plane moves 1 step. Current position: 1
-Y^End of updatePosition logic.
-Y`Speed adjusted to: 8
-Y`GSpeed matches orange marker. Plane moves 2 steps. Current position: 2
-YaSpeed adjusted to: 6
-Ya/There were planes on your track. You crashed.
-YaEnd of updatePosition logic.
-Ya/There were planes on your track. You crashed.
-YcSpeed adjusted to: 6
-Yc/There were planes on your track. You crashed.
-YcEnd of updatePosition logic.
-YdSpeed adjusted to: 5
-Yd/There were planes on your track. You crashed.
-YdEnd of updatePosition logic.
-YfSpeed adjusted to: 12
-Yf*Plane moves 2 steps. Current position: 2
-YfEnd of updatePosition logic.
-YfSpeed adjusted to: 12
-Yf*Plane moves 2 steps. Current position: 4
-YfEnd of updatePosition logic.
-YfSpeed adjusted to: 12
-Yf*Plane moves 2 steps. Current position: 6
-YfPlane overshot the airport.
-YfEnd of updatePosition logic.
-YiSpeed adjusted to: 10
-Yi*Plane moves 2 steps. Current position: 2
-YiEnd of updatePosition logic.
-YkSpeed adjusted to: 12
-Yk/There were planes on your track. You crashed.
-YkEnd of updatePosition logic.
-YnSpeed adjusted to: 10
-Yn*Plane moves 2 steps. Current position: 2
-YnEnd of updatePosition logic.
-YnSpeed adjusted to: 10
-Yn*Plane moves 2 steps. Current position: 4
-YnEnd of updatePosition logic.
-YnSpeed adjusted to: 10
-Yn*Plane moves 2 steps. Current position: 6
-YnPlane overshot the airport.
-YnEnd of updatePosition logic.
-YnSpeed adjusted to: 3
-YnPlane does not move.
-YpSpeed adjusted to: 4
-YpDSpeed matches blue marker. Plane moves 1 step. Current position: 1
+ Axis adjusted. Current tilt: 2
+ Axis adjusted. Current tilt: 1
+$Plane tilted 90 degrees. GAME OVER
+Speed adjusted to: 6
+)Plane moves 1 step. Current position: 1
+End of updatePosition logic.
+1Coffee Field 1 is now filled with dice value 3.
+1Coffee Field 2 is now filled with dice value 3.
+1Coffee Field 3 is now filled with dice value 3.
+'All coffee fields are already filled.
+=Cannot place dice on Coffee. The field is already occupied.
+<Cannot place dice on flaps. The field is already occupied.
+Flap 1 is now deployed.
+Flap 2 is now deployed.
+Flap 2 is already filled.
+<Cannot place dice on flaps. The field is already occupied.
+Flap 3 is now deployed.
+Flap 4 is now deployed.
+Field 1 is now filled.
+Plane removed from field 2
+&Current Track: [0, 0, 0, 2, 1, 3, 2]
+,Invalid input. Read the rules first, FOOL!
+>Cannot place dice on enginer. The field is already occupied.
+Speed adjusted to: 7
+)Plane moves 1 step. Current position: 1
+End of updatePosition logic.
+9Cannot place dice on the Engine. It's already occupied.
+=Cannot place dice on ENGINE. The field is already occupied.
+9Cannot place dice on the Engine. It's already occupied.
+Speed adjusted to: 7
+)Plane moves 1 step. Current position: 2
+End of updatePosition logic.
+Speed adjusted to: 12
+/There were planes on your track. You crashed.
+End of updatePosition logic.
+ Axis adjusted. Current tilt: 2
+ Speed adjusted to: 3
+ Plane does not move.
+!Speed adjusted to: 4
+!Plane does not move.
+"Speed adjusted to: 8
+"/There were planes on your track. You crashed.
+")Obstacle on track. Plane does not move.
+#Speed adjusted to: 6
+#)Plane moves 1 step. Current position: 1
+#End of updatePosition logic.
+%Speed adjusted to: 8
+%GSpeed matches orange marker. Plane moves 2 steps. Current position: 2
+&Speed adjusted to: 6
+&/There were planes on your track. You crashed.
+&)Obstacle on track. Plane does not move.
+&End of updatePosition logic.
+&/There were planes on your track. You crashed.
+(Speed adjusted to: 8
+(/There were planes on your track. You crashed.
+()Obstacle on track. Plane does not move.
+)Speed adjusted to: 5
+)/There were planes on your track. You crashed.
+))Obstacle on track. Plane does not move.
+)End of updatePosition logic.
++Speed adjusted to: 12
++*Plane moves 2 steps. Current position: 2
++End of updatePosition logic.
++Speed adjusted to: 12
++*Plane moves 2 steps. Current position: 4
++End of updatePosition logic.
++Speed adjusted to: 12
++*Plane moves 2 steps. Current position: 6
++Plane overshot the airport.
++End of updatePosition logic.
+.Speed adjusted to: 10
+.*Plane moves 2 steps. Current position: 2
+.End of updatePosition logic.
+0Speed adjusted to: 12
+0/There were planes on your track. You crashed.
+0End of updatePosition logic.
+3Speed adjusted to: 10
+3*Plane moves 2 steps. Current position: 2
+3End of updatePosition logic.
+3Speed adjusted to: 10
+3*Plane moves 2 steps. Current position: 4
+3End of updatePosition logic.
+3Speed adjusted to: 10
+3*Plane moves 2 steps. Current position: 6
+3Plane overshot the airport.
+3End of updatePosition logic.
+3Speed adjusted to: 3
+3Plane does not move.
+5Speed adjusted to: 4
+5DSpeed matches blue marker. Plane moves 1 step. Current position: 1
+DJ Axis adjusted. Current tilt: 1
+DK$Plane tilted 90 degrees. GAME OVER
+DK Axis adjusted. Current tilt: 4
+DK Axis adjusted. Current tilt: 2
+DK Axis adjusted. Current tilt: 5
+DK Axis adjusted. Current tilt: 5
+DL Axis adjusted. Current tilt: 3
+DR Axis adjusted. Current tilt: 1
+DR$Plane tilted 90 degrees. GAME OVER
+DR Axis adjusted. Current tilt: 1
+DR$Plane tilted 90 degrees. GAME OVER
+DR Axis adjusted. Current tilt: 4
+TS Brake field 1 is now deployed.
+TS Brake field 2 is now deployed.
+TS Brake field 3 is now deployed.
+TU Brake field 1 is now deployed.
+TU$Brake field 1 is already occupied.
+TV Brake field 1 is now deployed.
+TX Brake field 1 is now deployed.
+TX Brake field 2 is now deployed.
+TYDInvalid input for brake deployment. Please choose from 2, 4, or 6.
+TYDInvalid input for brake deployment. Please choose from 2, 4, or 6.
+TY$Brake field 1 is already occupied.
+TYFBrake field 1 must be deployed first before deploying brake field 2.
+TY]Both Brake field 1 and Brake field 2 must be deployed first before deploying brake field 3.
+TY]Both Brake field 1 and Brake field 2 must be deployed first before deploying brake field 3.
+TZ Brake field 1 is now deployed.
+TZ]Both Brake field 1 and Brake field 2 must be deployed first before deploying brake field 3.
+T[FBrake field 1 must be deployed first before deploying brake field 2.
+T\DInvalid input for brake deployment. Please choose from 2, 4, or 6.
+T] Brake field 1 is now deployed.
+T] Brake field 2 is now deployed.
+T] Brake field 3 is now deployed.
+`_1Coffee Field 1 is now filled with dice value 4.
+`b1Coffee Field 1 is now filled with dice value 6.
+`b1Coffee Field 2 is now filled with dice value 4.
+`b1Coffee Field 3 is now filled with dice value 1.
+`b'All coffee fields are already filled.
+`c1Coffee Field 1 is now filled with dice value 6.
+`e)Invalid dice value 7 for Coffee Field 1
+ghBDice value is already at the maximum (6). It can't be increased.
+giBDice value is already at the minimum (1). It can't be decreased.
+gkDice value increased to: 2
+gl7Dice has not been rolled yet or has an invalid value.
+goDice value decreased to: 4
 ˆ‡Flap 1 is now deployed.
 ˆ‡Flap 2 is now deployed.
 ˆ‡"Flap 3 should be deployed first.
@@ -195,17 +197,17 @@
 ˜—
 ˜—Pilot's unassigned dice:
 ˜—Unassigned dices: 
-˜—2 
-˜—5 
+˜—4 
 ˜—6 
-˜—3 
+˜—4 
+˜—2 
 ˜—
 ˜—
 ˜—CoPilot's unassigned dice:
 ˜—Unassigned dices: 
-˜—6 
 ˜—4 
-˜—6 
+˜—2 
+˜—2 
 ˜—3 
 ˜—
 ˜™Welcome To The Game
@@ -214,18 +216,18 @@
 ˜™
 ˜™Pilot's unassigned dice:
 ˜™Unassigned dices: 
+˜™4 
+˜™3 
+˜™6 
 ˜™5 
-˜™4 
-˜™4 
-˜™1 
 ˜™
 ˜™
 ˜™CoPilot's unassigned dice:
 ˜™Unassigned dices: 
-˜™2 
+˜™5 
+˜™3 
+˜™3 
 ˜™6 
-˜™5 
-˜™5 
 ˜™
  ˜™
 You won!
@@ -235,18 +237,18 @@ You won!
 ˜š
 ˜šPilot's unassigned dice:
 ˜šUnassigned dices: 
-˜š3 
-˜š2 
-˜š6 
+˜š5 
+˜š4 
+˜š5 
 ˜š6 
 ˜š
 ˜š
 ˜šCoPilot's unassigned dice:
 ˜šUnassigned dices: 
+˜š3 
 ˜š6 
 ˜š5 
-˜š2 
-˜š4 
+˜š1 
 ˜š
 ˜œWelcome To The Game
 ˜œ8Enter role for Player 1 : (1 for Pilot, 2 for CoPilot)
@@ -254,18 +256,18 @@ You won!
 ˜œ
 ˜œPilot's unassigned dice:
 ˜œUnassigned dices: 
-˜œ3 
-˜œ2 
 ˜œ5 
-˜œ6 
+˜œ3 
+˜œ3 
+˜œ4 
 ˜œ
 ˜œ
 ˜œCoPilot's unassigned dice:
 ˜œUnassigned dices: 
-˜œ1 
+˜œ4 
 ˜œ2 
 ˜œ3 
-˜œ6 
+˜œ3 
 ˜œ
 ˜œ/You crash-landed before reaching the airport!
 ˜Welcome To The Game
@@ -274,18 +276,18 @@ You won!
 ˜
 ˜Pilot's unassigned dice:
 ˜Unassigned dices: 
-˜5 
+˜2 
 ˜4 
-˜4 
+˜6 
 ˜6 
 ˜
 ˜
 ˜CoPilot's unassigned dice:
 ˜Unassigned dices: 
-˜4 
-˜3 
-˜6 
 ˜1 
+˜6 
+˜6 
+˜3 
 ˜
 ˜)All dice have been reset to unassigned.
 ˜)All dice have been reset to unassigned.
@@ -293,18 +295,18 @@ You won!
 ˜
 ˜Pilot's unassigned dice:
 ˜Unassigned dices: 
-˜1 
-˜6 
-˜1 
+˜4 
+˜3 
 ˜2 
+˜3 
 ˜
 ˜
 ˜CoPilot's unassigned dice:
 ˜Unassigned dices: 
-˜4 
-˜6 
+˜1 
 ˜2 
 ˜4 
+˜3 
 ˜
 ˜)All dice have been reset to unassigned.
 ˜)All dice have been reset to unassigned.
@@ -312,9 +314,9 @@ You won!
 ˜
 ˜Pilot's unassigned dice:
 ˜Unassigned dices: 
-˜5 
+˜4 
 ˜2 
-˜5 
+˜3 
 ˜5 
 ˜
 ˜
@@ -323,7 +325,7 @@ You won!
 ˜4 
 ˜6 
 ˜5 
-˜6 
+˜5 
 ˜
 ˜)All dice have been reset to unassigned.
 ˜)All dice have been reset to unassigned.
@@ -331,18 +333,18 @@ You won!
 ˜
 ˜Pilot's unassigned dice:
 ˜Unassigned dices: 
+˜2 
+˜4 
+˜5 
 ˜6 
-˜1 
-˜6 
-˜1 
 ˜
 ˜
 ˜CoPilot's unassigned dice:
 ˜Unassigned dices: 
-˜2 
 ˜6 
-˜5 
 ˜2 
+˜5 
+˜5 
 ˜
 ˜)All dice have been reset to unassigned.
 ˜)All dice have been reset to unassigned.
@@ -350,18 +352,18 @@ You won!
 ˜
 ˜Pilot's unassigned dice:
 ˜Unassigned dices: 
-˜2 
-˜2 
-˜2 
-˜2 
+˜3 
+˜4 
+˜6 
+˜1 
 ˜
 ˜
 ˜CoPilot's unassigned dice:
 ˜Unassigned dices: 
-˜1 
-˜1 
+˜4 
 ˜1 
 ˜4 
+˜1 
 ˜
 ˜)All dice have been reset to unassigned.
 ˜)All dice have been reset to unassigned.
@@ -369,18 +371,18 @@ You won!
 ˜
 ˜Pilot's unassigned dice:
 ˜Unassigned dices: 
-˜1 
+˜4 
+˜2 
 ˜5 
-˜3 
 ˜1 
 ˜
 ˜
 ˜CoPilot's unassigned dice:
 ˜Unassigned dices: 
-˜3 
-˜3 
-˜2 
-˜6 
+˜1 
+˜4 
+˜5 
+˜4 
 ˜
 ˜)All dice have been reset to unassigned.
 ˜)All dice have been reset to unassigned.
@@ -388,18 +390,18 @@ You won!
 ˜
 ˜Pilot's unassigned dice:
 ˜Unassigned dices: 
+˜3 
 ˜1 
 ˜5 
-˜3 
-˜6 
+˜2 
 ˜
 ˜
 ˜CoPilot's unassigned dice:
 ˜Unassigned dices: 
-˜1 
-˜3 
 ˜6 
-˜1 
+˜5 
+˜4 
+˜5 
 ˜
 ˜)All dice have been reset to unassigned.
 ˜)All dice have been reset to unassigned.
@@ -407,17 +409,17 @@ You won!
 ˜
 ˜Pilot's unassigned dice:
 ˜Unassigned dices: 
-˜6 
 ˜3 
-˜3 
+˜4 
 ˜1 
+˜6 
 ˜
 ˜
 ˜CoPilot's unassigned dice:
 ˜Unassigned dices: 
-˜1 
-˜2 
 ˜5 
+˜3 
+˜3 
 ˜6 
 ˜
 ˜)Final round completed. Ending the game.
@@ -430,16 +432,16 @@ You won!
 ˜žPilot's unassigned dice:
 ˜žUnassigned dices: 
 ˜ž5 
+˜ž5 
+˜ž6 
 ˜ž3 
-˜ž5 
-˜ž5 
 ˜ž
 ˜ž
 ˜žCoPilot's unassigned dice:
 ˜žUnassigned dices: 
-˜ž3 
-˜ž5 
+˜ž4 
 ˜ž1 
+˜ž3 
 ˜ž2 
 ˜ž
  ˜žYou lost! :(
@@ -449,18 +451,18 @@ You won!
 ˜Ÿ
 ˜ŸPilot's unassigned dice:
 ˜ŸUnassigned dices: 
-˜Ÿ5 
+˜Ÿ3 
 ˜Ÿ6 
-˜Ÿ4 
 ˜Ÿ2 
+˜Ÿ4 
 ˜Ÿ
 ˜Ÿ
 ˜ŸCoPilot's unassigned dice:
 ˜ŸUnassigned dices: 
-˜Ÿ2 
-˜Ÿ1 
 ˜Ÿ5 
-˜Ÿ4 
+˜Ÿ5 
+˜Ÿ3 
+˜Ÿ3 
 ˜Ÿ
 ˜ Welcome To The Game
 ˜ 8Enter role for Player 1 : (1 for Pilot, 2 for CoPilot)
@@ -468,18 +470,18 @@ You won!
 ˜ 
 ˜ Pilot's unassigned dice:
 ˜ Unassigned dices: 
-˜ 2 
-˜ 3 
 ˜ 1 
 ˜ 3 
+˜ 4 
+˜ 5 
 ˜ 
 ˜ 
 ˜ CoPilot's unassigned dice:
 ˜ Unassigned dices: 
-˜ 3 
+˜ 2 
 ˜ 4 
-˜ 5 
-˜ 4 
+˜ 2 
+˜ 2 
 ˜ 
 ˜¡Welcome To The Game
 ˜¡8Enter role for Player 1 : (1 for Pilot, 2 for CoPilot)
@@ -487,18 +489,18 @@ You won!
 ˜¡
 ˜¡Pilot's unassigned dice:
 ˜¡Unassigned dices: 
+˜¡5 
 ˜¡6 
-˜¡3 
-˜¡4 
 ˜¡1 
+˜¡5 
 ˜¡
 ˜¡
 ˜¡CoPilot's unassigned dice:
 ˜¡Unassigned dices: 
-˜¡4 
-˜¡3 
-˜¡4 
-˜¡3 
+˜¡5 
+˜¡6 
+˜¡5 
+˜¡2 
 ˜¡
 ˜¡)All dice have been reset to unassigned.
 ˜¡)All dice have been reset to unassigned.
@@ -506,18 +508,18 @@ You won!
 ˜¡
 ˜¡Pilot's unassigned dice:
 ˜¡Unassigned dices: 
+˜¡6 
+˜¡6 
 ˜¡5 
-˜¡4 
-˜¡5 
-˜¡1 
+˜¡3 
 ˜¡
 ˜¡
 ˜¡CoPilot's unassigned dice:
 ˜¡Unassigned dices: 
+˜¡5 
 ˜¡1 
-˜¡4 
-˜¡6 
-˜¡4 
+˜¡3 
+˜¡3 
 ˜¡
 £¢!Landing Gear 1 is now deployed.
 £¢!Landing Gear 3 is now deployed.
@@ -557,8 +559,8 @@ You won!
 ¯´'All coffee fields are already filled.
 ¯´=Cannot place dice on Coffee. The field is already occupied.
 ¯µField 0 is now filled.
-¯µPlane removed from field 3
-¯µ&Current Track: [0, 0, 1, 1, 1, 3, 2]
+¯µPlane removed from field 2
+¯µ&Current Track: [0, 0, 0, 2, 1, 3, 2]
 ¯¶,Invalid input. Read the rules first, FOOL!
 ¯¶>Cannot place dice on enginer. The field is already occupied.
 ¯·Speed adjusted to: 7
@@ -570,29 +572,29 @@ You won!
 ¯¹ Axis adjusted. Current tilt: 2
 »½)All dice have been reset to unassigned.
 »¿Unassigned dices: 
-»¿4 
-»¿2 
-»¿1 
 »¿6 
+»¿6 
+»¿2 
+»¿3 
 »¿
 »¿Unassigned dices: 
 »¿4 
-»¿2 
-»¿2 
-»¿4 
+»¿1 
+»¿6 
+»¿3 
 »¿
 »ÁUnassigned dices: 
-»Á6 
-»Á2 
 »Á3 
-»Á2 
+»Á5 
+»Á4 
+»Á6 
 »Á
 »ÁDice 1 selected.
 »ÂUnassigned dices: 
 »Â6 
+»Â6 
 »Â4 
 »Â1 
-»Â4 
 »Â
 ÅÄField 0 is already filled.
 ÅÆ!No planes at field 1 to remove.
@@ -602,15 +604,15 @@ You won!
 ÅÆPlane removed from field 3
 ÅÆ&Current Track: [0, 0, 1, 0, 1, 3, 2]
 ÅÈField 0 is now filled.
-ÅÈPlane removed from field 5
-ÅÈ&Current Track: [0, 0, 1, 2, 1, 2, 2]
+ÅÈPlane removed from field 4
+ÅÈ&Current Track: [0, 0, 1, 2, 0, 3, 2]
 ÅÈField 0 is already filled.
 ÅËField 0 is now filled.
-ÅËPlane removed from field 3
-ÅË&Current Track: [0, 0, 1, 1, 1, 3, 2]
+ÅËPlane removed from field 2
+ÅË&Current Track: [0, 0, 0, 2, 1, 3, 2]
 ÅËField 1 is now filled.
-ÅË!No planes at field 1 to remove.
-ÅË&Current Track: [0, 0, 1, 1, 1, 3, 2]
+ÅË!No planes at field 0 to remove.
+ÅË&Current Track: [0, 0, 0, 2, 1, 3, 2]
 ÅËField 1 is already filled.
 ÎÍNext player is: CoPilot
 ÎÍ1
@@ -621,22 +623,22 @@ You won!
  ÎÏYou lost! :(
 ÎÐIt's Pilot's turn.
 ÎÐUnassigned dices: 
-ÎÐ1 
 ÎÐ6 
-ÎÐ1 
+ÎÐ3 
 ÎÐ4 
+ÎÐ1 
 ÎÐ
 ÎÐ:You have a reroll token. Do you want to use it? (yes/no)
 ÎÐ,Pilot decided not to use the reroll token.
 ÎÐ.CoPilot, do you want to reroll too? (yes/no)
 ÎÐ.CoPilot decided not to use the reroll token.
 ÎÐUnassigned dices: 
-ÎÐ1 
 ÎÐ6 
-ÎÐ1 
+ÎÐ3 
 ÎÐ4 
+ÎÐ1 
 ÎÐ
-ÎÐYou selected dice value: 1
+ÎÐYou selected dice value: 6
 ÎÐ'Where do you want to place your dice?
 ÎÐFAvailable options: engine, axis, radio, landing gears, brake, coffee
 ÎÐNext player is: CoPilot
@@ -647,45 +649,45 @@ You won!
 ÎÑ"These are your unassigned dice: 
 ÎÑUnassigned dices: 
 ÎÑ2 
+ÎÑ3 
 ÎÑ6 
 ÎÑ4 
-ÎÑ1 
 ÎÑ
 ÎÑUnassigned dices: 
 ÎÑ2 
+ÎÑ3 
 ÎÑ6 
 ÎÑ4 
-ÎÑ1 
 ÎÑ
 ÎÑ,Invalid input. Read the rules first, FOOL!
 ÎÑ;Cannot place dice on flap. The field is already occupied.
- ÎÖYou lost! :(
-Î×It's Pilot's turn.
-Î×Unassigned dices: 
-Î×3 
-Î×6 
-Î×3 
-Î×1 
-Î×
-Î×:You have a reroll token. Do you want to use it? (yes/no)
-Î×,Pilot decided not to use the reroll token.
-Î×.CoPilot, do you want to reroll too? (yes/no)
-Î×.CoPilot decided not to use the reroll token.
-Î×Unassigned dices: 
-Î×3 
-Î×6 
-Î×3 
-Î×1 
-Î×
-Î×You selected dice value: 3
-Î×'Where do you want to place your dice?
-Î×FAvailable options: engine, axis, radio, landing gears, brake, coffee
-ÙÚ?Which Coffee Token would you like to use? (Enter 0, 1, or 2):
-ÙÚSThe selected Coffee Token is not filled yet. Please choose a filled Coffee Token.
-ÙÝ?Which Coffee Token would you like to use? (Enter 0, 1, or 2):
-ÙÝVDo you want to increase or decrease the dice value? (Enter 'increase' or 'decrease')
-ÙÝDice value increased to: 5
-ÙÝ'After using, Coffee Token quantity: 2
-ÙÝ$You used one of the Coffee Tokens.
-ÙÞNo reroll tokens left to use.
-ÙßNo dice selected to reroll.
+ ÎÕYou lost! :(
+ÎÖIt's Pilot's turn.
+ÎÖUnassigned dices: 
+ÎÖ1 
+ÎÖ4 
+ÎÖ1 
+ÎÖ3 
+ÎÖ
+ÎÖ:You have a reroll token. Do you want to use it? (yes/no)
+ÎÖ,Pilot decided not to use the reroll token.
+ÎÖ.CoPilot, do you want to reroll too? (yes/no)
+ÎÖ.CoPilot decided not to use the reroll token.
+ÎÖUnassigned dices: 
+ÎÖ1 
+ÎÖ4 
+ÎÖ1 
+ÎÖ3 
+ÎÖ
+ÎÖYou selected dice value: 1
+ÎÖ'Where do you want to place your dice?
+ÎÖFAvailable options: engine, axis, radio, landing gears, brake, coffee
+ØÙ?Which Coffee Token would you like to use? (Enter 0, 1, or 2):
+ØÙSThe selected Coffee Token is not filled yet. Please choose a filled Coffee Token.
+ØÜ?Which Coffee Token would you like to use? (Enter 0, 1, or 2):
+ØÜVDo you want to increase or decrease the dice value? (Enter 'increase' or 'decrease')
+ØÜDice value increased to: 4
+ØÜ'After using, Coffee Token quantity: 2
+ØÜ$You used one of the Coffee Tokens.
+ØÝNo reroll tokens left to use.
+ØÞNo dice selected to reroll.
