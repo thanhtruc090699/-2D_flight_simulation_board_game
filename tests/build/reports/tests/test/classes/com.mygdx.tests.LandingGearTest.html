@@ -3,17 +3,17 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 <meta http-equiv="x-ua-compatible" content="IE=edge"/>
-<title>Test results - RoundTest</title>
+<title>Test results - LandingGearTest</title>
 <link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
 <link href="../css/style.css" rel="stylesheet" type="text/css"/>
 <script src="../js/report.js" type="text/javascript"></script>
 </head>
 <body>
 <div id="content">
-<h1>RoundTest</h1>
+<h1>LandingGearTest</h1>
 <div class="breadcrumbs">
 <a href="../index.html">all</a> &gt; 
-<a href="../packages/com.mygdx.tests.html">com.mygdx.tests</a> &gt; RoundTest</div>
+<a href="../packages/com.mygdx.tests.html">com.mygdx.tests</a> &gt; LandingGearTest</div>
 <div id="summary">
 <table>
 <tr>
@@ -23,7 +23,7 @@
 <tr>
 <td>
 <div class="infoBox" id="tests">
-<div class="counter">10</div>
+<div class="counter">11</div>
 <p>tests</p>
 </div>
 </td>
@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">0.015s</div>
+<div class="counter">0.013s</div>
 <p>duration</p>
 </div>
 </td>
@@ -66,9 +66,6 @@
 <li>
 <a href="#tab1">Standard output</a>
 </li>
-<li>
-<a href="#tab2">Standard error</a>
-</li>
 </ul>
 <div id="tab0" class="tab">
 <h2>Tests</h2>
@@ -81,53 +78,58 @@
 </tr>
 </thead>
 <tr>
-<td class="success">testCheckRoundConditionsAllPass()</td>
+<td class="success">testCanPlaceLandingGear_invalidDice()</td>
 <td class="success">0.001s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
-<td class="success">testCheckRoundConditions_fail()</td>
+<td class="success">testCanPlaceLandingGear_unfilledPreviousField()</td>
 <td class="success">0.001s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
-<td class="success">testCheckRoundConditions_pass()</td>
-<td class="success">0s</td>
-<td class="success">passed</td>
-</tr>
-<tr>
-<td class="success">testCheckTurnConditionsInvalidAxisTilt()</td>
-<td class="success">0.001s</td>
-<td class="success">passed</td>
-</tr>
-<tr>
-<td class="success">testCheckTurnConditions_fail()</td>
-<td class="success">0.001s</td>
-<td class="success">passed</td>
-</tr>
-<tr>
-<td class="success">testCollectPlayerInput()</td>
-<td class="success">0.001s</td>
-<td class="success">passed</td>
-</tr>
-<tr>
-<td class="success">testPlayRound()</td>
-<td class="success">0.005s</td>
-<td class="success">passed</td>
-</tr>
-<tr>
-<td class="success">testPlayTurn_coPilotTurn()</td>
+<td class="success">testCanPlaceLandingGear_validDiceAndFieldChoice()</td>
 <td class="success">0.002s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
-<td class="success">testPlayTurn_pilotTurn()</td>
-<td class="success">0.002s</td>
+<td class="success">testDeployLandingGear1()</td>
+<td class="success">0.001s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
-<td class="success">testSwitchPlayer()</td>
+<td class="success">testDeployLandingGear2WithLandingGear1()</td>
 <td class="success">0.001s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testDeployLandingGear2WithoutLandingGear1()</td>
+<td class="success">0.001s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testDeployLandingGear3WithLandingGear2()</td>
+<td class="success">0.001s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testDeployLandingGear3WithoutLandingGear2()</td>
+<td class="success">0.001s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testDeployLandingGearInvalidDiceValue()</td>
+<td class="success">0.001s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testDeployLandingGearShiftsBlueMarker()</td>
+<td class="success">0.001s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testLandingGearInitialState()</td>
+<td class="success">0.002s</td>
 <td class="success">passed</td>
 </tr>
 </table>
@@ -135,80 +137,17 @@
 <div id="tab1" class="tab">
 <h2>Standard output</h2>
 <span class="code">
-<pre>Next player is: CoPilot
-1
-Next player is: Pilot
-0
-Both engine fields are filled.
-Position move failed. Ending game.
-It's Pilot's turn.
-Unassigned dices: 
-1 
-6 
-1 
-4 
-
-You have a reroll token. Do you want to use it? (yes/no)
-Pilot decided not to use the reroll token.
-CoPilot, do you want to reroll too? (yes/no)
-CoPilot decided not to use the reroll token.
-Unassigned dices: 
-1 
-6 
-1 
-4 
-
-You selected dice value: 1
-Where do you want to place your dice?
-Available options: engine, axis, radio, landing gears, brake, coffee
-Next player is: CoPilot
-1
-Next player is: CoPilot
-1
-It's CoPilot's turn.
-These are your unassigned dice: 
-Unassigned dices: 
-2 
-6 
-4 
-1 
-
-Unassigned dices: 
-2 
-6 
-4 
-1 
-
-Invalid input. Read the rules first, FOOL!
-Cannot place dice on flap. The field is already occupied.
-It's Pilot's turn.
-Unassigned dices: 
-3 
-6 
-3 
-1 
-
-You have a reroll token. Do you want to use it? (yes/no)
-Pilot decided not to use the reroll token.
-CoPilot, do you want to reroll too? (yes/no)
-CoPilot decided not to use the reroll token.
-Unassigned dices: 
-3 
-6 
-3 
-1 
-
-You selected dice value: 3
-Where do you want to place your dice?
-Available options: engine, axis, radio, landing gears, brake, coffee
-</pre>
-</span>
-</div>
-<div id="tab2" class="tab">
-<h2>Standard error</h2>
-<span class="code">
-<pre>You lost! :(
-You lost! :(
+<pre>Landing Gear 1 is now deployed.
+Landing Gear 3 is now deployed.
+Landing Gear 1 is now deployed.
+Landing Gear 2 is now deployed.
+Landing Gear 3 is now deployed.
+Landing Gear 2 is now deployed.
+Landing Gear 1 is now deployed.
+Landing Gear 1 is now deployed.
+Landing Gear 1 is now deployed.
+Landing Gear 2 is now deployed.
+Invalid dice value for Landing Gear 1!
 </pre>
 </span>
 </div>

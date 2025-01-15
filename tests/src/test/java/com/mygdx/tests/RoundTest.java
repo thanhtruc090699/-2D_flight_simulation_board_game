@@ -87,10 +87,6 @@ public class RoundTest {
 
     @Test
     public void testCheckRoundConditions_fail() {
-        // Simulate a failed condition (missing dice on required fields, etc.)
-        // Modify conditions in the game (not shown in this simple test case)
-
-        // Example: let's say pilot didn't place all necessary dice, which fails the condition
         assertFalse("Round should fail the conditions", round.checkRoundConditions());
     }
 
@@ -115,4 +111,14 @@ public class RoundTest {
 
         assertTrue("Turn should fail due to incomplete fields", gameLogic.getGameOver());
     }
+    @Test
+    void testCheckTurnConditionsInvalidAxisTilt() {
+        airplane.getAxis().getPilotAxisField().setFilled(true);
+        airplane.getAxis().getCoPilotAxisField().setFilled(true);
+        airplane.getAxis().setTilt(6); // Giá trị tilt không hợp lệ
+
+        round.checkTurnConditions();
+        assertTrue("Turn should fail due to incomplete fields", gameLogic.getGameOver());
+    }
+
 }
