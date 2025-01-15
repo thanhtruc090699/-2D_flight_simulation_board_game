@@ -116,12 +116,9 @@ public class GameplayScreen implements Screen {
     private ArrayList<Boolean> rerollPilotDicePlacedInPlaceHolder;
     private ArrayList<Boolean> rerollCopilotDicePlacedInPlaceHolder;
     private Vector2 rerollButtonDonePosition;
-    private int time = 0;
     private int currentRerollStage = 0;
 
-    private enum RerollStage {
-        PILOT, COPILOT, NONE
-    }
+
 
     private List<Image> droppedPilotDiceList = new ArrayList<>();
     private List<Image> droppedCoPilotDiceList = new ArrayList<>();
@@ -218,10 +215,14 @@ public class GameplayScreen implements Screen {
         orangeMarkerPosition = new Vector2(1010, 349);
 
         // Coffee positions list
+
         coffeesPositions = new ArrayList<>();
+        /*
         coffeesPositions.add(new Vector2(760, 66));
         coffeesPositions.add(new Vector2(760, 21));
         coffeesPositions.add(new Vector2(809, 21));
+
+         */
 
         buttonUpPilotPositions = new ArrayList<>();
         buttonDownPilotPositions = new ArrayList<>();
@@ -427,10 +428,10 @@ public class GameplayScreen implements Screen {
     }
 
     /*
-     * 
+     *
      * private void handleRerollInteraction() {
      * stage.addListener(new InputListener() {
-     * 
+     *
      * @Override
      * public boolean touchDown(InputEvent event, float x, float y, int pointer, int
      * button) {
@@ -443,12 +444,12 @@ public class GameplayScreen implements Screen {
      * time++;
      * rerollPlaceholders.remove(i);
      * currentRerollTokenQuantity--;
-     * 
+     *
      * rerollPilotDiceSelectable.clear();
      * rerollCopilotDiceSelectable.clear();
      * rerollPilotDicePlacedInPlaceHolder.clear();
      * rerollCopilotDicePlacedInPlaceHolder.clear();
-     * 
+     *
      * for (int j = 0; j < pilotDice.size(); j++) {
      * rerollPilotDiceSelectable.add(!PilotDicePlacedInPlaceHolder.get(j));
      * rerollPilotDicePlacedInPlaceHolder.add(false);
@@ -459,7 +460,7 @@ public class GameplayScreen implements Screen {
      * }
      * return true;
      * }
-     * 
+     *
      * }
      * } else {
      * if (Math.abs(rerollButtonDonePosition.x - event.getStageX()) < 50 &&
@@ -468,12 +469,12 @@ public class GameplayScreen implements Screen {
      * finalizeReroll();
      * return true;
      * }
-     * 
+     *
      * for (int i = 0; i < rerollPilotDiceSelectable.size(); i++) {
      * if (rerollPilotDiceSelectable.get(i) &&
      * !rerollPilotDicePlacedInPlaceHolder.get(i)) {
      * Vector2 downPos = reRollPilotPositions.get(i);
-     * 
+     *
      * if (Math.abs(downPos.x - event.getStageX()) < 50
      * && Math.abs(downPos.y - event.getStageY()) < 50) {
      * Dice dice = pilotDice.get(i);
@@ -484,12 +485,12 @@ public class GameplayScreen implements Screen {
      * }
      * }
      * }
-     * 
+     *
      * for (int i = 0; i < rerollCopilotDiceSelectable.size(); i++) {
      * if (rerollCopilotDiceSelectable.get(i) &&
      * !rerollCopilotDicePlacedInPlaceHolder.get(i)) {
      * Vector2 downPos = reRollCoPilotPositions.get(i);
-     * 
+     *
      * if (Math.abs(downPos.x - event.getStageX()) < 50
      * && Math.abs(downPos.y - event.getStageY()) < 50) {
      * Dice dice = coPilotDice.get(i);
@@ -505,7 +506,7 @@ public class GameplayScreen implements Screen {
      * }
      * });
      * }
-     * 
+     *
      */
 
     private void drawButtons() {
@@ -845,6 +846,9 @@ public class GameplayScreen implements Screen {
             for (int i = 0; i < coPilotDice.size(); i++) {
                 coffeeCopilotDiceSelectable.set(i, true);
                 CopilotDicePlacedInPlaceHolder.set(i, false);
+            }
+            for(int i=0;i<3;i++){
+                gameLogic.getAirplane().getConcentration().resetCoffeeField(i);
             }
 
             for (int i = 0; i < rerollIconPositions.size(); i++) {
@@ -1499,6 +1503,14 @@ public class GameplayScreen implements Screen {
                         gameLogic.getRound().collectPlayerInput(diceIndex, playerInput, fieldChoice);
                         PilotDicePlacedInPlaceHolder.set(diceIndex, true);
                         currentCoffeeQuantity++;
+                        if (currentCoffeeQuantity==1){
+                            coffeesPositions.add(new Vector2(760, 66));
+                        } else if (currentCoffeeQuantity==2){
+                            coffeesPositions.add(new Vector2(760, 21));
+
+                        } else if (currentCoffeeQuantity==3){
+                            coffeesPositions.add(new Vector2(809, 21));
+                        }
                         gameLogic.getRound().playRound();
                     } else {
                         diceImage.setPosition(pilotStartX + diceIndex * diceSpacing, pilotStartY);
@@ -1689,6 +1701,14 @@ public class GameplayScreen implements Screen {
                         gameLogic.getRound().collectPlayerInput(diceIndex, playerInput, fieldChoice);
                         CopilotDicePlacedInPlaceHolder.set(diceIndex, true);
                         currentCoffeeQuantity++;
+                        if (currentCoffeeQuantity==1){
+                            coffeesPositions.add(new Vector2(760, 66));
+                        } else if (currentCoffeeQuantity==2){
+                            coffeesPositions.add(new Vector2(760, 21));
+
+                        } else if (currentCoffeeQuantity==3){
+                            coffeesPositions.add(new Vector2(809, 21));
+                        }
                         gameLogic.getRound().playRound();
                     } else {
                         diceImage.setPosition(coPilotStartX + diceIndex * diceSpacing, coPilotStartY);
