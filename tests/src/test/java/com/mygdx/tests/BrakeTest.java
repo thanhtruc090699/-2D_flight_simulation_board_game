@@ -150,5 +150,26 @@ class BrakeTest {
                     assertFalse(brake.canPlaceBrakes(6));
                 });
     }
+    @Test
+    void testCanPlaceBrakesForDice() {
+        // Brake field 1
+        assertTrue(brake.canPlaceBrakesForDice(2), "Brake field 1 should be placeable");
+        brake.deployBrakes(2);
+
+        // Brake field 2
+        assertTrue(brake.canPlaceBrakesForDice(4), "Brake field 2 should be placeable after field 1");
+        brake.deployBrakes(4);
+
+        // Brake field 3
+        assertTrue(brake.canPlaceBrakesForDice(6), "Brake field 3 should be placeable after field 1 and field 2");
+        brake.deployBrakes(6);
+
+        // Invalid inputs
+        assertFalse(brake.canPlaceBrakesForDice(1), "Brake should not be placeable for dice value 1");
+        assertFalse(brake.canPlaceBrakesForDice(3), "Brake should not be placeable for dice value 3");
+        assertFalse(brake.canPlaceBrakesForDice(5), "Brake should not be placeable for dice value 5");
+        assertFalse(brake.canPlaceBrakesForDice(7), "Brake should not be placeable for dice value 7");
+    }
+
 
 }

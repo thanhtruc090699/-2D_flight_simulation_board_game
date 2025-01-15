@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.mygdx.tests.RoundTest" tests="10" skipped="0" failures="0" errors="0" timestamp="2025-01-14T22:52:37" hostname="DESKTOP-9CTSVT6" time="0.023">
+  <properties/>
+  <testcase name="testSwitchPlayer()" classname="com.mygdx.tests.RoundTest" time="0.001"/>
+  <testcase name="testCheckTurnConditions_fail()" classname="com.mygdx.tests.RoundTest" time="0.001"/>
+  <testcase name="testPlayRound()" classname="com.mygdx.tests.RoundTest" time="0.005"/>
+  <testcase name="testPlayTurn_coPilotTurn()" classname="com.mygdx.tests.RoundTest" time="0.002"/>
+  <testcase name="testCheckRoundConditions_fail()" classname="com.mygdx.tests.RoundTest" time="0.001"/>
+  <testcase name="testCheckRoundConditions_pass()" classname="com.mygdx.tests.RoundTest" time="0.0"/>
+  <testcase name="testCheckRoundConditionsAllPass()" classname="com.mygdx.tests.RoundTest" time="0.001"/>
+  <testcase name="testCollectPlayerInput()" classname="com.mygdx.tests.RoundTest" time="0.001"/>
+  <testcase name="testCheckTurnConditionsInvalidAxisTilt()" classname="com.mygdx.tests.RoundTest" time="0.001"/>
+  <testcase name="testPlayTurn_pilotTurn()" classname="com.mygdx.tests.RoundTest" time="0.002"/>
+  <system-out><![CDATA[Next player is: CoPilot
+1
+Next player is: Pilot
+0
+Both engine fields are filled.
+Position move failed. Ending game.
+It's Pilot's turn.
+Unassigned dices: 
+1 
+6 
+1 
+4 
+
+You have a reroll token. Do you want to use it? (yes/no)
+Pilot decided not to use the reroll token.
+CoPilot, do you want to reroll too? (yes/no)
+CoPilot decided not to use the reroll token.
+Unassigned dices: 
+1 
+6 
+1 
+4 
+
+You selected dice value: 1
+Where do you want to place your dice?
+Available options: engine, axis, radio, landing gears, brake, coffee
+Next player is: CoPilot
+1
+Next player is: CoPilot
+1
+It's CoPilot's turn.
+These are your unassigned dice: 
+Unassigned dices: 
+2 
+6 
+4 
+1 
+
+Unassigned dices: 
+2 
+6 
+4 
+1 
+
+Invalid input. Read the rules first, FOOL!
+Cannot place dice on flap. The field is already occupied.
+It's Pilot's turn.
+Unassigned dices: 
+3 
+6 
+3 
+1 
+
+You have a reroll token. Do you want to use it? (yes/no)
+Pilot decided not to use the reroll token.
+CoPilot, do you want to reroll too? (yes/no)
+CoPilot decided not to use the reroll token.
+Unassigned dices: 
+3 
+6 
+3 
+1 
+
+You selected dice value: 3
+Where do you want to place your dice?
+Available options: engine, axis, radio, landing gears, brake, coffee
+]]></system-out>
+  <system-err><![CDATA[You lost! :(
+You lost! :(
+]]></system-err>
+</testsuite>

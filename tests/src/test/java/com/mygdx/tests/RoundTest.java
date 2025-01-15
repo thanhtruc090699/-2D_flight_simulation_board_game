@@ -111,4 +111,14 @@ public class RoundTest {
 
         assertTrue("Turn should fail due to incomplete fields", gameLogic.getGameOver());
     }
+    @Test
+    void testCheckTurnConditionsInvalidAxisTilt() {
+        airplane.getAxis().getPilotAxisField().setFilled(true);
+        airplane.getAxis().getCoPilotAxisField().setFilled(true);
+        airplane.getAxis().setTilt(6); // Giá trị tilt không hợp lệ
+
+        round.checkTurnConditions();
+        assertTrue("Turn should fail due to incomplete fields", gameLogic.getGameOver());
+    }
+
 }
