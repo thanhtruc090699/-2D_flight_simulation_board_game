@@ -2,7 +2,10 @@ package com.mygdx.skyteam.logic;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-
+/**
+ * Manages the flaps of the airplane.
+ * Handles deploying flaps based on dice values and updating orange marker value and position.
+ */
 public class Flap {
     private ArrayList<Field> flapsFields;
 

@@ -1,31 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.mygdx.tests.EngineTest" tests="25" skipped="0" failures="0" errors="0" timestamp="2025-01-15T14:06:16" hostname="DESKTOP-P99594G" time="0.018">
+<testsuite name="com.mygdx.tests.EngineTest" tests="25" skipped="0" failures="0" errors="0" timestamp="2025-01-16T16:11:54" hostname="DESKTOP-9CTSVT6" time="0.134">
   <properties/>
-  <testcase name="testPlacePilotDice_InvalidValue()" classname="com.mygdx.tests.EngineTest" time="0.001"/>
-  <testcase name="testResetFields()" classname="com.mygdx.tests.EngineTest" time="0.001"/>
-  <testcase name="testUpdatePositionWithoutMovement()" classname="com.mygdx.tests.EngineTest" time="0.0"/>
-  <testcase name="testUpdatePositionWithOvershootAtAirport()" classname="com.mygdx.tests.EngineTest" time="0.0"/>
-  <testcase name="testCheckWinConditionCrashOnTrack()" classname="com.mygdx.tests.EngineTest" time="0.001"/>
-  <testcase name="testAdjustSpeedAndUpdatePositionMoveOneStep()" classname="com.mygdx.tests.EngineTest" time="0.0"/>
+  <testcase name="testPlacePilotDice_InvalidValue()" classname="com.mygdx.tests.EngineTest" time="0.002"/>
+  <testcase name="testResetFields()" classname="com.mygdx.tests.EngineTest" time="0.002"/>
+  <testcase name="testUpdatePositionWithoutMovement()" classname="com.mygdx.tests.EngineTest" time="0.002"/>
+  <testcase name="testUpdatePositionWithOvershootAtAirport()" classname="com.mygdx.tests.EngineTest" time="0.003"/>
+  <testcase name="testCheckWinConditionCrashOnTrack()" classname="com.mygdx.tests.EngineTest" time="0.003"/>
+  <testcase name="testAdjustSpeedAndUpdatePositionMoveOneStep()" classname="com.mygdx.tests.EngineTest" time="0.002"/>
   <testcase name="testShiftBlueMarker()" classname="com.mygdx.tests.EngineTest" time="0.001"/>
-  <testcase name="testUpdatePositionWithExactOrangeMarker()" classname="com.mygdx.tests.EngineTest" time="0.0"/>
-  <testcase name="testAdjustSpeedAndCrashDueToPlaneOnTrack()" classname="com.mygdx.tests.EngineTest" time="0.001"/>
-  <testcase name="testShiftOrangeMarker_Boundary()" classname="com.mygdx.tests.EngineTest" time="0.001"/>
-  <testcase name="testUpdatePositionFailsOnBlockedTrack()" classname="com.mygdx.tests.EngineTest" time="0.0"/>
-  <testcase name="testAllTracksBlocked()" classname="com.mygdx.tests.EngineTest" time="0.0"/>
+  <testcase name="testUpdatePositionWithExactOrangeMarker()" classname="com.mygdx.tests.EngineTest" time="0.002"/>
+  <testcase name="testAdjustSpeedAndCrashDueToPlaneOnTrack()" classname="com.mygdx.tests.EngineTest" time="0.006"/>
+  <testcase name="testShiftOrangeMarker_Boundary()" classname="com.mygdx.tests.EngineTest" time="0.004"/>
+  <testcase name="testUpdatePositionFailsOnBlockedTrack()" classname="com.mygdx.tests.EngineTest" time="0.007"/>
+  <testcase name="testAllTracksBlocked()" classname="com.mygdx.tests.EngineTest" time="0.005"/>
   <testcase name="testPlacePilotDice()" classname="com.mygdx.tests.EngineTest" time="0.001"/>
-  <testcase name="testCheckWinConditionOvershoot()" classname="com.mygdx.tests.EngineTest" time="0.0"/>
-  <testcase name="testPlaceCoPilotDice()" classname="com.mygdx.tests.EngineTest" time="0.0"/>
-  <testcase name="testInitialEngineState()" classname="com.mygdx.tests.EngineTest" time="0.001"/>
-  <testcase name="testAdjustSpeedAndMoveTwoSteps()" classname="com.mygdx.tests.EngineTest" time="0.0"/>
-  <testcase name="testPlaceCoPilotDice_InvalidValue()" classname="com.mygdx.tests.EngineTest" time="0.001"/>
-  <testcase name="testUpdatePositionMoveTwoSteps_Crash()" classname="com.mygdx.tests.EngineTest" time="0.001"/>
-  <testcase name="testShiftBlueMarker_Boundary()" classname="com.mygdx.tests.EngineTest" time="0.001"/>
-  <testcase name="testSetCurrentPosition()" classname="com.mygdx.tests.EngineTest" time="0.0"/>
-  <testcase name="testCheckWinConditionSuccess()" classname="com.mygdx.tests.EngineTest" time="0.001"/>
-  <testcase name="testShiftOrangeMarker()" classname="com.mygdx.tests.EngineTest" time="0.0"/>
-  <testcase name="testUpdatePositionWithExactBlueMarker()" classname="com.mygdx.tests.EngineTest" time="0.001"/>
-  <testcase name="testSetSpeed()" classname="com.mygdx.tests.EngineTest" time="0.0"/>
+  <testcase name="testCheckWinConditionOvershoot()" classname="com.mygdx.tests.EngineTest" time="0.011"/>
+  <testcase name="testPlaceCoPilotDice()" classname="com.mygdx.tests.EngineTest" time="0.002"/>
+  <testcase name="testInitialEngineState()" classname="com.mygdx.tests.EngineTest" time="0.003"/>
+  <testcase name="testAdjustSpeedAndMoveTwoSteps()" classname="com.mygdx.tests.EngineTest" time="0.007"/>
+  <testcase name="testPlaceCoPilotDice_InvalidValue()" classname="com.mygdx.tests.EngineTest" time="0.002"/>
+  <testcase name="testUpdatePositionMoveTwoSteps_Crash()" classname="com.mygdx.tests.EngineTest" time="0.006"/>
+  <testcase name="testShiftBlueMarker_Boundary()" classname="com.mygdx.tests.EngineTest" time="0.003"/>
+  <testcase name="testSetCurrentPosition()" classname="com.mygdx.tests.EngineTest" time="0.001"/>
+  <testcase name="testCheckWinConditionSuccess()" classname="com.mygdx.tests.EngineTest" time="0.005"/>
+  <testcase name="testShiftOrangeMarker()" classname="com.mygdx.tests.EngineTest" time="0.001"/>
+  <testcase name="testUpdatePositionWithExactBlueMarker()" classname="com.mygdx.tests.EngineTest" time="0.002"/>
+  <testcase name="testSetSpeed()" classname="com.mygdx.tests.EngineTest" time="0.002"/>
   <system-out><![CDATA[Speed adjusted to: 3
 Plane does not move.
 Speed adjusted to: 4

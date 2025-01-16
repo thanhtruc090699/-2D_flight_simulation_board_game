@@ -2,11 +2,17 @@ package com.mygdx.skyteam.logic;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-
+/**
+ * Manages the airplane's braking system.
+ * Handles brake deployment based on pilot input and ensures correct deployment order.
+ */
 public class Brake {
     private int redMarker;
     private ArrayList<Field> brakeFields;
 
+    /**
+     * Initializes the Brake system with default fields and a red marker at 0.
+     */
     public Brake() {
         redMarker = 0;
         brakeFields = new ArrayList<>();
@@ -16,6 +22,12 @@ public class Brake {
         brakeFields.add(new Field("Brake Field 3", Arrays.asList(6), 1015, 890));
     }
 
+    /**
+     * Deploys the brakes based on pilot input.
+     * Ensures deployment order: Brake Field 1 -> Brake Field 2 -> Brake Field 3.
+     *
+     * @param pilotInput the dice value (2, 4, or 6) representing the brake to deploy.
+     */
     public void deployBrakes(int pilotInput) {
         if (pilotInput == 2) {
             if (!brakeFields.get(0).isFilled()) {
@@ -51,6 +63,12 @@ public class Brake {
         }
     }
 
+    /**
+     * Checks if brakes can be placed based on the pilot input.
+     *
+     * @param pilotInput the dice value to check (2, 4, or 6).
+     * @return true if brakes can be placed, false otherwise.
+     */
     public boolean canPlaceBrakes(int pilotInput) {
         if (pilotInput != 2 && pilotInput != 4 && pilotInput != 6) {
             System.out.println("Invalid input for brake deployment. Please choose from 2, 4, or 6.");
@@ -88,6 +106,12 @@ public class Brake {
         return true;
     }
 
+    /**
+     * Sets the red marker to a specific value.
+     *
+     * @param redMarker the new red marker value.
+     * @throws IllegalArgumentException if the value is invalid.
+     */
     public void setRedMarker(int redMarker) {
         if (redMarker > 1 && redMarker < 7) {
             this.redMarker = redMarker;
@@ -96,14 +120,31 @@ public class Brake {
         }
     }
 
+    /**
+     * Gets the list of brake fields.
+     *
+     * @return the list of brake fields.
+     */
     public ArrayList<Field> getBrakeFields() {
         return brakeFields;
     }
 
+
+    /**
+     * Gets the current red marker value.
+     *
+     * @return the red marker value.
+     */
     public int getRedMarker() {
         return redMarker;
     }
 
+    /**
+     * Checks if brakes can be placed for a specific dice.
+     *
+     * @param diceValue the dice value to check (2, 4, or 6).
+     * @return true if brakes can be placed, false otherwise.
+     */
     public boolean canPlaceBrakesForDice(int diceValue) {
         if (diceValue != 2 && diceValue != 4 && diceValue != 6) {
             return false;

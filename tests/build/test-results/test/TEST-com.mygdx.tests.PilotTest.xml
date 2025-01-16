@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.mygdx.tests.PilotTest" tests="11" skipped="0" failures="0" errors="0" timestamp="2025-01-15T14:06:16" hostname="DESKTOP-P99594G" time="0.01">
+<testsuite name="com.mygdx.tests.PilotTest" tests="11" skipped="0" failures="0" errors="0" timestamp="2025-01-16T16:11:55" hostname="DESKTOP-9CTSVT6" time="0.066">
   <properties/>
-  <testcase name="testPlaceDiceAxisPass90Degree()" classname="com.mygdx.tests.PilotTest" time="0.001"/>
-  <testcase name="testPlaceDiceLandingGear()" classname="com.mygdx.tests.PilotTest" time="0.002"/>
-  <testcase name="testDicesOnRequiredFields()" classname="com.mygdx.tests.PilotTest" time="0.001"/>
-  <testcase name="testPlaceDiceBrakes()" classname="com.mygdx.tests.PilotTest" time="0.001"/>
-  <testcase name="testPlaceDiceEngine()" classname="com.mygdx.tests.PilotTest" time="0.001"/>
-  <testcase name="testPlaceDiceConcentration()" classname="com.mygdx.tests.PilotTest" time="0.001"/>
-  <testcase name="testPlaceDiceRadio()" classname="com.mygdx.tests.PilotTest" time="0.0"/>
-  <testcase name="testInvalidValues()" classname="com.mygdx.tests.PilotTest" time="0.001"/>
-  <testcase name="testPlaceDiceEngineWhenCrashHappen()" classname="com.mygdx.tests.PilotTest" time="0.001"/>
-  <testcase name="testGetRaidoPilot()" classname="com.mygdx.tests.PilotTest" time="0.0"/>
-  <testcase name="testPlaceDiceAxis()" classname="com.mygdx.tests.PilotTest" time="0.001"/>
+  <testcase name="testPlaceDiceAxisPass90Degree()" classname="com.mygdx.tests.PilotTest" time="0.003"/>
+  <testcase name="testPlaceDiceLandingGear()" classname="com.mygdx.tests.PilotTest" time="0.006"/>
+  <testcase name="testDicesOnRequiredFields()" classname="com.mygdx.tests.PilotTest" time="0.004"/>
+  <testcase name="testPlaceDiceBrakes()" classname="com.mygdx.tests.PilotTest" time="0.003"/>
+  <testcase name="testPlaceDiceEngine()" classname="com.mygdx.tests.PilotTest" time="0.005"/>
+  <testcase name="testPlaceDiceConcentration()" classname="com.mygdx.tests.PilotTest" time="0.006"/>
+  <testcase name="testPlaceDiceRadio()" classname="com.mygdx.tests.PilotTest" time="0.003"/>
+  <testcase name="testInvalidValues()" classname="com.mygdx.tests.PilotTest" time="0.003"/>
+  <testcase name="testPlaceDiceEngineWhenCrashHappen()" classname="com.mygdx.tests.PilotTest" time="0.005"/>
+  <testcase name="testGetRaidoPilot()" classname="com.mygdx.tests.PilotTest" time="0.006"/>
+  <testcase name="testPlaceDiceAxis()" classname="com.mygdx.tests.PilotTest" time="0.004"/>
   <system-out><![CDATA[Axis adjusted. Current tilt: 2
 Axis adjusted. Current tilt: 1
 Plane tilted 90 degrees. GAME OVER

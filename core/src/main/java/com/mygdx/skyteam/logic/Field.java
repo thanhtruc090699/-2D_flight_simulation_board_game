@@ -6,7 +6,10 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.graphics.Color;
 
 import java.util.List;
-
+/**
+ * Represents a placeholder on the game board where dice can be placed.
+ * Tracks its position, valid dice values, and current state.
+ */
 public class Field {
     private String name;
     private List<Integer> validDiceValues;
@@ -21,7 +24,14 @@ public class Field {
     private Rectangle fieldRect;
     private Color color = new Color(0, 0, 0, 0);
 
-
+    /**
+     * Creates a new Field with specified properties.
+     *
+     * @param name            the name of the field.
+     * @param validDiceValues a list of valid dice values for the field.
+     * @param x               the x-coordinate of the field.
+     * @param y               the y-coordinate of the field.
+     */
     public Field(String name, List<Integer> validDiceValues, int x, int y) {
         this.name = name;
         this.validDiceValues = validDiceValues;
@@ -31,6 +41,12 @@ public class Field {
         this.y = y;
     }
 
+    /**
+     * Sets a dice value on the field if it is valid.
+     *
+     * @param diceValue the dice value to set.
+     * @return true if the value was successfully placed, false otherwise.
+     */
     public boolean setDiceValue(int diceValue) {
         if (validDiceValues.contains(diceValue)) {
             this.placedDice = diceValue;
@@ -40,32 +56,74 @@ public class Field {
         return false;
     }
 
+    /**
+     * Resets the field, clearing any placed dice.
+     */
     public void resetField() {
         this.placedDice = null;
         this.isFilled = false;
     }
 
+    /**
+     * Checks if the field is currently filled.
+     *
+     * @return true if the field is filled, false otherwise.
+     */
     public boolean isFilled() {
         return isFilled;
     }
 
+    /**
+     * Gets the dice value currently placed on the field.
+     *
+     * @return the placed dice value, or null if none.
+     */
     public Integer getPlacedDice() {
         return placedDice;
     }
+
+    /**
+     * Sets the dice value.
+     *
+     * @param x the dice value to set.
+     * @return the updated dice value.
+     */
     public Integer setPlacedDice(int x) {return placedDice = x;}
 
+    /**
+     * Gets the name of the field.
+     *
+     * @return the field's name.
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     * Gets the list of valid dice values for the field.
+     *
+     * @return the list of valid dice values.
+     */
     public List<Integer> getValidDiceValues() {
         return validDiceValues;
     }
 
+    /**
+     * Sets whether the field is filled.
+     *
+     * @param filled true to mark the field as filled, false otherwise.
+     */
     public void setFilled(boolean filled) {
         this.isFilled = filled;
     }
 
+    /**
+     * Checks if the mouse is over the field.
+     *
+     * @param mouseX the x-coordinate of the mouse.
+     * @param mouseY the y-coordinate of the mouse.
+     * @return true if the mouse is over the field, false otherwise.
+     */
     public boolean isMouseOver(float mouseX, float mouseY) {
 
         float width = 50;
@@ -73,20 +131,41 @@ public class Field {
         return mouseX >= x && mouseX <= (x + width) && mouseY >= y && mouseY <= (y + height);
     }
 
+    /**
+     * Gets the x-coordinate of the field.
+     *
+     * @return the x-coordinate.
+     */
     public float getX() {
         return x;
     }
 
+    /**
+     * Gets the y-coordinate of the field.
+     *
+     * @return the y-coordinate.
+     */
     public float getY() {
         return y;
     }
 
+    /**
+     * Converts the field's coordinates to stage coordinates.
+     *
+     * @param stage the game stage.
+     * @return the field's coordinates in the stage.
+     */
     public Vector3 getStageCoordinates(Stage stage) {
         Vector3 screenCoordinates = new Vector3(x, y, 0);
         stage.getCamera().unproject(screenCoordinates);
         return screenCoordinates;
     }
 
+    /**
+     * Draws the field on the board.
+     *
+     * @param diceValue the dice value to check for drawing highlights.
+     */
     public void draw(int diceValue) {
         if (canAcceptDice(diceValue)) {
             float width = 50;
@@ -104,27 +183,58 @@ public class Field {
     }
 
 
+    /**
+     * Checks if the field can accept a specific dice value.
+     *
+     * @param diceValue the dice value to check.
+     * @return true if the field can accept the dice, false otherwise.
+     */
     public boolean canAcceptDice(int diceValue) {
         return validDiceValues.contains(diceValue) && !isFilled;
     }
 
+    /**
+     * Sets whether the field is highlighted.
+     *
+     * @param isHighlighted true to highlight the field, false otherwise.
+     */
     public void setHighlighted(boolean isHighlighted) {
         this.isHighlighted = isHighlighted;
     }
 
+    /**
+     * Checks if the field is currently highlighted.
+     *
+     * @return true if the field is highlighted, false otherwise.
+     */
     public boolean isHighlighted() {
         return isHighlighted;
     }
 
+    /**
+     * Gets the current color of the field.
+     *
+     * @return the field's color.
+     */
     public Color getColor() {
         return color;
     }
 
 
+    /**
+     * Checks if the field is a brake field based on its name.
+     *
+     * @return true if the field is a brake field, false otherwise.
+     */
     public boolean isBrakes() {
         return name.toLowerCase().contains("brake");
     }
 
+    /**
+     * Checks if the field is a flap field based on its name.
+     *
+     * @return true if the field is a flap field, false otherwise.
+     */
     public boolean isFlaps() {
         return name.toLowerCase().contains("flap");
     }

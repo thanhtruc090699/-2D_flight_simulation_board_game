@@ -1,33 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.mygdx.tests.GameLogicTest" tests="10" skipped="0" failures="0" errors="0" timestamp="2025-01-15T14:06:16" hostname="DESKTOP-P99594G" time="0.014">
+<testsuite name="com.mygdx.tests.GameLogicTest" tests="10" skipped="0" failures="0" errors="0" timestamp="2025-01-16T16:11:55" hostname="DESKTOP-9CTSVT6" time="0.153">
   <properties/>
-  <testcase name="testStartGame()" classname="com.mygdx.tests.GameLogicTest" time="0.001"/>
-  <testcase name="testEndGameWin()" classname="com.mygdx.tests.GameLogicTest" time="0.002"/>
-  <testcase name="testGetters()" classname="com.mygdx.tests.GameLogicTest" time="0.001"/>
-  <testcase name="testGameInitialization()" classname="com.mygdx.tests.GameLogicTest" time="0.0"/>
-  <testcase name="testCheckWinningConditionsFailure()" classname="com.mygdx.tests.GameLogicTest" time="0.001"/>
-  <testcase name="testNextRoundEndGame()" classname="com.mygdx.tests.GameLogicTest" time="0.002"/>
-  <testcase name="testEndGameLose()" classname="com.mygdx.tests.GameLogicTest" time="0.0"/>
-  <testcase name="testGetAllFieldsForPilot()" classname="com.mygdx.tests.GameLogicTest" time="0.0"/>
-  <testcase name="testGetAllFieldsForCoPilot()" classname="com.mygdx.tests.GameLogicTest" time="0.0"/>
-  <testcase name="testNextRound()" classname="com.mygdx.tests.GameLogicTest" time="0.001"/>
+  <testcase name="testStartGame()" classname="com.mygdx.tests.GameLogicTest" time="0.009"/>
+  <testcase name="testEndGameWin()" classname="com.mygdx.tests.GameLogicTest" time="0.028"/>
+  <testcase name="testGetters()" classname="com.mygdx.tests.GameLogicTest" time="0.008"/>
+  <testcase name="testGameInitialization()" classname="com.mygdx.tests.GameLogicTest" time="0.003"/>
+  <testcase name="testCheckWinningConditionsFailure()" classname="com.mygdx.tests.GameLogicTest" time="0.009"/>
+  <testcase name="testNextRoundEndGame()" classname="com.mygdx.tests.GameLogicTest" time="0.029"/>
+  <testcase name="testEndGameLose()" classname="com.mygdx.tests.GameLogicTest" time="0.011"/>
+  <testcase name="testGetAllFieldsForPilot()" classname="com.mygdx.tests.GameLogicTest" time="0.003"/>
+  <testcase name="testGetAllFieldsForCoPilot()" classname="com.mygdx.tests.GameLogicTest" time="0.004"/>
+  <testcase name="testNextRound()" classname="com.mygdx.tests.GameLogicTest" time="0.022"/>
   <system-out><![CDATA[Welcome To The Game
 Enter role for Player 1 : (1 for Pilot, 2 for CoPilot)
 ROUND : 1
 
 Pilot's unassigned dice:
 Unassigned dices: 
-4 
+2 
 6 
 4 
-2 
+3 
 
 
 CoPilot's unassigned dice:
 Unassigned dices: 
-4 
+6 
 2 
-2 
+3 
 3 
 
 Welcome To The Game
@@ -36,37 +36,18 @@ ROUND : 1
 
 Pilot's unassigned dice:
 Unassigned dices: 
-4 
 3 
 6 
+5 
 5 
 
 
 CoPilot's unassigned dice:
 Unassigned dices: 
-5 
-3 
-3 
-6 
-
-Welcome To The Game
-Enter role for Player 1 : (1 for Pilot, 2 for CoPilot)
-ROUND : 1
-
-Pilot's unassigned dice:
-Unassigned dices: 
-5 
-4 
-5 
-6 
-
-
-CoPilot's unassigned dice:
-Unassigned dices: 
-3 
-6 
-5 
 1 
+6 
+6 
+6 
 
 Welcome To The Game
 Enter role for Player 1 : (1 for Pilot, 2 for CoPilot)
@@ -74,17 +55,36 @@ ROUND : 1
 
 Pilot's unassigned dice:
 Unassigned dices: 
-5 
 3 
+6 
 3 
-4 
+2 
+
+
+CoPilot's unassigned dice:
+Unassigned dices: 
+6 
+1 
+1 
+3 
+
+Welcome To The Game
+Enter role for Player 1 : (1 for Pilot, 2 for CoPilot)
+ROUND : 1
+
+Pilot's unassigned dice:
+Unassigned dices: 
+1 
+1 
+1 
+3 
 
 
 CoPilot's unassigned dice:
 Unassigned dices: 
 4 
 2 
-3 
+5 
 3 
 
 You crash-landed before reaching the airport!
@@ -104,7 +104,7 @@ CoPilot's unassigned dice:
 Unassigned dices: 
 1 
 6 
-6 
+1 
 3 
 
 All dice have been reset to unassigned.
@@ -113,17 +113,17 @@ ROUND : 2
 
 Pilot's unassigned dice:
 Unassigned dices: 
-4 
+1 
 3 
-2 
 3 
+6 
 
 
 CoPilot's unassigned dice:
 Unassigned dices: 
-1 
 2 
 4 
+6 
 3 
 
 All dice have been reset to unassigned.
@@ -132,17 +132,17 @@ ROUND : 3
 
 Pilot's unassigned dice:
 Unassigned dices: 
-4 
-2 
 3 
 5 
+5 
+2 
 
 
 CoPilot's unassigned dice:
 Unassigned dices: 
-4 
-6 
 5 
+1 
+3 
 5 
 
 All dice have been reset to unassigned.
@@ -151,18 +151,18 @@ ROUND : 4
 
 Pilot's unassigned dice:
 Unassigned dices: 
-2 
-4 
 5 
-6 
+2 
+2 
+5 
 
 
 CoPilot's unassigned dice:
 Unassigned dices: 
+4 
 6 
-2 
-5 
-5 
+6 
+1 
 
 All dice have been reset to unassigned.
 All dice have been reset to unassigned.
@@ -170,18 +170,18 @@ ROUND : 5
 
 Pilot's unassigned dice:
 Unassigned dices: 
-3 
-4 
-6 
 1 
+2 
+6 
+4 
 
 
 CoPilot's unassigned dice:
 Unassigned dices: 
 4 
-1 
 4 
 1 
+5 
 
 All dice have been reset to unassigned.
 All dice have been reset to unassigned.
@@ -189,36 +189,17 @@ ROUND : 6
 
 Pilot's unassigned dice:
 Unassigned dices: 
-4 
-2 
+5 
 5 
 1 
+6 
 
 
 CoPilot's unassigned dice:
-Unassigned dices: 
-1 
-4 
-5 
-4 
-
-All dice have been reset to unassigned.
-All dice have been reset to unassigned.
-ROUND : 7
-
-Pilot's unassigned dice:
 Unassigned dices: 
 3 
-1 
-5 
 2 
-
-
-CoPilot's unassigned dice:
-Unassigned dices: 
-6 
-5 
-4 
+3 
 5 
 
 All dice have been reset to unassigned.
@@ -228,17 +209,36 @@ ROUND : 7
 Pilot's unassigned dice:
 Unassigned dices: 
 3 
-4 
-1 
-6 
+3 
+3 
+2 
 
 
 CoPilot's unassigned dice:
 Unassigned dices: 
-5 
-3 
-3 
+2 
 6 
+6 
+6 
+
+All dice have been reset to unassigned.
+All dice have been reset to unassigned.
+ROUND : 7
+
+Pilot's unassigned dice:
+Unassigned dices: 
+6 
+5 
+6 
+1 
+
+
+CoPilot's unassigned dice:
+Unassigned dices: 
+6 
+2 
+6 
+3 
 
 Final round completed. Ending the game.
 You crash-landed before reaching the airport!
@@ -248,18 +248,37 @@ ROUND : 1
 
 Pilot's unassigned dice:
 Unassigned dices: 
+3 
+4 
 5 
+1 
+
+
+CoPilot's unassigned dice:
+Unassigned dices: 
+2 
+3 
+1 
+4 
+
+Welcome To The Game
+Enter role for Player 1 : (1 for Pilot, 2 for CoPilot)
+ROUND : 1
+
+Pilot's unassigned dice:
+Unassigned dices: 
+4 
+1 
 5 
-6 
 3 
 
 
 CoPilot's unassigned dice:
 Unassigned dices: 
 4 
+4 
 1 
-3 
-2 
+6 
 
 Welcome To The Game
 Enter role for Player 1 : (1 for Pilot, 2 for CoPilot)
@@ -269,16 +288,16 @@ Pilot's unassigned dice:
 Unassigned dices: 
 3 
 6 
-2 
-4 
+1 
+5 
 
 
 CoPilot's unassigned dice:
 Unassigned dices: 
-5 
-5 
+2 
+1 
 3 
-3 
+4 
 
 Welcome To The Game
 Enter role for Player 1 : (1 for Pilot, 2 for CoPilot)
@@ -286,37 +305,18 @@ ROUND : 1
 
 Pilot's unassigned dice:
 Unassigned dices: 
+2 
 1 
-3 
 4 
-5 
+4 
 
 
 CoPilot's unassigned dice:
 Unassigned dices: 
-2 
+6 
 4 
-2 
-2 
-
-Welcome To The Game
-Enter role for Player 1 : (1 for Pilot, 2 for CoPilot)
-ROUND : 1
-
-Pilot's unassigned dice:
-Unassigned dices: 
 5 
-6 
 1 
-5 
-
-
-CoPilot's unassigned dice:
-Unassigned dices: 
-5 
-6 
-5 
-2 
 
 All dice have been reset to unassigned.
 All dice have been reset to unassigned.
@@ -324,18 +324,18 @@ ROUND : 2
 
 Pilot's unassigned dice:
 Unassigned dices: 
-6 
-6 
-5 
 3 
+5 
+4 
+5 
 
 
 CoPilot's unassigned dice:
 Unassigned dices: 
-5 
-1 
-3 
-3 
+2 
+6 
+4 
+2 
 
 ]]></system-out>
   <system-err><![CDATA[You won!

@@ -1,40 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.mygdx.tests.PlayerTest" tests="9" skipped="0" failures="0" errors="0" timestamp="2025-01-15T14:06:16" hostname="DESKTOP-P99594G" time="0.006">
+<testsuite name="com.mygdx.tests.PlayerTest" tests="9" skipped="0" failures="0" errors="0" timestamp="2025-01-16T16:11:55" hostname="DESKTOP-9CTSVT6" time="0.047">
   <properties/>
-  <testcase name="testGetDices()" classname="com.mygdx.tests.PlayerTest" time="0.001"/>
-  <testcase name="testGetUnassignedDice()" classname="com.mygdx.tests.PlayerTest" time="0.0"/>
-  <testcase name="testResetDiceAssignments()" classname="com.mygdx.tests.PlayerTest" time="0.001"/>
-  <testcase name="testGetName()" classname="com.mygdx.tests.PlayerTest" time="0.0"/>
-  <testcase name="testRerollDice()" classname="com.mygdx.tests.PlayerTest" time="0.0"/>
-  <testcase name="testGetCoffeeToken()" classname="com.mygdx.tests.PlayerTest" time="0.0"/>
-  <testcase name="testUseRerollToken()" classname="com.mygdx.tests.PlayerTest" time="0.001"/>
-  <testcase name="testDisplayUnassignedDice()" classname="com.mygdx.tests.PlayerTest" time="0.0"/>
+  <testcase name="testGetDices()" classname="com.mygdx.tests.PlayerTest" time="0.004"/>
+  <testcase name="testGetUnassignedDice()" classname="com.mygdx.tests.PlayerTest" time="0.003"/>
+  <testcase name="testResetDiceAssignments()" classname="com.mygdx.tests.PlayerTest" time="0.004"/>
+  <testcase name="testGetName()" classname="com.mygdx.tests.PlayerTest" time="0.001"/>
+  <testcase name="testRerollDice()" classname="com.mygdx.tests.PlayerTest" time="0.004"/>
+  <testcase name="testGetCoffeeToken()" classname="com.mygdx.tests.PlayerTest" time="0.002"/>
+  <testcase name="testUseRerollToken()" classname="com.mygdx.tests.PlayerTest" time="0.008"/>
+  <testcase name="testDisplayUnassignedDice()" classname="com.mygdx.tests.PlayerTest" time="0.002"/>
   <testcase name="testHasRerollToken()" classname="com.mygdx.tests.PlayerTest" time="0.001"/>
   <system-out><![CDATA[All dice have been reset to unassigned.
 Unassigned dices: 
-6 
-6 
+4 
+3 
 2 
 3 
 
 Unassigned dices: 
-4 
+5 
 1 
-6 
 3 
+1 
 
 Unassigned dices: 
-3 
-5 
-4 
+2 
+1 
 6 
+5 
 
 Dice 1 selected.
 Unassigned dices: 
-6 
-6 
 4 
-1 
+5 
+3 
+3 
 
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>

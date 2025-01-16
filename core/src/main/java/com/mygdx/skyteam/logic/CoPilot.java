@@ -1,14 +1,31 @@
 package com.mygdx.skyteam.logic;
-
+/**
+ * Represents the co-pilot player in the game.
+ * Handles co-pilot actions such as placing dice, using the radio, and interacting with airplane components.
+ */
 public class CoPilot extends Player {
     private Radio radio;
 
+    /**
+     * Initializes a co-pilot with a name, role, and assigned airplane.
+     *
+     * @param name      the name of the co-pilot.
+     * @param airplane  the airplane associated with the co-pilot.
+     */
     public CoPilot(String name, Airplane airplane) {
         super(name, "CoPilot", airplane);
         this.airplane = airplane;
         radio = new Radio(2);
     }
 
+    /**
+     * Places a dice on a specified field based on the co-pilot's input.
+     * Executes corresponding actions like adjusting speed, tilt, or deploying flaps.
+     *
+     * @param diceValue    the value of the dice to place.
+     * @param playerInput  the target component (e.g., "engine", "axis", "radio").
+     * @param fieldChoice  the specific field for placement (used for components like "radio" or "flaps").
+     */
     public void placeDice(int diceValue, String playerInput, int fieldChoice) {
 
         if (!canPlaceDice(diceValue, playerInput, fieldChoice)) {
@@ -54,6 +71,14 @@ public class CoPilot extends Player {
         }
     }
 
+    /**
+     * Checks if the dice can be placed on a specific field.
+     *
+     * @param diceValue    the value of the dice to place.
+     * @param playerInput  the target component (e.g., "engine", "axis", "radio").
+     * @param fieldChoice  the specific field for placement (used for components like "radio").
+     * @return true if the dice can be placed, false otherwise.
+     */
     public boolean canPlaceDice(int diceValue, String playerInput, int fieldChoice) {
         boolean validPlacement = false;
 
@@ -112,6 +137,14 @@ public class CoPilot extends Player {
         return validPlacement;
     }
 
+    /**
+     * Uses the radio to remove the number of planes from the track based on the dice value.
+     *
+     * @param currentPosition the current position of the airplane.
+     * @param diceValue       the dice value to use.
+     * @param chosenField     the field index (0 or 1).
+     * @throws IllegalArgumentException if the field choice is invalid.
+     */
     public void useRadio(int currentPosition, int diceValue, int chosenField) {
 
         while (chosenField != 0 && chosenField != 1) {
@@ -121,11 +154,21 @@ public class CoPilot extends Player {
         radio.useRadio(currentPosition, diceValue, chosenField, airplane.getPlanesOnTrack());
     }
 
+    /**
+     * Checks if the co-pilot has placed dice on all required fields (engine and axis).
+     *
+     * @return true if the required fields have dice, false otherwise.
+     */
     public boolean hasDicesOnRequiredFields() {
         return airplane.getEngine().getCoPilotField().getPlacedDice() != null
                 && airplane.getAxis().getCoPilotAxisField().getPlacedDice() != null;
     }
 
+    /**
+     * Gets the radio object associated with the co-pilot.
+     *
+     * @return the radio object.
+     */
     public Radio getRadio() {
         return radio;
     }

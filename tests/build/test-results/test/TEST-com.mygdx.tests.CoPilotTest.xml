@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.mygdx.tests.CoPilotTest" tests="10" skipped="0" failures="0" errors="0" timestamp="2025-01-15T14:06:16" hostname="DESKTOP-P99594G" time="0.012">
+<testsuite name="com.mygdx.tests.CoPilotTest" tests="10" skipped="0" failures="0" errors="0" timestamp="2025-01-16T16:11:54" hostname="DESKTOP-9CTSVT6" time="0.055">
   <properties/>
-  <testcase name="testGetRadio()" classname="com.mygdx.tests.CoPilotTest" time="0.001"/>
-  <testcase name="testPlaceDiceAxisPass90Degree()" classname="com.mygdx.tests.CoPilotTest" time="0.0"/>
-  <testcase name="testPlaceDiceEngine()" classname="com.mygdx.tests.CoPilotTest" time="0.0"/>
-  <testcase name="testPlaceDiceConcentration()" classname="com.mygdx.tests.CoPilotTest" time="0.001"/>
+  <testcase name="testGetRadio()" classname="com.mygdx.tests.CoPilotTest" time="0.007"/>
+  <testcase name="testPlaceDiceAxisPass90Degree()" classname="com.mygdx.tests.CoPilotTest" time="0.006"/>
+  <testcase name="testPlaceDiceEngine()" classname="com.mygdx.tests.CoPilotTest" time="0.002"/>
+  <testcase name="testPlaceDiceConcentration()" classname="com.mygdx.tests.CoPilotTest" time="0.004"/>
   <testcase name="testHasDicesOnRequiredFields()" classname="com.mygdx.tests.CoPilotTest" time="0.001"/>
-  <testcase name="testPlaceDiceFlaps()" classname="com.mygdx.tests.CoPilotTest" time="0.001"/>
-  <testcase name="testPlaceDiceRadio()" classname="com.mygdx.tests.CoPilotTest" time="0.001"/>
-  <testcase name="testInvalidValues()" classname="com.mygdx.tests.CoPilotTest" time="0.001"/>
-  <testcase name="testPlaceDiceEngineWhenCrashHappen()" classname="com.mygdx.tests.CoPilotTest" time="0.001"/>
-  <testcase name="testPlaceDiceAxis()" classname="com.mygdx.tests.CoPilotTest" time="0.001"/>
+  <testcase name="testPlaceDiceFlaps()" classname="com.mygdx.tests.CoPilotTest" time="0.006"/>
+  <testcase name="testPlaceDiceRadio()" classname="com.mygdx.tests.CoPilotTest" time="0.002"/>
+  <testcase name="testInvalidValues()" classname="com.mygdx.tests.CoPilotTest" time="0.004"/>
+  <testcase name="testPlaceDiceEngineWhenCrashHappen()" classname="com.mygdx.tests.CoPilotTest" time="0.008"/>
+  <testcase name="testPlaceDiceAxis()" classname="com.mygdx.tests.CoPilotTest" time="0.002"/>
   <system-out><![CDATA[Axis adjusted. Current tilt: 2
 Axis adjusted. Current tilt: 1
 Plane tilted 90 degrees. GAME OVER
