@@ -12,23 +12,24 @@ public class Round {
     private int currentFieldChoice;
     private int currentDiceIndex;
 
-    public Round(Pilot pilot, CoPilot coPilot, Airplane airplane, GameLogic game) {
+    public Round(Pilot pilot, CoPilot coPilot, Airplane airplane, GameLogic game, int startingPlayerIndex) {
         turnsLeft = 4;
         this.pilot = pilot;
         this.coPilot = coPilot;
-        currentPlayerIndex = 0;
+        this.currentPlayerIndex = startingPlayerIndex;
         this.airplane = airplane;
         this.game = game;
     }
 
     public void playRound() {
         boolean turnCompleted = false;
+        int lastPlayerIndex = (game.getRoundNumber() % 2 == 0) ? 0 : 1;
         while (turnsLeft > 0) {
 
             if (currentDiceIndex != -1 && currentPlayerInput != null && currentFieldChoice != -1) {
                 playTurn(currentDiceIndex, currentPlayerInput, currentFieldChoice);
 
-                if (currentPlayerIndex == 1) {
+                if (currentPlayerIndex == lastPlayerIndex) {
                     turnsLeft--;
                 }
                 switchPlayer();
@@ -46,7 +47,7 @@ public class Round {
     public void playTurn(int diceIndex, String playerInput, int fieldChoice) {
         // Pilots turn
         if (currentPlayerIndex == 0) {
-            System.out.println("It's Pilot's turn.");
+            /* System.out.println("It's Pilot's turn."); */
             pilot.displayUnassignedDice();
 
             boolean tokenUsed = false;
@@ -79,17 +80,15 @@ public class Round {
             if (tokenUsed) {
                 airplane.getAltitude().getRerollToken()
                         .setQuantity(airplane.getAltitude().getRerollToken().getQuantity() - 1);
-                System.out.println("Reroll token count reduced. Remaining tokens: "
-                        + airplane.getAltitude().getRerollToken().getQuantity());
+                /*
+                 * System.out.println("Reroll token count reduced. Remaining tokens: "
+                 * + airplane.getAltitude().getRerollToken().getQuantity());
+                 */
             }
 
-            pilot.displayUnassignedDice();
-
             int selectedDiceValue = pilot.getDices().get(diceIndex).getDiceValue();
-            System.out.println("You selected dice value: " + selectedDiceValue);
 
-            System.out.println("Where do you want to place your dice?");
-            System.out.println("Available options: engine, axis, radio, landing gears, brake, coffee");
+            /* System.out.println("You selected dice value: " + selectedDiceValue); */
 
             pilot.placeDice(selectedDiceValue, playerInput, fieldChoice);
 
@@ -99,12 +98,7 @@ public class Round {
         }
         // CoPilots turn
         else {
-            System.out.println("It's CoPilot's turn.");
-            System.out.println("These are your unassigned dice: ");
-            coPilot.displayUnassignedDice();
-
-
-            coPilot.displayUnassignedDice();
+            /* System.out.println("It's CoPilot's turn."); */
 
             int selectedDiceValue = coPilot.getDices().get(diceIndex).getDiceValue();
 
@@ -119,7 +113,10 @@ public class Round {
 
     public void switchPlayer() {
         currentPlayerIndex = (currentPlayerIndex == 0) ? 1 : 0; // 0 for pilot, 1 for copilot
-        System.out.println("Next player is: " + (currentPlayerIndex == 0 ? "Pilot" : "CoPilot"));
+        /*
+         * System.out.println("Next player is: " + (currentPlayerIndex == 0 ? "Pilot" :
+         * "CoPilot"));
+         */
         System.out.println(currentPlayerIndex);
     }
 
@@ -136,9 +133,9 @@ public class Round {
     public void checkTurnConditions() {
 
         if (airplane.getEngine().getPilotField().isFilled() && airplane.getEngine().getCoPilotField().isFilled()) {
-            System.out.println("Both engine fields are filled.");
+            /* System.out.println("Both engine fields are filled."); */
             if (!airplane.getEngine().isPositionMoveSuccessful()) {
-                System.out.println("Position move failed. Ending game.");
+                /* System.out.println("Position move failed. Ending game."); */
                 game.endGame();
                 return;
             }
@@ -150,6 +147,7 @@ public class Round {
                 game.endGame();
             }
         }
+
     }
 
     public void collectPlayerInput(int diceIndex, String playerInput, int fieldChoice) {
@@ -162,12 +160,15 @@ public class Round {
     public int getCurrentPlayerIndex() {
         return currentPlayerIndex;
     }
+
     public int getTurnsLeft() {
         return turnsLeft;
     }
+
     public int getCurrentDiceIndex() {
         return currentDiceIndex;
     }
+
     public int getCurrentFieldChoice() {
         return currentFieldChoice;
     }
@@ -176,5 +177,3 @@ public class Round {
         return currentPlayerInput;
     }
 }
-
-

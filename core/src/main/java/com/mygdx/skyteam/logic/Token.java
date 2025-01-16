@@ -47,10 +47,10 @@ public class Token {
                 }
                 quantity--;
             } else {
-                System.out.println("No dice selected to reroll.");
+                /* System.out.println("No dice selected to reroll."); */
             }
         } else {
-            System.out.println("No reroll tokens left to use.");
+            /* System.out.println("No reroll tokens left to use."); */
         }
     }
 

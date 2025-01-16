@@ -19,7 +19,7 @@ public abstract class Player {
         for (int i = 0; i < 4; i++) {
             Dice dice = new Dice(); 
             dice.rollDice();
-            dice.unassign();  //so each dice is marked as unassigned(not placed initially)
+            dice.unassign();  
             dices.add(dice);
         }
     }
@@ -32,23 +32,22 @@ public abstract class Player {
 
 
     public abstract void placeDice(int diceValue, String playerInput, int placeHolder);
-
+    //This function is not directly relevant to the game; it was used for debugging purposes to display unplaced dice in the Terminal. We are leaving it here for reference.
     public void displayUnassignedDice() {
-        System.out.println("Unassigned dices: ");
+        /* System.out.println("Unassigned dices: "); */
         for (int i = 0; i < dices.size(); i++) {
             Dice dice = dices.get(i);
-            if (!dice.isAssigned()) {  // check if the dice is unassigned
-                System.out.println(dice.getDiceValue() + " ");
+            if (!dice.isAssigned()) {  
+                /* System.out.println(dice.getDiceValue() + " "); */
             }
         }
-        System.out.println();
     }
 
     public void resetDiceAssignments() {
         for (Dice dice : dices) {
             dice.unassign();  
         }
-        System.out.println("All dice have been reset to unassigned.");
+        /* System.out.println("All dice have been reset to unassigned."); */
     }
     
 
@@ -67,9 +66,9 @@ public abstract class Player {
                     
                 if (diceIndex >= 0 && diceIndex < getUnassignedDice().size()) {
                     selectedDice.add(getUnassignedDice().get(diceIndex)); 
-                    System.out.println("Dice " + (diceIndex + 1) + " selected.");
+                    /* System.out.println("Dice " + (diceIndex + 1) + " selected."); */
                 } else {
-                    System.out.println("Invalid index. Try again.");
+                    /* System.out.println("Invalid index. Try again."); */
                 }
 
             } catch (NumberFormatException e) {

@@ -19,7 +19,7 @@ public class Brake {
 
         brakeFields.add(new Field("Brake Field 1", Arrays.asList(2), 862, 890));
         brakeFields.add(new Field("Brake Field 2", Arrays.asList(4), 936, 890));
-        brakeFields.add(new Field("Brake Field 3", Arrays.asList(6), 1015, 890));
+        brakeFields.add(new Field("Brake Field 3", Arrays.asList(6), 1012, 890));
     }
 
     /**
@@ -33,33 +33,33 @@ public class Brake {
             if (!brakeFields.get(0).isFilled()) {
                 brakeFields.get(0).setDiceValue(pilotInput);
                 redMarker = pilotInput;
-                System.out.println("Brake field 1 is now deployed.");
+                /* System.out.println("Brake field 1 is now deployed."); */
             } else {
-                System.out.println("Brake field 1 is already occupied.");
+               /*  System.out.println("Brake field 1 is already occupied."); */
             }
         } else if (pilotInput == 4) {
             if (!brakeFields.get(0).isFilled()) {
-                System.out.println("Brake field 1 must be deployed first before deploying brake field 2.");
+                /* System.out.println("Brake field 1 must be deployed first before deploying brake field 2."); */
             } else if (!brakeFields.get(1).isFilled()) {
                 brakeFields.get(1).setDiceValue(pilotInput);
                 redMarker = pilotInput;
-                System.out.println("Brake field 2 is now deployed.");
+               /*  System.out.println("Brake field 2 is now deployed."); */
             } else {
-                System.out.println("Brake field 2 is already occupied.");
+                /* System.out.println("Brake field 2 is already occupied."); */
             }
         } else if (pilotInput == 6) {
             if (!brakeFields.get(0).isFilled() || !brakeFields.get(1).isFilled()) {
-                System.out.println(
-                        "Both Brake field 1 and Brake field 2 must be deployed first before deploying brake field 3.");
+                /* System.out.println(
+                        "Both Brake field 1 and Brake field 2 must be deployed first before deploying brake field 3."); */
             } else if (!brakeFields.get(2).isFilled()) {
                 brakeFields.get(2).setDiceValue(pilotInput);
                 redMarker = pilotInput;
-                System.out.println("Brake field 3 is now deployed.");
+                /* System.out.println("Brake field 3 is now deployed."); */
             } else {
-                System.out.println("Brake field 3 is already occupied.");
+                /* System.out.println("Brake field 3 is already occupied."); */
             }
         } else {
-            System.out.println("Invalid input for brake deployment. Please choose from 2, 4, or 6.");
+            /* System.out.println("Invalid input for brake deployment. Please choose from 2, 4, or 6."); */
         }
     }
 
@@ -71,34 +71,34 @@ public class Brake {
      */
     public boolean canPlaceBrakes(int pilotInput) {
         if (pilotInput != 2 && pilotInput != 4 && pilotInput != 6) {
-            System.out.println("Invalid input for brake deployment. Please choose from 2, 4, or 6.");
+            /* System.out.println("Invalid input for brake deployment. Please choose from 2, 4, or 6."); */
             return false;
         }
 
         if (pilotInput == 2) {
             if (brakeFields.get(0).isFilled()) {
-                System.out.println("Brake field 1 is already occupied.");
+                /* System.out.println("Brake field 1 is already occupied."); */
                 return false;
             }
         }
 
         else if (pilotInput == 4) {
             if (!brakeFields.get(0).isFilled()) {
-                System.out.println("Brake field 1 must be deployed first before deploying brake field 2.");
+                /* System.out.println("Brake field 1 must be deployed first before deploying brake field 2."); */
                 return false;
             } else if (brakeFields.get(1).isFilled()) {
-                System.out.println("Brake field 2 is already occupied.");
+                /* System.out.println("Brake field 2 is already occupied."); */
                 return false;
             }
         }
 
         else if (pilotInput == 6) {
             if (!brakeFields.get(0).isFilled() || !brakeFields.get(1).isFilled()) {
-                System.out.println(
-                        "Both Brake field 1 and Brake field 2 must be deployed first before deploying brake field 3.");
+                /* System.out.println(
+                        "Both Brake field 1 and Brake field 2 must be deployed first before deploying brake field 3."); */
                 return false;
             } else if (brakeFields.get(2).isFilled()) {
-                System.out.println("Brake field 3 is already occupied.");
+                /* System.out.println("Brake field 3 is already occupied."); */
                 return false;
             }
         }

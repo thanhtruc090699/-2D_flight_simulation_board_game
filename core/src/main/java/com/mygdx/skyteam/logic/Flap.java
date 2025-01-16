@@ -23,24 +23,24 @@ public class Flap {
         Field selectedFlap = flapsFields.get(fieldChoice - 1);
 
         if (!selectedFlap.getValidDiceValues().contains(coPilotInput)) {
-            System.out.println("Invalid dice value for " + selectedFlap.getName() + "!");
+            /* System.out.println("Invalid dice value for " + selectedFlap.getName() + "!"); */
             return;
         }
 
-        if (fieldChoice > 1 && !flapsFields.get(fieldChoice - 2).isFilled()) { // -2 because the input is not index
-                                                                               // based
-            System.out.println("Flap " + (fieldChoice - 1) + " should be deployed first.");
+        if (fieldChoice > 1 && !flapsFields.get(fieldChoice - 2).isFilled()) { // -2 because the input is not index based
+                                                                               
+            /* System.out.println("Flap " + (fieldChoice - 1) + " should be deployed first."); */
             return;
         }
 
         if (selectedFlap.isFilled()) {
-            System.out.println("Flap " + (fieldChoice) + " is already filled.");
+            /* System.out.println("Flap " + (fieldChoice) + " is already filled."); */
             return;
         }
 
         selectedFlap.setDiceValue(coPilotInput);
         airplane.getEngine().shiftOrangeMarker();
-        System.out.println("Flap " + fieldChoice + " is now deployed.");
+        /* System.out.println("Flap " + fieldChoice + " is now deployed."); */
     }
 
     public boolean canPlaceFlap(int coPilotInput, int fieldChoice) {

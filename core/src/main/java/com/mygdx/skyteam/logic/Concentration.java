@@ -29,15 +29,15 @@ public class Concentration{
         for (Field field : coffeeFields) {
             if (!field.isFilled()) {
                 if (field.setDiceValue(diceValue)) {
-                    System.out.println(field.getName() + " is now filled with dice value " + diceValue + ".");
+                    /* System.out.println(field.getName() + " is now filled with dice value " + diceValue + "."); */
                     return;
                 } else {
-                    System.out.println("Invalid dice value " + diceValue + " for " + field.getName());
+                    /* System.out.println("Invalid dice value " + diceValue + " for " + field.getName()); */
                     return;
                 }
             }
         }
-        System.out.println("All coffee fields are already filled.");
+       /*  System.out.println("All coffee fields are already filled."); */
     }
 
     /**

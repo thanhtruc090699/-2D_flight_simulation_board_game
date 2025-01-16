@@ -31,7 +31,9 @@ public class MainMenuScreen implements Screen {
     @Override
     public void show() {
 
-        setWindowedMode();
+        //setWindowedMode(); 
+        setFullscreenMode();
+
         stage = new Stage(new ScreenViewport());
         skin = new Skin(Gdx.files.internal("uiskin.json"));
 
@@ -128,12 +130,18 @@ public class MainMenuScreen implements Screen {
 
         Gdx.input.setInputProcessor(stage);
     }
-
+    // Use this if you're using a 2k or 4k screen
     private void setWindowedMode() {
         int windowWidth = 1920;
         int windowHeight = 1080;
         Gdx.graphics.setWindowedMode(windowWidth, windowHeight);
     }
+
+    // Use this if you're using a full HD screen
+    private void setFullscreenMode() {
+        Gdx.graphics.setFullscreenMode(Gdx.graphics.getDisplayMode());
+    }
+
     @Override
     public void render(float delta) {
         ScreenUtils.clear(0.9843f, 0.6667f, 0.0980f, 1f);

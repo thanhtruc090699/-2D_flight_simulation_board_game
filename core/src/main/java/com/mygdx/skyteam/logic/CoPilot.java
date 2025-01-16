@@ -29,7 +29,10 @@ public class CoPilot extends Player {
     public void placeDice(int diceValue, String playerInput, int fieldChoice) {
 
         if (!canPlaceDice(diceValue, playerInput, fieldChoice)) {
-            System.out.println("Cannot place dice on " + playerInput + ". The field is already occupied.");
+            /*
+             * System.out.println("Cannot place dice on " + playerInput +
+             * ". The field is already occupied.");
+             */
             return;
         }
         switch (playerInput.toLowerCase()) {
@@ -66,7 +69,7 @@ public class CoPilot extends Player {
                 break;
 
             default:
-                System.out.println("Invalid input. Read the rules first, FOOL!");
+                /* System.out.println("Invalid input. Read the rules first, FOOL!"); */
                 break;
         }
     }
@@ -86,7 +89,10 @@ public class CoPilot extends Player {
             case "engine":
                 Field coPilotEngineField = airplane.getEngine().getCoPilotField();
                 if (coPilotEngineField.isFilled()) {
-                    System.out.println("Cannot place dice on the Engine. It's already occupied.");
+                    /*
+                     * System.out.println("Cannot place dice on the Engine. It's already occupied."
+                     * );
+                     */
                 } else {
                     validPlacement = true;
                 }
@@ -95,7 +101,9 @@ public class CoPilot extends Player {
             case "axis":
                 Field coPilotAxisField = airplane.getAxis().getCoPilotAxisField();
                 if (coPilotAxisField.isFilled()) {
-                    System.out.println("Cannot place dice on the Axis. It's already occupied.");
+                    /*
+                     * System.out.println("Cannot place dice on the Axis. It's already occupied.");
+                     */
                 } else {
                     validPlacement = true;
                 }
@@ -103,7 +111,9 @@ public class CoPilot extends Player {
 
             case "radio":
                 if (getRadio().getRadioFields().get(fieldChoice).isFilled()) {
-                    System.out.println("Cannot place dice on the Radio. It's already occupied.");
+                    /*
+                     * System.out.println("Cannot place dice on the Radio. It's already occupied.");
+                     */
                 } else {
                     validPlacement = true;
                 }
@@ -123,14 +133,14 @@ public class CoPilot extends Player {
                 if (airplane.getConcentration().getCoffeeFields().get(0).isFilled()
                         && airplane.getConcentration().getCoffeeFields().get(1).isFilled()
                         && airplane.getConcentration().getCoffeeFields().get(2).isFilled()) {
-                    System.out.println("All coffee fields are already filled.");
+                    /* System.out.println("All coffee fields are already filled."); */
                 } else {
                     validPlacement = true;
                 }
                 break;
 
             default:
-                System.out.println("Invalid input. Read the rules first, FOOL!");
+                /* System.out.println("Invalid input. Read the rules first, FOOL!"); */
                 break;
         }
 
@@ -160,8 +170,11 @@ public class CoPilot extends Player {
      * @return true if the required fields have dice, false otherwise.
      */
     public boolean hasDicesOnRequiredFields() {
-        return airplane.getEngine().getCoPilotField().getPlacedDice() != null
-                && airplane.getAxis().getCoPilotAxisField().getPlacedDice() != null;
+        if (airplane.getEngine().getCoPilotField().getPlacedDice() == null ||
+                airplane.getAxis().getCoPilotAxisField().getPlacedDice() == null) {
+            return false;
+        }
+        return true;
     }
 
     /**
