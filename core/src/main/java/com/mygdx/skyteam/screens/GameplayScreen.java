@@ -383,7 +383,7 @@ public class GameplayScreen implements Screen {
                         } else {
                             // Finalize reroll process
                             isUsingReroll = false; // End reroll phase
-                            finalizeReroll();
+                            //finalizeReroll();
                         }
                         return true;
                     }
@@ -586,12 +586,15 @@ public class GameplayScreen implements Screen {
      * Finalizes the reroll phase by clearing all reroll-related states.
      * Resets selectable dice and placeholders for both Pilot and Copilot.
      */
+    /*
     private void finalizeReroll() {
         rerollPilotDiceSelectable.clear();
         rerollCopilotDiceSelectable.clear();
         rerollPilotDicePlacedInPlaceHolder.clear();
         rerollCopilotDicePlacedInPlaceHolder.clear();
     }
+
+     */
 
     /**
      * Draws the dice on the screen for the given player.
@@ -914,17 +917,23 @@ public class GameplayScreen implements Screen {
             for (int i = 0; i < pilotDice.size(); i++) {
                 coffeePilotDiceSelectable.set(i, true);
                 PilotDicePlacedInPlaceHolder.set(i, false);
+                rerollPilotDiceSelectable.set(i,true);
+                rerollPilotDicePlacedInPlaceHolder.set(i,false);
+
             }
             // Reset Copilot's dice state
             for (int i = 0; i < coPilotDice.size(); i++) {
                 coffeeCopilotDiceSelectable.set(i, true);
                 CopilotDicePlacedInPlaceHolder.set(i, false);
+                rerollCopilotDiceSelectable.set(i,true);
+                rerollCopilotDicePlacedInPlaceHolder.set(i,false);
             }
 
             // Reset coffee fields
             for (int i = 0; i < 3; i++) {
                 gameLogic.getAirplane().getConcentration().resetCoffeeField(i);
             }
+
 
             // Adjust reroll icon positions
             for (int i = 0; i < rerollIconPositions.size(); i++) {
@@ -1588,6 +1597,7 @@ public class GameplayScreen implements Screen {
                     playDiceSound();
                     gameLogic.getRound().collectPlayerInput(diceIndex, playerInput, fieldChoice);
                     PilotDicePlacedInPlaceHolder.set(diceIndex, true);
+                    rerollPilotDicePlacedInPlaceHolder.set(diceIndex,true);
                     gameLogic.getRound().playRound();
 
                 } else {
@@ -1610,6 +1620,7 @@ public class GameplayScreen implements Screen {
                     playDiceSound();
                     gameLogic.getRound().collectPlayerInput(diceIndex, playerInput, fieldChoice);
                     PilotDicePlacedInPlaceHolder.set(diceIndex, true);
+                    rerollPilotDicePlacedInPlaceHolder.set(diceIndex,true);
                     gameLogic.getRound().playRound();
                 } else {
                     diceImage.setPosition(pilotStartX + diceIndex * diceSpacing, pilotStartY);
@@ -1633,6 +1644,7 @@ public class GameplayScreen implements Screen {
                         playDiceSound();
                         gameLogic.getRound().collectPlayerInput(diceIndex, playerInput, fieldChoice);
                         PilotDicePlacedInPlaceHolder.set(diceIndex, true);
+                        rerollPilotDicePlacedInPlaceHolder.set(diceIndex,true);
                         switchesStates.set(i + 7, true);
                         currentRedMarkerSteps++;
                         if (currentRedMarkerSteps == 1) {
@@ -1670,6 +1682,7 @@ public class GameplayScreen implements Screen {
                         playDiceSound();
                         gameLogic.getRound().collectPlayerInput(diceIndex, playerInput, fieldChoice);
                         PilotDicePlacedInPlaceHolder.set(diceIndex, true);
+                        rerollPilotDicePlacedInPlaceHolder.set(diceIndex,true);
                         if (currentCoffeeQuantity < 3) {
                             currentCoffeeQuantity++;
                         }
@@ -1706,6 +1719,7 @@ public class GameplayScreen implements Screen {
                         playDiceSound();
                         gameLogic.getRound().collectPlayerInput(diceIndex, playerInput, fieldChoice);
                         PilotDicePlacedInPlaceHolder.set(diceIndex, true);
+                        rerollPilotDicePlacedInPlaceHolder.set(diceIndex,true);
                         switchesStates.set(i, true);
                         currentBlueMarkerSteps++;
                         if (currentBlueMarkerSteps == 1) {
@@ -1741,6 +1755,7 @@ public class GameplayScreen implements Screen {
                     playDiceSound();
                     gameLogic.getRound().collectPlayerInput(diceIndex, playerInput, fieldChoice);
                     PilotDicePlacedInPlaceHolder.set(diceIndex, true);
+                    rerollPilotDicePlacedInPlaceHolder.set(diceIndex,true);
                     gameLogic.getRound().playRound();
                 } else {
                     diceImage.setPosition(pilotStartX + diceIndex * diceSpacing, pilotStartY);
@@ -1763,6 +1778,7 @@ public class GameplayScreen implements Screen {
                     droppedCoPilotDiceList.add(diceImage);
                     gameLogic.getRound().collectPlayerInput(diceIndex, playerInput, fieldChoice);
                     CopilotDicePlacedInPlaceHolder.set(diceIndex, true);
+                    rerollCopilotDicePlacedInPlaceHolder.set(diceIndex,true);
                     gameLogic.getRound().playRound();
                 } else {
                     diceImage.setPosition(coPilotStartX + diceIndex * diceSpacing, coPilotStartY);
@@ -1786,6 +1802,7 @@ public class GameplayScreen implements Screen {
                     playDiceSound();
                     gameLogic.getRound().collectPlayerInput(diceIndex, playerInput, fieldChoice);
                     CopilotDicePlacedInPlaceHolder.set(diceIndex, true);
+                    rerollCopilotDicePlacedInPlaceHolder.set(diceIndex,true);
                     gameLogic.getRound().playRound();
                 } else {
                     diceImage.setPosition(coPilotStartX + diceIndex * diceSpacing, coPilotStartY);
@@ -1810,6 +1827,7 @@ public class GameplayScreen implements Screen {
                         droppedCoPilotDiceList.add(diceImage);
                         gameLogic.getRound().collectPlayerInput(diceIndex, playerInput, fieldChoice);
                         CopilotDicePlacedInPlaceHolder.set(diceIndex, true);
+                        rerollCopilotDicePlacedInPlaceHolder.set(diceIndex,true);
                         switchesStates.set(i + 3, true);
                         currentOrangeMarkerSteps++;
                         if (currentOrangeMarkerSteps == 1) {
@@ -1851,6 +1869,7 @@ public class GameplayScreen implements Screen {
                         droppedCoPilotDiceList.add(diceImage);
                         gameLogic.getRound().collectPlayerInput(diceIndex, playerInput, fieldChoice);
                         CopilotDicePlacedInPlaceHolder.set(diceIndex, true);
+                        rerollCopilotDicePlacedInPlaceHolder.set(diceIndex,true);
                         gameLogic.getRound().playRound();
                     } else {
                         diceImage.setPosition(coPilotStartX + diceIndex * diceSpacing, coPilotStartY);
@@ -1877,6 +1896,7 @@ public class GameplayScreen implements Screen {
                         droppedCoPilotDiceList.add(diceImage);
                         gameLogic.getRound().collectPlayerInput(diceIndex, playerInput, fieldChoice);
                         CopilotDicePlacedInPlaceHolder.set(diceIndex, true);
+                        rerollCopilotDicePlacedInPlaceHolder.set(diceIndex,true);
                         if (currentCoffeeQuantity < 3) {
                             currentCoffeeQuantity++;
                         }
