@@ -14,7 +14,7 @@ import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.mygdx.skyteam.logic.GameLogic;
-import com.mygdx.skyteam.screens.InstructionScreen; 
+import com.mygdx.skyteam.screens.InstructionScreen;
 
 
 public class MainMenuScreen implements Screen {
@@ -31,6 +31,7 @@ public class MainMenuScreen implements Screen {
     @Override
     public void show() {
 
+        setWindowedMode();
         stage = new Stage(new ScreenViewport());
         skin = new Skin(Gdx.files.internal("uiskin.json"));
 
@@ -128,9 +129,14 @@ public class MainMenuScreen implements Screen {
         Gdx.input.setInputProcessor(stage);
     }
 
+    private void setWindowedMode() {
+        int windowWidth = 1920;
+        int windowHeight = 1080;
+        Gdx.graphics.setWindowedMode(windowWidth, windowHeight);
+    }
     @Override
     public void render(float delta) {
-        ScreenUtils.clear(0.9843f, 0.6667f, 0.0980f, 1f); 
+        ScreenUtils.clear(0.9843f, 0.6667f, 0.0980f, 1f);
         stage.act(Math.min(Gdx.graphics.getDeltaTime(), 1 / 30f));
         stage.draw();
     }

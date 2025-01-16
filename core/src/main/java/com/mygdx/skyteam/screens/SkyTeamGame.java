@@ -26,7 +26,8 @@ public class SkyTeamGame extends Game {
         viewport = new FitViewport(1920, 1080, camera);
         viewport.apply();
 
-        setFullscreenMode();
+        //setFullscreenMode();
+        setWindowedMode();
         this.setScreen(new MainMenuScreen(this));
     }
 
