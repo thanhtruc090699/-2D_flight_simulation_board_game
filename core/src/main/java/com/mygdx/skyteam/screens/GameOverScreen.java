@@ -5,7 +5,10 @@ import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.utils.ScreenUtils;
-
+/**
+ * Represents the Game Over screen in the game.
+ * Displays options to retry the game or quit to the main menu.
+ */
 public class GameOverScreen implements Screen {
     private final SkyTeamGame game;
     private final SpriteBatch batch;

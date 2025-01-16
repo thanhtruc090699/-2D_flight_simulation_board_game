@@ -8,7 +8,10 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.ScreenUtils;
-
+/**
+ * Represents the victory screen displayed after the player wins the game.
+ * Provides options to play again or quit the application.
+ */
 public class VictoryScreen extends ScreenAdapter {
 
     private final SkyTeamGame game;
@@ -30,13 +33,13 @@ public class VictoryScreen extends ScreenAdapter {
         this.playAgainButton = new Texture(Gdx.files.internal("images/play_v.png"));
         this.quitButton = new Texture(Gdx.files.internal("images/quit_v.png"));
 
-        this.playAgainButtonX = Gdx.graphics.getWidth() - playAgainButton.getWidth() - 20;  
+        this.playAgainButtonX = Gdx.graphics.getWidth() - playAgainButton.getWidth() - 20;
         this.playAgainButtonY = 90;
-        this.quitButtonX = Gdx.graphics.getWidth() - quitButton.getWidth() - 20;  
+        this.quitButtonX = Gdx.graphics.getWidth() - quitButton.getWidth() - 20;
         this.quitButtonY = 30;
 
-        this.titleX = Gdx.graphics.getWidth() - title.getWidth() - 20;  
-        this.titleY = Gdx.graphics.getHeight() - title.getHeight() - 100; 
+        this.titleX = Gdx.graphics.getWidth() - title.getWidth() - 20;
+        this.titleY = Gdx.graphics.getHeight() - title.getHeight() - 100;
     }
 
 

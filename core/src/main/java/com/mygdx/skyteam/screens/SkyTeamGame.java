@@ -9,6 +9,7 @@ import com.badlogic.gdx.utils.viewport.Viewport;
 import com.mygdx.skyteam.logic.GameLogic;
 
 /**
+ * Main entry point for the game, managing the game lifecycle and screen transitions.
  * {@link com.badlogic.gdx.ApplicationListener} implementation shared by all
  * platforms.
  */

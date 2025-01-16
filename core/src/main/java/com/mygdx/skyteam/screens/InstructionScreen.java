@@ -15,7 +15,10 @@ import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import com.badlogic.gdx.utils.ScreenUtils;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
-
+/**
+ * Displays the instruction screen with a manual that users can navigate.
+ * Provides "Next" and "Back" buttons to navigate the manual or return to the main menu.
+ */
 public class InstructionScreen implements Screen {
     private Stage stage;
     private final SkyTeamGame game;
