@@ -144,9 +144,13 @@ public class GameplayScreen implements Screen {
         this.gameLogic = gameLogic;
     }
 
+    /**
+     * Initializes the game screen, loading textures, assets, and setting up game logic.
+     * This method prepares all necessary UI components, dice positions, and game state.
+     */
     @Override
     public void show() {
-        // Load textures for UI
+        // Load background and game board textures
         backgroundTexture = new Texture(Gdx.files.internal("images/wood_bg.jpg"));
         boardTexture = new Texture(Gdx.files.internal("board/Control Panel.png"));
         planeTrack = new Texture(Gdx.files.internal("board/Track.png"));
@@ -168,11 +172,12 @@ public class GameplayScreen implements Screen {
         planeTexture = new Texture(Gdx.files.internal("board/icons/Plane.png"));
         borderTexture = new Texture(Gdx.files.internal("images/border.png"));
 
-        // Load textures and initialize stage
+        // Initialize stage, batch, and shape renderer
         batch = new SpriteBatch();
         stage = new Stage(new ScreenViewport());
         shapeRenderer = new ShapeRenderer();
 
+        // Load dice textures and audio
         roundTextures = new Texture[7];
         diceSound = Gdx.audio.newSound(Gdx.files.internal("audio/dice_sound.mp3"));
 
@@ -191,7 +196,7 @@ public class GameplayScreen implements Screen {
             roundTextures[i] = new Texture(Gdx.files.internal("images/round" + (i + 1) + ".png"));
         }
 
-        // Initialize game logic
+        // Initialize game logic and dice
         gameLogic.startGame();
 
         pilotDice = new ArrayList<>(gameLogic.getPilot().getDices());
@@ -200,6 +205,7 @@ public class GameplayScreen implements Screen {
         drawDice(pilotDice, pilotDiceTextures, true);
         drawDice(coPilotDice, coPilotDiceTextures, false);
 
+        // Setup switches for Landing Gears, Flaps, and Brakes
         switchesPositions = new ArrayList<>();
         switchesStates = new ArrayList<>();
         for (int i = 0; i < 10; i++) {
@@ -224,6 +230,7 @@ public class GameplayScreen implements Screen {
         switchesPositions.add(new Vector2(940, 100));
         switchesPositions.add(new Vector2(1013, 100));
 
+        // Initialize marker positions
         // Blue Markers
         blueMarkerPosition = new Vector2(865, 367);
 
@@ -234,7 +241,6 @@ public class GameplayScreen implements Screen {
         orangeMarkerPosition = new Vector2(1010, 349);
 
         // Coffee positions list
-
         coffeesPositions = new ArrayList<>();
         /*
          * coffeesPositions.add(new Vector2(760, 66));
@@ -243,6 +249,7 @@ public class GameplayScreen implements Screen {
          *
          */
 
+        // Initialize button positions for Pilot and CoPilot
         buttonUpPilotPositions = new ArrayList<>();
         buttonDownPilotPositions = new ArrayList<>();
         buttonUpCoPilotPositions = new ArrayList<>();
