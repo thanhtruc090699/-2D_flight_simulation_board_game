@@ -87,14 +87,21 @@ public class GameLogic {
                 pilot.rerollDice();
                 coPilot.rerollDice();
 
+                airplane.getEngine().resetFields();
+                airplane.getAxis().resetFields();
+
                 pilot.getRadio().resetFields();
                 coPilot.getRadio().resetFields();
+
                 airplane.getAltitude().adjustAltitude(currentRoundNumber);
 
                 startingPlayerIndex = (startingPlayerIndex == 0) ? 1 : 0;
 
                 startRound();
 
+            }
+            else{
+                endGame();
             }
 
         } else {
@@ -140,7 +147,7 @@ public class GameLogic {
         }
 
         int airplaneSpeed = airplane.getEngine().getSpeed();
-        if (airplaneSpeed > airplane.getBrakes().getRedMarker()) {
+        if (airplaneSpeed < airplane.getBrakes().getRedMarker()) {
             /*
              * System.out.
              * println("Your speed had to be lower than the brake value. You crashed.");
