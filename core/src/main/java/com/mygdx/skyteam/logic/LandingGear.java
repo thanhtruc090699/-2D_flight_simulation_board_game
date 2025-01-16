@@ -20,13 +20,13 @@ public class LandingGear {
         Field selectedField = landingGearFields.get(fieldChoice - 1);
 
         if (!selectedField.getValidDiceValues().contains(pilotInput)) {
-            System.out.println("Invalid dice value for " + selectedField.getName() + "!");
+            /* System.out.println("Invalid dice value for " + selectedField.getName() + "!"); */
             return;
         }
 
         selectedField.setDiceValue(pilotInput);
         airplane.getEngine().shiftBlueMarker();
-        System.out.println(selectedField.getName() + " is now deployed.");
+        /* System.out.println(selectedField.getName() + " is now deployed."); */
     }
 
     public boolean canPlaceLandingGear(int pilotInput, int fieldChoice) {

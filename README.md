@@ -124,3 +124,16 @@ If you encounter issues while running or compiling the project, try the followin
 - **Thomas Buchmann** – Academic Guidance
 
 ## Additional Documentation
+
+
+### Screen Ratio and Resolution
+
+- **Game Ratio**: The game is optimized to run in a **16:9 ratio**. Running in a **16:10 ratio**  is possible, but the display of certain fields may look odd. Thus, it is not recommended.
+  
+- **Full-Screen Mode**: The game should run in **full-screen mode** for **Full HD** screens. For **2K or 4K** screens, it is recommended to run the game in **windowed mode**.
+  
+  - **Full HD Screens**: To toggle full-screen mode, use the `setFullscreenMode()` function in the `SkyTeamGame` and `MainMenuScreen` classes.
+  
+  - **2K/4K Screens**: For these screens, toggle to windowed mode by using the `setWindowedMode()` function in both the `SkyTeamGame` and `MainMenuScreen`.
+
+---

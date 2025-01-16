@@ -32,11 +32,7 @@ public class Axis {
             currentTilt = 6;
         }
 
-        if (currentTilt == 0 || currentTilt == 6) {
-            System.out.println("Plane tilted 90 degrees. GAME OVER");
-        } else {
-            System.out.println("Axis adjusted. Current tilt: " + currentTilt);
-        }
+
     }
 
     public void placePilotDice(int diceValue) {

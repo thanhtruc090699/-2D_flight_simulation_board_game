@@ -1,7 +1,6 @@
 package com.mygdx.skyteam.logic;
 
 import java.util.ArrayList;
-import com.badlogic.gdx.scenes.scene2d.ui.List;
 
 public class GameLogic {
     private boolean gameOver;
@@ -11,9 +10,7 @@ public class GameLogic {
     private CoPilot coPilot;
     private Round currentRound;
     private int currentRoundNumber;
-    private List<Field> pilotFields;
-
-    private List<Field> coPilotFields;
+    private int startingPlayerIndex = 0;
 
     public GameLogic() {
         airplane = new Airplane();
@@ -22,12 +19,16 @@ public class GameLogic {
 
     public void startGame() {
 
-        System.out.println("Welcome To The Game");
-        // We didn't make name/role choosing an option so it stays like this
+        /* System.out.println("Welcome To The Game"); */
+
+        // We didn't make name/role choosing an option in UI so it stays like this
         String name1 = "Player 1";
         String name2 = "Player 2";
 
-        System.out.println("Enter role for " + name1 + " : (1 for Pilot, 2 for CoPilot)");
+        /*
+         * System.out.println("Enter role for " + name1 +
+         * " : (1 for Pilot, 2 for CoPilot)");
+         */
         int roleChoice1 = 1;
 
         if (roleChoice1 == 1) {
@@ -42,13 +43,13 @@ public class GameLogic {
     }
 
     public void startRound() {
-        currentRound = new Round(pilot, coPilot, airplane, this);
-        System.out.println("ROUND : " + currentRoundNumber);
+        currentRound = new Round(pilot, coPilot, airplane, this, startingPlayerIndex);
+        /* System.out.println("ROUND : " + currentRoundNumber); */
 
-        System.out.println("\nPilot's unassigned dice:");
+        /* System.out.println("\nPilot's unassigned dice:"); */
         pilot.displayUnassignedDice();
 
-        System.out.println("\nCoPilot's unassigned dice:");
+        /* System.out.println("\nCoPilot's unassigned dice:"); */
         coPilot.displayUnassignedDice();
 
     }
@@ -57,83 +58,93 @@ public class GameLogic {
 
         boolean stillAlive = currentRound.checkRoundConditions();
 
-        if (stillAlive && currentRoundNumber < 7) {
+        if (stillAlive) {
             currentRoundNumber++;
+            if (currentRoundNumber < 7) {
 
-            pilot.resetDiceAssignments();
-            coPilot.resetDiceAssignments();
+                pilot.resetDiceAssignments();
+                coPilot.resetDiceAssignments();
 
-            pilot.rerollDice();
-            coPilot.rerollDice();
+                pilot.rerollDice();
+                coPilot.rerollDice();
 
-            airplane.getEngine().resetFields();
-            airplane.getAxis().resetFields();
+                airplane.getEngine().resetFields();
+                airplane.getAxis().resetFields();
 
-            pilot.getRadio().resetFields();
-            coPilot.getRadio().resetFields();
+                pilot.getRadio().resetFields();
+                coPilot.getRadio().resetFields();
 
-            airplane.getAltitude().adjustAltitude(currentRoundNumber);
-            startRound();
-        } else if (!stillAlive) {
-            endGame();
+                airplane.getAltitude().adjustAltitude(currentRoundNumber);
+
+                startingPlayerIndex = (startingPlayerIndex == 0) ? 1 : 0;
+
+                startRound();
+            } else if (currentRoundNumber == 7) {
+
+                pilot.resetDiceAssignments();
+                coPilot.resetDiceAssignments();
+
+                pilot.rerollDice();
+                coPilot.rerollDice();
+
+                pilot.getRadio().resetFields();
+                coPilot.getRadio().resetFields();
+                airplane.getAltitude().adjustAltitude(currentRoundNumber);
+
+                startingPlayerIndex = (startingPlayerIndex == 0) ? 1 : 0;
+
+                startRound();
+
+            }
+
         } else {
-            //currentRoundNumber++;
 
-            pilot.resetDiceAssignments();
-            coPilot.resetDiceAssignments();
-
-            pilot.rerollDice();
-            coPilot.rerollDice();
-
-            pilot.getRadio().resetFields();
-            coPilot.getRadio().resetFields();
-            airplane.getAltitude().adjustAltitude(currentRoundNumber);
-            startRound();
-
-            System.out.println("Final round completed. Ending the game.");
             endGame();
         }
     }
 
     public void endGame() {
-        if (currentRoundNumber == 7 && checkWinningConditions()) {
+        if (checkWinningConditions()) {
             hasWon = true;
-            System.err.println("You won!");
+            /* System.err.println("You won!"); */
         } else {
             gameOver = true;
-            System.err.println("You lost! :(");
+            /* System.err.println("You lost! :("); */
         }
     }
 
     public boolean checkWinningConditions() {
 
         if (airplane.getEngine().getCurrentPosition() != 6) {
-            System.out.println("You crash-landed before reaching the airport!");
+            /* System.out.println("You crash-landed before reaching the airport!"); */
             return false;
         }
 
         if (airplane.getAxis().getCurrentTilt() != 3) {
-            System.out.println("The plane spun around and crashed!");
+            /* System.out.println("The plane spun around and crashed!"); */
             return false;
         }
 
         for (Field gear : airplane.getLandingGears().getLandingGearFields()) {
             if (!gear.isFilled()) {
-                System.out.println("Pilot didn't deploy all landing gears.");
+                /* System.out.println("Pilot didn't deploy all landing gears."); */
                 return false;
             }
         }
 
         for (Field flap : airplane.getFlaps().getFlapsFields()) {
             if (!flap.isFilled()) {
-                System.out.println("CoPilot didn't activate all flaps.");
+                /* System.out.println("CoPilot didn't activate all flaps."); */
                 return false;
             }
         }
 
         int airplaneSpeed = airplane.getEngine().getSpeed();
         if (airplaneSpeed > airplane.getBrakes().getRedMarker()) {
-            System.out.println("Your speed had to be lower than the brake value. You crashed.");
+            /*
+             * System.out.
+             * println("Your speed had to be lower than the brake value. You crashed.");
+             */
             return false;
         }
 
@@ -159,7 +170,10 @@ public class GameLogic {
     public int getCurrentRoundNumber() {
         return currentRoundNumber;
     }
-    public int setCurrentRoundNumber(int x) { return currentRoundNumber = x;}
+
+    public int setCurrentRoundNumber(int x) {
+        return currentRoundNumber = x;
+    }
 
     public boolean getGameOver() {
         return gameOver;
@@ -195,6 +209,10 @@ public class GameLogic {
         coPilotFields.add(airplane.getAxis().getCoPilotAxisField());
 
         return coPilotFields;
+    }
+
+    public int getRoundNumber() {
+        return currentRoundNumber;
     }
 
 }

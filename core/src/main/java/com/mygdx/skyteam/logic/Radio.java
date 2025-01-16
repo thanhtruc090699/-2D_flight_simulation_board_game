@@ -31,10 +31,10 @@ public class Radio {
         Field selectedField = radioFields.get(chosenField);
 
         if (selectedField.isFilled()) {
-            System.out.println("Field " + chosenField + " is already filled.");
+            /* System.out.println("Field " + chosenField + " is already filled."); */
         } else {
             selectedField.setDiceValue(diceValue);
-            System.out.println("Field " + chosenField + " is now filled.");
+            /* System.out.println("Field " + chosenField + " is now filled."); */
             removePlane(targetPosition, planesOnTrack);
         }
 
@@ -43,12 +43,12 @@ public class Radio {
     public void removePlane(int position, ArrayList<Integer> planesOnTrack) {
         if (planesOnTrack.get(position) > 0) {
             planesOnTrack.set(position, planesOnTrack.get(position) - 1);
-            System.out.println("Plane removed from field " + position); // track has 7 fields..
+            /* System.out.println("Plane removed from field " + position);  */
         } else {
-            System.out.println("No planes at field " + position + " to remove.");
+            /* System.out.println("No planes at field " + position + " to remove."); */
         }
 
-        System.out.println("Current Track: " + planesOnTrack);
+        /* System.out.println("Current Track: " + planesOnTrack); */
     }
 
     public void resetFields() {

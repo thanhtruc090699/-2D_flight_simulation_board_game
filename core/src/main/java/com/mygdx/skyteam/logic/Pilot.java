@@ -13,7 +13,7 @@ public class Pilot extends Player {
     public void placeDice(int diceValue, String playerInput, int fieldChoice) {
 
         if (!canPlaceDice(diceValue, playerInput, fieldChoice)) {
-            System.out.println("Cannot place dice on " + playerInput + ". The field is already occupied.");
+            /* System.out.println("Cannot place dice on " + playerInput + ". The field is already occupied."); */
             return;
         }
 
@@ -56,7 +56,7 @@ public class Pilot extends Player {
                 break;
 
             default:
-                System.out.println("Invalid input. Read the rules first, FOOL!");
+                /* System.out.println("Invalid input. Read the rules first, FOOL!"); */
                 break;
         }
     }
@@ -70,7 +70,7 @@ public class Pilot extends Player {
                 Field pilotEngineField = airplane.getEngine().getPilotField();
 
                 if (pilotEngineField.isFilled()) {
-                    System.out.println("Cannot place dice on the Engine. It's already occupied.");
+                    /* System.out.println("Cannot place dice on the Engine. It's already occupied."); */
                     validPlacement = false;
                 } else {
                     validPlacement = true;
@@ -85,7 +85,7 @@ public class Pilot extends Player {
             case "axis":
                 Field pilotField = airplane.getAxis().getPilotAxisField();
                 if (pilotField.isFilled()) {
-                    System.out.println("Cannot place dice on the Axis. It's already occupied.");
+                    /* System.out.println("Cannot place dice on the Axis. It's already occupied."); */
                     validPlacement = false;
                 } else {
                     validPlacement = true;
@@ -99,7 +99,7 @@ public class Pilot extends Player {
 
             case "radio":
                 if (getRadio().getRadioFields().get(0).isFilled()) {
-                    System.out.println("Cannot place dice on the Radio. It's already occupied.");
+                    /* System.out.println("Cannot place dice on the Radio. It's already occupied."); */
                     validPlacement = false;
                 } else {
                     validPlacement = true;
@@ -128,7 +128,7 @@ public class Pilot extends Player {
                 if (airplane.getConcentration().getCoffeeFields().get(0).isFilled()
                         && airplane.getConcentration().getCoffeeFields().get(1).isFilled()
                         && airplane.getConcentration().getCoffeeFields().get(2).isFilled()) {
-                    System.out.println("All coffee fields are already filled.");
+                    /* System.out.println("All coffee fields are already filled."); */
                     validPlacement = false;
                 } else {
                     validPlacement = true;
@@ -136,7 +136,7 @@ public class Pilot extends Player {
                 break;
 
             default:
-                System.out.println("Invalid input. Read the rules first, FOOL!");
+                /* System.out.println("Invalid input. Read the rules first, FOOL!"); */
                 validPlacement = false;
                 break;
         }
@@ -145,9 +145,13 @@ public class Pilot extends Player {
     }
 
     public boolean hasDicesOnRequiredFields() {
-        return airplane.getEngine().getPilotField().getPlacedDice() != null
-                && airplane.getAxis().getPilotAxisField().getPlacedDice() != null;
+        if (airplane.getEngine().getPilotField().getPlacedDice() == null || 
+            airplane.getAxis().getPilotAxisField().getPlacedDice() == null) {
+            return false;
+        }
+        return true;
     }
+    
 
     public Radio getRadio() {
         return radio;

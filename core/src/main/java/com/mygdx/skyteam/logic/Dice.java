@@ -16,23 +16,23 @@ public class Dice {
     public void modifyValue(String input) {
 
         if (this.value < 1 || this.value > 6) {
-            System.out.println("Dice has not been rolled yet or has an invalid value.");
+            /* System.out.println("Dice has not been rolled yet or has an invalid value."); */
             return;
         }
 
         if (input.equals("increase")) {
             if (this.value < 6) {
                 this.value++;
-                System.out.println("Dice value increased to: " + this.value);
+                /* System.out.println("Dice value increased to: " + this.value); */
             } else {
-                System.out.println("Dice value is already at the maximum (6). It can't be increased.");
+                /* System.out.println("Dice value is already at the maximum (6). It can't be increased."); */
             }
         } else if (input.equals("decrease")) {
             if (this.value > 1) {
                 this.value--;
-                System.out.println("Dice value decreased to: " + this.value);
+                /* System.out.println("Dice value decreased to: " + this.value); */
             } else {
-                System.out.println("Dice value is already at the minimum (1). It can't be decreased.");
+                /* System.out.println("Dice value is already at the minimum (1). It can't be decreased."); */
             }
         }
 
