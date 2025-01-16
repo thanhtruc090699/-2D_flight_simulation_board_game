@@ -1,7 +1,10 @@
 package com.mygdx.skyteam.logic;
 
 import java.util.ArrayList;
-
+/**
+ * Manages the main game logic, including rounds, player actions, and win/loss conditions.
+ * Tracks the game's state and coordinates interactions between the airplane and players.
+ */
 public class GameLogic {
     private boolean gameOver;
     private boolean hasWon;
@@ -12,11 +15,17 @@ public class GameLogic {
     private int currentRoundNumber;
     private int startingPlayerIndex = 0;
 
+    /**
+     * Initializes the game logic and sets up the airplane.
+     */
     public GameLogic() {
         airplane = new Airplane();
         currentRoundNumber = 1;
     }
 
+    /**
+     * Starts the game by assigning roles to players and starting the first round.
+     */
     public void startGame() {
 
         /* System.out.println("Welcome To The Game"); */
@@ -42,6 +51,9 @@ public class GameLogic {
         startRound();
     }
 
+    /**
+     * Starts a new round and displays the unassigned dice for both players.
+     */
     public void startRound() {
         currentRound = new Round(pilot, coPilot, airplane, this, startingPlayerIndex);
         /* System.out.println("ROUND : " + currentRoundNumber); */
@@ -54,6 +66,10 @@ public class GameLogic {
 
     }
 
+    /**
+     * Proceeds to the next round if conditions are met.
+     * Resets fields and dice for the new round, or ends the game if all rounds are complete.
+     */
     public void nextRound() {
 
         boolean stillAlive = currentRound.checkRoundConditions();
@@ -110,6 +126,9 @@ public class GameLogic {
         }
     }
 
+    /**
+     * Ends the game and determines if the player has won or lost.
+     */
     public void endGame() {
         if (checkWinningConditions()) {
             hasWon = true;
@@ -120,18 +139,26 @@ public class GameLogic {
         }
     }
 
+    /**
+     * Checks the conditions to determine if the player has won.
+     *
+     * @return true if the player meets all winning conditions, false otherwise.
+     */
     public boolean checkWinningConditions() {
 
+        // Check if the airplane has reached the airport (position 6)
         if (airplane.getEngine().getCurrentPosition() != 6) {
             /* System.out.println("You crash-landed before reaching the airport!"); */
             return false;
         }
 
+        // Check if the airplane's tilt is stable (must be exactly 3)
         if (airplane.getAxis().getCurrentTilt() != 3) {
             /* System.out.println("The plane spun around and crashed!"); */
             return false;
         }
 
+        // Check if all landing gears are deployed
         for (Field gear : airplane.getLandingGears().getLandingGearFields()) {
             if (!gear.isFilled()) {
                 /* System.out.println("Pilot didn't deploy all landing gears."); */
@@ -139,6 +166,7 @@ public class GameLogic {
             }
         }
 
+        // Check if all flaps are activated
         for (Field flap : airplane.getFlaps().getFlapsFields()) {
             if (!flap.isFilled()) {
                 /* System.out.println("CoPilot didn't activate all flaps."); */
@@ -146,6 +174,7 @@ public class GameLogic {
             }
         }
 
+        // Check if the airplane's speed is within the safe range for braking
         int airplaneSpeed = airplane.getEngine().getSpeed();
         if (airplaneSpeed < airplane.getBrakes().getRedMarker()) {
             /*
@@ -158,38 +187,85 @@ public class GameLogic {
         return true;
     }
 
+
+    /**
+     * Gets the pilot player.
+     *
+     * @return the pilot.
+     */
     public Pilot getPilot() {
         return this.pilot;
     }
 
+    /**
+     * Gets the co-pilot player.
+     *
+     * @return the co-pilot.
+     */
     public CoPilot getCoPilot() {
         return this.coPilot;
     }
 
+    /**
+     * Gets the airplane being controlled.
+     *
+     * @return the airplane.
+     */
     public Airplane getAirplane() {
         return airplane;
     }
 
+    /**
+     * Gets the current round being played.
+     *
+     * @return the current round.
+     */
     public Round getRound() {
         return currentRound;
     }
 
+    /**
+     * Gets the current round number.
+     *
+     * @return the current round number.
+     */
     public int getCurrentRoundNumber() {
         return currentRoundNumber;
     }
 
+    /**
+     * Sets the current round number.
+     *
+     * @param x the new round number.
+     * @return the updated round number.
+     */
     public int setCurrentRoundNumber(int x) {
         return currentRoundNumber = x;
     }
 
+    /**
+     * Checks if the game is over.
+     *
+     * @return true if the game is over, false otherwise.
+     */
     public boolean getGameOver() {
         return gameOver;
     }
 
+    /**
+     * Checks if the player has won.
+     *
+     * @return true if the player has won, false otherwise.
+     */
     public boolean hasWon() {
         return hasWon;
     }
 
+    /**
+     * Gets all fields associated with the pilot.
+     *
+     * @return a list of the pilot's fields.
+     */
     public ArrayList<Field> getAllFieldsForPilot() {
         ArrayList<Field> pilotFields = new ArrayList<>();
         pilotFields.addAll(pilot.getRadio().getRadioFields());
@@ -204,6 +280,11 @@ public class GameLogic {
         return pilotFields;
     }
 
+    /**
+     * Gets all fields associated with the co-pilot.
+     *
+     * @return a list of the co-pilot's fields.
+     */
     public ArrayList<Field> getAllFieldsForCoPilot() {
         ArrayList<Field> coPilotFields = new ArrayList<>();
 

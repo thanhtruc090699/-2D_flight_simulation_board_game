@@ -1,15 +1,32 @@
 package com.mygdx.skyteam.logic;
 
 import java.util.ArrayList;
-
+/**
+ * Represents the pilot player in the game.
+ * Handles the pilot's actions, such as placing dice, using the radio, and interacting with airplane components.
+ */
 public class Pilot extends Player {
     private Radio radio;
 
+    /**
+     * Initializes a pilot with a name and assigned airplane.
+     *
+     * @param name      the name of the pilot.
+     * @param airplane  the airplane associated with the pilot.
+     */
     public Pilot(String name, Airplane airplane) {
         super(name, "Pilot", airplane);
         radio = new Radio(1);
     }
 
+    /**
+     * Places a dice on a specified field based on the pilot's input.
+     * Executes corresponding actions, such as adjusting speed or deploying landing gears.
+     *
+     * @param diceValue   the value of the dice to place.
+     * @param playerInput the target component (e.g., "engine", "axis", "radio").
+     * @param fieldChoice the specific field for placement (used for multi-field components).
+     */
     public void placeDice(int diceValue, String playerInput, int fieldChoice) {
 
         if (!canPlaceDice(diceValue, playerInput, fieldChoice)) {
@@ -61,7 +78,14 @@ public class Pilot extends Player {
         }
     }
 
-    // checks if dice can be placed without modifying the game state
+    /**
+     * Checks if the dice can be placed on a specific field without modifying the game state.
+     *
+     * @param diceValue   the value of the dice to place.
+     * @param playerInput the target component (e.g., "engine", "axis", "radio").
+     * @param fieldChoice the specific field to check (used for multi-field components).
+     * @return true if the dice can be placed, false otherwise.
+     */
     public boolean canPlaceDice(int diceValue, String playerInput, int fieldChoice) {
         boolean validPlacement = false;
 
@@ -144,15 +168,25 @@ public class Pilot extends Player {
         return validPlacement;
     }
 
+    /**
+     * Checks if the pilot has placed dice on all required fields.
+     *
+     * @return true if all required fields have dice, false otherwise.
+     */
     public boolean hasDicesOnRequiredFields() {
-        if (airplane.getEngine().getPilotField().getPlacedDice() == null || 
+        if (airplane.getEngine().getPilotField().getPlacedDice() == null ||
             airplane.getAxis().getPilotAxisField().getPlacedDice() == null) {
             return false;
         }
         return true;
     }
-    
 
+
+    /**
+     * Gets the radio object associated with the pilot.
+     *
+     * @return the radio object.
+     */
     public Radio getRadio() {
         return radio;
     }

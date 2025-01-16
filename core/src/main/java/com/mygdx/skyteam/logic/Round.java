@@ -1,5 +1,8 @@
 package com.mygdx.skyteam.logic;
-
+/**
+ * Represents a single round in the game.
+ * Manages player turns, input, and checks game conditions to proceed to the next round.
+ */
 public class Round {
     private int turnsLeft;
     private Pilot pilot;
@@ -12,6 +15,15 @@ public class Round {
     private int currentFieldChoice;
     private int currentDiceIndex;
 
+    /**
+     * Initializes a new round with the specified players, airplane, and game logic.
+     *
+     * @param pilot              the pilot player.
+     * @param coPilot            the co-pilot player.
+     * @param airplane           the airplane being controlled.
+     * @param game               the main game logic.
+     * @param startingPlayerIndex the index of the player starting the round.
+     */
     public Round(Pilot pilot, CoPilot coPilot, Airplane airplane, GameLogic game, int startingPlayerIndex) {
         turnsLeft = 4;
         this.pilot = pilot;
@@ -21,6 +33,10 @@ public class Round {
         this.game = game;
     }
 
+    /**
+     * Plays a full round of the game, alternating turns between the Pilot and CoPilot.
+     * Ends the round when all turns are completed.
+     */
     public void playRound() {
         boolean turnCompleted = false;
         int lastPlayerIndex = (game.getRoundNumber() % 2 == 0) ? 0 : 1;
@@ -44,6 +60,13 @@ public class Round {
         }
     }
 
+    /**
+     * Executes a single turn for the current player, handling dice placement and game updates.
+     *
+     * @param diceIndex    the index of the dice being placed.
+     * @param playerInput  the action chosen by the player.
+     * @param fieldChoice  the field where the dice is placed.
+     */
     public void playTurn(int diceIndex, String playerInput, int fieldChoice) {
         // Pilots turn
         if (currentPlayerIndex == 0) {
@@ -111,6 +134,9 @@ public class Round {
         }
     }
 
+    /**
+     * Switches to the next player (Pilot or CoPilot).
+     */
     public void switchPlayer() {
         currentPlayerIndex = (currentPlayerIndex == 0) ? 1 : 0; // 0 for pilot, 1 for copilot
         /*
@@ -120,16 +146,25 @@ public class Round {
         System.out.println(currentPlayerIndex);
     }
 
+    /**
+     * Checks if the round's conditions are met to proceed to the next round.
+     *
+     * @return true if conditions are met, false otherwise.
+     */
     public boolean checkRoundConditions() {
 
         if (!pilot.hasDicesOnRequiredFields() && !coPilot.hasDicesOnRequiredFields())
-            return false;
+            return false; // Required fields are not filled
         if (!airplane.getEngine().isPositionMoveSuccessful())
-            return false;
+            return false; // Engine movement failed
         else
             return true;
     }
 
+    /**
+     * Checks conditions at the end of a turn, such as engine and axis stability.
+     * Ends the game if critical conditions are not met.
+     */
     public void checkTurnConditions() {
 
         if (airplane.getEngine().getPilotField().isFilled() && airplane.getEngine().getCoPilotField().isFilled()) {
@@ -150,6 +185,13 @@ public class Round {
 
     }
 
+    /**
+     * Collects input from the player for dice placement.
+     *
+     * @param diceIndex    the index of the selected dice.
+     * @param playerInput  the action chosen by the player.
+     * @param fieldChoice  the field where the dice will be placed.
+     */
     public void collectPlayerInput(int diceIndex, String playerInput, int fieldChoice) {
 
         this.currentDiceIndex = diceIndex;
@@ -157,22 +199,47 @@ public class Round {
         this.currentFieldChoice = fieldChoice;
     }
 
+    /**
+     * Gets the index of the current player.
+     *
+     * @return the current player index (0 for Pilot, 1 for CoPilot).
+     */
     public int getCurrentPlayerIndex() {
         return currentPlayerIndex;
     }
 
+    /**
+     * Gets the number of turns left in the round.
+     *
+     * @return the number of turns left.
+     */
     public int getTurnsLeft() {
         return turnsLeft;
     }
 
+    /**
+     * Gets the index of the dice selected by the player.
+     *
+     * @return the dice index.
+     */
     public int getCurrentDiceIndex() {
         return currentDiceIndex;
     }
 
+    /**
+     * Gets the field choice made by the player.
+     *
+     * @return the selected field choice.
+     */
     public int getCurrentFieldChoice() {
         return currentFieldChoice;
     }
 
+    /**
+     * Gets the current player input.
+     *
+     * @return the action chosen by the player.
+     */
     public String getCurrentPlayerInput() {
         return currentPlayerInput;
     }

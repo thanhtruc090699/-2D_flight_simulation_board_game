@@ -4,11 +4,14 @@ import java.util.ArrayList;
 import java.util.Arrays;
 /**
  * Manages the flaps of the airplane.
- * Handles deploying flaps based on dice values and updating orange marker value and position.
+ * Handles deploying flaps based on dice values and updating related game mechanics.
  */
 public class Flap {
     private ArrayList<Field> flapsFields;
 
+    /**
+     * Initializes the flap fields with default configurations.
+     */
     public Flap() {
         flapsFields = new ArrayList<>();
         flapsFields.add(new Field("Flap 1", Arrays.asList(1, 2), 1139, 648));
@@ -18,6 +21,14 @@ public class Flap {
 
     }
 
+    /**
+     * Deploys a flap based on the co-pilot's dice input and selected field.
+     * Ensures the flap is valid and previous flaps are deployed in order.
+     *
+     * @param coPilotInput the dice value provided by the co-pilot.
+     * @param airplane     the airplane to update (e.g., shifting markers).
+     * @param fieldChoice  the flap field to deploy (1-based index).
+     */
     public void deployFlaps(int coPilotInput, Airplane airplane, int fieldChoice) {
 
         Field selectedFlap = flapsFields.get(fieldChoice - 1);
@@ -28,7 +39,7 @@ public class Flap {
         }
 
         if (fieldChoice > 1 && !flapsFields.get(fieldChoice - 2).isFilled()) { // -2 because the input is not index based
-                                                                               
+
             /* System.out.println("Flap " + (fieldChoice - 1) + " should be deployed first."); */
             return;
         }
@@ -43,6 +54,13 @@ public class Flap {
         /* System.out.println("Flap " + fieldChoice + " is now deployed."); */
     }
 
+    /**
+     * Checks if a flap can be deployed based on the co-pilot's dice input and selected field.
+     *
+     * @param coPilotInput the dice value provided by the co-pilot.
+     * @param fieldChoice  the flap field to check (1-based index).
+     * @return true if the flap can be deployed, false otherwise.
+     */
     public boolean canPlaceFlap(int coPilotInput, int fieldChoice) {
         Field selectedFlap = flapsFields.get(fieldChoice - 1);
         if (!selectedFlap.getValidDiceValues().contains(coPilotInput)) {
@@ -55,10 +73,22 @@ public class Flap {
         return true;
     }
 
+    /**
+     * Gets the list of flap fields.
+     *
+     * @return the list of flap fields.
+     */
     public ArrayList<Field> getFlapsFields() {
         return flapsFields;
     }
 
+    /**
+     * Checks if a flap can be placed for a specific dice value and field.
+     *
+     * @param diceValue   the dice value to check.
+     * @param fieldChoice the flap field to check (1-based index).
+     * @return true if the flap can be placed, false otherwise.
+     */
     public boolean canPlaceFlapsForDice(int diceValue, int fieldChoice) {
         if ((diceValue == 1 || diceValue == 2) && fieldChoice - 1 == 0) {
             if (flapsFields.get(0).isFilled()) {
