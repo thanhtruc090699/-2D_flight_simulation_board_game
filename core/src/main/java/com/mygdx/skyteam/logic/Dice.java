@@ -9,7 +9,6 @@ import java.util.Random;
 public class Dice {
     private int value;
     private boolean assigned;
-    private float x,y;
 
     /**
      * Rolls the dice to generate a random value between 1 and 6.

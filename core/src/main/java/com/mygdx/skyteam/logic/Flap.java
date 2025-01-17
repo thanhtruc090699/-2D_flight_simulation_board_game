@@ -83,6 +83,7 @@ public class Flap {
     }
 
     /**
+     * This function is primarily used for UI purposes and does not contribute to the core logic.
      * Checks if a flap can be placed for a specific dice value and field.
      *
      * @param diceValue   the dice value to check.

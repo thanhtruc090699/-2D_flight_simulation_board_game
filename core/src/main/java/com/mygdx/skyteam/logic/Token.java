@@ -1,9 +1,11 @@
 package com.mygdx.skyteam.logic;
 
 import java.util.ArrayList;
+
 /**
  * Represents a token used in the game, such as coffee tokens or reroll tokens.
- * Tokens allow players to perform special actions like modifying dice values or rerolling dice.
+ * Tokens allow players to perform special actions like modifying dice values or
+ * rerolling dice.
  */
 public class Token {
     private String type;
@@ -22,7 +24,8 @@ public class Token {
 
     /**
      * Uses a coffee token to modify a dice value.
-     * The selected coffee token must be filled, and the player can choose to increase or decrease the dice value.
+     * The selected coffee token must be filled, and the player can choose to
+     * increase or decrease the dice value.
      *
      * @param dice     the dice to modify.
      * @param airplane the airplane to update (used to reset coffee fields).

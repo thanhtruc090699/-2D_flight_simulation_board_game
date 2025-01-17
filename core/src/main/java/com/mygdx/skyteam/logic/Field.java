@@ -16,10 +16,9 @@ public class Field {
     private boolean isFilled;
     private Integer placedDice;
 
-    // positions for board UI
+    // x, y and variables under are used for UI purposes and does not contribute to the core logic.
     private float x;
     private float y;
-
     private boolean isHighlighted = false;
     private Rectangle fieldRect;
     private Color color = new Color(0, 0, 0, 0);
@@ -118,6 +117,7 @@ public class Field {
     }
 
     /**
+     * This function is primarily used for UI purposes and does not contribute to the core logic.
      * Checks if the mouse is over the field.
      *
      * @param mouseX the x-coordinate of the mouse.
@@ -150,6 +150,7 @@ public class Field {
     }
 
     /**
+     * This function is primarily used for UI purposes and does not contribute to the core logic.
      * Converts the field's coordinates to stage coordinates.
      *
      * @param stage the game stage.
@@ -162,6 +163,7 @@ public class Field {
     }
 
     /**
+     * This function is primarily used for UI purposes and does not contribute to the core logic.
      * Draws the field on the board.
      *
      * @param diceValue the dice value to check for drawing highlights.
@@ -184,6 +186,7 @@ public class Field {
 
 
     /**
+     * This function is primarily used for UI purposes and does not contribute to the core logic.
      * Checks if the field can accept a specific dice value.
      *
      * @param diceValue the dice value to check.
@@ -194,6 +197,7 @@ public class Field {
     }
 
     /**
+     * This function is primarily used for UI purposes and does not contribute to the core logic.
      * Sets whether the field is highlighted.
      *
      * @param isHighlighted true to highlight the field, false otherwise.
@@ -203,6 +207,7 @@ public class Field {
     }
 
     /**
+     * This function is primarily used for UI purposes and does not contribute to the core logic.
      * Checks if the field is currently highlighted.
      *
      * @return true if the field is highlighted, false otherwise.
@@ -212,6 +217,7 @@ public class Field {
     }
 
     /**
+     * This function is primarily used for UI purposes and does not contribute to the core logic.
      * Gets the current color of the field.
      *
      * @return the field's color.
@@ -222,6 +228,7 @@ public class Field {
 
 
     /**
+     * This function is primarily used for UI purposes and does not contribute to the core logic.
      * Checks if the field is a brake field based on its name.
      *
      * @return true if the field is a brake field, false otherwise.
@@ -231,6 +238,7 @@ public class Field {
     }
 
     /**
+     * This function is primarily used for UI purposes and does not contribute to the core logic.
      * Checks if the field is a flap field based on its name.
      *
      * @return true if the field is a flap field, false otherwise.

@@ -11,6 +11,7 @@ public class Round {
     private Airplane airplane;
     private GameLogic game;
 
+    //Variables under are used for UI purposes and does not contribute to the core logic.
     private String currentPlayerInput;
     private int currentFieldChoice;
     private int currentDiceIndex;
@@ -186,6 +187,7 @@ public class Round {
     }
 
     /**
+     * This function is primarily used for UI purposes and does not contribute to the core logic.
      * Collects input from the player for dice placement.
      *
      * @param diceIndex    the index of the selected dice.

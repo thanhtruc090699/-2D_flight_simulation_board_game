@@ -234,16 +234,6 @@ public class GameLogic {
     }
 
     /**
-     * Sets the current round number.
-     *
-     * @param x the new round number.
-     * @return the updated round number.
-     */
-    public int setCurrentRoundNumber(int x) {
-        return currentRoundNumber = x;
-    }
-
-    /**
      * Checks if the game is over.
      *
      * @return true if the game is over, false otherwise.
@@ -262,6 +252,7 @@ public class GameLogic {
     }
 
     /**
+     * This function is primarily used for UI purposes and does not contribute to the core logic.
      * Gets all fields associated with the pilot.
      *
      * @return a list of the pilot's fields.
@@ -281,6 +272,7 @@ public class GameLogic {
     }
 
     /**
+     * This function is primarily used for UI purposes and does not contribute to the core logic.
      * Gets all fields associated with the co-pilot.
      *
      * @return a list of the co-pilot's fields.

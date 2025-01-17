@@ -25,8 +25,6 @@ public class MainMenuScreen implements Screen {
     private Stage stage;
     private Skin skin;
     private final SkyTeamGame game;
-    private GameLogic gameLogic;
-    private boolean isFullscreen = false;
 
     public MainMenuScreen(SkyTeamGame game) {
         this.game = game;

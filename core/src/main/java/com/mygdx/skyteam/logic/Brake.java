@@ -140,6 +140,7 @@ public class Brake {
     }
 
     /**
+     * This function is primarily used for UI purposes and does not contribute to the core logic!
      * Checks if brakes can be placed for a specific dice.
      *
      * @param diceValue the dice value to check (2, 4, or 6).
