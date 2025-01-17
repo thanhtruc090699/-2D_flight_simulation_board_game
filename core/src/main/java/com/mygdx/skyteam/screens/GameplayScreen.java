@@ -731,33 +731,17 @@ public class GameplayScreen implements Screen {
     }
 
     /**
-     * Handle the input when Pilot player clicks the increase button or decrease
-     * button to adjust the dice value that
-     * they want after using coffee token
-     * - Pilot can select coffee token
-     * - The increase and decrease button will appear above (increase button) and
-     * below (decrease button) the dice list
-     * - Pilot can click the button to increase or decrease the value of a specific
-     * dice that they want
-     * The Logic of method:
-     * - Detects a click on a coffee token. if clicked:
-     * + Activate the using coffee mode (isUsingCoffee = true)
-     * + Remove the coffee token from the board
-     * + Update the state of the selectable dice. Selectable dice list is a list of
-     * dices that has not been placed
-     * - Detect a click on increase or decrease button for each dice:
-     * + If increase button is clicked and the dice value is less than 6, it
-     * increases the dice value by one
-     * + If decrease button is clicked and the dice value is greater than 1, it
-     * decreases the dice value by one
-     * + Updates the image of dice corresponding to the updated value
-     * - Escape from coffee mode (isUsingCoffee = false) after all
+     * Handles the Pilot's interaction with coffee token and dice adjustments.
+     * - Activates coffee mode when a coffee token is clicked.
+     * - Allows the Pilot to increase or decrease dice values using the coffee token.
+     * - Exits coffee mode once dice adjustments are complete.
      */
     private void handlePilotCoffeeInteraction() {
         stage.addListener(new InputListener() {
             @Override
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
                 if (!isUsingCoffee) {
+                    // Check if a coffee token is clicked
                     for (int i = 0; i < coffeesPositions.size(); i++) {
                         Vector2 coffeePosition = coffeesPositions.get(i);
                         if (Math.abs(coffeePosition.x - event.getStageX()) < 35 &&
@@ -766,6 +750,7 @@ public class GameplayScreen implements Screen {
                             coffeesPositions.remove(i);
                             currentCoffeeQuantity--;
 
+                            // Mark dice as selectable if not placed
                             for (int j = 0; j < coffeePilotDiceSelectable.size(); j++) {
                                 coffeePilotDiceSelectable.set(j, !PilotDicePlacedInPlaceHolder.get(j));
                             }
@@ -775,6 +760,7 @@ public class GameplayScreen implements Screen {
                     }
 
                 } else {
+                    // Check if an increase or decrease button is clicked
                     for (int i = 0; i < coffeePilotDiceSelectable.size(); i++) {
                         if (coffeePilotDiceSelectable.get(i) && !PilotDicePlacedInPlaceHolder.get(i)) {
                             Vector2 upPos = buttonUpPilotPositions.get(i);
@@ -817,27 +803,10 @@ public class GameplayScreen implements Screen {
     }
 
     /**
-     * Handle the input when CoPilot player clicks the increase button or decrease
-     * button to adjust the dice value that
-     * they want after using coffee token
-     * - CoPilot can select coffee token
-     * - The increase and decrease button will appear above (increase button) and
-     * below (decrease button) the dice list
-     * - CoPilot can click the button to increase or decrease the value of a
-     * specific dice that they want
-     * The Logic of method:
-     * - Detects a click on a coffee token. if clicked:
-     * + Activate the using coffee mode (isUsingCoffee = true)
-     * + Remove the coffee token from the board
-     * + Update the state of the selectable dice. Selectable dice list is a list of
-     * dices that has not been placed
-     * - Detect a click on increase or decrease button for each dice:
-     * + If increase button is clicked and the dice value is less than 6, it
-     * increases the dice value by one
-     * + If decrease button is clicked and the dice value is greater than 1, it
-     * decreases the dice value by one
-     * + Updates the image of dice corresponding to the updated value
-     * - Escape from coffee mode (isUsingCoffee = false) after all
+     * Handles the CoPilot's interaction with the coffee token and dice adjustments.
+     * - Activates coffee mode when a coffee token is clicked.
+     * - Allows the CoPilot to increase or decrease dice values using the coffee token.
+     * - Exits coffee mode once dice adjustments are complete.
      */
     private void handleCoPilotCoffeeInteraction() {
         stage.addListener(new InputListener() {
@@ -1350,39 +1319,11 @@ public class GameplayScreen implements Screen {
     }
 
     /**
-     * This method draws:
-     * - Switches on both Landing Gears and Flaps:
-     * + They are drawn by their positions and states
-     * + When the dice is placed into corresponding field of landing gear or flaps,
-     * the associated switches state turn true (on).
-     * + Activated switches automatically move to the left so that the players can
-     * visually
-     * see the green light, representing this flaps or gears has been activated
-     * + The activation states and position switch is preserved throughout 7 rounds
-     * <p>
-     * - Red marker on Brakes:
-     * + It is drawn by their position and rotation angles
-     * + Its Positions were already defined above in show method
-     * + When the pilot placed dice, the position of the red marker will change
-     * accordingly
-     * to visually show for the player the range of brake level
-     * <p>
-     * - Orange and Blue markers on Engine Speed Adjustment:
-     * + It is drawn by their position and rotation angles
-     * + Their Positions were already defined above in show method
-     * + When the players placed dice, the position of the blue or orange marker
-     * will change accordingly
-     * to visually show for the player the range of speed engine adjustment
-     * - Coffee token on Concentration mode:
-     * + It is drawn by its respective position and current quantity
-     * + When the player places dice into Concentration field, the coffee icon will
-     * appear
-     * - Increase and decrease buttons when using coffee mode is activated
-     * + Buttons appear when Coffee mode (isUsingCoffee) is active and for
-     * selectable dice
-     * + These buttons allow pilot or copilot to adjust one dice value
-     * + Only buttons corresponding to unplaced dice
-     * (!PilotDicePlacedPlaceHolder or !CoPilotDicePlacedPlaceHolder) are shown
+     * Draws switches, markers, and coffee-related visuals.
+     * - Draws the switches based on their current state.
+     * - Draws blue, red, and orange markers.
+     * - Draws coffee tokens based on the current quantity.
+     * - If coffee mode is active, draws buttons for adjusting dice values.
      */
     private void drawSwitchesAndMarkers() {
 
