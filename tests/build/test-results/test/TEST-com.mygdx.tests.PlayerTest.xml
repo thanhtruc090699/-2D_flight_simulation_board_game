@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.mygdx.tests.PlayerTest" tests="9" skipped="0" failures="0" errors="0" timestamp="2025-01-18T01:04:00" hostname="RATHINs-MacBook-Air.local" time="0.003">
+<testsuite name="com.mygdx.tests.PlayerTest" tests="9" skipped="0" failures="0" errors="0" timestamp="2025-01-18T09:37:06" hostname="DESKTOP-9CTSVT6" time="0.031">
   <properties/>
-  <testcase name="testGetDices()" classname="com.mygdx.tests.PlayerTest" time="0.0"/>
-  <testcase name="testGetUnassignedDice()" classname="com.mygdx.tests.PlayerTest" time="0.0"/>
-  <testcase name="testResetDiceAssignments()" classname="com.mygdx.tests.PlayerTest" time="0.0"/>
-  <testcase name="testGetName()" classname="com.mygdx.tests.PlayerTest" time="0.0"/>
-  <testcase name="testRerollDice()" classname="com.mygdx.tests.PlayerTest" time="0.0"/>
-  <testcase name="testGetCoffeeToken()" classname="com.mygdx.tests.PlayerTest" time="0.0"/>
-  <testcase name="testUseRerollToken()" classname="com.mygdx.tests.PlayerTest" time="0.0"/>
-  <testcase name="testDisplayUnassignedDice()" classname="com.mygdx.tests.PlayerTest" time="0.001"/>
-  <testcase name="testHasRerollToken()" classname="com.mygdx.tests.PlayerTest" time="0.0"/>
+  <testcase name="testGetDices()" classname="com.mygdx.tests.PlayerTest" time="0.001"/>
+  <testcase name="testGetUnassignedDice()" classname="com.mygdx.tests.PlayerTest" time="0.001"/>
+  <testcase name="testResetDiceAssignments()" classname="com.mygdx.tests.PlayerTest" time="0.001"/>
+  <testcase name="testGetName()" classname="com.mygdx.tests.PlayerTest" time="0.002"/>
+  <testcase name="testRerollDice()" classname="com.mygdx.tests.PlayerTest" time="0.001"/>
+  <testcase name="testGetCoffeeToken()" classname="com.mygdx.tests.PlayerTest" time="0.001"/>
+  <testcase name="testUseRerollToken()" classname="com.mygdx.tests.PlayerTest" time="0.008"/>
+  <testcase name="testDisplayUnassignedDice()" classname="com.mygdx.tests.PlayerTest" time="0.002"/>
+  <testcase name="testHasRerollToken()" classname="com.mygdx.tests.PlayerTest" time="0.002"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

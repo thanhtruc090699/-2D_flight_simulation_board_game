@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.mygdx.tests.RadioTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2025-01-18T01:04:00" hostname="RATHINs-MacBook-Air.local" time="0.004">
+<testsuite name="com.mygdx.tests.RadioTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2025-01-18T09:37:06" hostname="DESKTOP-9CTSVT6" time="0.022">
   <properties/>
-  <testcase name="testUseRadioFieldAlreadyFilled()" classname="com.mygdx.tests.RadioTest" time="0.0"/>
-  <testcase name="testRemovePlane()" classname="com.mygdx.tests.RadioTest" time="0.0"/>
-  <testcase name="testGetCopilotRadioFields()" classname="com.mygdx.tests.RadioTest" time="0.0"/>
-  <testcase name="testUseRadioPilot()" classname="com.mygdx.tests.RadioTest" time="0.0"/>
-  <testcase name="testGetPilotRadioFields()" classname="com.mygdx.tests.RadioTest" time="0.0"/>
-  <testcase name="testResetRadioPilotfield()" classname="com.mygdx.tests.RadioTest" time="0.0"/>
-  <testcase name="testUseRadioCopilot()" classname="com.mygdx.tests.RadioTest" time="0.0"/>
-  <testcase name="testResetRadioCopilotfield()" classname="com.mygdx.tests.RadioTest" time="0.0"/>
+  <testcase name="testUseRadioFieldAlreadyFilled()" classname="com.mygdx.tests.RadioTest" time="0.002"/>
+  <testcase name="testRemovePlane()" classname="com.mygdx.tests.RadioTest" time="0.003"/>
+  <testcase name="testGetCopilotRadioFields()" classname="com.mygdx.tests.RadioTest" time="0.001"/>
+  <testcase name="testUseRadioPilot()" classname="com.mygdx.tests.RadioTest" time="0.002"/>
+  <testcase name="testGetPilotRadioFields()" classname="com.mygdx.tests.RadioTest" time="0.001"/>
+  <testcase name="testResetRadioPilotfield()" classname="com.mygdx.tests.RadioTest" time="0.001"/>
+  <testcase name="testUseRadioCopilot()" classname="com.mygdx.tests.RadioTest" time="0.003"/>
+  <testcase name="testResetRadioCopilotfield()" classname="com.mygdx.tests.RadioTest" time="0.001"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

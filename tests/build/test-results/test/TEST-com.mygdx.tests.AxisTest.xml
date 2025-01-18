@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.mygdx.tests.AxisTest" tests="15" skipped="0" failures="0" errors="0" timestamp="2025-01-18T01:04:00" hostname="RATHINs-MacBook-Air.local" time="0.009">
+<testsuite name="com.mygdx.tests.AxisTest" tests="15" skipped="0" failures="0" errors="0" timestamp="2025-01-18T09:37:05" hostname="DESKTOP-9CTSVT6" time="0.094">
   <properties/>
-  <testcase name="testGetRotationAngle_withTilt0()" classname="com.mygdx.tests.AxisTest" time="0.0"/>
-  <testcase name="testGetRotationAngle_withTilt1()" classname="com.mygdx.tests.AxisTest" time="0.001"/>
-  <testcase name="testGetRotationAngle_withTilt2()" classname="com.mygdx.tests.AxisTest" time="0.0"/>
-  <testcase name="testGetRotationAngle_withTilt4()" classname="com.mygdx.tests.AxisTest" time="0.0"/>
+  <testcase name="testGetRotationAngle_withTilt0()" classname="com.mygdx.tests.AxisTest" time="0.002"/>
+  <testcase name="testGetRotationAngle_withTilt1()" classname="com.mygdx.tests.AxisTest" time="0.012"/>
+  <testcase name="testGetRotationAngle_withTilt2()" classname="com.mygdx.tests.AxisTest" time="0.001"/>
+  <testcase name="testGetRotationAngle_withTilt4()" classname="com.mygdx.tests.AxisTest" time="0.001"/>
   <testcase name="testGetRotationAngle_withTilt6()" classname="com.mygdx.tests.AxisTest" time="0.0"/>
-  <testcase name="testGetPilotDice()" classname="com.mygdx.tests.AxisTest" time="0.0"/>
-  <testcase name="testSingleAdjustTilt()" classname="com.mygdx.tests.AxisTest" time="0.0"/>
-  <testcase name="testAdjustTiltCoPilotSide()" classname="com.mygdx.tests.AxisTest" time="0.001"/>
+  <testcase name="testGetPilotDice()" classname="com.mygdx.tests.AxisTest" time="0.001"/>
+  <testcase name="testSingleAdjustTilt()" classname="com.mygdx.tests.AxisTest" time="0.001"/>
+  <testcase name="testAdjustTiltCoPilotSide()" classname="com.mygdx.tests.AxisTest" time="0.017"/>
   <testcase name="testAdjustTiltWithEqualDice()" classname="com.mygdx.tests.AxisTest" time="0.001"/>
-  <testcase name="testPlacePilotDice()" classname="com.mygdx.tests.AxisTest" time="0.0"/>
-  <testcase name="testGetCoPilotDice()" classname="com.mygdx.tests.AxisTest" time="0.0"/>
-  <testcase name="testPlaceCoPilotDice()" classname="com.mygdx.tests.AxisTest" time="0.0"/>
-  <testcase name="testGetRotationAngle_withInvalidTilt()" classname="com.mygdx.tests.AxisTest" time="0.001"/>
+  <testcase name="testPlacePilotDice()" classname="com.mygdx.tests.AxisTest" time="0.015"/>
+  <testcase name="testGetCoPilotDice()" classname="com.mygdx.tests.AxisTest" time="0.001"/>
+  <testcase name="testPlaceCoPilotDice()" classname="com.mygdx.tests.AxisTest" time="0.009"/>
+  <testcase name="testGetRotationAngle_withInvalidTilt()" classname="com.mygdx.tests.AxisTest" time="0.0"/>
   <testcase name="testInitialValues()" classname="com.mygdx.tests.AxisTest" time="0.0"/>
-  <testcase name="testAdjustTiltPilotSide()" classname="com.mygdx.tests.AxisTest" time="0.0"/>
+  <testcase name="testAdjustTiltPilotSide()" classname="com.mygdx.tests.AxisTest" time="0.003"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.mygdx.tests.RoundTest" tests="9" skipped="0" failures="0" errors="0" timestamp="2025-01-18T01:04:00" hostname="RATHINs-MacBook-Air.local" time="0.005">
+<testsuite name="com.mygdx.tests.RoundTest" tests="9" skipped="0" failures="0" errors="0" timestamp="2025-01-18T09:37:06" hostname="DESKTOP-9CTSVT6" time="0.038">
   <properties/>
-  <testcase name="testSwitchPlayer()" classname="com.mygdx.tests.RoundTest" time="0.002"/>
-  <testcase name="testCheckTurnConditions_fail()" classname="com.mygdx.tests.RoundTest" time="0.0"/>
-  <testcase name="testPlayRound()" classname="com.mygdx.tests.RoundTest" time="0.0"/>
-  <testcase name="testPlayTurn_coPilotTurn()" classname="com.mygdx.tests.RoundTest" time="0.001"/>
-  <testcase name="testCheckRoundConditions_fail()" classname="com.mygdx.tests.RoundTest" time="0.0"/>
-  <testcase name="testCheckRoundConditions_pass()" classname="com.mygdx.tests.RoundTest" time="0.0"/>
+  <testcase name="testSwitchPlayer()" classname="com.mygdx.tests.RoundTest" time="0.01"/>
+  <testcase name="testCheckTurnConditions_fail()" classname="com.mygdx.tests.RoundTest" time="0.002"/>
+  <testcase name="testPlayRound()" classname="com.mygdx.tests.RoundTest" time="0.005"/>
+  <testcase name="testPlayTurn_coPilotTurn()" classname="com.mygdx.tests.RoundTest" time="0.003"/>
+  <testcase name="testCheckRoundConditions_fail()" classname="com.mygdx.tests.RoundTest" time="0.001"/>
+  <testcase name="testCheckRoundConditions_pass()" classname="com.mygdx.tests.RoundTest" time="0.001"/>
   <testcase name="testCollectPlayerInput()" classname="com.mygdx.tests.RoundTest" time="0.001"/>
-  <testcase name="testCheckTurnConditionsInvalidAxisTilt()" classname="com.mygdx.tests.RoundTest" time="0.0"/>
-  <testcase name="testPlayTurn_pilotTurn()" classname="com.mygdx.tests.RoundTest" time="0.0"/>
+  <testcase name="testCheckTurnConditionsInvalidAxisTilt()" classname="com.mygdx.tests.RoundTest" time="0.001"/>
+  <testcase name="testPlayTurn_pilotTurn()" classname="com.mygdx.tests.RoundTest" time="0.003"/>
   <system-out><![CDATA[1
 0
 You have a reroll token. Do you want to use it? (yes/no)

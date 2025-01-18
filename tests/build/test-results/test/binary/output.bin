@@ -1,18 +1,18 @@
-ÎÍ1
-ÎÍ0
-ÎÐ9You have a reroll token. Do you want to use it? (yes/no)
-ÎÐ+Pilot decided not to use the reroll token.
-ÎÐ-CoPilot, do you want to reroll too? (yes/no)
-ÎÐ-CoPilot decided not to use the reroll token.
-ÎÐ1
-ÎÑ1
-ÎÖ9You have a reroll token. Do you want to use it? (yes/no)
-ÎÖ+Pilot decided not to use the reroll token.
-ÎÖ-CoPilot, do you want to reroll too? (yes/no)
-ÎÖ-CoPilot decided not to use the reroll token.
-ØÙ>Which Coffee Token would you like to use? (Enter 0, 1, or 2):
-ØÙRThe selected Coffee Token is not filled yet. Please choose a filled Coffee Token.
-ØÜ>Which Coffee Token would you like to use? (Enter 0, 1, or 2):
-ØÜUDo you want to increase or decrease the dice value? (Enter 'increase' or 'decrease')
-ØÜ&After using, Coffee Token quantity: 2
-ØÜ#You used one of the Coffee Tokens.
+ÎÍ1
+ÎÍ0
+ÎÐ:You have a reroll token. Do you want to use it? (yes/no)
+ÎÐ,Pilot decided not to use the reroll token.
+ÎÐ.CoPilot, do you want to reroll too? (yes/no)
+ÎÐ.CoPilot decided not to use the reroll token.
+ÎÐ1
+ÎÑ1
+ÎÖ:You have a reroll token. Do you want to use it? (yes/no)
+ÎÖ,Pilot decided not to use the reroll token.
+ÎÖ.CoPilot, do you want to reroll too? (yes/no)
+ÎÖ.CoPilot decided not to use the reroll token.
+ØÙ?Which Coffee Token would you like to use? (Enter 0, 1, or 2):
+ØÙSThe selected Coffee Token is not filled yet. Please choose a filled Coffee Token.
+ØÜ?Which Coffee Token would you like to use? (Enter 0, 1, or 2):
+ØÜVDo you want to increase or decrease the dice value? (Enter 'increase' or 'decrease')
+ØÜ'After using, Coffee Token quantity: 2
+ØÜ$You used one of the Coffee Tokens.

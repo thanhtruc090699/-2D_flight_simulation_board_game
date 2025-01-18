@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.mygdx.tests.ConcentrationTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2025-01-18T01:04:00" hostname="RATHINs-MacBook-Air.local" time="0.003">
+<testsuite name="com.mygdx.tests.ConcentrationTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2025-01-18T09:37:05" hostname="DESKTOP-9CTSVT6" time="0.028">
   <properties/>
-  <testcase name="testFillCoffeeFieldsValidValue()" classname="com.mygdx.tests.ConcentrationTest" time="0.0"/>
-  <testcase name="testInitialization()" classname="com.mygdx.tests.ConcentrationTest" time="0.0"/>
-  <testcase name="testFillingWhenAllFieldsAreFilled()" classname="com.mygdx.tests.ConcentrationTest" time="0.0"/>
+  <testcase name="testFillCoffeeFieldsValidValue()" classname="com.mygdx.tests.ConcentrationTest" time="0.001"/>
+  <testcase name="testInitialization()" classname="com.mygdx.tests.ConcentrationTest" time="0.001"/>
+  <testcase name="testFillingWhenAllFieldsAreFilled()" classname="com.mygdx.tests.ConcentrationTest" time="0.001"/>
   <testcase name="testResetCoffeeFields()" classname="com.mygdx.tests.ConcentrationTest" time="0.001"/>
-  <testcase name="testResetCoffeeFieldInvalidIndex()" classname="com.mygdx.tests.ConcentrationTest" time="0.0"/>
-  <testcase name="testFillCoffeeFieldsInvalidValue()" classname="com.mygdx.tests.ConcentrationTest" time="0.001"/>
+  <testcase name="testResetCoffeeFieldInvalidIndex()" classname="com.mygdx.tests.ConcentrationTest" time="0.008"/>
+  <testcase name="testFillCoffeeFieldsInvalidValue()" classname="com.mygdx.tests.ConcentrationTest" time="0.002"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
