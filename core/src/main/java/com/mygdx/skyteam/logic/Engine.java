@@ -108,12 +108,7 @@ public class Engine {
         }
 
         if (speed == blueMarker) {
-            if (checkPlanesOnTrack(planesOnTrack, currentPosition)) {
-                currentPosition++;
-                isPositionMoveSuccessful = true;
-                /* System.out.println(
-                        "Speed matches blue marker. Plane moves 1 step. Current position: " + currentPosition); */
-            }
+            isPositionMoveSuccessful = true;
             return;
         }
         if (speed == orangeMarker) {
