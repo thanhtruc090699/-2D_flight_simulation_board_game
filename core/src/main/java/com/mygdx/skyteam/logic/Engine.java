@@ -119,11 +119,10 @@ public class Engine {
         }
 
         if (speed == orangeMarker) {
-            if (checkPlanesOnTrack(planesOnTrack, currentPosition) &&
-                    checkPlanesOnTrack(planesOnTrack, currentPosition + 1)) {
-                currentPosition += 2;
+            if (checkPlanesOnTrack(planesOnTrack, currentPosition)) {
+                currentPosition ++;
                 /* System.out.println(
-                        "Speed matches orange marker. Plane moves 2 steps. Current position: " + currentPosition); */
+                        "Speed matches orange marker. Plane moves 1 step. Current position: " + currentPosition); */
                 isPositionMoveSuccessful = true;
             } else {
                 /* System.out.println("Obstacle on track. Plane does not move."); */

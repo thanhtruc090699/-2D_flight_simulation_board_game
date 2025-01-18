@@ -176,7 +176,7 @@ public class GameLogic {
 
         // Check if the airplane's speed is within the safe range for braking
         int airplaneSpeed = airplane.getEngine().getSpeed();
-        if (airplaneSpeed < airplane.getBrakes().getRedMarker()) {
+        if (airplaneSpeed > airplane.getBrakes().getRedMarker()) {
             /*
              * System.out.
              * println("Your speed had to be lower than the brake value. You crashed.");
