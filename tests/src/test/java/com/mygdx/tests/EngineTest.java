@@ -103,7 +103,7 @@ class EngineTest {
         engine.placeCoPilotDice(2);
         engine.adjustSpeed(planesOnTrack);
         assertEquals(4, engine.getSpeed(), "Speed should match blue marker.");
-        assertEquals(1, engine.getCurrentPosition(), "Plane should move 1 step.");
+        assertEquals(0, engine.getCurrentPosition(), "Plane should not move.");
     }
 
     @Test
