@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">0.204s</div>
+<div class="counter">0.025s</div>
 <p>duration</p>
 </div>
 </td>
@@ -63,9 +63,6 @@
 <li>
 <a href="#tab0">Tests</a>
 </li>
-<li>
-<a href="#tab1">Standard output</a>
-</li>
 </ul>
 <div id="tab0" class="tab">
 <h2>Tests</h2>
@@ -79,72 +76,72 @@
 </thead>
 <tr>
 <td class="success">testAdjustAxis()</td>
-<td class="success">0.010s</td>
-<td class="success">passed</td>
-</tr>
-<tr>
-<td class="success">testAdjustEngineAndMove()</td>
-<td class="success">0.012s</td>
-<td class="success">passed</td>
-</tr>
-<tr>
-<td class="success">testAdjustSpeed()</td>
-<td class="success">0.005s</td>
-<td class="success">passed</td>
-</tr>
-<tr>
-<td class="success">testAdjustSpeedAndCrash()</td>
-<td class="success">0.003s</td>
-<td class="success">passed</td>
-</tr>
-<tr>
-<td class="success">testDeployBrakes()</td>
-<td class="success">0.008s</td>
-<td class="success">passed</td>
-</tr>
-<tr>
-<td class="success">testDeployFlaps()</td>
-<td class="success">0.037s</td>
-<td class="success">passed</td>
-</tr>
-<tr>
-<td class="success">testDeployLandingGears()</td>
-<td class="success">0.013s</td>
-<td class="success">passed</td>
-</tr>
-<tr>
-<td class="success">testFillTheCoffeeField()</td>
-<td class="success">0.004s</td>
-<td class="success">passed</td>
-</tr>
-<tr>
-<td class="success">testGetAltitude()</td>
 <td class="success">0.001s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
-<td class="success">testGetAxis()</td>
+<td class="success">testAdjustEngineAndMove()</td>
+<td class="success">0s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testAdjustSpeed()</td>
+<td class="success">0s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testAdjustSpeedAndCrash()</td>
+<td class="success">0.001s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testDeployBrakes()</td>
+<td class="success">0s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testDeployFlaps()</td>
 <td class="success">0.002s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testDeployLandingGears()</td>
+<td class="success">0s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testFillTheCoffeeField()</td>
+<td class="success">0s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testGetAltitude()</td>
+<td class="success">0s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testGetAxis()</td>
+<td class="success">0s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">testGetBrake()</td>
-<td class="success">0.094s</td>
+<td class="success">0.018s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">testGetConcentration()</td>
-<td class="success">0.002s</td>
+<td class="success">0s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">testGetEngine()</td>
-<td class="success">0.003s</td>
+<td class="success">0s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">testGetFlaps()</td>
-<td class="success">0.002s</td>
+<td class="success">0s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
@@ -154,52 +151,10 @@
 </tr>
 <tr>
 <td class="success">testGetPlanesOnTrack()</td>
-<td class="success">0.007s</td>
+<td class="success">0.002s</td>
 <td class="success">passed</td>
 </tr>
 </table>
-</div>
-<div id="tab1" class="tab">
-<h2>Standard output</h2>
-<span class="code">
-<pre>Flap 1 should be deployed first.
-Invalid dice value for Flap 1!
-Flap 1 is now deployed.
-Flap 2 is now deployed.
-Flap 3 is now deployed.
-Flap 4 is now deployed.
-Flap 4 is already filled.
-Invalid input for brake deployment. Please choose from 2, 4, or 6.
-Brake field 1 must be deployed first before deploying brake field 2.
-Brake field 1 is now deployed.
-Brake field 2 is now deployed.
-Brake field 3 is now deployed.
-Brake field 3 is already occupied.
-Coffee Field 1 is now filled with dice value 3.
-Speed adjusted to: 6
-Plane moves 1 step. Current position: 1
-End of updatePosition logic.
-Speed adjusted to: 8
-Speed matches orange marker. Plane moves 2 steps. Current position: 2
-Speed adjusted to: 11
-Plane moves 2 steps. Current position: 4
-End of updatePosition logic.
-Landing Gear 2 is now deployed.
-Invalid dice value for Landing Gear 1!
-Landing Gear 1 is now deployed.
-Landing Gear 3 is now deployed.
-Landing Gear 3 is now deployed.
-Speed adjusted to: 7
-Plane moves 1 step. Current position: 1
-End of updatePosition logic.
-Speed adjusted to: 12
-There were planes on your track. You crashed.
-End of updatePosition logic.
-Axis adjusted. Current tilt: 2
-Axis adjusted. Current tilt: 1
-Plane tilted 90 degrees. GAME OVER
-</pre>
-</span>
 </div>
 </div>
 <div id="footer">
@@ -209,7 +164,7 @@ Plane tilted 90 degrees. GAME OVER
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 8.11.1</a> at 16.01.2025, 17:11:56</p>
+<a href="http://www.gradle.org">Gradle 8.11.1</a> at 18.01.2025, 02:04:00</p>
 </div>
 </div>
 </body>

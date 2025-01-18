@@ -114,7 +114,7 @@ class EngineTest {
         engine.placeCoPilotDice(4);
         engine.adjustSpeed(planesOnTrack);
         assertEquals(8, engine.getSpeed(), "Speed should match orange marker.");
-        assertEquals(2, engine.getCurrentPosition(), "Plane should move 2 steps.");
+        assertEquals(1, engine.getCurrentPosition(), "Plane should move 1 step.");
     }
 
     @Test
@@ -156,7 +156,7 @@ class EngineTest {
 
     @Test
     void testUpdatePositionFailsOnBlockedTrack() {
-        planesOnTrack.set(1, 1); 
+        planesOnTrack.set(0, 1);
         engine.placePilotDice(3);
         engine.placeCoPilotDice(5);
         engine.adjustSpeed(planesOnTrack);
@@ -188,7 +188,7 @@ class EngineTest {
 
     @Test
     void testCheckWinConditionCrashOnTrack() {
-        planesOnTrack.set(1, 1);
+        planesOnTrack.set(0, 1);
         engine.placePilotDice(3);
         engine.placeCoPilotDice(5);
 
@@ -267,9 +267,4 @@ class EngineTest {
             engine.placeCoPilotDice(8);
         }, "Invalid dice value for Co-Pilot Engine Field");
     }
-
-
-
-
-
 }

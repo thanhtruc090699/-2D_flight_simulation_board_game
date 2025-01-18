@@ -1,22 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.mygdx.tests.TokenTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2025-01-16T16:11:55" hostname="DESKTOP-9CTSVT6" time="0.063">
+<testsuite name="com.mygdx.tests.TokenTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2025-01-18T01:04:00" hostname="RATHINs-MacBook-Air.local" time="0.003">
   <properties/>
-  <testcase name="testGetType()" classname="com.mygdx.tests.TokenTest" time="0.004"/>
-  <testcase name="testInvalidCoffeeTokenIndex()" classname="com.mygdx.tests.TokenTest" time="0.005"/>
-  <testcase name="testSetQuantity()" classname="com.mygdx.tests.TokenTest" time="0.003"/>
-  <testcase name="testGetQuantity()" classname="com.mygdx.tests.TokenTest" time="0.001"/>
-  <testcase name="testUseCoffeeToken()" classname="com.mygdx.tests.TokenTest" time="0.004"/>
-  <testcase name="testUseRerollToken()" classname="com.mygdx.tests.TokenTest" time="0.008"/>
-  <testcase name="testInvalidSelectedDicesToUseRerollToken()" classname="com.mygdx.tests.TokenTest" time="0.003"/>
+  <testcase name="testGetType()" classname="com.mygdx.tests.TokenTest" time="0.0"/>
+  <testcase name="testInvalidCoffeeTokenIndex()" classname="com.mygdx.tests.TokenTest" time="0.0"/>
+  <testcase name="testSetQuantity()" classname="com.mygdx.tests.TokenTest" time="0.0"/>
+  <testcase name="testGetQuantity()" classname="com.mygdx.tests.TokenTest" time="0.0"/>
+  <testcase name="testUseCoffeeToken()" classname="com.mygdx.tests.TokenTest" time="0.0"/>
+  <testcase name="testUseRerollToken()" classname="com.mygdx.tests.TokenTest" time="0.001"/>
+  <testcase name="testInvalidSelectedDicesToUseRerollToken()" classname="com.mygdx.tests.TokenTest" time="0.0"/>
   <system-out><![CDATA[Which Coffee Token would you like to use? (Enter 0, 1, or 2):
 The selected Coffee Token is not filled yet. Please choose a filled Coffee Token.
 Which Coffee Token would you like to use? (Enter 0, 1, or 2):
 Do you want to increase or decrease the dice value? (Enter 'increase' or 'decrease')
-Dice value increased to: 4
 After using, Coffee Token quantity: 2
 You used one of the Coffee Tokens.
-No reroll tokens left to use.
-No dice selected to reroll.
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

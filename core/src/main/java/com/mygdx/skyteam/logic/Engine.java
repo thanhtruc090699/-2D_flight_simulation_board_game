@@ -2,6 +2,7 @@ package com.mygdx.skyteam.logic;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+
 /**
  * Represents the engine of the airplane.
  * Manages speed, position, and markers for the airplane.
@@ -78,9 +79,9 @@ public class Engine {
         }
     }
 
-
     /**
-     * Adjusts the airplane's speed based on the dice values placed in the engine fields.
+     * Adjusts the airplane's speed based on the dice values placed in the engine
+     * fields.
      * Updates the airplane's position based on the adjusted speed.
      *
      * @param planeOnTrack the current state of planes on the track.
@@ -109,47 +110,39 @@ public class Engine {
         if (speed == blueMarker) {
             if (checkPlanesOnTrack(planesOnTrack, currentPosition)) {
                 currentPosition++;
-                /* System.out
-                        .println("Speed matches blue marker. Plane moves 1 step. Current position: " + currentPosition); */
                 isPositionMoveSuccessful = true;
-            } else {
-                /* System.out.println("Obstacle on track. Plane does not move."); */
+                /* System.out.println(
+                        "Speed matches blue marker. Plane moves 1 step. Current position: " + currentPosition); */
             }
             return;
         }
-
         if (speed == orangeMarker) {
             if (checkPlanesOnTrack(planesOnTrack, currentPosition)) {
-                currentPosition ++;
+                currentPosition++;
+                isPositionMoveSuccessful = true;
                 /* System.out.println(
                         "Speed matches orange marker. Plane moves 1 step. Current position: " + currentPosition); */
-                isPositionMoveSuccessful = true;
-            } else {
-                /* System.out.println("Obstacle on track. Plane does not move."); */
             }
-            return;
-        }
-
-        if (currentPosition == airportLocation && speed >= blueMarker) {
-            /* System.out.println("You lost! You overshot the airport."); */
+            return;}
+        if (currentPosition == airportLocation && speed >= blueMarker) {/* System.out.println("You lost! You overshot the airport."); */
             isPositionMoveSuccessful = false;
-            return;
-        }
-
+            return;}
         if (speed > blueMarker && speed < orangeMarker) {
             if (checkPlanesOnTrack(planesOnTrack, currentPosition)) {
                 currentPosition++;
-                /* System.out.println("Plane moves 1 step. Current position: " + currentPosition); */
+                /* System.out.println("Plane moves 1 step. Current position: " +
+                 * currentPosition); */
                 isPositionMoveSuccessful = true;
-            } else {
-                /* System.out.println("Obstacle on track. Plane does not move."); */
-                isPositionMoveSuccessful = false;
-            }
+            } else {/* System.out.println("Obstacle on track. Plane does not move."); */
+                isPositionMoveSuccessful = false;}
         } else if (speed > orangeMarker) {
             if (checkPlanesOnTrack(planesOnTrack, currentPosition) &&
                     checkPlanesOnTrack(planesOnTrack, currentPosition + 1)) {
                 currentPosition += 2;
-                /* System.out.println("Plane moves 2 steps. Current position: " + currentPosition); */
+                /*
+                 * System.out.println("Plane moves 2 steps. Current position: " +
+                 * currentPosition);
+                 */
                 isPositionMoveSuccessful = true;
             }
             if (currentPosition >= airportLocation) {
@@ -164,7 +157,7 @@ public class Engine {
     /**
      * Checks if the track at a specific position is clear of obstacles.
      *
-     * @param planesOnTrack  the state of planes on the track.
+     * @param planesOnTrack   the state of planes on the track.
      * @param currentPosition the position to check.
      * @return true if the track is clear, false otherwise.
      */
@@ -174,8 +167,7 @@ public class Engine {
             return false;
         } else {
             return true;
-        }
-    }
+        }}
 
     /**
      * Gets the current position of the airplane.
@@ -269,8 +261,7 @@ public class Engine {
         coPilotField.resetField();
     }
 
-    /**
-     * Checks if the last move was successful.
+    /* Checks if the last move was successful.
      *
      * @return true if the move was successful, false otherwise.
      */
@@ -287,5 +278,4 @@ public class Engine {
     public boolean setPositionMoveSuccessful(boolean x) {
         return isPositionMoveSuccessful = x;
     }
-
 }

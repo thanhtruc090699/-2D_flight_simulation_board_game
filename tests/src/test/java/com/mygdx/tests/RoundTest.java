@@ -29,7 +29,7 @@ public class RoundTest {
         coPilot = new CoPilot("CoPilot", airplane);
 
         // Create a Round instance
-        round = new Round(pilot, coPilot, airplane, gameLogic);
+        round = new Round(pilot, coPilot, airplane, gameLogic, 0);
     }
 
     @Test

@@ -295,4 +295,8 @@ public class GameLogic {
         return currentRoundNumber;
     }
 
+    public void setCurrentRoundNumber(int number){
+        this.currentRoundNumber = number;
+    }
+
 }
