@@ -28,6 +28,8 @@ public class Flap {
      * @param coPilotInput the dice value provided by the co-pilot.
      * @param airplane     the airplane to update (e.g., shifting markers).
      * @param fieldChoice  the flap field to deploy (1-based index).
+     *
+     * Written by: Rathin
      */
     public void deployFlaps(int coPilotInput, Airplane airplane, int fieldChoice) {
 
@@ -89,6 +91,8 @@ public class Flap {
      * @param diceValue   the dice value to check.
      * @param fieldChoice the flap field to check (1-based index).
      * @return true if the flap can be placed, false otherwise.
+     *
+     * Written by: Rathin
      */
     public boolean canPlaceFlapsForDice(int diceValue, int fieldChoice) {
         if ((diceValue == 1 || diceValue == 2) && fieldChoice - 1 == 0) {

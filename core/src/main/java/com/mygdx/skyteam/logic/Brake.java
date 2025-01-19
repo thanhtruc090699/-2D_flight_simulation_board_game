@@ -12,6 +12,8 @@ public class Brake {
 
     /**
      * Initializes the Brake system with default fields and a red marker at 0.
+     *
+     * Written by: Rathin
      */
     public Brake() {
         redMarker = 0;
@@ -27,6 +29,8 @@ public class Brake {
      * Ensures deployment order: Brake Field 1 -> Brake Field 2 -> Brake Field 3.
      *
      * @param pilotInput the dice value (2, 4, or 6) representing the brake to deploy.
+     *
+     * Written by: Rathin
      */
     public void deployBrakes(int pilotInput) {
         if (pilotInput == 2) {
@@ -111,6 +115,8 @@ public class Brake {
      *
      * @param redMarker the new red marker value.
      * @throws IllegalArgumentException if the value is invalid.
+     *
+     * Written by: Rathin
      */
     public void setRedMarker(int redMarker) {
         if (redMarker > 1 && redMarker < 7) {
@@ -145,6 +151,8 @@ public class Brake {
      *
      * @param diceValue the dice value to check (2, 4, or 6).
      * @return true if brakes can be placed, false otherwise.
+     *
+     * Written by: Rathin
      */
     public boolean canPlaceBrakesForDice(int diceValue) {
         if (diceValue != 2 && diceValue != 4 && diceValue != 6) {

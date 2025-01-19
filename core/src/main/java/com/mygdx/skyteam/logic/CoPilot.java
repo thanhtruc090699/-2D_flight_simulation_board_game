@@ -25,6 +25,8 @@ public class CoPilot extends Player {
      * @param diceValue    the value of the dice to place.
      * @param playerInput  the target component (e.g., "engine", "axis", "radio").
      * @param fieldChoice  the specific field for placement (used for components like "radio" or "flaps").
+     *
+     * Written by: Rathin
      */
     public void placeDice(int diceValue, String playerInput, int fieldChoice) {
 

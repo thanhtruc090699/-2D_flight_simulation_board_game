@@ -12,6 +12,8 @@ public class LandingGear {
 
     /**
      * Initializes the landing gear fields with default configurations.
+     *
+     * Written by: Rathin
      */
     public LandingGear() {
         landingGearFields = new ArrayList<>();
@@ -28,6 +30,8 @@ public class LandingGear {
      * @param pilotInput  the dice value provided by the pilot.
      * @param airplane    the airplane to update (e.g., shift markers).
      * @param fieldChoice the landing gear field to deploy (1-based index).
+     *
+     * Written by: Rathin
      */
     public void deployLandingGear(int pilotInput, Airplane airplane, int fieldChoice) {
 

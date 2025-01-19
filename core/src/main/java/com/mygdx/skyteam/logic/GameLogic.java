@@ -25,6 +25,8 @@ public class GameLogic {
 
     /**
      * Starts the game by assigning roles to players and starting the first round.
+     *
+     * Written by: Rathin
      */
     public void startGame() {
 
@@ -53,6 +55,8 @@ public class GameLogic {
 
     /**
      * Starts a new round and displays the unassigned dice for both players.
+     *
+     * Written by: Rathin
      */
     public void startRound() {
         currentRound = new Round(pilot, coPilot, airplane, this, startingPlayerIndex);

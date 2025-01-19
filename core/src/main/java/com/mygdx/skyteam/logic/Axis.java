@@ -24,6 +24,8 @@ public class Axis {
     /**
      * Adjusts the tilt based on the dice values placed by the pilot and co-pilot.
      * Updates the tilt and checks if it reaches critical values (0 or 6), signaling game over.
+     *
+     * Written by: Rathin
      */
 
     public void adjustTilt() {

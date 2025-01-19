@@ -17,6 +17,8 @@ public class Airplane {
     /**
      * Initializes a new instance of the Airplane class.
      * Sets up all the components and initializes the number of plane in each field on track with default values.
+     *
+     * Written by: Rathin
      */
     public Airplane(){
         altitude = new Altitude();
@@ -39,6 +41,8 @@ public class Airplane {
 
     /**
      * Adjusts the speed of the airplane based on the track.
+     *
+     * Written by: Rathin
      */
 
     public void adjustSpeed(){
@@ -47,6 +51,8 @@ public class Airplane {
 
     /**
      * Adjusts the tilt of the airplane.
+     *
+     * Written by: Rathin
      */
     public void adjustTilt(){
         axis.adjustTilt();
@@ -56,6 +62,8 @@ public class Airplane {
      * Deploys the airplane's brakes based on pilot input.
      *
      * @param pilotInput the intensity of the brake deployment.
+     *
+     * Written by: Rathin
      */
 
     public void deployBrakes(int pilotInput){
@@ -66,6 +74,8 @@ public class Airplane {
      *
      * @param pilotInput dice value of the pilot
      * @param fieldChoice the placeholder where the landing gear will be deployed.
+     *
+     * Written by: Rathin
      */
     public void deployLandingGear(int pilotInput, int fieldChoice){
         landingGears.deployLandingGear(pilotInput, this, fieldChoice);
@@ -75,6 +85,8 @@ public class Airplane {
      *
      * @param coPilotInput dice value of copilot chooses to put into flap's placeholder
      * @param fieldChoice the placeholder where the flaps will be deployed.
+     *
+     * Written by: Rathin
      */
     public void deployFlaps(int coPilotInput, int fieldChoice){
         flaps.deployFlaps(coPilotInput, this, fieldChoice);

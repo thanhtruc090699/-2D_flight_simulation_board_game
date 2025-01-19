@@ -18,6 +18,8 @@ public class Altitude{
          * Adds one more "reroll" tokens at round 5.
          *
          * @param currentRoundNumber the current round number in the game.
+         *
+         * Written by: Rathin
          */
         public void adjustAltitude(int currentRoundNumber){
             switch (currentRoundNumber) {
@@ -45,6 +47,8 @@ public class Altitude{
          *
          * @param altitude the new altitude value.
          * @throws IllegalArgumentException if the altitude exceeds the allowed range.
+         *
+         * Written by: Rathin
          */
         public void setAltitude(int altitude){
             if (altitude < 6000 && altitude > -1) {

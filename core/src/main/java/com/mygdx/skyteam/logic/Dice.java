@@ -14,6 +14,8 @@ public class Dice {
      * Rolls the dice to generate a random value between 1 and 6.
      *
      * @return the new dice value.
+     *
+     * Written by: Rathin
      */
     public int rollDice() {
         Random random = new Random();
@@ -26,6 +28,8 @@ public class Dice {
      * Ensures the value remains within the valid range (1 to 6).
      *
      * @param input "increase" to increment the value, "decrease" to decrement it.
+     *
+     * Written by: Rathin
      */
     public void modifyValue(String input) {
 
@@ -56,6 +60,7 @@ public class Dice {
      * Sets the value of the dice.
      *
      * @param value the new value of the dice (1 to 6).
+     * Written by: Rathin
      */
     public void setDiceValue(int value) {
         this.value = value;
@@ -65,6 +70,8 @@ public class Dice {
      * Gets the current value of the dice.
      *
      * @return the dice value.
+     *
+     * Written by: Rathin
      */
     public int getDiceValue() {
         return value;

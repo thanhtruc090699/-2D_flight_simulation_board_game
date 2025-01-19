@@ -67,6 +67,8 @@ public class Round {
      * @param diceIndex    the index of the dice being placed.
      * @param playerInput  the action chosen by the player.
      * @param fieldChoice  the field where the dice is placed.
+     *
+     * Written by: Rathin
      */
     public void playTurn(int diceIndex, String playerInput, int fieldChoice) {
         // Pilots turn
@@ -137,6 +139,8 @@ public class Round {
 
     /**
      * Switches to the next player (Pilot or CoPilot).
+     *
+     * Written by: Rathin
      */
     public void switchPlayer() {
         currentPlayerIndex = (currentPlayerIndex == 0) ? 1 : 0; // 0 for pilot, 1 for copilot
