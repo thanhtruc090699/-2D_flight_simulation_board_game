@@ -1,9 +1,15 @@
 package com.mygdx.skyteam.logic;
 
 import java.util.ArrayList;
+
 /**
- * Represents an airplane with various components such as engine, landing gear, brakes, and flaps.
+ * Represents an airplane with various components such as engine, landing gear,
+ * brakes, and flaps.
  * Manages the state and behavior of an airplane during gameplay.
+ * 
+ * Coded primarily by: Marija Voloder (Class structure, constructors, function
+ * definitions and variables), with a few getter methods and initializations
+ * added by Rathin.
  */
 public class Airplane {
     private Altitude altitude;
@@ -14,23 +20,25 @@ public class Airplane {
     private Flap flaps;
     private Brake brakes;
     private ArrayList<Integer> planesOnTrack;
+
     /**
      * Initializes a new instance of the Airplane class.
-     * Sets up all the components and initializes the number of plane in each field on track with default values.
-     *
-     * Written by: Rathin
+     * Sets up all the components and initializes the number of plane in each field
+     * on track with default values.
+     * 
      */
-    public Airplane(){
+    public Airplane() {
         altitude = new Altitude();
-        axis =  new Axis();
+        axis = new Axis();
         engine = new Engine();
         landingGears = new LandingGear();
         brakes = new Brake();
         flaps = new Flap();
         coffee = new Concentration();
-        planesOnTrack= new ArrayList<>();
+        planesOnTrack = new ArrayList<>();
 
-        planesOnTrack.add(0);  //7 fields to airport, each index is position and contains the number of planes on it, this is the original game track
+        planesOnTrack.add(0); // 7 fields to airport, each index is position and contains the number of planes
+                              // on it, this is the original game track
         planesOnTrack.add(0);
         planesOnTrack.add(1);
         planesOnTrack.add(2);
@@ -41,20 +49,18 @@ public class Airplane {
 
     /**
      * Adjusts the speed of the airplane based on the track.
-     *
-     * Written by: Rathin
+     *  Written by: Marija
      */
 
-    public void adjustSpeed(){
+    public void adjustSpeed() {
         engine.adjustSpeed(planesOnTrack);
     }
 
     /**
      * Adjusts the tilt of the airplane.
-     *
-     * Written by: Rathin
+     *  Written by: Marija & Rathin
      */
-    public void adjustTilt(){
+    public void adjustTilt() {
         axis.adjustTilt();
     }
 
@@ -62,62 +68,69 @@ public class Airplane {
      * Deploys the airplane's brakes based on pilot input.
      *
      * @param pilotInput the intensity of the brake deployment.
-     *
-     * Written by: Rathin
+     *  Written by: Marija & Rathin
+     *                  
      */
 
-    public void deployBrakes(int pilotInput){
+    public void deployBrakes(int pilotInput) {
         brakes.deployBrakes(pilotInput);
     }
+
     /**
-     * Deploys the landing gear of the airplane based on pilot's input, which increases the value of blue marker
+     * Deploys the landing gear of the airplane based on pilot's input, which
+     * increases the value of blue marker
      *
-     * @param pilotInput dice value of the pilot
+     * @param pilotInput  dice value of the pilot
      * @param fieldChoice the placeholder where the landing gear will be deployed.
-     *
-     * Written by: Rathin
+     *                
+     * Written by: Marija & Rathin 
      */
-    public void deployLandingGear(int pilotInput, int fieldChoice){
+    public void deployLandingGear(int pilotInput, int fieldChoice) {
         landingGears.deployLandingGear(pilotInput, this, fieldChoice);
     }
+
     /**
-     * Deploys the airplane's flaps based on co-pilot input, which increases the value of orange marker
+     * Deploys the airplane's flaps based on co-pilot input, which increases the
+     * value of orange marker
      *
-     * @param coPilotInput dice value of copilot chooses to put into flap's placeholder
-     * @param fieldChoice the placeholder where the flaps will be deployed.
-     *
-     * Written by: Rathin
+     * @param coPilotInput dice value of copilot chooses to put into flap's
+     *                     placeholder
+     * @param fieldChoice  the placeholder where the flaps will be deployed.
+     * 
+     * Written by: Marija & Rathin
      */
-    public void deployFlaps(int coPilotInput, int fieldChoice){
+    public void deployFlaps(int coPilotInput, int fieldChoice) {
         flaps.deployFlaps(coPilotInput, this, fieldChoice);
     }
+
     /**
      * Fills the coffee fields
      *
      * @param diceValue the value of the dice (copilot or pilot)
-     * Written by: Marija
+     *                  Written by: Marija
      */
-    public void fillCoffeeFields(int diceValue){
+    public void fillCoffeeFields(int diceValue) {
         coffee.fillCoffeeFields(diceValue);
     }
 
-    //getters and setters
+    // getters and setters
     /**
      * Gets the engine of the airplane.
      *
      * @return the airplane's engine.
-     * Written by: Marija
+     *         Written by: Marija
      */
-    public Engine getEngine(){
+    public Engine getEngine() {
         return engine;
     }
+
     /**
      * Gets the axis of the airplane.
      *
      * @return the airplane's axis.
-     * Written by: Marija
+     *         Written by: Marija
      */
-    public Axis getAxis(){
+    public Axis getAxis() {
         return axis;
     }
 
@@ -125,56 +138,60 @@ public class Airplane {
      * Gets the altitude of the airplane.
      *
      * @return the airplane's altitude.
-     * Written by: Marija
+     *         Written by: Marija
      */
-    public Altitude getAltitude(){
+    public Altitude getAltitude() {
         return altitude;
     }
+
     /**
      * Gets the landing gears of the airplane.
      *
      * @return the airplane's landing gears.
-     * Written by: Marija
+     *         Written by: Marija
      */
     public LandingGear getLandingGears() {
         return landingGears;
     }
+
     /**
      * Gets the brakes of the airplane.
      *
      * @return the airplane's brakes.
-     * Written by: Marija
+     *         Written by: Marija
      */
     public Brake getBrakes() {
         return brakes;
     }
+
     /**
      * Gets the flaps of the airplane.
      *
      * @return the airplane's flaps.
-     * Written by: Marija
+     *         Written by: Marija
      */
     public Flap getFlaps() {
         return flaps;
     }
+
     /**
      * Gets the coffee concentration manager of the airplane.
      *
      * @return the airplane's coffee concentration manager.
-     * Written by: Marija
+     *         Written by: Marija
      */
-    public Concentration getConcentration(){
+    public Concentration getConcentration() {
         return coffee;
     }
+
     /**
      * Gets the list of planes on the track.
      *
      * @return an ArrayList representing the number of planes on each track field.
-     * Written by: Marija
+     *         Written by: Marija
      */
-    public ArrayList<Integer> getPlanesOnTrack(){
+    public ArrayList<Integer> getPlanesOnTrack() {
         return planesOnTrack;
     }
-
 
 }

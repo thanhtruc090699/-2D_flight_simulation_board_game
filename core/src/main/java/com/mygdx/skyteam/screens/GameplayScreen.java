@@ -16,12 +16,9 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.audio.Sound;
-
 import java.util.ArrayList;
 import java.util.List;
-
 import com.mygdx.skyteam.logic.GameLogic;
-
 import com.mygdx.skyteam.logic.Field;
 
 /**
@@ -29,6 +26,7 @@ import com.mygdx.skyteam.logic.Field;
  * gameplay.
  * It handles rendering of the game board, dice interactions, and player
  * actions.
+ * Coded by: Truc & Marija & Rathin
  */
 public class GameplayScreen implements Screen {
 
@@ -347,9 +345,125 @@ public class GameplayScreen implements Screen {
     }
 
     /**
+     * Renders the gameplay screen and updates visual elements in each frame.
+     *
+     * @param delta Time elapsed since the last frame, used for animations or
+     *              time-sensitive actions.
+     * 
+     */
+    @Override
+    public void render(float delta) {
+
+        // Clear the screen to prepare for rendering
+
+        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+
+        batch.begin();
+
+        // Check for game over or victory conditions
+        if (gameLogic.getGameOver()) {
+            game.setScreen(new GameOverScreen(game));
+            return;
+        } else if (gameLogic.hasWon()) {
+            game.setScreen(new VictoryScreen(game));
+            return;
+        }
+
+        // Draw the background
+        batch.draw(backgroundTexture, 0, 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+
+        // Update the plane track and its offset based on the engine's current position
+        updatePlaneTrackVerticalOffset(gameLogic.getAirplane().getEngine().getCurrentPosition());
+
+        // Render various elements of the game board
+        drawBoardAndAltitudeTrack();
+        drawRerollToken();
+        drawSwitchesAndMarkers();
+        drawButtons();
+
+        // Draw the axis sprite
+        axisSprite.draw(batch);
+
+        playerIndex = gameLogic.getRound().getCurrentPlayerIndex();
+
+        if (playerIndex == 0) {
+            // Display Pilot's turn and manage visibility of Pilot and Co-Pilot dice
+            batch.draw(pilotTurnTexture, 300, 750);
+            hideCoPilotDice();
+            showPilotDice();
+        } else if (playerIndex == 1) {
+            batch.draw(coPilotTurnTexture, Gdx.graphics.getWidth() - 600, 750);
+            hidePilotDice();
+            showCoPilotDice();
+        }
+
+        // Handle updates for round changes
+        handleRoundChange();
+
+        // Render the current round number on the screen
+        renderRoundNumber();
+
+        // Highlight valid fields for dice placement
+        drawHighlights();
+        batch.end();
+
+        stage.act(Math.min(Gdx.graphics.getDeltaTime(), 1 / 30f));
+        stage.draw();
+
+    }
+
+    /**
+     * Adjusts the stage viewport on window resize.
+     *
+     * @param width  The new width of the window.
+     * @param height The new height of the window.
+     */
+    @Override
+    public void resize(int width, int height) {
+        stage.getViewport().update(width, height, true); // Update stage on resize
+    }
+
+    /**
+     * Cleans up resources when this screen is no longer visible.
+     */
+    @Override
+    public void hide() {
+        dispose(); // Dispose of stage when hidden
+    }
+
+    /**
+     * Placeholder for pause functionality. Can be implemented if needed.
+     */
+    @Override
+    public void pause() {
+    }
+
+    /**
+     * Placeholder for resume functionality. Can be implemented if needed.
+     */
+    @Override
+    public void resume() {
+    }
+
+    /**
+     * Disposes of resources used by this screen.
+     */
+    @Override
+    public void dispose() {
+        if (stage != null)
+            stage.dispose();
+        if (boardTexture != null)
+            boardTexture.dispose();
+        if (batch != null)
+            batch.dispose();
+    }
+
+    /**
      * Manages the reroll interaction for the players (Pilot and Copilot).
      * Handles dice reroll logic, updates UI, and manages player turns during
      * rerolling.
+     * 
+     * Coded by: Rathin
      */
     private void handleRerollInteraction() {
         stage.addListener(new InputListener() {
@@ -405,6 +519,8 @@ public class GameplayScreen implements Screen {
      * Sets up the reroll phase for the specified player.
      *
      * @param stage The current player's stage (0 = Pilot, 1 = Copilot).
+     * 
+     *              Coded by: Truc
      */
     private void startReroll(int stage) {
         isUsingReroll = true;
@@ -434,6 +550,8 @@ public class GameplayScreen implements Screen {
      *
      * @param event The input event triggered by the player.
      * @return True if a dice reroll was successfully handled, otherwise false.
+     * 
+     *         Coded by: Truc
      */
     private boolean handlePilotDiceReroll(InputEvent event) {
         for (int i = 0; i < rerollPilotDiceSelectable.size(); i++) {
@@ -458,6 +576,8 @@ public class GameplayScreen implements Screen {
      *
      * @param event The input event triggered by the player.
      * @return True if a dice reroll was successfully handled, otherwise false.
+     * 
+     *         Coded by: Truc
      */
     private boolean handleCopilotDiceReroll(InputEvent event) {
         for (int i = 0; i < rerollCopilotDiceSelectable.size(); i++) {
@@ -562,6 +682,8 @@ public class GameplayScreen implements Screen {
     /**
      * Draws the buttons for reroll interaction during the reroll phase.
      * Displays the "Done" button and reroll buttons for the current player.
+     * 
+     * Coded by: Truc
      */
     private void drawButtons() {
         playerIndex = gameLogic.getRound().getCurrentPlayerIndex();
@@ -610,6 +732,8 @@ public class GameplayScreen implements Screen {
      * @param diceList     the list of dice to draw.
      * @param diceTextures the textures corresponding to the dice.
      * @param isPilot      true if the dice belong to the pilot, false for co-pilot.
+     * 
+     *                     Coded by: Marija
      */
     public void drawDice(ArrayList<Dice> diceList, ArrayList<Texture> diceTextures, boolean isPilot) {
 
@@ -656,6 +780,8 @@ public class GameplayScreen implements Screen {
      * @param diceTextures The list of textures corresponding to the dice values.
      * @param isPilot      A boolean indicating whether the dice are for the pilot
      *                     (true) or co-pilot (false).
+     * 
+     *                     Coded by: Marija
      */
     public void resetAndDrawDice(ArrayList<Dice> diceList, ArrayList<Texture> diceTextures, boolean isPilot) {
 
@@ -701,6 +827,8 @@ public class GameplayScreen implements Screen {
      * @param dice      The dice object that holds the updated value
      * @param isPilot   A boolean indicating whether the dice are for the pilot
      *                  (true) or co-pilot (false).
+     * 
+     *                  Coded by: Truc
      */
     private void updateSingleDice(int diceIndex, Dice dice, boolean isPilot) {
         ArrayList<Texture> diceTextures = isPilot ? pilotDiceTextures : coPilotDiceTextures;
@@ -734,8 +862,11 @@ public class GameplayScreen implements Screen {
     /**
      * Handles the Pilot's interaction with coffee token and dice adjustments.
      * - Activates coffee mode when a coffee token is clicked.
-     * - Allows the Pilot to increase or decrease dice values using the coffee token.
+     * - Allows the Pilot to increase or decrease dice values using the coffee
+     * token.
      * - Exits coffee mode once dice adjustments are complete.
+     * 
+     * Coded by: Truc
      */
     private void handlePilotCoffeeInteraction() {
         stage.addListener(new InputListener() {
@@ -806,8 +937,11 @@ public class GameplayScreen implements Screen {
     /**
      * Handles the CoPilot's interaction with the coffee token and dice adjustments.
      * - Activates coffee mode when a coffee token is clicked.
-     * - Allows the CoPilot to increase or decrease dice values using the coffee token.
+     * - Allows the CoPilot to increase or decrease dice values using the coffee
+     * token.
      * - Exits coffee mode once dice adjustments are complete.
+     * 
+     * Coded by: Truc
      */
     private void handleCoPilotCoffeeInteraction() {
         stage.addListener(new InputListener() {
@@ -881,6 +1015,8 @@ public class GameplayScreen implements Screen {
      * Handles changes in the game round.
      * Resets states for dice, coffee tokens, reroll icons, and updates the active
      * player.
+     * 
+     * Coded by: Marija & Truc
      */
     public void handleRoundChange() {
         // Check if the round number has changed
@@ -948,6 +1084,7 @@ public class GameplayScreen implements Screen {
 
     /**
      * Makes all Pilot's dice visible, except those already dropped.
+     * Coded by: Marija
      */
     private void showPilotDice() {
         for (Actor actor : stage.getActors()) {
@@ -962,6 +1099,7 @@ public class GameplayScreen implements Screen {
 
     /**
      * Makes all CoPilot's dice visible, except those already dropped.
+     * Coded by: Marija
      */
     private void showCoPilotDice() {
         for (Actor actor : stage.getActors()) {
@@ -977,6 +1115,7 @@ public class GameplayScreen implements Screen {
 
     /**
      * Hides all Pilot's dice, except those already dropped.
+     * Coded by: Marija
      */
     private void hidePilotDice() {
         for (Actor actor : stage.getActors()) {
@@ -992,6 +1131,7 @@ public class GameplayScreen implements Screen {
 
     /**
      * Hides all CoPilot's dice, except those already dropped.
+     * Coded by: Marija
      */
     private void hideCoPilotDice() {
         for (Actor actor : stage.getActors()) {
@@ -1010,6 +1150,8 @@ public class GameplayScreen implements Screen {
      *
      * @param dice      The Pilot's dice being interacted with.
      * @param diceImage The visual representation of the dice.
+     * 
+     *                  Coded by: Marija
      */
     private void handlePilotInteraction(final Dice dice, final Image diceImage) {
         diceImage.addListener(new InputListener() {
@@ -1088,6 +1230,8 @@ public class GameplayScreen implements Screen {
      *
      * @param dice      The Co-Pilot's dice being interacted with.
      * @param diceImage The visual representation of the dice.
+     * 
+     *                  Coded by: Marija
      */
     private void handleCoPilotInteraction(final Dice dice, final Image diceImage) {
         diceImage.addListener(new InputListener() {
@@ -1161,76 +1305,11 @@ public class GameplayScreen implements Screen {
     }
 
     /**
-     * Renders the gameplay screen and updates visual elements in each frame.
-     *
-     * @param delta Time elapsed since the last frame, used for animations or
-     *              time-sensitive actions.
-     */
-    @Override
-    public void render(float delta) {
-
-        // Clear the screen to prepare for rendering
-
-        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-
-        batch.begin();
-
-        // Check for game over or victory conditions
-        if (gameLogic.getGameOver()) {
-            game.setScreen(new GameOverScreen(game));
-            return;
-        } else if (gameLogic.hasWon()) {
-            game.setScreen(new VictoryScreen(game));
-            return;
-        }
-
-        // Draw the background
-        batch.draw(backgroundTexture, 0, 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
-
-        // Update the plane track and its offset based on the engine's current position
-        updatePlaneTrackVerticalOffset(gameLogic.getAirplane().getEngine().getCurrentPosition());
-
-        // Render various elements of the game board
-        drawBoardAndAltitudeTrack();
-        drawRerollToken();
-        drawSwitchesAndMarkers();
-        drawButtons();
-
-        // Draw the axis sprite
-        axisSprite.draw(batch);
-
-        playerIndex = gameLogic.getRound().getCurrentPlayerIndex();
-
-        if (playerIndex == 0) {
-            // Display Pilot's turn and manage visibility of Pilot and Co-Pilot dice
-            batch.draw(pilotTurnTexture, 300, 750);
-            hideCoPilotDice();
-            showPilotDice();
-        } else if (playerIndex == 1) {
-            batch.draw(coPilotTurnTexture, Gdx.graphics.getWidth() - 600, 750);
-            hidePilotDice();
-            showCoPilotDice();
-        }
-
-        // Handle updates for round changes
-        handleRoundChange();
-
-        // Render the current round number on the screen
-        renderRoundNumber();
-
-        // Highlight valid fields for dice placement
-        drawHighlights();
-        batch.end();
-
-        stage.act(Math.min(Gdx.graphics.getDeltaTime(), 1 / 30f));
-        stage.draw();
-
-    }
-
-    /**
      * Renders the current round number on the screen.
      * Displays the appropriate round texture at a fixed position based on the
      * game's current round.
+     * 
+     * Coded by: Marija
      */
     private void renderRoundNumber() {
         int currentRound = gameLogic.getCurrentRoundNumber();
@@ -1250,6 +1329,8 @@ public class GameplayScreen implements Screen {
      * feedback.
      * Iterates through all pilot and co-pilot fields, drawing highlights for valid
      * dice placements.
+     * 
+     * Coded by: Marija
      */
     private void drawHighlights() {
 
@@ -1282,6 +1363,8 @@ public class GameplayScreen implements Screen {
      * Draws the game board and altitude track on the screen.
      * Updates the altitude track position based on the current altitude and renders
      * the axis indicator with rotation.
+     * 
+     * Coded by: Marija
      */
     private void drawBoardAndAltitudeTrack() {
 
@@ -1325,6 +1408,8 @@ public class GameplayScreen implements Screen {
      * - Draws blue, red, and orange markers.
      * - Draws coffee tokens based on the current quantity.
      * - If coffee mode is active, draws buttons for adjusting dice values.
+     * 
+     * Coded by: Truc
      */
     private void drawSwitchesAndMarkers() {
 
@@ -1409,6 +1494,8 @@ public class GameplayScreen implements Screen {
     /**
      * Draws the reroll tokens on the screen.
      * Displays the available tokens and placeholders where tokens can be used.
+     * 
+     * Coded by: Truc
      */
     private void drawRerollToken() {
         for (Vector2 rerollTokenPosition : rerollIconPositions) {
@@ -1446,6 +1533,8 @@ public class GameplayScreen implements Screen {
      *                      The list size determines the number of positions, and
      *                      each element
      *                      represents how many planes are at that position.
+     * 
+     *                      Coded by: Marija
      */
     public void generateAndDrawPlanesWithTrack(ArrayList<Integer> planesOnTrack) {
         planePositions = new ArrayList<>();
@@ -1521,6 +1610,8 @@ public class GameplayScreen implements Screen {
      *                  co-pilot.
      * @param diceImage The Image object representing the dice being dragged.
      * @param diceIndex The index of the dice in the player's dice list.
+     * 
+     *                  Coded by: Marija
      */
     public void handleInput(int mouseX, int mouseY, boolean isPilot, Image diceImage, int diceIndex) {
 
@@ -1885,6 +1976,8 @@ public class GameplayScreen implements Screen {
      * @param field     The field to check for mouse hover.
      * @param diceImage The dice image being interacted with (for reference).
      * @return true if the mouse pointer is over the field; false otherwise.
+     * 
+     *         Coded by: Marija
      */
     public boolean isMouseOverField(int mouseX, int mouseY, Field field, Image diceImage) {
         // Convert screen space coordinates to stage coordinates
@@ -1897,49 +1990,4 @@ public class GameplayScreen implements Screen {
         return false;
     }
 
-    /**
-     * Adjusts the stage viewport on window resize.
-     *
-     * @param width  The new width of the window.
-     * @param height The new height of the window.
-     */
-    @Override
-    public void resize(int width, int height) {
-        stage.getViewport().update(width, height, true); // Update stage on resize
-    }
-
-    /**
-     * Cleans up resources when this screen is no longer visible.
-     */
-    @Override
-    public void hide() {
-        dispose(); // Dispose of stage when hidden
-    }
-
-    /**
-     * Placeholder for pause functionality. Can be implemented if needed.
-     */
-    @Override
-    public void pause() {
-    }
-
-    /**
-     * Placeholder for resume functionality. Can be implemented if needed.
-     */
-    @Override
-    public void resume() {
-    }
-
-    /**
-     * Disposes of resources used by this screen.
-     */
-    @Override
-    public void dispose() {
-        if (stage != null)
-            stage.dispose();
-        if (boardTexture != null)
-            boardTexture.dispose();
-        if (batch != null)
-            batch.dispose();
-    }
 }

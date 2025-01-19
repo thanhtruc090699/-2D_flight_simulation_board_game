@@ -16,10 +16,11 @@ import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.mygdx.skyteam.logic.GameLogic;
 import com.mygdx.skyteam.screens.InstructionScreen;
 
-
 /**
  * Represents the main menu screen of the game.
- * Provides options to start the game, view instructions, or exit the application.
+ * Provides options to start the game, view instructions, or exit the
+ * application.
+ * Coded by: Marija Voloder
  */
 public class MainMenuScreen implements Screen {
     private Stage stage;
@@ -33,8 +34,8 @@ public class MainMenuScreen implements Screen {
     @Override
     public void show() {
 
-        //setWindowedMode();
-        setFullscreenMode();
+        setWindowedMode();
+        // setFullscreenMode();
 
         stage = new Stage(new ScreenViewport());
         skin = new Skin(Gdx.files.internal("uiskin.json"));
@@ -132,6 +133,7 @@ public class MainMenuScreen implements Screen {
 
         Gdx.input.setInputProcessor(stage);
     }
+
     // Use this if you're using a 2k or 4k screen
     private void setWindowedMode() {
         int windowWidth = 1920;

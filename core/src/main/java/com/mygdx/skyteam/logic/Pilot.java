@@ -4,6 +4,9 @@ import java.util.ArrayList;
 /**
  * Represents the pilot player in the game.
  * Handles the pilot's actions, such as placing dice, using the radio, and interacting with airplane components.
+ * 
+ * Coded by: Marija Voloder (Class structure, constructors, most function
+ * definitions/implementations and variables) & Rathin (help with some functions)
  */
 public class Pilot extends Player {
     private Radio radio;
@@ -28,7 +31,7 @@ public class Pilot extends Player {
      * @param playerInput the target component (e.g., "engine", "axis", "radio").
      * @param fieldChoice the specific field for placement (used for multi-field components).
      *
-     * Written by: Rathin, Marija
+     * Written by: Marija & Rathin
      */
     public void placeDice(int diceValue, String playerInput, int fieldChoice) {
 

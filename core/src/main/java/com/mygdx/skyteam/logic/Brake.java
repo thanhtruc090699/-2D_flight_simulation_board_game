@@ -5,6 +5,9 @@ import java.util.Arrays;
 /**
  * Manages the airplane's braking system.
  * Handles brake deployment based on pilot input and ensures correct deployment order.
+ * 
+ * Coded by: Marija Voloder (Class structure, constructors, some function
+ * definitions/implementations and variables) & Rathin (main functionality)
  */
 public class Brake {
     private int redMarker;
@@ -13,7 +16,7 @@ public class Brake {
     /**
      * Initializes the Brake system with default fields and a red marker at 0.
      *
-     * Written by: Rathin
+     * Written by: Marija
      */
     public Brake() {
         redMarker = 0;
@@ -30,7 +33,7 @@ public class Brake {
      *
      * @param pilotInput the dice value (2, 4, or 6) representing the brake to deploy.
      *
-     * Written by: Rathin
+     * Written by: Rathin & Marija
      */
     public void deployBrakes(int pilotInput) {
         if (pilotInput == 2) {
@@ -117,7 +120,7 @@ public class Brake {
      * @param redMarker the new red marker value.
      * @throws IllegalArgumentException if the value is invalid.
      *
-     * Written by: Rathin
+     * Written by: Rathin & Marija
      */
     public void setRedMarker(int redMarker) {
         if (redMarker > 1 && redMarker < 7) {
@@ -155,7 +158,7 @@ public class Brake {
      * @param diceValue the dice value to check (2, 4, or 6).
      * @return true if brakes can be placed, false otherwise.
      *
-     * Written by: Rathin
+     * Written by: Marija 
      */
     public boolean canPlaceBrakesForDice(int diceValue) {
         if (diceValue != 2 && diceValue != 4 && diceValue != 6) {

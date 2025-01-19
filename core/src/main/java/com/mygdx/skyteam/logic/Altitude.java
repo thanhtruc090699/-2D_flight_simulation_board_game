@@ -2,6 +2,9 @@ package com.mygdx.skyteam.logic;
 /**
  * Manages the airplane's altitude in the game.
  * Provides functionality to adjust altitude based on the current game round and handle the "reroll" token.
+ * 
+ * Coded by: Marija Voloder (Class structure, constructors, most function
+ * definitions/implementations and variables)
  */
 public class Altitude{
         private int altitude;
@@ -20,7 +23,7 @@ public class Altitude{
          *
          * @param currentRoundNumber the current round number in the game.
          *
-         * Written by: Rathin
+         * Written by: Marija & Rathin
          */
         public void adjustAltitude(int currentRoundNumber){
             switch (currentRoundNumber) {
@@ -51,7 +54,7 @@ public class Altitude{
          * @param altitude the new altitude value.
          * @throws IllegalArgumentException if the altitude exceeds the allowed range.
          *
-         * Written by: Rathin
+         * Written by: Marija & Rathin
          */
         public void setAltitude(int altitude){
             if (altitude < 6000 && altitude > -1) {

@@ -9,6 +9,9 @@ import java.util.List;
 /**
  * Represents a placeholder on the game board where dice can be placed.
  * Tracks its position, valid dice values, and current state.
+ * 
+ * Coded by: Marija Voloder (Class structure, constructors, function
+ * definitions/implementations and variables) 
  */
 public class Field {
     private String name;

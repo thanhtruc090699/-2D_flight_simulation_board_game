@@ -4,6 +4,8 @@ import java.util.Arrays;
 /**
  * Manages the airplane's axis tilt based on dice rolls from the pilot and co-pilot.
  * Adjusts the tilt and tracks its state during gameplay.
+ * Coded by: Marija Voloder (Class structure, constructors, some function
+ * definitions/implementations and variables) & Rathin initially contributed to main functionality 
  */
 
 public class Axis {
@@ -26,7 +28,7 @@ public class Axis {
      * Adjusts the tilt based on the dice values placed by the pilot and co-pilot.
      * Updates the tilt and checks if it reaches critical values (0 or 6), signaling game over.
      *
-     * Written by: Rathin
+     * Written by: Marija & Rathin
      */
 
     public void adjustTilt() {

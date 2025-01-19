@@ -12,6 +12,8 @@ import com.mygdx.skyteam.logic.GameLogic;
  * Main entry point for the game, managing the game lifecycle and screen transitions.
  * {@link com.badlogic.gdx.ApplicationListener} implementation shared by all
  * platforms.
+ * 
+ * Coded by: Marija Voloder
  */
 public class SkyTeamGame extends Game {
     private SpriteBatch batch;
@@ -27,8 +29,8 @@ public class SkyTeamGame extends Game {
         viewport = new FitViewport(1920, 1080, camera);
         viewport.apply();
 
-        setFullscreenMode();
-        //setWindowedMode();
+        //setFullscreenMode();
+        setWindowedMode();
         this.setScreen(new MainMenuScreen(this));
     }
 

@@ -5,6 +5,9 @@ import java.util.Arrays;
 /**
  * Manages the airplane's landing gear system.
  * Handles deploying landing gears based on pilot input and updating related game mechanics.
+ * 
+ * Coded by: Rathin (main functionality, part of class structure) & Marija Voloder (part of class structure, constructors, some function
+ * definitions/implementations and variables) 
  */
 public class LandingGear {
 
@@ -13,7 +16,7 @@ public class LandingGear {
     /**
      * Initializes the landing gear fields with default configurations.
      *
-     * Written by: Rathin
+     * Written by: Rathin & Marija
      */
     public LandingGear() {
         landingGearFields = new ArrayList<>();
@@ -31,7 +34,7 @@ public class LandingGear {
      * @param airplane    the airplane to update (e.g., shift markers).
      * @param fieldChoice the landing gear field to deploy (1-based index).
      *
-     * Written by: Rathin
+     * Written by: Rathin & Marija
      */
     public void deployLandingGear(int pilotInput, Airplane airplane, int fieldChoice) {
 

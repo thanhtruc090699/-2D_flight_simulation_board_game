@@ -5,6 +5,9 @@ import java.util.Random;
 /**
  * Represents a dice that can be rolled and modified.
  * Tracks its value, assignment status, and position.
+ * 
+ * Coded by: Marija Voloder (Class structure, constructors, most function
+ * definitions/implementations and variables)
  */
 public class Dice {
     private int value;
@@ -15,7 +18,7 @@ public class Dice {
      *
      * @return the new dice value.
      *
-     * Written by: Rathin
+     * Written by: Marija & Rathin
      */
     public int rollDice() {
         Random random = new Random();
@@ -29,7 +32,7 @@ public class Dice {
      *
      * @param input "increase" to increment the value, "decrease" to decrement it.
      *
-     * Written by: Rathin
+     * Written by: Marija
      */
     public void modifyValue(String input) {
 
@@ -60,7 +63,7 @@ public class Dice {
      * Sets the value of the dice.
      *
      * @param value the new value of the dice (1 to 6).
-     * Written by: Rathin
+     * Written by: Marija
      */
     public void setDiceValue(int value) {
         this.value = value;
@@ -71,7 +74,7 @@ public class Dice {
      *
      * @return the dice value.
      *
-     * Written by: Rathin
+     * Written by: Marija
      */
     public int getDiceValue() {
         return value;

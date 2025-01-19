@@ -4,6 +4,9 @@ import java.util.ArrayList;
 /**
  * Abstract class representing a generic player in the game.
  * Provides common functionality for players, such as managing dice and tokens.
+ * 
+ * Coded by: Marija Voloder (Class structure, constructors, function
+ * definitions/implementations and variables) 
  */
 public abstract class Player {
     protected String name;

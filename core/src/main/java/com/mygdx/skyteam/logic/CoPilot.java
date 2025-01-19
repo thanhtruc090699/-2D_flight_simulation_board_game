@@ -2,6 +2,8 @@ package com.mygdx.skyteam.logic;
 /**
  * Represents the co-pilot player in the game.
  * Handles co-pilot actions such as placing dice, using the radio, and interacting with airplane components.
+ * Coded by: Marija Voloder (Class structure, constructors, some function
+ * definitions/implementations and variables) & Rathin (help with some functions)
  */
 public class CoPilot extends Player {
     private Radio radio;

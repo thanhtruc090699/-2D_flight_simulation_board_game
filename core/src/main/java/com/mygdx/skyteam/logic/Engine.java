@@ -6,6 +6,9 @@ import java.util.Arrays;
 /**
  * Represents the engine of the airplane.
  * Manages speed, position, and markers for the airplane.
+ * 
+ * Coded by: Marija Voloder (Class structure, constructors, most function
+ * definitions/implementations and variables) 
  */
 public class Engine {
     private int currentPosition;
@@ -22,7 +25,7 @@ public class Engine {
     /**
      * Initializes the engine with default values for markers, position, and fields.
      *
-     * Written by: Rathin
+     * Written by: Marija
      */
     public Engine() {
         currentPosition = 0;
@@ -63,7 +66,7 @@ public class Engine {
     /**
      * Shifts the blue marker to the next position, up to a maximum value of 7.
      *
-     * Written by: Rathin
+     * Written by: Rathin & MArija
      */
     public void shiftBlueMarker() {
         if (blueMarker == 7) {
@@ -77,7 +80,7 @@ public class Engine {
     /**
      * Shifts the orange marker to the next position, up to a maximum value of 12.
      *
-     * Written by: Rathin
+     * Written by: Rathin & Marija
      */
     public void shiftOrangeMarker() {
         if (orangeMarker == 12) {
@@ -94,7 +97,7 @@ public class Engine {
      *
      * @param planeOnTrack the current state of planes on the track.
      *
-     * Written by: Rathin
+     * Written by: Marija
      */
     public void adjustSpeed(ArrayList<Integer> planeOnTrack) {
         speed = pilotField.getPlacedDice() + coPilotField.getPlacedDice();
@@ -108,7 +111,7 @@ public class Engine {
      *
      * @param planesOnTrack the current state of planes on the track.
      *
-     * Written by: Rathin
+     * Written by: Marija
      */
     public void updatePosition(ArrayList<Integer> planesOnTrack) {
         isPositionMoveSuccessful = false;

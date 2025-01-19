@@ -5,10 +5,12 @@ import com.badlogic.gdx.ScreenAdapter;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.audio.Sound;
 
 /**
  * Represents the victory screen displayed after the player wins the game.
  * Provides options to play again or quit the application.
+ * Coded by: Marija Voloder
  */
 public class VictoryScreen extends ScreenAdapter {
 

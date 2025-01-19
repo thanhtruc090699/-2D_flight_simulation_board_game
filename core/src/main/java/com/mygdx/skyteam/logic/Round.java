@@ -2,6 +2,9 @@ package com.mygdx.skyteam.logic;
 /**
  * Represents a single round in the game.
  * Manages player turns, input, and checks game conditions to proceed to the next round.
+ * 
+ * Coded by: Marija Voloder (Class structure, constructors, some function
+ * definitions and some variables) & Rathin & Truc
  */
 public class Round {
     private int turnsLeft;
@@ -70,7 +73,7 @@ public class Round {
      * @param playerInput  the action chosen by the player.
      * @param fieldChoice  the field where the dice is placed.
      *
-     * Written by: Rathin
+     * Written by: Rathin & Truc & Marija
      */
     public void playTurn(int diceIndex, String playerInput, int fieldChoice) {
         // Pilots turn
@@ -142,7 +145,7 @@ public class Round {
     /**
      * Switches to the next player (Pilot or CoPilot).
      *
-     * Written by: Rathin
+     * Written by: Marija
      */
     public void switchPlayer() {
         currentPlayerIndex = (currentPlayerIndex == 0) ? 1 : 0; // 0 for pilot, 1 for copilot
@@ -157,7 +160,7 @@ public class Round {
      * Checks if the round's conditions are met to proceed to the next round.
      *
      * @return true if conditions are met, false otherwise.
-     * Written by: Marija
+     * Written by: Marija & Truc
      */
     public boolean checkRoundConditions() {
 

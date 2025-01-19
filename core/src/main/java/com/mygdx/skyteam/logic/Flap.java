@@ -5,6 +5,9 @@ import java.util.Arrays;
 /**
  * Manages the flaps of the airplane.
  * Handles deploying flaps based on dice values and updating related game mechanics.
+ * 
+ * Coded by: Rathin(main functionality) & Marija Voloder (Class structure, constructors, some function
+ * definitions/implementations and variables) 
  */
 public class Flap {
     private ArrayList<Field> flapsFields;
@@ -30,7 +33,7 @@ public class Flap {
      * @param airplane     the airplane to update (e.g., shifting markers).
      * @param fieldChoice  the flap field to deploy (1-based index).
      *
-     * Written by: Rathin
+     * Written by: Rathin & Marija
      */
     public void deployFlaps(int coPilotInput, Airplane airplane, int fieldChoice) {
 
@@ -95,7 +98,7 @@ public class Flap {
      * @param fieldChoice the flap field to check (1-based index).
      * @return true if the flap can be placed, false otherwise.
      *
-     * Written by: Rathin
+     * Written by: Marija & Rathin
      */
     public boolean canPlaceFlapsForDice(int diceValue, int fieldChoice) {
         if ((diceValue == 1 || diceValue == 2) && fieldChoice - 1 == 0) {

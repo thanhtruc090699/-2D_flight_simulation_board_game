@@ -120,11 +120,8 @@ If you encounter issues while running or compiling the project, try the followin
 
 - **Marija Voloder** – Developer/Student
 - **Thi Thanh Truc Trinh** – Developer/Student
-- **Rathin** – Developer/Student
+- **Rathin Pradipbhai Rachhadiya** – Developer/Student
 - **Thomas Buchmann** – Academic Guidance
-
-## Additional Documentation
-
 
 ### Screen Ratio and Resolution
 

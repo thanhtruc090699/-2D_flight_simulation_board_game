@@ -6,6 +6,10 @@ import java.util.ArrayList;
  * Represents a token used in the game, such as coffee tokens or reroll tokens.
  * Tokens allow players to perform special actions like modifying dice values or
  * rerolling dice.
+ * 
+ * Coded by: Marija Voloder (Class structure, constructors, function
+ * definitions/implementations and variables) 
+ * 
  */
 public class Token {
     private String type;

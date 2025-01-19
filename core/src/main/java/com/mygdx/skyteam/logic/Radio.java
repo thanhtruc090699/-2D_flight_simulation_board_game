@@ -6,6 +6,9 @@ import java.util.Arrays;
 /**
  * Represents the radio system used by the Pilot or CoPilot to interact with the game.
  * Manages radio fields, allows removal of planes from the track, and resets fields as needed.
+ * 
+ * Coded by: Marija Voloder (Class structure, constructors, function
+ * definitions/implementations and variables) 
  */
 public class Radio {
     private ArrayList<Field> radioFields;

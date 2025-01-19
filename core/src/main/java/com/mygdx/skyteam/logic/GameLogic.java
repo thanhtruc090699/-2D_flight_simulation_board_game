@@ -4,6 +4,9 @@ import java.util.ArrayList;
 /**
  * Manages the main game logic, including rounds, player actions, and win/loss conditions.
  * Tracks the game's state and coordinates interactions between the airplane and players.
+ * 
+ * Coded by:Marija Voloder (Class structure, constructors, most function
+ * definitions/implementations and variables) 
  */
 public class GameLogic {
     private boolean gameOver;
@@ -27,7 +30,7 @@ public class GameLogic {
     /**
      * Starts the game by assigning roles to players and starting the first round.
      *
-     * Written by: Rathin
+     * Written by: Marija & Rathin
      */
     public void startGame() {
 
@@ -57,7 +60,7 @@ public class GameLogic {
     /**
      * Starts a new round and displays the unassigned dice for both players.
      *
-     * Written by: Rathin
+     * Written by: Marija
      */
     public void startRound() {
         currentRound = new Round(pilot, coPilot, airplane, this, startingPlayerIndex);
@@ -307,7 +310,9 @@ public class GameLogic {
 
         return coPilotFields;
     }
-
+    /**
+    * Written by: Rathin
+    */
     public int getRoundNumber() {
         return currentRoundNumber;
     }
