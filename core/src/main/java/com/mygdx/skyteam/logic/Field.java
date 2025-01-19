@@ -30,6 +30,7 @@ public class Field {
      * @param validDiceValues a list of valid dice values for the field.
      * @param x               the x-coordinate of the field.
      * @param y               the y-coordinate of the field.
+     * Written by: Marija
      */
     public Field(String name, List<Integer> validDiceValues, int x, int y) {
         this.name = name;
@@ -45,6 +46,7 @@ public class Field {
      *
      * @param diceValue the dice value to set.
      * @return true if the value was successfully placed, false otherwise.
+     * Written by: Marija
      */
     public boolean setDiceValue(int diceValue) {
         if (validDiceValues.contains(diceValue)) {
@@ -57,6 +59,7 @@ public class Field {
 
     /**
      * Resets the field, clearing any placed dice.
+     * Written by: Marija
      */
     public void resetField() {
         this.placedDice = null;
@@ -67,6 +70,7 @@ public class Field {
      * Checks if the field is currently filled.
      *
      * @return true if the field is filled, false otherwise.
+     * Written by: Marija
      */
     public boolean isFilled() {
         return isFilled;
@@ -76,6 +80,7 @@ public class Field {
      * Gets the dice value currently placed on the field.
      *
      * @return the placed dice value, or null if none.
+     * Written by: Marija
      */
     public Integer getPlacedDice() {
         return placedDice;
@@ -86,6 +91,7 @@ public class Field {
      *
      * @param x the dice value to set.
      * @return the updated dice value.
+     * Written by: Marija
      */
     public Integer setPlacedDice(int x) {return placedDice = x;}
 
@@ -93,6 +99,7 @@ public class Field {
      * Gets the name of the field.
      *
      * @return the field's name.
+     * Written by: Marija
      */
     public String getName() {
         return name;
@@ -102,6 +109,7 @@ public class Field {
      * Gets the list of valid dice values for the field.
      *
      * @return the list of valid dice values.
+     * Written by: Marija
      */
     public List<Integer> getValidDiceValues() {
         return validDiceValues;
@@ -111,6 +119,7 @@ public class Field {
      * Sets whether the field is filled.
      *
      * @param filled true to mark the field as filled, false otherwise.
+     * Written by: Marija
      */
     public void setFilled(boolean filled) {
         this.isFilled = filled;
@@ -123,6 +132,7 @@ public class Field {
      * @param mouseX the x-coordinate of the mouse.
      * @param mouseY the y-coordinate of the mouse.
      * @return true if the mouse is over the field, false otherwise.
+     * Written by: Marija
      */
     public boolean isMouseOver(float mouseX, float mouseY) {
 
@@ -135,6 +145,7 @@ public class Field {
      * Gets the x-coordinate of the field.
      *
      * @return the x-coordinate.
+     * Written by: Marija
      */
     public float getX() {
         return x;
@@ -144,6 +155,7 @@ public class Field {
      * Gets the y-coordinate of the field.
      *
      * @return the y-coordinate.
+     * Written by: Marija
      */
     public float getY() {
         return y;
@@ -155,6 +167,7 @@ public class Field {
      *
      * @param stage the game stage.
      * @return the field's coordinates in the stage.
+     * Written by: Marija
      */
     public Vector3 getStageCoordinates(Stage stage) {
         Vector3 screenCoordinates = new Vector3(x, y, 0);
@@ -167,6 +180,7 @@ public class Field {
      * Draws the field on the board.
      *
      * @param diceValue the dice value to check for drawing highlights.
+     * Written by: Marija
      */
     public void draw(int diceValue) {
         if (canAcceptDice(diceValue)) {
@@ -191,6 +205,7 @@ public class Field {
      *
      * @param diceValue the dice value to check.
      * @return true if the field can accept the dice, false otherwise.
+     * Written by: Marija
      */
     public boolean canAcceptDice(int diceValue) {
         return validDiceValues.contains(diceValue) && !isFilled;
@@ -201,6 +216,7 @@ public class Field {
      * Sets whether the field is highlighted.
      *
      * @param isHighlighted true to highlight the field, false otherwise.
+     * Written by: Marija
      */
     public void setHighlighted(boolean isHighlighted) {
         this.isHighlighted = isHighlighted;
@@ -211,6 +227,7 @@ public class Field {
      * Checks if the field is currently highlighted.
      *
      * @return true if the field is highlighted, false otherwise.
+     * Written by: Marija
      */
     public boolean isHighlighted() {
         return isHighlighted;
@@ -221,6 +238,7 @@ public class Field {
      * Gets the current color of the field.
      *
      * @return the field's color.
+     * Written by: Marija
      */
     public Color getColor() {
         return color;
@@ -232,6 +250,7 @@ public class Field {
      * Checks if the field is a brake field based on its name.
      *
      * @return true if the field is a brake field, false otherwise.
+     * Written by: Marija
      */
     public boolean isBrakes() {
         return name.toLowerCase().contains("brake");
@@ -242,6 +261,7 @@ public class Field {
      * Checks if the field is a flap field based on its name.
      *
      * @return true if the field is a flap field, false otherwise.
+     * Written by: Marija
      */
     public boolean isFlaps() {
         return name.toLowerCase().contains("flap");

@@ -72,6 +72,7 @@ public class Brake {
      *
      * @param pilotInput the dice value to check (2, 4, or 6).
      * @return true if brakes can be placed, false otherwise.
+     * Written by: Marija
      */
     public boolean canPlaceBrakes(int pilotInput) {
         if (pilotInput != 2 && pilotInput != 4 && pilotInput != 6) {
@@ -130,6 +131,7 @@ public class Brake {
      * Gets the list of brake fields.
      *
      * @return the list of brake fields.
+     * Written by: Marija
      */
     public ArrayList<Field> getBrakeFields() {
         return brakeFields;
@@ -140,6 +142,7 @@ public class Brake {
      * Gets the current red marker value.
      *
      * @return the red marker value.
+     * Written by: Marija
      */
     public int getRedMarker() {
         return redMarker;

@@ -53,6 +53,7 @@ public class LandingGear {
      * @param pilotInput  the dice value to check.
      * @param fieldChoice the landing gear field to check (1-based index).
      * @return true if the landing gear can be deployed, false otherwise.
+     * Written by: Marija
      */
     public boolean canPlaceLandingGear(int pilotInput, int fieldChoice) {
         Field selectedField = landingGearFields.get(fieldChoice - 1);
@@ -74,6 +75,7 @@ public class LandingGear {
      * Gets the list of landing gear fields.
      *
      * @return an ArrayList of landing gear fields.
+     * Written by: Marija
      */
     public ArrayList<Field> getLandingGearFields() {
         return landingGearFields;

@@ -95,6 +95,7 @@ public class Airplane {
      * Fills the coffee fields
      *
      * @param diceValue the value of the dice (copilot or pilot)
+     * Written by: Marija
      */
     public void fillCoffeeFields(int diceValue){
         coffee.fillCoffeeFields(diceValue);
@@ -105,6 +106,7 @@ public class Airplane {
      * Gets the engine of the airplane.
      *
      * @return the airplane's engine.
+     * Written by: Marija
      */
     public Engine getEngine(){
         return engine;
@@ -113,6 +115,7 @@ public class Airplane {
      * Gets the axis of the airplane.
      *
      * @return the airplane's axis.
+     * Written by: Marija
      */
     public Axis getAxis(){
         return axis;
@@ -122,6 +125,7 @@ public class Airplane {
      * Gets the altitude of the airplane.
      *
      * @return the airplane's altitude.
+     * Written by: Marija
      */
     public Altitude getAltitude(){
         return altitude;
@@ -130,6 +134,7 @@ public class Airplane {
      * Gets the landing gears of the airplane.
      *
      * @return the airplane's landing gears.
+     * Written by: Marija
      */
     public LandingGear getLandingGears() {
         return landingGears;
@@ -138,6 +143,7 @@ public class Airplane {
      * Gets the brakes of the airplane.
      *
      * @return the airplane's brakes.
+     * Written by: Marija
      */
     public Brake getBrakes() {
         return brakes;
@@ -146,6 +152,7 @@ public class Airplane {
      * Gets the flaps of the airplane.
      *
      * @return the airplane's flaps.
+     * Written by: Marija
      */
     public Flap getFlaps() {
         return flaps;
@@ -154,6 +161,7 @@ public class Airplane {
      * Gets the coffee concentration manager of the airplane.
      *
      * @return the airplane's coffee concentration manager.
+     * Written by: Marija
      */
     public Concentration getConcentration(){
         return coffee;
@@ -162,6 +170,7 @@ public class Airplane {
      * Gets the list of planes on the track.
      *
      * @return an ArrayList representing the number of planes on each track field.
+     * Written by: Marija
      */
     public ArrayList<Integer> getPlanesOnTrack(){
         return planesOnTrack;

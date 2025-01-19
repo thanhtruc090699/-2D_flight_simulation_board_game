@@ -13,6 +13,7 @@ public class Pilot extends Player {
      *
      * @param name      the name of the pilot.
      * @param airplane  the airplane associated with the pilot.
+     * Written by: Marija
      */
     public Pilot(String name, Airplane airplane) {
         super(name, "Pilot", airplane);
@@ -27,7 +28,7 @@ public class Pilot extends Player {
      * @param playerInput the target component (e.g., "engine", "axis", "radio").
      * @param fieldChoice the specific field for placement (used for multi-field components).
      *
-     * Written by: Rathin
+     * Written by: Rathin, Marija
      */
     public void placeDice(int diceValue, String playerInput, int fieldChoice) {
 
@@ -87,6 +88,7 @@ public class Pilot extends Player {
      * @param playerInput the target component (e.g., "engine", "axis", "radio").
      * @param fieldChoice the specific field to check (used for multi-field components).
      * @return true if the dice can be placed, false otherwise.
+     * Written by: Marija
      */
     public boolean canPlaceDice(int diceValue, String playerInput, int fieldChoice) {
         boolean validPlacement = false;
@@ -174,6 +176,7 @@ public class Pilot extends Player {
      * Checks if the pilot has placed dice on all required fields.
      *
      * @return true if all required fields have dice, false otherwise.
+     * Written by: Marija
      */
     public boolean hasDicesOnRequiredFields() {
         if (airplane.getEngine().getPilotField().getPlacedDice() == null ||
@@ -188,6 +191,7 @@ public class Pilot extends Player {
      * Gets the radio object associated with the pilot.
      *
      * @return the radio object.
+     * Written by: Marija
      */
     public Radio getRadio() {
         return radio;

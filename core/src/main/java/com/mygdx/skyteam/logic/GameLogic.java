@@ -73,6 +73,7 @@ public class GameLogic {
     /**
      * Proceeds to the next round if conditions are met.
      * Resets fields and dice for the new round, or ends the game if all rounds are complete.
+     * Written by: Marija
      */
     public void nextRound() {
 
@@ -132,6 +133,7 @@ public class GameLogic {
 
     /**
      * Ends the game and determines if the player has won or lost.
+     * Written by: Marija
      */
     public void endGame() {
         if (checkWinningConditions()) {
@@ -147,6 +149,7 @@ public class GameLogic {
      * Checks the conditions to determine if the player has won.
      *
      * @return true if the player meets all winning conditions, false otherwise.
+     * Written by: Marija
      */
     public boolean checkWinningConditions() {
 
@@ -196,6 +199,7 @@ public class GameLogic {
      * Gets the pilot player.
      *
      * @return the pilot.
+     * Written by: Marija
      */
     public Pilot getPilot() {
         return this.pilot;
@@ -205,6 +209,7 @@ public class GameLogic {
      * Gets the co-pilot player.
      *
      * @return the co-pilot.
+     * Written by: Marija
      */
     public CoPilot getCoPilot() {
         return this.coPilot;
@@ -214,6 +219,7 @@ public class GameLogic {
      * Gets the airplane being controlled.
      *
      * @return the airplane.
+     * Written by: Marija
      */
     public Airplane getAirplane() {
         return airplane;
@@ -223,6 +229,7 @@ public class GameLogic {
      * Gets the current round being played.
      *
      * @return the current round.
+     * Written by: Marija
      */
     public Round getRound() {
         return currentRound;
@@ -232,6 +239,7 @@ public class GameLogic {
      * Gets the current round number.
      *
      * @return the current round number.
+     * Written by: Marija
      */
     public int getCurrentRoundNumber() {
         return currentRoundNumber;
@@ -241,6 +249,7 @@ public class GameLogic {
      * Checks if the game is over.
      *
      * @return true if the game is over, false otherwise.
+     * Written by: Marija
      */
     public boolean getGameOver() {
         return gameOver;
@@ -250,6 +259,7 @@ public class GameLogic {
      * Checks if the player has won.
      *
      * @return true if the player has won, false otherwise.
+     * Written by: Marija
      */
     public boolean hasWon() {
         return hasWon;
@@ -260,6 +270,7 @@ public class GameLogic {
      * Gets all fields associated with the pilot.
      *
      * @return a list of the pilot's fields.
+     * Written by: Marija
      */
     public ArrayList<Field> getAllFieldsForPilot() {
         ArrayList<Field> pilotFields = new ArrayList<>();
@@ -280,6 +291,7 @@ public class GameLogic {
      * Gets all fields associated with the co-pilot.
      *
      * @return a list of the co-pilot's fields.
+     * Written by: Marija
      */
     public ArrayList<Field> getAllFieldsForCoPilot() {
         ArrayList<Field> coPilotFields = new ArrayList<>();

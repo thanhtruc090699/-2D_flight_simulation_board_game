@@ -19,6 +19,7 @@ public abstract class Player {
      * @param name      the name of the player.
      * @param role      the role of the player.
      * @param airplane  the airplane associated with the player.
+     * Written by: Marija
      */
     public Player(String name, String role, Airplane airplane){
         this.name = name;
@@ -38,6 +39,7 @@ public abstract class Player {
 
     /**
      * Rerolls all four dice for the player.
+     * Written by: Marija
      */
     public void rerollDice(){
         for (int i = 0; i < 4; i++) {
@@ -53,11 +55,13 @@ public abstract class Player {
      * @param diceValue   the value of the dice to place.
      * @param playerInput the target component (e.g., "engine", "radio").
      * @param placeHolder additional parameter for field selection.
+     * Written by: Marija
      */
     public abstract void placeDice(int diceValue, String playerInput, int placeHolder);
     /**
      * Displays the unassigned dice in the player's collection.
      * (Primarily used for debugging purposes.)
+     * Written by: Marija
      */
     public void displayUnassignedDice() {
         /* System.out.println("Unassigned dices: "); */
@@ -71,6 +75,7 @@ public abstract class Player {
 
     /**
      * Resets all dice assignments, making them unassigned.
+     * Written by: Marija
      */
     public void resetDiceAssignments() {
         for (Dice dice : dices) {
@@ -82,6 +87,7 @@ public abstract class Player {
 
     /**
      * Uses a reroll token to reroll specific unassigned dice.
+     * Written by: Marija
      */
     public void useRerollToken() {
         if (hasRerollToken()) {
@@ -119,6 +125,7 @@ public abstract class Player {
      * Checks if the player has reroll tokens available.
      *
      * @return true if reroll tokens are available, false otherwise.
+     * Written by: Marija
      */
     public boolean hasRerollToken() {
         return airplane.getAltitude().getRerollToken().getQuantity() > 0;
@@ -128,6 +135,7 @@ public abstract class Player {
      * Gets all dice owned by the player.
      *
      * @return an ArrayList of the player's dice.
+     * Written by: Marija
      */
     public ArrayList<Dice> getDices(){
         return dices;
@@ -137,6 +145,7 @@ public abstract class Player {
      * Gets all unassigned dice from the player's collection.
      *
      * @return an ArrayList of unassigned dice.
+     * Written by: Marija
      */
     public ArrayList<Dice> getUnassignedDice() {
         ArrayList<Dice> unassignedDices = new ArrayList<>();
@@ -152,6 +161,7 @@ public abstract class Player {
      * Gets the player's coffee tokens.
      *
      * @return the coffee tokens.
+     * Written by: Marija
      */
     public Token getCoffeeToken(){
         return coffeeTokens;
@@ -161,6 +171,7 @@ public abstract class Player {
      * Gets the player's name.
      *
      * @return the player's name.
+     * Written by: Marija
      */
     public String getName(){
         return name;

@@ -5,12 +5,14 @@ import java.util.Arrays;
 /**
  * Manages the coffee concentration fields in the game.
  * Allows players to fill and reset coffee fields based on dice values.
+ * Written by: Marija
  */
 public class Concentration{
     private ArrayList<Field> coffeeFields;
 
     /**
      * Initializes the coffee fields with default values and positions.
+     * Written by: Marija
      */
     public Concentration(){
         coffeeFields=new ArrayList<>();
@@ -24,6 +26,7 @@ public class Concentration{
      * Fills the coffee field with the given dice value.
      *
      * @param diceValue the value of the dice to fill a coffee field.
+     * Written by: Marija
      */
     public void fillCoffeeFields(int diceValue){
         for (Field field : coffeeFields) {
@@ -44,6 +47,7 @@ public class Concentration{
      * Gets the list of coffee fields.
      *
      * @return the list of coffee fields.
+     * Written by: Marija
      */
     public ArrayList<Field> getCoffeeFields() {
         return coffeeFields;
@@ -53,6 +57,7 @@ public class Concentration{
      * Resets a specific coffee field by its index.
      *
      * @param fieldIndex the index of the coffee field to reset.
+     * Written by: Marija
      */
     public void resetCoffeeField(int fieldIndex) {
         coffeeFields.get(fieldIndex).resetField();

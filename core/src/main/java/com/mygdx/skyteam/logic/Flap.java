@@ -11,6 +11,7 @@ public class Flap {
 
     /**
      * Initializes the flap fields with default configurations.
+     * Written by: Marija
      */
     public Flap() {
         flapsFields = new ArrayList<>();
@@ -62,6 +63,7 @@ public class Flap {
      * @param coPilotInput the dice value provided by the co-pilot.
      * @param fieldChoice  the flap field to check (1-based index).
      * @return true if the flap can be deployed, false otherwise.
+     * Written by: Marija
      */
     public boolean canPlaceFlap(int coPilotInput, int fieldChoice) {
         Field selectedFlap = flapsFields.get(fieldChoice - 1);
@@ -79,6 +81,7 @@ public class Flap {
      * Gets the list of flap fields.
      *
      * @return the list of flap fields.
+     * Written by: Marija
      */
     public ArrayList<Field> getFlapsFields() {
         return flapsFields;

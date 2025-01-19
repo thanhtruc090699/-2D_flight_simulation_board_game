@@ -26,7 +26,7 @@ public class CoPilot extends Player {
      * @param playerInput  the target component (e.g., "engine", "axis", "radio").
      * @param fieldChoice  the specific field for placement (used for components like "radio" or "flaps").
      *
-     * Written by: Rathin
+     * Written by: Rathin, Marija
      */
     public void placeDice(int diceValue, String playerInput, int fieldChoice) {
 
@@ -83,6 +83,7 @@ public class CoPilot extends Player {
      * @param playerInput  the target component (e.g., "engine", "axis", "radio").
      * @param fieldChoice  the specific field for placement (used for components like "radio").
      * @return true if the dice can be placed, false otherwise.
+     * Written by: Marija
      */
     public boolean canPlaceDice(int diceValue, String playerInput, int fieldChoice) {
         boolean validPlacement = false;
@@ -156,6 +157,7 @@ public class CoPilot extends Player {
      * @param diceValue       the dice value to use.
      * @param chosenField     the field index (0 or 1).
      * @throws IllegalArgumentException if the field choice is invalid.
+     * Written by: Marija
      */
     public void useRadio(int currentPosition, int diceValue, int chosenField) {
 
@@ -170,6 +172,7 @@ public class CoPilot extends Player {
      * Checks if the co-pilot has placed dice on all required fields (engine and axis).
      *
      * @return true if the required fields have dice, false otherwise.
+     * Written by: Marija
      */
     public boolean hasDicesOnRequiredFields() {
         if (airplane.getEngine().getCoPilotField().getPlacedDice() == null ||
@@ -183,6 +186,7 @@ public class CoPilot extends Player {
      * Gets the radio object associated with the co-pilot.
      *
      * @return the radio object.
+     * Written by: Marija
      */
     public Radio getRadio() {
         return radio;

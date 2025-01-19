@@ -13,6 +13,7 @@ public class Axis {
 
     /**
      * Initializes the Axis with default tilt and dice fields for both pilot and co-pilot.
+     * Written by: Marija
      */
 
     public Axis() {
@@ -55,6 +56,7 @@ public class Axis {
      *
      * @param diceValue the dice value to place.
      * @throws IllegalArgumentException if the dice value is invalid for the pilot's field.
+     * Written by: Marija
      */
     public void placePilotDice(int diceValue) {
         if (!pilotField.setDiceValue(diceValue)) {
@@ -67,6 +69,7 @@ public class Axis {
      *
      * @param diceValue the dice value to place.
      * @throws IllegalArgumentException if the dice value is invalid for the co-pilot's field.
+     * Written by: Marija
      */
     public void placeCoPilotDice(int diceValue) {
         if (!coPilotField.setDiceValue(diceValue)) {
@@ -78,6 +81,7 @@ public class Axis {
      * Gets the pilot's axis field.
      *
      * @return the pilot's axis field.
+     * Written by: Marija
      */
 
     public Field getPilotAxisField() {
@@ -88,6 +92,7 @@ public class Axis {
      * Gets the co-pilot's axis field.
      *
      * @return the co-pilot's axis field.
+     * Written by: Marija
      */
 
     public Field getCoPilotAxisField() {
@@ -98,6 +103,7 @@ public class Axis {
      * Gets the current tilt value.
      *
      * @return the current tilt.
+     * Written by: Marija
      */
     public int getCurrentTilt() {
         return currentTilt;
@@ -105,6 +111,7 @@ public class Axis {
 
     /**
      * Resets both the pilot's and co-pilot's fields.
+     * Written by: Marija
      */
     public void resetFields() {
         pilotField.resetField();
@@ -115,6 +122,7 @@ public class Axis {
      * Gets the rotation angle of the airplane based on the current tilt.
      *
      * @return the rotation angle in degrees.
+     * Written by: Marija
      */
     public float getRotationAngle() {
         switch (currentTilt) {
@@ -141,6 +149,7 @@ public class Axis {
      * Sets the current tilt to a specific value.
      *
      * @param tilt the new tilt value.
+     * Written by: Marija
      */
     public void setTilt(int tilt){
         this.currentTilt=tilt;

@@ -81,6 +81,7 @@ public class Dice {
      * Checks if the dice is assigned.
      *
      * @return true if assigned, false otherwise.
+     * Written by: Marija
      */
     public boolean isAssigned() {
         return assigned;
@@ -88,6 +89,7 @@ public class Dice {
 
     /**
      * Marks the dice as assigned.
+     * Written by: Marija
      */
     public void assign() {
         this.assigned = true;
@@ -95,6 +97,7 @@ public class Dice {
 
     /**
      * Marks the dice as unassigned.
+     * Written by: Marija
      */
     public void unassign() {
         this.assigned = false;

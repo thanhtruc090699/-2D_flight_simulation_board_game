@@ -8,6 +8,7 @@ public class Altitude{
         private Token rerollToken;
         /**
          * Initializes the Altitude object with a starting altitude of 6000 feet and 1 "reroll" token.
+         * Written by: Marija
          */
         public Altitude(){
             altitude=6000;
@@ -37,6 +38,8 @@ public class Altitude{
          * Gets the current altitude value.
          *
          * @return the altitude value (unit: feet).
+         * Written by: Marija
+         *
          */
         public int getAltitudeValue(){
             return altitude;
@@ -61,6 +64,7 @@ public class Altitude{
          * Gets the current "reroll" token.
          *
          * @return the "reroll" token object.
+         * Written by: Marija
          */
         public Token getRerollToken(){
             return rerollToken;

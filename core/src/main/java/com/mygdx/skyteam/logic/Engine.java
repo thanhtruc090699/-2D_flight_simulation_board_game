@@ -39,6 +39,7 @@ public class Engine {
      *
      * @param diceValue the value of the dice to place.
      * @throws IllegalArgumentException if the dice value is invalid.
+     * Written by: Marija
      */
     public void placePilotDice(int diceValue) {
         if (!pilotField.setDiceValue(diceValue)) {
@@ -51,6 +52,7 @@ public class Engine {
      *
      * @param diceValue the value of the dice to place.
      * @throws IllegalArgumentException if the dice value is invalid.
+     * Written by: Marija
      */
     public void placeCoPilotDice(int diceValue) {
         if (!coPilotField.setDiceValue(diceValue)) { // calls the function which returns true/false
@@ -165,6 +167,7 @@ public class Engine {
      * @param planesOnTrack   the state of planes on the track.
      * @param currentPosition the position to check.
      * @return true if the track is clear, false otherwise.
+     * Written by: Marija
      */
     public boolean checkPlanesOnTrack(ArrayList<Integer> planesOnTrack, int currentPosition) {
         if (planesOnTrack.get(currentPosition) != 0) {
@@ -178,6 +181,7 @@ public class Engine {
      * Gets the current position of the airplane.
      *
      * @return the current position.
+     * Written by: Marija
      */
     public int getCurrentPosition() {
         return currentPosition;
@@ -198,6 +202,7 @@ public class Engine {
      * Gets the pilot's engine field.
      *
      * @return the pilot's engine field.
+     * Written by: Marija
      */
     public Field getPilotField() {
         return pilotField;
@@ -207,6 +212,7 @@ public class Engine {
      * Gets the co-pilot's engine field.
      *
      * @return the co-pilot's engine field.
+     * Written by: Marija
      */
     public Field getCoPilotField() {
         return coPilotField;
@@ -216,6 +222,7 @@ public class Engine {
      * Gets the blue marker's position.
      *
      * @return the blue marker's position.
+     * Written by: Marija
      */
     public int getBlueMarker() {
         return blueMarker;
@@ -225,6 +232,7 @@ public class Engine {
      * Gets the orange marker's position.
      *
      * @return the orange marker's position.
+     * Written by: Marija
      */
     public int getOrangeMarker() {
         return orangeMarker;
@@ -235,6 +243,7 @@ public class Engine {
      *
      * @param value the new value for the blue marker.
      * @return the updated blue marker value.
+     * Written by: Marija
      */
     public int setBlueMarker(int value) {
         return blueMarker = value;
@@ -245,6 +254,7 @@ public class Engine {
      *
      * @param position the new position of the airplane.
      * @return the updated position.
+     * Written by: Marija
      */
     public int setCurrentPosition(int position) {
         return currentPosition = position;
@@ -255,6 +265,7 @@ public class Engine {
      *
      * @param newSpeed the new speed of the airplane.
      * @return the updated speed.
+     * Written by: Marija
      */
     public int setSpeed(int newSpeed) {
         return speed = newSpeed;
@@ -262,15 +273,17 @@ public class Engine {
 
     /**
      * Resets both the pilot and co-pilot fields.
+     * Written by: Marija
      */
     public void resetFields() {
         pilotField.resetField();
         coPilotField.resetField();
     }
 
-    /* Checks if the last move was successful.
+    /** Checks if the last move was successful.
      *
      * @return true if the move was successful, false otherwise.
+     * Written by: Marija
      */
     public boolean isPositionMoveSuccessful() {
         return isPositionMoveSuccessful;
@@ -281,6 +294,7 @@ public class Engine {
      *
      * @param x true if successful, false otherwise.
      * @return the updated move success status.
+     * Written by: Marija
      */
     public boolean setPositionMoveSuccessful(boolean x) {
         return isPositionMoveSuccessful = x;
