@@ -24,6 +24,7 @@ public class Round {
      * @param airplane           the airplane being controlled.
      * @param game               the main game logic.
      * @param startingPlayerIndex the index of the player starting the round.
+     * Written by: Marija
      */
     public Round(Pilot pilot, CoPilot coPilot, Airplane airplane, GameLogic game, int startingPlayerIndex) {
         turnsLeft = 4;
@@ -37,6 +38,7 @@ public class Round {
     /**
      * Plays a full round of the game, alternating turns between the Pilot and CoPilot.
      * Ends the round when all turns are completed.
+     * Written by: Marija
      */
     public void playRound() {
         boolean turnCompleted = false;
@@ -155,6 +157,7 @@ public class Round {
      * Checks if the round's conditions are met to proceed to the next round.
      *
      * @return true if conditions are met, false otherwise.
+     * Written by: Marija
      */
     public boolean checkRoundConditions() {
 
@@ -169,6 +172,7 @@ public class Round {
     /**
      * Checks conditions at the end of a turn, such as engine and axis stability.
      * Ends the game if critical conditions are not met.
+     * Written by: Marija
      */
     public void checkTurnConditions() {
 
@@ -197,6 +201,7 @@ public class Round {
      * @param diceIndex    the index of the selected dice.
      * @param playerInput  the action chosen by the player.
      * @param fieldChoice  the field where the dice will be placed.
+     * Written by: Marija
      */
     public void collectPlayerInput(int diceIndex, String playerInput, int fieldChoice) {
 
@@ -209,6 +214,7 @@ public class Round {
      * Gets the index of the current player.
      *
      * @return the current player index (0 for Pilot, 1 for CoPilot).
+     * Written by: Marija
      */
     public int getCurrentPlayerIndex() {
         return currentPlayerIndex;
@@ -218,6 +224,7 @@ public class Round {
      * Gets the number of turns left in the round.
      *
      * @return the number of turns left.
+     * Written by: Marija
      */
     public int getTurnsLeft() {
         return turnsLeft;
@@ -227,6 +234,7 @@ public class Round {
      * Gets the index of the dice selected by the player.
      *
      * @return the dice index.
+     * Written by: Marija
      */
     public int getCurrentDiceIndex() {
         return currentDiceIndex;
@@ -236,6 +244,7 @@ public class Round {
      * Gets the field choice made by the player.
      *
      * @return the selected field choice.
+     * Written by: Marija
      */
     public int getCurrentFieldChoice() {
         return currentFieldChoice;
@@ -245,6 +254,7 @@ public class Round {
      * Gets the current player input.
      *
      * @return the action chosen by the player.
+     * Written by: Marija
      */
     public String getCurrentPlayerInput() {
         return currentPlayerInput;

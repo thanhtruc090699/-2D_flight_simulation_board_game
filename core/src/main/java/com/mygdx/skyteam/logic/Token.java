@@ -16,6 +16,7 @@ public class Token {
      *
      * @param type     the type of the token.
      * @param quantity the initial quantity of tokens.
+     * Written by: Marija
      */
     public Token(String type, int quantity) {
         this.type = type;
@@ -29,6 +30,7 @@ public class Token {
      *
      * @param dice     the dice to modify.
      * @param airplane the airplane to update (used to reset coffee fields).
+     * Written by: Marija
      */
     public void useCoffeeToken(Dice dice, Airplane airplane) {
         if (quantity > 0) {
@@ -62,6 +64,7 @@ public class Token {
      * Uses a reroll token to reroll a selected set of dice.
      *
      * @param selectedDice the list of dice to reroll.
+     * Written by: Marija
      */
     public void useRerollToken(ArrayList<Dice> selectedDice) {
         if (quantity > 0) {
@@ -83,6 +86,7 @@ public class Token {
      * Sets the quantity of tokens.
      *
      * @param quantity the new quantity of tokens.
+     * Written by: Marija
      */
     public void setQuantity(int quantity) {
         this.quantity = quantity;
@@ -92,6 +96,7 @@ public class Token {
      * Gets the quantity of tokens.
      *
      * @return the current quantity of tokens.
+     * Written by: Marija
      */
     public int getQuantity() {
         return quantity;
@@ -101,6 +106,7 @@ public class Token {
      * Gets the type of the token.
      *
      * @return the type of the token.
+     * Written by: Marija
      */
     public String getType() {
         return type;

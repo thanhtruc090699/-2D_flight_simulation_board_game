@@ -17,6 +17,7 @@ public class GameLogic {
 
     /**
      * Initializes the game logic and sets up the airplane.
+     * Written by: Marija
      */
     public GameLogic() {
         airplane = new Airplane();

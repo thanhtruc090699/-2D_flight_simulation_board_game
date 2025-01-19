@@ -14,6 +14,7 @@ public class Radio {
      * Initializes the radio with the specified number of fields.
      *
      * @param numFields the number of fields to create (1 for Pilot, 2 for CoPilot).
+     * Written by: Marija
      */
     public Radio(int numFields) {
         radioFields = new ArrayList<>();
@@ -36,6 +37,7 @@ public class Radio {
      * @param diceValue       the dice value being used.
      * @param chosenField     the index of the radio field being used.
      * @param planesOnTrack   the list representing planes on the track.
+     * Written by: Marija
      */
     public void useRadio(int currentPosition, int diceValue, int chosenField, ArrayList<Integer> planesOnTrack) {
 
@@ -64,6 +66,7 @@ public class Radio {
      *
      * @param position       the track position from which to remove a plane.
      * @param planesOnTrack  the list representing planes on the track.
+     * Written by: Marija
      */
     public void removePlane(int position, ArrayList<Integer> planesOnTrack) {
         if (planesOnTrack.get(position) > 0) {
@@ -78,6 +81,7 @@ public class Radio {
 
     /**
      * Resets all radio fields, clearing their values and states.
+     * Written by: Marija
      */
     public void resetFields() {
         for (Field field : radioFields) {
@@ -89,6 +93,7 @@ public class Radio {
      * Gets the list of radio fields.
      *
      * @return an ArrayList of radio fields.
+     * Written by: Marija
      */
     public ArrayList<Field> getRadioFields() {
         return radioFields;
